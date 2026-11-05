@@ -1,0 +1,62 @@
+---
+import GalleryGrid from './GalleryGrid.astro';
+import CtaBand from './CtaBand.astro';
+import { getContent, getGallery, getImage, type Lang } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const items = getGallery(lang);
+const heroImage = getImage('istria-motovun');
+---
+
+<section class="page-hero">
+  <div class="wrap page-hero__grid">
+    <div class="page-hero__text">
+      <h1 data-reveal>{t.galleryPage.title}</h1>
+      <p class="page-hero__lead" data-reveal style="--reveal-delay: 80ms">{t.galleryPage.lead}</p>
+      <p class="page-hero__meta" data-reveal style="--reveal-delay: 140ms">
+        {items.length} {t.galleryPage.countLabel}
+      </p>
+    </div>
+
+    <figure class="page-hero__figure" data-reveal style="--reveal-delay: 120ms">
+      <button
+        class="lightbox-trigger"
+        type="button"
+        data-lightbox={heroImage.full}
+        data-lightbox-alt={heroImage.alt[lang]}
+        data-lightbox-caption={heroImage.alt[lang]}
+        aria-label={`${t.lightbox.open}: ${heroImage.alt[lang]}`}
+      >
+        <img
+          src={heroImage.src}
+          srcset={heroImage.srcset}
+          sizes="(max-width: 960px) 100vw, 40rem"
+          width={heroImage.width}
+          height={heroImage.height}
+          alt=""
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </button>
+      <figcaption>{heroImage.alt[lang]}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="wrap">
+    <GalleryGrid items={items} labels={t.lightbox} />
+  </div>
+</section>
+
+<CtaBand
+  title={t.galleryPage.ctaTitle}
+  lead={t.galleryPage.ctaLead}
+  button={t.galleryPage.ctaButton}
+/>

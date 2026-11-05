@@ -1,0 +1,35 @@
+---
+import { site } from '../config';
+import Icon from './Icon.astro';
+
+interface Props {
+  title: string;
+  lead: string;
+  button: string;
+  note?: string;
+}
+
+const { title, lead, button, note } = Astro.props;
+---
+
+<section class="cta" aria-labelledby="cta-title">
+  <div class="wrap cta__inner">
+    <div>
+      <h2 id="cta-title" data-reveal>{title}</h2>
+      <p class="cta__lead" data-reveal style="--reveal-delay: 80ms">{lead}</p>
+    </div>
+
+    <div class="cta__action" data-reveal style="--reveal-delay: 140ms">
+      <a
+        class="btn btn--light"
+        href={site.bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {button}
+        <Icon name="arrow-right" />
+      </a>
+      {note && <p class="cta__note">{note}</p>}
+    </div>
+  </div>
+</section>

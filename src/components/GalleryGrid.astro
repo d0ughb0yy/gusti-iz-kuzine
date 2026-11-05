@@ -1,0 +1,49 @@
+---
+interface GalleryItem {
+  src: string;
+  full: string;
+  width: number;
+  height: number;
+  alt: string;
+  caption: string;
+}
+
+interface Props {
+  items: GalleryItem[];
+  labels: {
+    open: string;
+  };
+}
+
+const { items, labels } = Astro.props;
+---
+
+<ul class="gallery" role="list">
+  {
+    items.map((item, index) => (
+      <li class="gallery__item" data-reveal style={`--reveal-delay: ${(index % 4) * 70}ms`}>
+        <button
+          class="gallery__button lightbox-trigger"
+          type="button"
+          data-lightbox={item.full}
+          data-lightbox-alt={item.alt}
+          data-lightbox-caption={item.caption}
+          data-lightbox-group="gallery"
+          aria-label={`${labels.open}: ${item.caption}`}
+        >
+          <img
+            src={item.src}
+            srcset={item.srcset}
+            sizes="(max-width: 680px) 100vw, 38rem"
+            width={item.width}
+            height={item.height}
+            alt=""
+            loading={index < 2 ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+        </button>
+        <p class="gallery__caption">{item.caption}</p>
+      </li>
+    ))
+  }
+</ul>

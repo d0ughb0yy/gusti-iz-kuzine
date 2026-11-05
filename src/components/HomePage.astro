@@ -1,0 +1,386 @@
+---
+import Icon from './Icon.astro';
+import CtaBand from './CtaBand.astro';
+import ContactPanel from './ContactPanel.astro';
+import { routes, site } from '../config';
+import { getContent, getGallery, getImage, type Lang } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+
+const heroImage = getImage(t.hero.image);
+const introImage = getImage(t.intro.image);
+const whoImage = getImage('chef-portrait');
+const allGallery = getGallery(lang);
+// A renamed or missing teaser key must fail the build, not silently render
+// a broken three-in-four grid.
+const teaserItems = t.galleryTeaser.images.map((key) => {
+  const item = allGallery.find((galleryItem) => galleryItem.imageKey === key);
+  if (!item) throw new Error(`Unknown image key in galleryTeaser: ${key}`);
+  return item;
+});
+---
+
+<section class="hero" aria-labelledby="hero-name-top hero-name-bottom">
+
+  <div class="wrap hero__inner">
+    <h1 class="hero__lines" id="hero-name">
+      <span class="hero__line hero__line--top" id="hero-name-top">{t.hero.name[0]}</span>
+      <span class="hero__line hero__line--bottom" id="hero-name-bottom">{t.hero.name[1]}</span>
+    </h1>
+
+    <div class="hero__body" data-reveal>
+      <p class="hero__lead">{t.hero.lead}</p>
+
+      <div class="hero__actions">
+        <a
+          class="btn"
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {t.hero.primaryCta}
+          <Icon name="arrow-right" />
+        </a>
+        <a class="link-arrow" href="#jelovnici">{t.hero.secondaryCta}</a>
+      </div>
+
+      <p class="hero__note">{t.hero.bookingNote}</p>
+    </div>
+
+    <figure class="hero__figure" data-reveal style="--reveal-delay: 120ms">
+      <div class="hero__figure-frame">
+        <button
+          class="lightbox-trigger"
+          type="button"
+          data-lightbox={heroImage.full}
+          data-lightbox-alt={heroImage.alt[lang]}
+          data-lightbox-caption={t.hero.imageCaption}
+          aria-label={`${t.lightbox.open}: ${t.hero.imageCaption}`}
+        >
+          <img
+            src={heroImage.src}
+            srcset={heroImage.srcset}
+            sizes="(max-width: 680px) 100vw, 34rem"
+            width={heroImage.width}
+            height={heroImage.height}
+            alt=""
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </button>
+      </div>
+      <figcaption>{t.hero.imageCaption}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section intro" id="o-kuhanju" aria-labelledby="intro-title">
+  <div class="wrap intro__grid">
+    <div class="intro__text">
+      <h2 id="intro-title" data-reveal>{t.intro.title}</h2>
+
+      <div class="intro__paragraphs" data-reveal style="--reveal-delay: 80ms">
+        {t.intro.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+
+      <div class="intro__who" data-reveal style="--reveal-delay: 120ms">
+        <img
+          src={whoImage.src}
+          srcset={whoImage.srcset}
+          sizes="4.5rem"
+          width={whoImage.width}
+          height={whoImage.height}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+        <div>
+          <p class="intro__who-name">{t.intro.who.name}</p>
+          <p class="intro__who-fact">{t.intro.who.fact}</p>
+        </div>
+      </div>
+
+      <a class="link-arrow intro__link" href="#tijek" data-reveal style="--reveal-delay: 160ms">
+        {t.intro.link}
+        <Icon name="arrow-right" />
+      </a>
+    </div>
+
+    <figure class="intro__figure" data-reveal style="--reveal-delay: 120ms">
+      <button
+        class="lightbox-trigger"
+        type="button"
+        data-lightbox={introImage.full}
+        data-lightbox-alt={introImage.alt[lang]}
+        data-lightbox-caption={t.intro.imageCaption}
+        aria-label={`${t.lightbox.open}: ${t.intro.imageCaption}`}
+      >
+        <img
+          src={introImage.src}
+          srcset={introImage.srcset}
+          sizes="(max-width: 960px) 100vw, 44rem"
+          width={introImage.width}
+          height={introImage.height}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </button>
+      <figcaption>{t.intro.imageCaption}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section how" id="tijek" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="how__head">
+      <h2 id="how-title" data-reveal>{t.how.title}</h2>
+      <p class="how__lead" data-reveal style="--reveal-delay: 80ms">{t.how.lead}</p>
+    </div>
+
+    <div class="steps">
+      {
+        t.how.steps.map((step, index) => (
+          <div class="step" data-reveal style={`--reveal-delay: ${index * 90}ms`}>
+            <h3 class="step__title">{step.title}</h3>
+            <p class="step__text">{step.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section included" id="ukljuceno" aria-labelledby="included-title">
+  <div class="wrap included__grid">
+    <div class="included__text">
+      <h2 id="included-title" data-reveal>{t.included.title}</h2>
+      <p class="included__lead" data-reveal style="--reveal-delay: 80ms">{t.included.lead}</p>
+      <p class="included__note" data-reveal style="--reveal-delay: 140ms">{t.included.note}</p>
+    </div>
+
+    <div data-reveal style="--reveal-delay: 100ms">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">{t.included.colItem}</th>
+            <th scope="col">{t.included.colMeaning}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            t.included.rows.map((row) => (
+              <tr>
+                <td>{row.item}</td>
+                <td>{row.detail}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section menus" id="jelovnici" aria-labelledby="menus-title">
+  <div class="wrap">
+    <div class="menus__head">
+      <h2 id="menus-title" data-reveal>{t.menus.title}</h2>
+      <p class="menus__lead" data-reveal style="--reveal-delay: 80ms">{t.menus.lead}</p>
+    </div>
+
+    <div class="menu-explorer">
+      <div class="menu-tabs" role="group" aria-label={t.menus.selectLabel} data-reveal>
+        {
+          t.menus.items.map((menu, index) => (
+            <button
+              class="menu-tab"
+              type="button"
+              aria-pressed={index === 0 ? 'true' : 'false'}
+              aria-controls={`menu-panel-${index}`}
+              data-menu-tab={index}
+            >
+              {menu.name}
+              <span class="menu-tab__desc">{menu.description}</span>
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="menu-panels" data-reveal style="--reveal-delay: 100ms">
+        {
+          t.menus.items.map((menu, index) => (
+            <div
+              class="menu-panel"
+              id={`menu-panel-${index}`}
+              data-menu-panel={index}
+              hidden={index !== 0}
+            >
+              <h3>{menu.name}</h3>
+              <p class="menu-panel__desc">{menu.description}</p>
+
+              <div class="courses">
+                {menu.courses.map((course) => (
+                  <div class="course">
+                    <p class="course__name">{course.name}</p>
+                    <div class="course__options" data-count={course.options.length}>
+                      {course.options.map((option, optionIndex) => (
+                        <>
+                          {optionIndex > 0 && <span class="course__or">{t.menus.or}</span>}
+                          <span class="course__option">{option}</span>
+                        </>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <p class="menu-panel__note">
+                {menu.courses.every((course) => course.options.length === 1)
+                  ? t.menus.tastingNote
+                  : t.menus.choiceNote}
+              </p>
+
+              <a
+                class="link-arrow menu-explorer__cta"
+                href={site.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.menus.cta}
+                <Icon name="arrow-right" />
+              </a>
+
+              <p class="menu-explorer__note">{t.menus.bookingNote}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <style>
+      .menu-panel[data-menu-panel][hidden] {
+        display: block !important;
+      }
+    </style>
+  </noscript>
+</section>
+
+<section class="section gallery-teaser" id="galerija" aria-labelledby="gallery-title">
+  <div class="wrap">
+    <div class="gallery-teaser__head">
+      <h2 id="gallery-title" data-reveal>{t.galleryTeaser.title}</h2>
+      <p class="gallery-teaser__lead" data-reveal style="--reveal-delay: 80ms">{t.galleryTeaser.lead}</p>
+    </div>
+
+    <div class="gallery-teaser__grid">
+      {
+        teaserItems.map((item, index) => (
+          <figure
+            class="gallery-teaser__item"
+            data-reveal
+            style={`--reveal-delay: ${index * 70}ms`}
+          >
+            <button
+              class="lightbox-trigger"
+              type="button"
+              data-lightbox={item.full}
+              data-lightbox-alt={item.alt}
+              data-lightbox-caption={item.caption}
+              aria-label={`${t.lightbox.open}: ${item.caption}`}
+            >
+              <img
+                src={item.src}
+                srcset={item.srcset}
+                sizes="(max-width: 680px) 100vw, 45rem"
+                width={item.width}
+                height={item.height}
+                alt=""
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            </button>
+            <figcaption>{item.caption}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <div class="gallery-teaser__foot">
+      <p class="gallery-teaser__note" data-reveal>{t.galleryTeaser.note}</p>
+      <a class="link-arrow" href={routes.gallery[lang]} data-reveal style="--reveal-delay: 80ms">
+        {t.galleryTeaser.cta}
+        <Icon name="arrow-right" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="statement" aria-label={t.statement.label}>
+  <div class="wrap statement__inner">
+    <blockquote data-reveal>{t.statement.text}</blockquote>
+    <p class="statement__attribution" data-reveal style="--reveal-delay: 80ms">
+      {t.statement.attribution}
+    </p>
+  </div>
+</section>
+
+<section class="section faq" id="pitanja" aria-labelledby="faq-title">
+  <div class="wrap faq__grid">
+    <div class="faq__text">
+      <h2 id="faq-title" data-reveal>{t.faq.title}</h2>
+      <p class="faq__lead" data-reveal style="--reveal-delay: 80ms">{t.faq.lead}</p>
+    </div>
+
+    <dl class="faq__list">
+      {
+        t.faq.items.map((item, index) => (
+          <div class="faq__item" data-reveal style={`--reveal-delay: ${index * 40}ms`}>
+            <dt class="faq__q">{item.q}</dt>
+            <dd class="faq__a">{item.a}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<ContactPanel lang={lang} />
+
+<CtaBand
+  title={t.cta.title}
+  lead={t.cta.lead}
+  button={t.cta.button}
+  note={t.cta.note}
+/>
+
+<script is:inline>
+  (() => {
+    const tabs = Array.from(document.querySelectorAll('.menu-tab[data-menu-tab]'));
+    const panels = Array.from(document.querySelectorAll('.menu-panel[data-menu-panel]'));
+
+    if (!tabs.length || tabs.length !== panels.length) return;
+
+    const select = (activeIndex) => {
+      tabs.forEach((tab, index) => {
+        tab.setAttribute('aria-pressed', String(index === activeIndex));
+      });
+
+      panels.forEach((panel, index) => {
+        panel.hidden = index !== activeIndex;
+      });
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => select(index));
+    });
+  })();
+</script>

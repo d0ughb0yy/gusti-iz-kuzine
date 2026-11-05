@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.astro/
+.netlify/
+.DS_Store
+*.log
+.taste-skill/
+.impeccable/
+
+# AI / agent tooling
+.opencode/
+.claude/
+.cursor/
+.aider*
+.continue/
+.superpowers/
+AGENTS.md
+CLAUDE.md
+.mcp.json

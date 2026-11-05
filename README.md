@@ -1,0 +1,43 @@
+# Gušti iz Kužine
+
+Privatni kuhar u Istri. Kuham za male večere, do šest gostiju, u vašem domu ili vili.
+
+---
+
+Gušti iz Kužine is the name of a private chef business in Istria. The chef comes to you: to a home, a villa, or a terrace, cooks for up to six guests, and serves a dinner with the precision of a good restaurant and none of its formality.
+
+## How the chef cooks
+
+- **Local and in season first.** The menu is decided by the market, not the other way round: what is best that morning, from fishmongers, local growers, and Croatian meat producers.
+- **Modern techniques.** Ingredients are prepared with contemporary methods, from grill and pan to sous-vide, and plated with fine-dining care.
+- **At your table.** The chef does the shopping, cooks in your kitchen, serves course by course, and leaves the kitchen clean.
+- **Small and personal.** Up to six guests, one table, no crowd.
+
+## Sample menus
+
+Three menus on the site are starting points for a conversation:
+
+- **Meat lovers**: four courses, with two choices per course.
+- **Fresh and local**: the chef's choice of local dishes.
+- **Fresh from the Adriatic**: seafood in the leading role.
+
+Every menu adapts to allergies, intolerances, and dietary needs.
+
+## Booking
+
+All reservations go through the chef's profile on [Take a Chef](https://www.takeachef.com/en-hr/chef/tin-lu-i); this is unchanged. The home page additionally has a contact panel where visitors can write directly — it composes an email from the buyer's mail client (no backend); the address to receive it is a placeholder in `src/config.ts`.
+
+## The website
+
+A small, bilingual portfolio site:
+
+- **Croatian**: home page and gallery at `/` and `/galerija/`
+- **English**: home page and gallery at `/en/` and `/en/gallery/`
+
+The home page answers the practical questions up front: how it works, what is included, what the chef needs in your kitchen, and how a reservation happens. The three menus are presented as tabbed panels, with one or two dishes per course and no menu photography. The gallery shows the food and the tables.
+
+## Project notes
+
+The copy, photos, and chef name are being finalised; `CONTENT.md` is the checklist of what to replace before going live. The visual system of record is `DESIGN.md` at the project root.
+
+For anything technical (running the site locally, deploying to Vercel, editing text and images, switching palettes), see `docs/development.md`.

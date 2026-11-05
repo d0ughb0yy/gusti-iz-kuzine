@@ -1,0 +1,100 @@
+/*
+  Palette system
+  --------------
+  Palette 3 is active: deep green, olive, chartreuse on a bone ground.
+  The page uses three jobs only. ground, ink, accent. plus one inverted
+  field for the statement, the closing call and the footer.
+
+  Change `palette` in src/config.ts (or data-palette on <html>) to switch.
+  Each set is remapped to the same jobs, so the layout does not change.
+*/
+
+:root {
+  color-scheme: light;
+
+  /* Shared neutrals */
+  --ground: #eff2e9;
+  --ink: #1b2418;
+  --ink-soft: #4c5747;
+  --on-field: #eff2e9;
+  --on-field-soft: #c9d1bf;
+
+  /* Table and form lines only. Never a section divider. */
+  --line: #cbd1c1;
+  --line-soft: #cbd1c1;
+
+  /* Accent and inverted field */
+  --accent: #2c5f16;
+  --accent-deep: #1e4210;
+  --accent-soft: #dfe6cf;
+  --chartreuse: #c9d94e;
+  --field: #1e2a18;
+  --muted: #4c5747;
+}
+
+/* Palette 3. active. Deep green, olive, chartreuse. */
+:root,
+[data-palette='3'] {
+  --ground: #eff2e9;
+  --ink: #1b2418;
+  --ink-soft: #4c5747;
+  --accent: #2c5f16;
+  --accent-deep: #1e4210;
+  --accent-soft: #dfe6cf;
+  --chartreuse: #c9d94e;
+  --field: #1e2a18;
+  --on-field: #eff2e9;
+  --on-field-soft: #c9d1bf;
+  --line: #cbd1c1;
+}
+
+/* Palette 1. deep green and warm stone. */
+[data-palette='1'] {
+  --ground: #f1efe9;
+  --ink: #1e241c;
+  --ink-soft: #525a4e;
+  --accent: #245c2a;
+  --accent-deep: #17401c;
+  --accent-soft: #dde6d7;
+  --chartreuse: #c6d46a;
+  --field: #1c261a;
+  --on-field: #f1efe9;
+  --on-field-soft: #cbd2c2;
+  --line: #cfccc1;
+  --line-soft: #cfccc1;
+  --muted: #525a4e;
+}
+
+/* Palette 2. olive and ink. */
+[data-palette='2'] {
+  --ground: #f2f1e8;
+  --ink: #20251b;
+  --ink-soft: #565d4b;
+  --accent: #4a5d12;
+  --accent-deep: #33420b;
+  --accent-soft: #e3e6c8;
+  --chartreuse: #d2d95a;
+  --field: #23291b;
+  --on-field: #f2f1e8;
+  --on-field-soft: #d1d4bd;
+  --line: #d1d0c2;
+  --line-soft: #d1d0c2;
+  --muted: #565d4b;
+}
+
+/* Palette 4. deep teal and bone. */
+[data-palette='4'] {
+  --ground: #eff1ed;
+  --ink: #182420;
+  --ink-soft: #4b5852;
+  --accent: #1d5c4c;
+  --accent-deep: #113d32;
+  --accent-soft: #d7e6dd;
+  --chartreuse: #c4d98b;
+  --field: #17251f;
+  --on-field: #eff1ed;
+  --on-field-soft: #c5d0c8;
+  --line: #c9d1cb;
+  --line-soft: #c9d1cb;
+  --muted: #4b5852;
+}
