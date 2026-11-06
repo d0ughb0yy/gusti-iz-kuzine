@@ -18,7 +18,7 @@
   },
   "hero": {
     "name": ["Gušti", "iz Kužine"],
-    "lead": "Više od običnog privatnog kuhara. Vaš dom ili vilu pretvaram u ekskluzivni restoran za do šest gostiju. Jelovnik se prilagođava trenutnoj sezoni.",
+    "lead": "Privatni kuhar u Istri. Restoranska kuhinja seli se u vaš dom: ista preciznost, ista tehnika, bez formalnosti. Jelovnik nastaje tog jutra na tržnici.",
     "primaryCta": "Provjerite dostupnost",
     "secondaryCta": "Pogledajte jelovnike",
     "bookingNote": "Datum i rezervaciju odabirate na Take a Chef platformi. Javim se unutar 24 sata.",
@@ -98,7 +98,7 @@
     "title": "Svaki jelovnik počinje dogovorom.",
     "lead": "Jelovnici se mijenjaju ovisno o sezoni. Ova tri su trenutni prijedlozi, a zajedno ih prilagođavamo.",
     "selectLabel": "Odaberite jelovnik",
-    "bookingNote": "Datum i rezervaciju odabirate na Take a Chef platformi. Javim se unutar 24 sata.",
+    "current": "Prikazan jelovnik",
     "choiceNote": "Odaberite jedno jelo po slijedu.",
     "tastingNote": "Degustacijski jelovnik, bez odabira.",
     "or": "ili",
@@ -212,7 +212,7 @@
   },
   "faq": {
     "title": "Dobro je znati prije rezervacije.",
-    "lead": "Za sve što ovdje nije odgovoreno, pitajte me na Take a Chef profilu. Na upite odgovaram unutar 24 sata.",
+    "lead": "Za sve što ovdje nije odgovoreno, pitajte me na Take a Chef profilu.",
     "items": [
       {
         "q": "Za koliko gostiju kuhate?",
@@ -246,7 +246,7 @@
   },
   "contact": {
     "title": "Imate li još pitanja? Pišite mi.",
-    "lead": "Za datume i rezervacije idite na moj Take a Chef profil. Za sve ostalo (pitanje, ideju, povod) pišite mi ovdje.",
+    "lead": "Za sve ostalo — pitanje, ideju, povod — pišite mi ovdje.",
     "note": "Odgovaram unutar 24 sata.",
     "formLabel": "Kontakt obrazac",
     "subject": "Upit sa stranice Gušti iz Kužine",

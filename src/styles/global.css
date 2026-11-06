@@ -703,11 +703,24 @@ figcaption {
   color: var(--ink-soft);
 }
 
+/* All panels share one grid cell, so the sheet always takes the tallest panel's
+   height and switching tabs never moves the page below. Hidden panels keep
+   their space via visibility instead of display. */
+.menu-panels {
+  display: grid;
+}
+
 .menu-panel {
+  grid-area: 1 / 1;
   min-height: 22rem;
   padding: clamp(1.5rem, 3vw, 2.75rem);
   background: var(--ground);
   animation: menu-fade-in 320ms ease;
+}
+
+.menu-panel[hidden] {
+  display: block;
+  visibility: hidden;
 }
 
 @keyframes menu-fade-in {
@@ -763,7 +776,7 @@ figcaption {
 
 /* Desktop only: the two dishes gather around the separator — first flush
    right, second flush left — with the ragged edges on the outside. Mobile
-   stacks the options and keeps them centered. */
+   stacks the options and keeps them flush left. */
 @media (min-width: 681px) {
   .course__options[data-count='2'] .course__option:first-child {
     text-align: right;
@@ -804,12 +817,6 @@ figcaption {
 
 .menu-explorer__cta {
   margin-top: 2rem;
-}
-
-.menu-explorer__note {
-  margin-top: 0.75rem;
-  font-size: var(--small);
-  color: var(--ink-soft);
 }
 
 /* --------------------------------------------------------------------------
@@ -1987,6 +1994,22 @@ figcaption {
     border-bottom-width: 2px;
   }
 
+  /* A phone shows the tallest sheet (994px) taller than the viewport, so
+     reserving its height buys no stability and leaves up to ~340px of empty
+     panel under the shorter menus. Size panels to their content again here;
+     the fixed sheet stays for tablet and desktop. */
+  .menu-panels {
+    display: block;
+  }
+
+  .menu-panel {
+    grid-area: auto;
+  }
+
+  .menu-panel[hidden] {
+    display: none;
+  }
+
   .included > div {
     overflow-x: visible;
   }
@@ -1996,21 +2019,20 @@ figcaption {
     gap: 0.35rem;
   }
 
-  .course__name {
-    text-align: center;
-  }
-
   .course__options {
     gap: 0.7rem;
-  }
-
-  .course__option {
-    text-align: center;
   }
 
   .course__options[data-count='2'] {
     grid-template-columns: 1fr;
     gap: 0.7rem;
+  }
+
+  /* Stacked dishes keep the left edge. The separator drops its desktop
+     divider hairlines and becomes a small label flush with them. */
+  .course__or {
+    justify-items: start;
+    border-inline: 0;
   }
 
   .gallery-teaser__grid {
@@ -2119,8 +2141,6 @@ figcaption {
     font-size: clamp(2.9rem, 19vw, 6rem);
   }
 }
-
-.menu-panel[hidden]{display:none!important}
 
 /* --------------------------------------------------------------------------
    Legal page. long-form policy text in one readable column

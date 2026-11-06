@@ -34,26 +34,30 @@ const contactHref = `${routes.home[lang]}#kontakt`;
       </nav>
     </div>
 
-    <div class="lang" aria-label={t.nav.language} data-reveal style="--reveal-delay: 120ms">
-      <a
-        class="lang__item"
-        href={routes[current]['hr']}
-        hreflang="hr"
-        lang="hr"
-        aria-current={lang === 'hr' ? 'page' : undefined}
-      >
-        HR
-      </a>
+    <div class="lang" aria-label={t.nav.language}>
+      {
+        lang === 'hr' ? (
+          <span class="lang__item" lang="hr" aria-current="page">
+            HR
+          </span>
+        ) : (
+          <a class="lang__item" href={routes[current]['hr']} hreflang="hr" lang="hr">
+            HR
+          </a>
+        )
+      }
       <span class="lang__sep" aria-hidden="true">/</span>
-      <a
-        class="lang__item"
-        href={routes[current]['en']}
-        hreflang="en"
-        lang="en"
-        aria-current={lang === 'en' ? 'page' : undefined}
-      >
-        EN
-      </a>
+      {
+        lang === 'en' ? (
+          <span class="lang__item" lang="en" aria-current="page">
+            EN
+          </span>
+        ) : (
+          <a class="lang__item" href={routes[current]['en']} hreflang="en" lang="en">
+            EN
+          </a>
+        )
+      }
     </div>
 
     <button

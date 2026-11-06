@@ -256,19 +256,33 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
                 {t.menus.cta}
                 <Icon name="arrow-right" />
               </a>
-
-              <p class="menu-explorer__note">{t.menus.bookingNote}</p>
             </div>
           ))
         }
       </div>
+
+      <p
+        class="sr-only"
+        aria-live="polite"
+        data-explorer-status
+        data-label={t.menus.current}
+      ></p>
     </div>
   </div>
 
   <noscript>
     <style>
+      /* No JS: every menu is shown, stacked vertically. Undo the grid-cell
+         stacking and the visibility-based hiding above. */
+      .menu-panels {
+        display: block;
+      }
+      .menu-panel[data-menu-panel] {
+        grid-area: auto;
+      }
       .menu-panel[data-menu-panel][hidden] {
         display: block !important;
+        visibility: visible !important;
       }
     </style>
   </noscript>
@@ -353,14 +367,14 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
   </div>
 </section>
 
-<ContactPanel lang={lang} />
-
 <CtaBand
   title={t.cta.title}
   lead={t.cta.lead}
   button={t.cta.button}
   note={t.cta.note}
 />
+
+<ContactPanel lang={lang} />
 
 <script is:inline>
   (() => {
@@ -369,14 +383,34 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
 
     if (!tabs.length || tabs.length !== panels.length) return;
 
+    const status = document.querySelector('[data-explorer-status]');
+    let announced = 0;
+
     const select = (activeIndex) => {
       tabs.forEach((tab, index) => {
         tab.setAttribute('aria-pressed', String(index === activeIndex));
       });
 
       panels.forEach((panel, index) => {
-        panel.hidden = index !== activeIndex;
+        const active = index === activeIndex;
+        panel.hidden = !active;
+
+        if (active) {
+          // The sheet keeps its height by hiding panels with visibility, which
+          // also stops the CSS entry animation from restarting on its own.
+          panel.style.animation = 'none';
+          void panel.offsetWidth;
+          panel.style.animation = '';
+        }
       });
+
+      // The toggle group announces its pressed state only while the button has
+      // focus; a polite live region carries which menu is now on screen.
+      if (status && activeIndex !== announced) {
+        const name = panels[activeIndex]?.querySelector('h3')?.textContent?.trim();
+        if (name) status.textContent = `${status.dataset.label}: ${name}`;
+        announced = activeIndex;
+      }
     };
 
     tabs.forEach((tab, index) => {
