@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { getContent } from '../lib/content';
+
+const lang = 'hr' as const;
+const t = getContent(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  current="privacy"
+  title={t.privacyPage.metaTitle}
+  description={t.privacyPage.metaDescription}
+  ogImage="istria-motovun"
+>
+  <LegalPage lang={lang} />
+</BaseLayout>

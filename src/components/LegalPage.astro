@@ -1,0 +1,44 @@
+---
+import { getContent, type Lang } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+
+type LegalLink = { label: string; href: string };
+type LegalSection = {
+  id: string;
+  title: string;
+  body: string[];
+  links?: LegalLink[];
+};
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const page = t.privacyPage;
+const sections = page.sections as LegalSection[];
+---
+
+<article class="legal">
+  <div class="wrap legal__inner">
+    <header class="legal__header">
+      <h1>{page.title}</h1>
+      <p class="legal__lead">{page.lead}</p>
+      <p class="legal__updated">{page.updated}</p>
+    </header>
+
+    {sections.map((section) => (
+      <section class="legal__section" id={section.id}>
+        <h2>{section.title}</h2>
+        {section.body.map((paragraph) => <p>{paragraph}</p>)}
+        {section.links && section.links.length > 0 && (
+          <p class="legal__links">
+            {section.links.map((link) => (
+              <a href={link.href}>{link.label}</a>
+            ))}
+          </p>
+        )}
+      </section>
+    ))}
+  </div>
+</article>

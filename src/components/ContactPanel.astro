@@ -1,5 +1,5 @@
 ---
-import { site } from '../config';
+import { routes, site } from '../config';
 import { getContent, type Lang } from '../lib/content';
 import Icon from './Icon.astro';
 
@@ -23,16 +23,24 @@ const t = getContent(lang);
       <form
         class="contact-form"
         aria-label={t.contact.formLabel}
+        action="https://api.web3forms.com/submit"
+        method="POST"
         data-contact-form
-        data-email={site.contactEmail}
-        data-subject={t.contact.subject}
-        data-labels={JSON.stringify({
-          name: t.contact.fields.name,
-          surname: t.contact.fields.surname,
-          email: t.contact.fields.email,
-        })}
-        novalidate
+        data-sending={t.contact.sending}
+        data-success={t.contact.success}
+        data-error={t.contact.error}
       >
+        <input type="hidden" name="access_key" value={site.web3formsKey} />
+        <input type="hidden" name="subject" value={t.contact.subject} />
+        <input type="hidden" name="from_name" value={site.name} />
+        <input type="hidden" name="redirect" value={new URL(routes.thanks[lang], site.url).href} />
+        <input
+          class="contact-form__botcheck"
+          type="checkbox"
+          name="botcheck"
+          tabindex="-1"
+          autocomplete="off"
+        />
         <div class="contact-form__row">
           <div class="contact-form__field">
             <label class="contact-form__label" for="contact-name">{t.contact.fields.name}</label>
@@ -103,9 +111,14 @@ const t = getContent(lang);
           <Icon name="arrow-right" />
         </button>
 
-        <p class="contact-form__status" role="status" data-form-status hidden>
-          {t.contact.status}
-        </p>
+        <p
+          class="contact-form__status"
+          role="status"
+          aria-atomic="true"
+          data-form-status
+          data-state="idle"
+          hidden
+        ></p>
       </form>
 
       <p class="contact-form__fallback">
@@ -120,15 +133,10 @@ const t = getContent(lang);
         </a>
       </p>
 
-      <p class="contact-form__privacy">{t.contact.privacy}</p>
-
-      <noscript>
-        <style>
-          .contact-form__submit {
-            display: none;
-          }
-        </style>
-      </noscript>
+      <p class="contact-form__privacy">
+        {t.contact.privacy}{' '}
+        <a href={routes.privacy[lang]}>{t.contact.privacyLink}</a>
+      </p>
     </div>
   </div>
 </section>
@@ -138,42 +146,57 @@ const t = getContent(lang);
     const form = document.querySelector('[data-contact-form]');
     if (!form) return;
 
-    const email = form.getAttribute('data-email') || '';
     const status = form.querySelector('[data-form-status]');
+    const submit = form.querySelector('button[type="submit"]');
 
-    form.addEventListener('submit', (event) => {
+    const setStatus = (state, message) => {
+      if (!status) return;
+      status.dataset.state = state;
+      status.textContent = message;
+      status.hidden = false;
+    };
+
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       if (typeof form.reportValidity === 'function' && !form.reportValidity()) {
         return;
       }
 
-      const data = new FormData(form);
-      const value = (key) => String(data.get(key) || '').trim();
-      const labels = JSON.parse(form.getAttribute('data-labels') || '{}');
+      const sending = form.getAttribute('data-sending') || '';
+      const success = form.getAttribute('data-success') || '';
+      const error = form.getAttribute('data-error') || '';
 
-      const body = [
-        `${labels.name}: ${value('name')}`,
-        `${labels.surname}: ${value('surname')}`,
-        `${labels.email}: ${value('email')}`,
-        '',
-        value('message'),
-      ].join('\n');
+      setStatus('sending', sending);
+      if (submit) submit.disabled = true;
+      form.setAttribute('aria-busy', 'true');
 
-      const subject = form.getAttribute('data-subject') || '';
-      const mailto =
-        'mailto:' +
-        email +
-        '?subject=' +
-        encodeURIComponent(subject) +
-        '&body=' +
-        encodeURIComponent(body);
+      try {
+        const payload = new FormData(form);
+        // The native fallback needs `redirect`; an AJAX submission needs JSON.
+        payload.delete('redirect');
 
-      window.location.href = mailto;
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: payload,
+          headers: { Accept: 'application/json' },
+        });
 
-      // The mailto hand-off changes nothing on the page itself, so say what
-      // just happened — webmail users would otherwise see a silent no-op.
-      if (status) status.hidden = false;
+        if (!response.ok) throw new Error('Request failed');
+
+        const result = await response.json().catch(() => null);
+        if (!result || result.success === false) {
+          throw new Error('Request failed');
+        }
+
+        form.reset();
+        setStatus('success', success);
+      } catch {
+        setStatus('error', error);
+      } finally {
+        if (submit) submit.disabled = false;
+        form.removeAttribute('aria-busy');
+      }
     });
   })();
 </script>

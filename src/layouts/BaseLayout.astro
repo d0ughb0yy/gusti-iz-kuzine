@@ -17,9 +17,11 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  faq?: { q: string; a: string }[];
+  noindex?: boolean;
 }
 
-const { lang, current, title, description, ogImage = 'istria-market', faq } = Astro.props;
+const { lang, current, title, description, ogImage = 'istria-market', faq, noindex = false } = Astro.props;
 const t = getContent(lang);
 const canonical = new URL(Astro.url.pathname, site.url);
 const image = getImage(ogImage);
@@ -63,6 +65,7 @@ const faqSchema =
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical.href} />
+    {noindex && <meta name="robots" content="noindex" />}
 
     <link rel="alternate" hreflang="hr" href={new URL(routes[current].hr, site.url).href} />
     <link rel="alternate" hreflang="en" href={new URL(routes[current].en, site.url).href} />

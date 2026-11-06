@@ -8,9 +8,12 @@
     "gallery": "Galerija",
     "menu": "Jelovnik",
     "contact": "Kontakt",
+    "privacy": "Privatnost",
     "language": "Jezik",
     "navigation": "Navigacija",
     "menuToggle": "Meni",
+    "menuOpened": "Meni je otvoren.",
+    "menuClosed": "Meni je zatvoren.",
     "skip": "Preskoči na sadržaj"
   },
   "hero": {
@@ -18,7 +21,7 @@
     "lead": "Više od običnog privatnog kuhara. Vaš dom ili vilu pretvaram u ekskluzivni restoran za do šest gostiju. Jelovnik se prilagođava trenutnoj sezoni.",
     "primaryCta": "Provjerite dostupnost",
     "secondaryCta": "Pogledajte jelovnike",
-    "bookingNote": "Datum i rezervaciju odabirate na Take a Chef platformi — javim se unutar 24 sata.",
+    "bookingNote": "Datum i rezervaciju odabirate na Take a Chef platformi. Javim se unutar 24 sata.",
     "image": "istria-market",
     "imageCaption": "Tržnica u Puli, Istra."
   },
@@ -95,7 +98,7 @@
     "title": "Svaki jelovnik počinje dogovorom.",
     "lead": "Jelovnici se mijenjaju ovisno o sezoni. Ova tri su trenutni prijedlozi, a zajedno ih prilagođavamo.",
     "selectLabel": "Odaberite jelovnik",
-    "bookingNote": "Datum i rezervaciju odabirate na Take a Chef platformi — javim se unutar 24 sata.",
+    "bookingNote": "Datum i rezervaciju odabirate na Take a Chef platformi. Javim se unutar 24 sata.",
     "choiceNote": "Odaberite jedno jelo po slijedu.",
     "tastingNote": "Degustacijski jelovnik, bez odabira.",
     "or": "ili",
@@ -243,7 +246,7 @@
   },
   "contact": {
     "title": "Imate li još pitanja? Pišite mi.",
-    "lead": "Za datume i rezervacije idite na moj Take a Chef profil. Za sve ostalo — pitanje, ideju, povod — pišite mi ovdje.",
+    "lead": "Za datume i rezervacije idite na moj Take a Chef profil. Za sve ostalo (pitanje, ideju, povod) pišite mi ovdje.",
     "note": "Odgovaram unutar 24 sata.",
     "formLabel": "Kontakt obrazac",
     "subject": "Upit sa stranice Gušti iz Kužine",
@@ -257,16 +260,19 @@
     "hints": {
       "name": "Obavezno polje.",
       "surname": "Obavezno polje.",
-      "email": "Obavezno polje — unesite ispravnu adresu.",
+      "email": "Obavezno polje. Unesite ispravnu adresu.",
       "message": "Obavezno polje."
     },
-    "status": "Vaša pošta bi se trebala otvoriti — ako nije, pišite mi izravno na adresu ispod.",
+    "sending": "Šaljem vašu poruku...",
+    "success": "Hvala. Vaša je poruka poslana. Javim se unutar 24 sata.",
+    "error": "Nešto je pošlo po zlu. Pokušajte ponovno ili mi pišite izravno na adresu ispod.",
     "fallback": {
       "before": "Radije e-pošta? Pišite mi izravno na",
       "after": "ili rezervirajte večeru na",
       "booking": "Take a Chef profilu"
     },
-    "privacy": "Ime, prezime, e-pošta i poruka koriste se samo za odgovor na vaš upit. Podaci se šalju izravno e-poštom i ne pohranjuju se na ovoj stranici."
+    "privacy": "Ime, prezime, e-pošta i poruka koriste se samo za odgovor na vaš upit. Podaci se šalju putem usluge Web3Forms i dostavljaju e-poštom; na ovoj se stranici ne pohranjuju.",
+    "privacyLink": "Pročitajte politiku privatnosti"
   },
   "cta": {
     "title": "Vaša večera počinje jednim upitom.",
@@ -289,6 +295,119 @@
     "ctaTitle": "Želite ovakav stol za svoju večeru?",
     "ctaLead": "Provjerite dostupnost i pošaljite mi nekoliko detalja o svojoj večeri.",
     "ctaButton": "Provjerite dostupnost"
+  },
+  "privacyPage": {
+    "metaTitle": "Politika privatnosti: Gušti iz Kužine",
+    "metaDescription": "Kako se obrađuju osobni podaci posjetitelja stranice Gušti iz Kužine: koje podatke prikupljam, zašto, kome se prosljeđuju i koja prava imate.",
+    "title": "Politika privatnosti",
+    "lead": "Ova politika objašnjava koje osobne podatke prikupljam preko stranice Gušti iz Kužine, zašto ih koristim i koja prava imate. Napisana je za posjetitelje iz Europskog gospodarskog prostora.",
+    "updated": "Posljednja izmjena: 6. studenoga 2026.",
+    "sections": [
+      {
+        "id": "voditelj",
+        "title": "Tko je voditelj obrade",
+        "body": [
+          "Voditelj obrade je Tin Lučić, privatna osoba iz Fažane, Hrvatska. Nisam trgovačko društvo.",
+          "Za sva pitanja o ovoj politici i o obradi osobnih podataka pišite mi na adresu e-pošte ispod."
+        ],
+        "links": [
+          { "label": "tin.lucic172@gmail.com", "href": "mailto:tin.lucic172@gmail.com" }
+        ]
+      },
+      {
+        "id": "podaci",
+        "title": "Koje podatke prikupljam",
+        "body": [
+          "Podatke mi šaljete sami kada ispunite kontakt obrazac: ime, prezime, adresu e-pošte i sadržaj poruke. Bez tih podataka ne mogu odgovoriti na upit, pa je njihovo davanje potrebno ako želite odgovor.",
+          "Poslužitelj na kojem stranica radi bilježi tehničke podatke o svakom zahtjevu, uobičajeno IP adresu, vrijeme i vrstu preglednika. Ti zapisi služe za sigurnost i rad stranice.",
+          "Stranica ne postavlja kolačiće, ne koristi alate za analitiku i ne izrađuje profile posjetitelja."
+        ]
+      },
+      {
+        "id": "svrha",
+        "title": "Zašto i na kojoj pravnoj osnovi",
+        "body": [
+          "Podatke iz obrasca koristim isključivo da odgovorim na vaš upit i, ako dođe do rezervacije, da dogovorim detalje večere. Pravna osnova je obrada potrebna za poduzimanje radnji prije sklapanja ugovora i moj legitimni interes da odgovorim na upite.",
+          "Tehničke zapise poslužitelja koristim na temelju legitimnog interesa za sigurnost i dostupnost stranice.",
+          "Ne koristim podatke za marketing, ne šaljem newsletter i ne donosim automatizirane odluke ni izrađujem profile."
+        ]
+      },
+      {
+        "id": "primatelji",
+        "title": "Kome se podaci prosljeđuju",
+        "body": [
+          "Obrazac šalje podatke usluzi Web3Forms (Web3Creative), koja djeluje kao izvršitelj obrade. Web3Forms prima poruku, pohranjuje je na Amazon Web Services i prosljeđuje je na moju adresu e-pošte.",
+          "Web3Forms provodi provjeru protiv spama i pritom može poslati IP adresu i adresu e-pošte pošiljatelja vanjskim servisima za zaštitu od spama. Dostava e-pošte ide preko Amazon SES, a poruka završava u mojem pretincu na Gmailu (Google).",
+          "Poslužitelj Vercel bilježi tehničke podatke o zahtjevima. Fotografije u razvoju poslužuje Unsplash, čiji poslužitelj također vidi IP adresu posjetitelja.",
+          "Ne prodajem podatke i ne dijelim ih s trećim stranama u marketinške svrhe."
+        ],
+        "links": [
+          { "label": "Politika privatnosti usluge Web3Forms", "href": "https://web3forms.com/privacy" }
+        ]
+      },
+      {
+        "id": "prijenosi",
+        "title": "Prijenosi izvan EGP-a",
+        "body": [
+          "Web3Forms posluje iz Indije i koristi standardne ugovorne klauzule Europske komisije kao zaštitne mjere za prijenos podataka izvan Europskog gospodarskog prostora. Amazon i Google obrađuju podatke u Sjedinjenim Američkim Državama; gdje je potrebno, prijenos se temelji na standardnim ugovornim klauzulama ili na okviru EU-a i SAD-a za privatnost podataka."
+        ]
+      },
+      {
+        "id": "rok",
+        "title": "Koliko dugo čuvam podatke",
+        "body": [
+          "Web3Forms pohranjuje poslane obrasce do tri godine. Moja adresa e-pošte čuva poruku dok se upit ili rezervacija ne riješe, a potom najviše 24 mjeseca radi evidencije i zaštite od pravnih zahtjeva.",
+          "Tehničke zapise poslužitelja Vercel čuva kratko, prema vlastitoj politici zadržavanja."
+        ]
+      },
+      {
+        "id": "prava",
+        "title": "Vaša prava",
+        "body": [
+          "Imate pravo zatražiti pristup svojim podacima, ispravak netočnih podataka, brisanje, ograničenje obrade, prigovor na obradu i prijenos podataka. Ako se obrada temelji na privoli, možete je povući u svakom trenutku.",
+          "Za ostvarenje prava pišite mi na adresu e-pošte ispod. Odgovorit ću u roku od mjesec dana.",
+          "Ako smatrate da je obrada nezakonita, možete podnijeti pritužbu Agenciji za zaštitu osobnih podataka (AZOP), Ulica Metela Ožegovića 16, 10000 Zagreb, telefon +385 1 4609 000."
+        ],
+        "links": [
+          { "label": "azop@azop.hr", "href": "mailto:azop@azop.hr" },
+          { "label": "www.azop.hr", "href": "https://azop.hr/" }
+        ]
+      },
+      {
+        "id": "kolacici",
+        "title": "Kolačići i lokalna pohrana",
+        "body": [
+          "Stranica ne postavlja kolačiće i ne koristi lokalnu pohranu za praćenje. Fontovi se poslužuju s vlastitog poslužitelja, pa nema zahtjeva prema Google Fonts.",
+          "Kada pošaljete obrazac, podaci idu izravno usluzi Web3Forms. Fotografije u razvoju učitavaju se s Unsplasha."
+        ]
+      },
+      {
+        "id": "izmjene",
+        "title": "Izmjene ove politike",
+        "body": [
+          "Ako se obrada podataka promijeni, ažurirat ću ovu stranicu i datum posljednje izmjene. Bitne promjene istaknut ću na vidljivom mjestu."
+        ]
+      },
+      {
+        "id": "kontakt",
+        "title": "Kontakt",
+        "body": [
+          "Za pitanja o privatnosti i obradi podataka pišite mi na adresu e-pošte ispod."
+        ],
+        "links": [
+          { "label": "tin.lucic172@gmail.com", "href": "mailto:tin.lucic172@gmail.com" }
+        ]
+      }
+    ]
+  },
+  "thanksPage": {
+    "metaTitle": "Hvala: Gušti iz Kužine",
+    "metaDescription": "Vaša je poruka poslana.",
+    "title": "Hvala. Poruka je poslana.",
+    "lead": "Javim se unutar 24 sata. Ako se poruka nije poslala ili se predomislite, pišite mi izravno na tin.lucic172@gmail.com.",
+    "home": "Natrag na početnu",
+    "booking": "Rezervirajte večeru",
+    "contact": "Pišite mi"
   },
   "lightbox": {
     "open": "Otvori fotografiju",

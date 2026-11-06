@@ -1,0 +1,33 @@
+---
+import { routes, site } from '../config';
+import { getContent, type Lang } from '../lib/content';
+import Icon from './Icon.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const page = t.thanksPage;
+---
+
+<section class="thanks">
+  <div class="wrap thanks__inner">
+    <h1>{page.title}</h1>
+    <p class="thanks__lead">{page.lead}</p>
+
+    <div class="thanks__actions">
+      <a class="btn" href={routes.home[lang]}>
+        {page.home}
+        <Icon name="arrow-right" />
+      </a>
+      <a class="link-arrow" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">
+        {page.booking}
+      </a>
+      <a class="link-arrow" href={`mailto:${site.contactEmail}`}>
+        {page.contact}
+      </a>
+    </div>
+  </div>
+</section>

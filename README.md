@@ -25,14 +25,15 @@ Every menu adapts to allergies, intolerances, and dietary needs.
 
 ## Booking
 
-All reservations go through the chef's profile on [Take a Chef](https://www.takeachef.com/en-hr/chef/tin-lu-i); this is unchanged. The home page additionally has a contact panel where visitors can write directly — it composes an email from the buyer's mail client (no backend); the address to receive it is a placeholder in `src/config.ts`.
+All reservations go through the chef's profile on [Take a Chef](https://www.takeachef.com/en-hr/chef/tin-lu-i); this is unchanged. The home page additionally has a contact panel that submits directly to Web3Forms and arrives by email. The access key and recipient address live in `src/config.ts`; the form needs no backend or database.
 
 ## The website
 
 A small, bilingual portfolio site:
 
-- **Croatian**: home page and gallery at `/` and `/galerija/`
-- **English**: home page and gallery at `/en/` and `/en/gallery/`
+- **Croatian**: home page, gallery and privacy policy at `/`, `/galerija/` and `/politika-privatnosti/`
+- **English**: home page, gallery and privacy policy at `/en/`, `/en/gallery/` and `/en/privacy-policy/`
+- **Thank-you pages**: `/hvala/` and `/en/thank-you/`, used only when the contact form falls back to a native submit
 
 The home page answers the practical questions up front: how it works, what is included, what the chef needs in your kitchen, and how a reservation happens. The three menus are presented as tabbed panels, with one or two dishes per course and no menu photography. The gallery shows the food and the tables.
 

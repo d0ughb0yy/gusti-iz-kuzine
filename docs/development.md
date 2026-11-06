@@ -99,21 +99,21 @@ After connecting a custom domain, update the URL in `astro.config.mjs` (`site:`)
 
 ```
 src/
-  components/        Header, Footer, HomePage, GalleryPage, GalleryGrid, ContactPanel, CtaBand, Icon, Lightbox
+  components/        Header, Footer, HomePage, GalleryPage, GalleryGrid, ContactPanel, LegalPage, ThankYouPage, CtaBand, Icon, Lightbox
   data/              Bilingual copy, image registry, gallery order
   layouts/           BaseLayout (head, fonts, SEO, motion setup)
   lib/content.ts     Typed access to copy and images (incl. srcset derivation)
-  pages/             HR home + gallery, EN home + gallery, 404
+  pages/             HR and EN home, gallery, privacy policy and thank-you, plus 404
   styles/            Palette tokens and global CSS
 public/              Favicon, robots.txt, local images
-docs/                Development guide and design spec
+docs/                Development guide
 DESIGN.md            Visual system of record (colors, type, components, rules)
 CONTENT.md           Launch checklist of every placeholder
 ```
 
 ## Notes
 
-- Booking is intentionally external. There is no form, database, or CMS to maintain.
+- Booking is intentionally external. The contact form submits to Web3Forms; there is no database or CMS to maintain.
 - The gallery lightbox is keyboard accessible (`Esc`, arrow keys) and closes on outside click.
 - Scroll reveals and lightbox transitions are disabled automatically under `prefers-reduced-motion`.
 - Copy, photos, and the chef's name in the prototype are placeholders. See `CONTENT.md`; pricing is quoted by Take a Chef and is not shown on the site.

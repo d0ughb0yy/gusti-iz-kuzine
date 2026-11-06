@@ -12,7 +12,7 @@ Legend: **required** = do not launch without it · **recommended** = affects tru
 | --- | --- | --- | --- | --- |
 | 1.1 | Brand / site name | `src/config.ts` → `site.name` | `Gušti iz Kužine` | **done** — confirmed November 2026 |
 | 1.2 | Chef's name | `src/data/site/hr.json` → `statement.attribution`; `src/data/site/en.json` → `statement.attribution` | `Tin Lučić` | **required** |
-| 1.4 | Favicon | `public/favicon.svg` | Palette 3 monogram | optional |
+| 1.3 | Favicon | `public/favicon.svg` | Palette 3 monogram | optional |
 
 The brand name is used in the header, footer, page titles, 404, and structured data. `src/config.ts` drives the layout templates; the hero's stacked name and page titles live in `src/data/site/hr.json` and `src/data/site/en.json`.
 
@@ -50,6 +50,8 @@ The current design has no reviews section, so there is nothing to replace or pub
 ## 6. Photography
 
 > **Development status (2026-11-05):** stock photography is intentional while the site is in development. Do not treat it as a launch defect or replace it until Tin says the real shoot is ready. The `chef-portrait` / `gallery-plating` duplicate is deferred with it; resolve that with the real portrait, not another stock frame. Future critique runs should honour `.impeccable/critique/ignore.md`.
+>
+> **Decision (2026-11-06):** the gallery teaser's “photographs are temporary” note stays visible until Tin completes the real photo shoot. It is an intentional development disclosure, not a launch defect. The decision is also recorded in `.impeccable/critique/ignore.md` so future critiques drop it silently.
 
 | # | Item | Where | Current placeholder | Status |
 | --- | --- | --- | --- | --- |
@@ -71,8 +73,8 @@ How to swap an image (four steps) is in `docs/development.md` → "Replacing an 
 | 7.1 | Production URL | `astro.config.mjs` → `site`; `src/config.ts` → `url` | `https://gusti-iz-kuzine.vercel.app` | **required** |
 | 7.2 | Connect the custom domain in Vercel | Vercel dashboard | — | **required** |
 | 7.3 | Rebuild after changing the URL | `npm run build` | — | **required** |
-| 7.4 | Check canonical + hreflang after deploy | View source on all four pages | They derive from `site.url` | recommended |
-| 7.5 | Submit the sitemap or request indexing | Google Search Console | No sitemap is generated; submit the four URLs manually or add `@astrojs/sitemap` | optional |
+| 7.4 | Check canonical + hreflang after deploy | View source on the home, gallery and privacy pages in both languages | They derive from `site.url` | recommended |
+| 7.5 | Submit the sitemap or request indexing | Google Search Console | No sitemap is generated; submit the six indexable URLs (home, gallery and privacy in both languages) manually or add `@astrojs/sitemap` | optional |
 | 7.6 | Add an OG image if social previews matter | `src/layouts/BaseLayout.astro` → `ogImage` | Uses the hero Unsplash image | optional |
 
 Vercel settings: framework Astro, build command `npm run build`, output directory `dist`, Node 24.x (from `package.json` `engines`). No functions, rewrites, or `vercel.json` are required.
@@ -81,29 +83,31 @@ Vercel settings: framework Astro, build command `npm run build`, output director
 
 | # | Item | Where | Status |
 | --- | --- | --- | --- |
-| 8.1 | Privacy notice for the contact form | `src/components/ContactPanel.astro` → `.contact-form__privacy` | **done** — short note beside the form; a full policy page remains optional |
-| 8.2 | Business/sole-trader details (name, address, VAT ID) if required for Croatian e-commerce/consumer law | Footer | recommended — confirm with an accountant |
+| 8.1 | Privacy notice for the contact form | `src/components/ContactPanel.astro` → `.contact-form__privacy` | **done** — short note beside the form names Web3Forms as the processor and links to the privacy policy |
+| 8.2 | Business/sole-trader details (name, address, VAT ID) if required for Croatian e-commerce/consumer law | Footer | not applicable while Tin operates as a private individual; revisit if a company or obrt is registered |
 | 8.3 | Cookie banner only if non-essential cookies are introduced | — | not needed today: the site sets no cookies and loads no analytics |
+| 8.4 | Privacy policy page | `/politika-privatnosti/` and `/en/privacy-policy/` | **done**: bilingual policy covering controller, data, purposes, recipients, transfers, retention, rights and AZOP; linked from the contact form and footer |
+| 8.5 | Legal review of the privacy policy | `/politika-privatnosti/` and `/en/privacy-policy/` | **open**: Tin is arranging a review by a legal professional before launch |
 
 The current build loads no third-party scripts, fonts from Google, or analytics. Fonts are bundled from `@fontsource`, so there is no third-party request beyond the Unsplash images — and those disappear when real local photos replace them.
 
-## 10. Contact form
+## 9. Contact form
 
 | # | Item | Where | Current placeholder | Status |
 | --- | --- | --- | --- | --- |
 | 10.1 | Contact email address | `src/config.ts` → `contactEmail` | `tin.lucic172@gmail.com` — real address supplied by Tin | **done** |
-| 10.2 | Privacy notice | `src/components/ContactPanel.astro` → `.contact-form__privacy` | Short note near the form names the four fields and states the data is sent by email and not stored on the site (GDPR art. 5/6). A full policy page is still optional | **done** |
-| 10.3 | Form delivery | `src/components/ContactPanel.astro` | The form composes a `mailto:` from the visitor's fields — nothing is stored server-side. If you prefer invisible backend delivery, sign up for a form service and switch the submit handler to `fetch`; the mailto path works without one | recommended |
+| 10.2 | Privacy notice | `src/components/ContactPanel.astro` → `.contact-form__privacy` | Short note near the form names the four fields and states the data is sent through Web3Forms and delivered by email, and is not stored on this site (GDPR art. 5/6). It links to the privacy policy page | **done** |
+| 10.3 | Form delivery | `src/components/ContactPanel.astro` | The form posts to Web3Forms via fetch and the message arrives by email. The public access key lives in `src/config.ts`; enable domain restriction in the Web3Forms dashboard. No server-side code or database on this site. A hidden redirect sends native fallback submissions to `/hvala/` or `/en/thank-you/`. | **done** |
 
-The form is delivered only by the visitor's own mail client, so no data leaves the site before they send the email.
+The message is delivered through Web3Forms by email; the site itself stores nothing. If JavaScript fails, the native form posts to Web3Forms and the hidden redirect sends the visitor to the thank-you page.
 
-## 9. Final pre-launch pass
+## 10. Final pre-launch pass
 
 - [ ] `npm install && npm run build` succeeds from a clean checkout.
-- [ ] All four pages return 200: `/`, `/galerija/`, `/en/`, `/en/gallery/`.
+- [ ] All main pages return 200: `/`, `/galerija/`, `/en/`, `/en/gallery/`, plus `/politika-privatnosti/`, `/en/privacy-policy/`, `/hvala/`, and `/en/thank-you/`.
 - [ ] No "Dalmacija", "Dalmatia", "Split", or stock-photo credit remains.
 - [ ] Every CTA opens the real Take a Chef profile in a new tab.
-- [ ] Language switch keeps you on the equivalent page (home ↔ home, gallery ↔ gallery).
+- [ ] Language switch keeps you on the equivalent page (home ↔ home, gallery ↔ gallery, privacy ↔ privacy).
 - [ ] Gallery: all photos load while scrolling; lightbox opens, arrows stay still between portrait and landscape photos, outside click and `Esc` close it.
 - [ ] Mobile: navigation opens and closes; hero and menu tabs are readable at 390px; tab switching works.
 - [ ] Prices are either omitted or clearly marked as "from" (Take a Chef issues the real quote).

@@ -11,6 +11,7 @@ const { lang } = Astro.props;
 const t = getContent(lang);
 const items = getGallery(lang);
 const heroImage = getImage('istria-motovun');
+const galleryCount = items.length + 1;
 ---
 
 <section class="page-hero">
@@ -19,7 +20,7 @@ const heroImage = getImage('istria-motovun');
       <h1 data-reveal>{t.galleryPage.title}</h1>
       <p class="page-hero__lead" data-reveal style="--reveal-delay: 80ms">{t.galleryPage.lead}</p>
       <p class="page-hero__meta" data-reveal style="--reveal-delay: 140ms">
-        {items.length} {t.galleryPage.countLabel}
+        {galleryCount} {t.galleryPage.countLabel}
       </p>
     </div>
 
@@ -30,6 +31,7 @@ const heroImage = getImage('istria-motovun');
         data-lightbox={heroImage.full}
         data-lightbox-alt={heroImage.alt[lang]}
         data-lightbox-caption={heroImage.alt[lang]}
+        data-lightbox-group="gallery"
         aria-label={`${t.lightbox.open}: ${heroImage.alt[lang]}`}
       >
         <img

@@ -1,11 +1,11 @@
 ---
 import { routes, site } from '../config';
-import { getContent } from '../lib/content';
+import { getContent, type CurrentPage } from '../lib/content';
 import Icon from './Icon.astro';
 
 interface Props {
   lang: 'hr' | 'en';
-  current: 'home' | 'gallery';
+  current: CurrentPage;
 }
 
 const { lang, current } = Astro.props;
@@ -63,10 +63,14 @@ const contactHref = `${routes.home[lang]}#kontakt`;
       aria-controls="site-menu"
       aria-label={t.nav.menuToggle}
       data-menu-toggle
+      data-menu-opened={t.nav.menuOpened}
+      data-menu-closed={t.nav.menuClosed}
     >
       <Icon name="menu" size={22} class="header__icon header__icon--open" />
       <Icon name="close" size={22} class="header__icon header__icon--close" />
     </button>
+
+    <p class="sr-only" aria-live="polite" data-menu-status></p>
   </div>
 </header>
 
@@ -75,6 +79,7 @@ const contactHref = `${routes.home[lang]}#kontakt`;
     const toggle = document.querySelector('[data-menu-toggle]');
     // Scoped away from the menu-explorer panels, which use data-menu-panel.
     const panel = document.querySelector('[data-header-panel]');
+    const status = document.querySelector('[data-menu-status]');
     if (!toggle || !panel) return;
 
     const desktop = window.matchMedia('(min-width: 681px)');
@@ -82,8 +87,18 @@ const contactHref = `${routes.home[lang]}#kontakt`;
     const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
 
     const setOpen = (open) => {
+      if (open === isOpen()) return;
       toggle.setAttribute('aria-expanded', String(open));
       panel.classList.toggle('is-open', open);
+
+      // The expanded state is only announced while the toggle has focus, and
+      // opening moves focus into the panel. A polite live region carries the
+      // state change so screen reader users hear that the menu opened.
+      if (status) {
+        status.textContent = open
+          ? toggle.getAttribute('data-menu-opened') || ''
+          : toggle.getAttribute('data-menu-closed') || '';
+      }
     };
 
     toggle.addEventListener('click', () => {
