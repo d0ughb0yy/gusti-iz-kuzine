@@ -1900,16 +1900,13 @@ figcaption {
     visibility: hidden;
     transition:
       grid-template-rows 300ms var(--ease),
-      visibility 0s linear 300ms,
-      border-color 240ms var(--ease);
+      visibility 0s linear 300ms;
   }
 
   .js .header__panel.is-open {
     grid-template-rows: 1fr;
     visibility: visible;
-    transition:
-      grid-template-rows 300ms var(--ease),
-      border-color 240ms var(--ease);
+    transition: grid-template-rows 400ms var(--ease);
   }
 
   .header__nav {
@@ -1944,14 +1941,17 @@ figcaption {
     border-bottom: 1px solid transparent;
     transition:
       background-color 240ms var(--ease),
-      color 240ms var(--ease),
-      border-color 240ms var(--ease);
+      color 240ms var(--ease);
   }
 
   .site-header--overlay.is-open {
     background: var(--ground);
     color: var(--ink);
     border-bottom-color: var(--line);
+    transition:
+      background-color 240ms var(--ease),
+      color 240ms var(--ease),
+      border-color 60ms var(--ease) 240ms;
   }
 
   .site-header--overlay.is-open .brand,
@@ -1996,15 +1996,33 @@ figcaption {
     /* Full-bleed: match the viewport without relying on 100vw, then pull
        both edges out by one gutter. The panel's flex-basis is 100% in this
        breakpoint, so it must grow by both gutters as well. */
+    position: relative;
     flex-basis: calc(100% + (var(--gutter) * 2));
     margin-inline: calc(var(--gutter) * -1);
     padding-inline: var(--gutter);
-    border-top: 1px solid transparent;
+    background: var(--ground);
   }
 
-  .site-header--overlay .header__panel.is-open,
-  html:not(.js) .site-header--overlay .header__panel {
-    border-top-color: var(--line);
+  /* The top hairline is a 1px line scaled from the centre, so opening the
+     menu grows it outward instead of fading a full-width border in. */
+  .site-header--overlay .header__panel::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background: var(--line);
+    transform: scaleX(1);
+    transform-origin: center;
+  }
+
+  .js .site-header--overlay .header__panel::before {
+    transform: scaleX(0);
+    transition: transform 0s;
+  }
+
+  .js .site-header--overlay .header__panel.is-open::before {
+    transform: scaleX(1);
+    transition: transform 600ms var(--ease);
   }
 
   .hero {
