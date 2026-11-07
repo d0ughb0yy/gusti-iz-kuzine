@@ -13,11 +13,12 @@ const { lang } = Astro.props;
 const t = getContent(lang);
 
 const heroImage = getImage(t.hero.image);
-const introImage = getImage(t.intro.image);
-const whoImage = getImage('chef-portrait');
+const portraitImage = getImage('chef-portrait');
+const actionImage = getImage('chef-action');
 const allGallery = getGallery(lang);
+const heroName = t.hero.name.join(' ');
 // A renamed or missing teaser key must fail the build, not silently render
-// a broken three-in-four grid.
+// a broken grid.
 const teaserItems = t.galleryTeaser.images.map((key) => {
   const item = allGallery.find((galleryItem) => galleryItem.imageKey === key);
   if (!item) throw new Error(`Unknown image key in galleryTeaser: ${key}`);
@@ -25,165 +26,83 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
 });
 ---
 
-<section class="hero" aria-labelledby="hero-name-top hero-name-bottom">
+<section class="hero" aria-labelledby="hero-name">
+  <div class="hero__media">
+    <img
+      src={heroImage.src}
+      srcset={heroImage.srcset}
+      sizes="100vw"
+      width={heroImage.width}
+      height={heroImage.height}
+      alt=""
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="hero__scrim" aria-hidden="true"></div>
 
-  <div class="wrap hero__inner">
-    <h1 class="hero__lines" id="hero-name">
-      <span class="hero__line hero__line--top" id="hero-name-top">{t.hero.name[0]}</span>
-      <span class="hero__line hero__line--bottom" id="hero-name-bottom">{t.hero.name[1]}</span>
-    </h1>
+  <div class="hero__content">
+    <h1 class="hero__name" id="hero-name">{heroName}</h1>
+    <p class="hero__lead">{t.hero.lead}</p>
 
-    <div class="hero__body" data-reveal>
-      <p class="hero__lead">{t.hero.lead}</p>
-
-      <div class="hero__actions">
-        <a
-          class="btn"
-          href={site.bookingUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {t.hero.primaryCta}
-          <Icon name="arrow-right" />
-        </a>
-        <a class="link-arrow" href="#jelovnici">{t.hero.secondaryCta}</a>
-      </div>
-
-      <p class="hero__note">{t.hero.bookingNote}</p>
+    <div class="hero__actions">
+      <a
+        class="btn btn--light"
+        href={site.bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t.hero.primaryCta}
+        <Icon name="arrow-right" />
+      </a>
+      <a class="hero__link" href="#jelovnici">{t.hero.secondaryCta}</a>
     </div>
 
-    <figure class="hero__figure" data-reveal style="--reveal-delay: 120ms">
-      <div class="hero__figure-frame">
-        <button
-          class="lightbox-trigger"
-          type="button"
-          data-lightbox={heroImage.full}
-          data-lightbox-alt={heroImage.alt[lang]}
-          data-lightbox-caption={t.hero.imageCaption}
-          aria-label={`${t.lightbox.open}: ${t.hero.imageCaption}`}
-        >
-          <img
-            src={heroImage.src}
-            srcset={heroImage.srcset}
-            sizes="(max-width: 680px) 100vw, 34rem"
-            width={heroImage.width}
-            height={heroImage.height}
-            alt=""
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-          />
-        </button>
-      </div>
-      <figcaption>{t.hero.imageCaption}</figcaption>
-    </figure>
+    <p class="hero__note">{t.hero.bookingNote}</p>
   </div>
 </section>
 
-<section class="section intro" id="o-kuhanju" aria-labelledby="intro-title">
-  <div class="wrap intro__grid">
-    <div class="intro__text">
-      <h2 id="intro-title" data-reveal>{t.intro.title}</h2>
-
-      <div class="intro__paragraphs" data-reveal style="--reveal-delay: 80ms">
-        {t.intro.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-      </div>
-
-      <div class="intro__who" data-reveal style="--reveal-delay: 120ms">
-        <img
-          src={whoImage.src}
-          srcset={whoImage.srcset}
-          sizes="4.5rem"
-          width={whoImage.width}
-          height={whoImage.height}
-          alt=""
-          loading="lazy"
-          decoding="async"
-        />
-        <div>
-          <p class="intro__who-name">{t.intro.who.name}</p>
-          <p class="intro__who-fact">{t.intro.who.fact}</p>
-        </div>
-      </div>
-
-      <a class="link-arrow intro__link" href="#tijek" data-reveal style="--reveal-delay: 160ms">
-        {t.intro.link}
-        <Icon name="arrow-right" />
-      </a>
-    </div>
-
-    <figure class="intro__figure" data-reveal style="--reveal-delay: 120ms">
+<section class="section story" id="o-kuhanju" aria-labelledby="story-title">
+  <div class="wrap story__grid">
+    <figure class="story__figure">
       <button
         class="lightbox-trigger"
         type="button"
-        data-lightbox={introImage.full}
-        data-lightbox-alt={introImage.alt[lang]}
-        data-lightbox-caption={t.intro.imageCaption}
-        aria-label={`${t.lightbox.open}: ${t.intro.imageCaption}`}
+        data-lightbox={portraitImage.full}
+        data-lightbox-alt={portraitImage.alt[lang]}
+        data-lightbox-caption={t.intro.who.name}
+        aria-label={`${t.lightbox.open}: ${t.intro.who.name}`}
       >
         <img
-          src={introImage.src}
-          srcset={introImage.srcset}
-          sizes="(max-width: 960px) 100vw, 44rem"
-          width={introImage.width}
-          height={introImage.height}
+          src={portraitImage.src}
+          srcset={portraitImage.srcset}
+          sizes="(max-width: 960px) 100vw, 34rem"
+          width={portraitImage.width}
+          height={portraitImage.height}
           alt=""
           loading="lazy"
           decoding="async"
         />
       </button>
-      <figcaption>{t.intro.imageCaption}</figcaption>
     </figure>
-  </div>
-</section>
 
-<section class="section how" id="tijek" aria-labelledby="how-title">
-  <div class="wrap">
-    <div class="how__head">
-      <h2 id="how-title" data-reveal>{t.how.title}</h2>
-      <p class="how__lead" data-reveal style="--reveal-delay: 80ms">{t.how.lead}</p>
-    </div>
+    <div class="story__text">
+      <h2 id="story-title">{t.intro.title}</h2>
 
-    <div class="steps">
-      {
-        t.how.steps.map((step, index) => (
-          <div class="step" data-reveal style={`--reveal-delay: ${index * 90}ms`}>
-            <h3 class="step__title">{step.title}</h3>
-            <p class="step__text">{step.text}</p>
-          </div>
-        ))
-      }
-    </div>
-  </div>
-</section>
+      <div class="story__paragraphs">
+        {t.intro.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
 
-<section class="section included" id="ukljuceno" aria-labelledby="included-title">
-  <div class="wrap included__grid">
-    <div class="included__text">
-      <h2 id="included-title" data-reveal>{t.included.title}</h2>
-      <p class="included__lead" data-reveal style="--reveal-delay: 80ms">{t.included.lead}</p>
-      <p class="included__note" data-reveal style="--reveal-delay: 140ms">{t.included.note}</p>
-    </div>
+      <div class="story__byline">
+        <p class="story__name">{t.intro.who.name}</p>
+        <p class="story__fact">{t.intro.who.fact}</p>
+      </div>
 
-    <div data-reveal style="--reveal-delay: 100ms">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">{t.included.colItem}</th>
-            <th scope="col">{t.included.colMeaning}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            t.included.rows.map((row) => (
-              <tr>
-                <td>{row.item}</td>
-                <td>{row.detail}</td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
+      <a class="link-arrow" href="#tijek">
+        {t.intro.link}
+        <Icon name="arrow-right" />
+      </a>
     </div>
   </div>
 </section>
@@ -191,12 +110,12 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
 <section class="section menus" id="jelovnici" aria-labelledby="menus-title">
   <div class="wrap">
     <div class="menus__head">
-      <h2 id="menus-title" data-reveal>{t.menus.title}</h2>
-      <p class="menus__lead" data-reveal style="--reveal-delay: 80ms">{t.menus.lead}</p>
+      <h2 id="menus-title">{t.menus.title}</h2>
+      <p class="menus__lead">{t.menus.lead}</p>
     </div>
 
     <div class="menu-explorer">
-      <div class="menu-tabs" role="group" aria-label={t.menus.selectLabel} data-reveal>
+      <div class="menu-tabs" role="group" aria-label={t.menus.selectLabel}>
         {
           t.menus.items.map((menu, index) => (
             <button
@@ -213,7 +132,7 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
         }
       </div>
 
-      <div class="menu-panels" data-reveal style="--reveal-delay: 100ms">
+      <div class="menu-panels">
         {
           t.menus.items.map((menu, index) => (
             <div
@@ -288,21 +207,75 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
   </noscript>
 </section>
 
+<section class="section process" id="tijek" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="process__head">
+      <h2 id="process-title">{t.how.title}</h2>
+      <p class="process__lead">{t.how.lead}</p>
+    </div>
+
+    <ol class="steps">
+      {
+        t.how.steps.map((step, index) => (
+          <li class="step">
+            <span class="step__num">{String(index + 1).padStart(2, '0')}</span>
+            <h3 class="step__title">{step.title}</h3>
+            <p class="step__text">{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="action" aria-label={t.action.caption}>
+  <figure class="action__figure">
+    <img
+      src={actionImage.src}
+      srcset={actionImage.srcset}
+      sizes="100vw"
+      width={actionImage.width}
+      height={actionImage.height}
+      alt=""
+      loading="lazy"
+      decoding="async"
+    />
+    <figcaption class="action__caption">{t.action.caption}</figcaption>
+  </figure>
+</section>
+
+<section class="section included" id="ukljuceno" aria-labelledby="included-title">
+  <div class="wrap included__grid">
+    <div class="included__text">
+      <h2 id="included-title">{t.included.title}</h2>
+      <p class="included__lead">{t.included.lead}</p>
+      <p class="included__note">{t.included.note}</p>
+    </div>
+
+    <dl class="included__list">
+      {
+        t.included.rows.map((row) => (
+          <div class="included__row">
+            <dt>{row.item}</dt>
+            <dd>{row.detail}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
 <section class="section gallery-teaser" id="galerija" aria-labelledby="gallery-title">
   <div class="wrap">
     <div class="gallery-teaser__head">
-      <h2 id="gallery-title" data-reveal>{t.galleryTeaser.title}</h2>
-      <p class="gallery-teaser__lead" data-reveal style="--reveal-delay: 80ms">{t.galleryTeaser.lead}</p>
+      <h2 id="gallery-title">{t.galleryTeaser.title}</h2>
+      <p class="gallery-teaser__lead">{t.galleryTeaser.lead}</p>
     </div>
 
     <div class="gallery-teaser__grid">
       {
         teaserItems.map((item, index) => (
-          <figure
-            class="gallery-teaser__item"
-            data-reveal
-            style={`--reveal-delay: ${index * 70}ms`}
-          >
+          <figure class="gallery-teaser__item">
             <button
               class="lightbox-trigger"
               type="button"
@@ -329,8 +302,8 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
     </div>
 
     <div class="gallery-teaser__foot">
-      <p class="gallery-teaser__note" data-reveal>{t.galleryTeaser.note}</p>
-      <a class="link-arrow" href={routes.gallery[lang]} data-reveal style="--reveal-delay: 80ms">
+      <p class="gallery-teaser__note">{t.galleryTeaser.note}</p>
+      <a class="link-arrow" href={routes.gallery[lang]}>
         {t.galleryTeaser.cta}
         <Icon name="arrow-right" />
       </a>
@@ -340,24 +313,24 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
 
 <section class="statement" aria-label={t.statement.label}>
   <div class="wrap statement__inner">
-    <blockquote data-reveal>{t.statement.text}</blockquote>
-    <p class="statement__attribution" data-reveal style="--reveal-delay: 80ms">
-      {t.statement.attribution}
-    </p>
+    <blockquote>
+      <p>{t.statement.text}</p>
+    </blockquote>
+    <p class="statement__attribution">{t.statement.attribution}</p>
   </div>
 </section>
 
 <section class="section faq" id="pitanja" aria-labelledby="faq-title">
   <div class="wrap faq__grid">
     <div class="faq__text">
-      <h2 id="faq-title" data-reveal>{t.faq.title}</h2>
-      <p class="faq__lead" data-reveal style="--reveal-delay: 80ms">{t.faq.lead}</p>
+      <h2 id="faq-title">{t.faq.title}</h2>
+      <p class="faq__lead">{t.faq.lead}</p>
     </div>
 
     <dl class="faq__list">
       {
-        t.faq.items.map((item, index) => (
-          <div class="faq__item" data-reveal style={`--reveal-delay: ${index * 40}ms`}>
+        t.faq.items.map((item) => (
+          <div class="faq__item">
             <dt class="faq__q">{item.q}</dt>
             <dd class="faq__a">{item.a}</dd>
           </div>
@@ -371,7 +344,6 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
   title={t.cta.title}
   lead={t.cta.lead}
   button={t.cta.button}
-  note={t.cta.note}
 />
 
 <ContactPanel lang={lang} />

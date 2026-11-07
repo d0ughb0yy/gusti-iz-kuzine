@@ -6,20 +6,19 @@ interface Props {
   title: string;
   lead: string;
   button: string;
-  note?: string;
 }
 
-const { title, lead, button, note } = Astro.props;
+const { title, lead, button } = Astro.props;
 ---
 
 <section class="cta" aria-labelledby="cta-title">
   <div class="wrap cta__inner">
     <div>
-      <h2 id="cta-title" data-reveal>{title}</h2>
-      <p class="cta__lead" data-reveal style="--reveal-delay: 80ms">{lead}</p>
+      <h2 id="cta-title">{title}</h2>
+      <p class="cta__lead">{lead}</p>
     </div>
 
-    <div class="cta__action" data-reveal style="--reveal-delay: 140ms">
+    <div class="cta__action">
       <a
         class="btn btn--light"
         href={site.bookingUrl}
@@ -29,7 +28,6 @@ const { title, lead, button, note } = Astro.props;
         {button}
         <Icon name="arrow-right" />
       </a>
-      {note && <p class="cta__note">{note}</p>}
     </div>
   </div>
 </section>

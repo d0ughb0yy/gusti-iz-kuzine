@@ -14,12 +14,12 @@ const t = getContent(lang);
 <section class="contact" id="kontakt" aria-labelledby="contact-title">
   <div class="wrap contact__grid">
     <div class="contact__text">
-      <h2 id="contact-title" data-reveal>{t.contact.title}</h2>
-      <p class="contact__lead" data-reveal style="--reveal-delay: 80ms">{t.contact.lead}</p>
-      <p class="contact__note" data-reveal style="--reveal-delay: 140ms">{t.contact.note}</p>
+      <h2 id="contact-title">{t.contact.title}</h2>
+      <p class="contact__lead">{t.contact.lead}</p>
+      <p class="contact__note">{t.contact.note}</p>
     </div>
 
-    <div class="contact__panel" data-reveal style="--reveal-delay: 100ms">
+    <div class="contact__panel">
       <form
         class="contact-form"
         aria-label={t.contact.formLabel}

@@ -10,21 +10,21 @@ interface Props {
 const { lang } = Astro.props;
 const t = getContent(lang);
 const items = getGallery(lang);
-const heroImage = getImage('istria-motovun');
+const heroImage = getImage('gallery-bread');
 const galleryCount = items.length + 1;
 ---
 
 <section class="page-hero">
   <div class="wrap page-hero__grid">
     <div class="page-hero__text">
-      <h1 data-reveal>{t.galleryPage.title}</h1>
-      <p class="page-hero__lead" data-reveal style="--reveal-delay: 80ms">{t.galleryPage.lead}</p>
-      <p class="page-hero__meta" data-reveal style="--reveal-delay: 140ms">
+      <h1>{t.galleryPage.title}</h1>
+      <p class="page-hero__lead">{t.galleryPage.lead}</p>
+      <p class="page-hero__meta">
         {galleryCount} {t.galleryPage.countLabel}
       </p>
     </div>
 
-    <figure class="page-hero__figure" data-reveal style="--reveal-delay: 120ms">
+    <figure class="page-hero__figure">
       <button
         class="lightbox-trigger"
         type="button"

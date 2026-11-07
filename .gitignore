@@ -17,6 +17,8 @@ dist/
 .aider*
 .continue/
 .superpowers/
+docs/superpowers/
+.agents/
 AGENTS.md
 CLAUDE.md
 .mcp.json

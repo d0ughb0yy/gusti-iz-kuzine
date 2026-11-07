@@ -12,8 +12,6 @@ export const site = {
   url: 'https://gusti-iz-kuzine.vercel.app',
   serviceArea: 'Istria, Croatia',
   year: 2026,
-  // Palette 1–4. See src/styles/palettes.css and DESIGN.md.
-  palette: '3',
 };
 
 export const routes = {

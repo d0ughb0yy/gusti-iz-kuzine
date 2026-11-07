@@ -5,8 +5,8 @@ Technical notes for maintaining and deploying the site. For the business descrip
 ## Stack
 
 - Astro static output, no client framework, no adapter, no CMS.
-- Hand-written CSS with semantic palette tokens (`src/styles/palettes.css`).
-- Fonts bundled locally via `@fontsource` (Barlow body, Barlow Condensed display).
+- Hand-written CSS with semantic theme tokens (`src/styles/theme.css`) and one global stylesheet (`src/styles/global.css`).
+- Fonts bundled locally via `@fontsource` (EB Garamond display, Inter Tight working text).
 - Copy lives in plain JSON files; templates read from `src/config.ts`.
 
 ## Run it locally
@@ -24,12 +24,12 @@ npm run preview   # preview the production build
 
 | File | What lives there |
 | --- | --- |
-| `src/config.ts` | Brand name, Take a Chef URL, contact email, site URL, service area, active palette |
+| `src/config.ts` | Brand name, Take a Chef URL, contact email, site URL, service area |
 | `src/data/site/hr.json` | All Croatian copy: hero, intro, process, included, menus, statement, FAQ, CTA, footer, gallery |
 | `src/data/site/en.json` | All English copy |
 | `src/data/images.json` | Every image URL, dimensions, and bilingual alt text |
 | `src/data/gallery.json` | Gallery order and bilingual captions |
-| `src/styles/palettes.css` | All four palettes; switch with `site.palette` |
+| `src/styles/theme.css` | The single theme: ivory, ink, oxblood, dark field, type and spacing tokens |
 | `src/styles/global.css` | Layout, type, components, motion |
 
 `CONTENT.md` lists every placeholder that must be replaced before launch. `DESIGN.md` holds the visual system of record — colors, type, components, and guardrails.
@@ -54,9 +54,9 @@ A `<noscript>` rule reveals every panel when JavaScript is unavailable.
 
 #### Menu typography
 
-- Headings: **Barlow Condensed**, weight 700.
-- Dish names (`.course__option`) and body copy: **Barlow**, weight 400.
-- Course labels and the choice/tasting note: small uppercase labels in `--ink-soft`.
+- Headings: **EB Garamond**, weight 400.
+- Dish names (`.course__option`) and body copy: **Inter Tight**, weight 400.
+- Course labels and the choice/tasting note: micro uppercase labels in `--ink-soft`.
 
 ### Replacing an Unsplash image with a real photo
 
@@ -69,15 +69,18 @@ Gallery entries reference image keys, so you only edit `images.json` — not the
 
 **Responsive images note:** remote (Unsplash) entries automatically get a `srcset` derived from their URL crop parameters (see `srcsetFor` in `src/lib/content.ts`); local single-resolution files intentionally do not. If you want local photos to stay responsive, either keep them remote until launch or commit a small width series (e.g. `-480`, `-800`, `-1200` variants) and extend `images.json` accordingly — the layout and markup do not change either way.
 
-### Switching palettes
+### Theme tokens
 
-Change one line in `src/config.ts`:
+There is one theme. Edit `src/styles/theme.css`:
 
-```ts
-palette: '3', // '1' | '2' | '3' | '4'
-```
+- surfaces: `--ground`, `--ground-raised`, `--field`
+- ink: `--ink`, `--ink-soft`, `--on-field`, `--on-field-soft`
+- accent: `--accent`, `--accent-deep`
+- rule: `--line`, `--line-strong`
+- type: `--serif`, `--sans`, and the `--display` / `--heading` / `--lead` / `--body` / `--small` / `--micro` ramp
+- layout: `--max`, `--gutter`, `--section-y`, `--header-h`
 
-The four sets in `src/styles/palettes.css` are mapped to the same semantic roles, so every component follows automatically. The favicon is hardcoded to Palette 3; update `public/favicon.svg` if you switch permanently. See the design doc for each palette's role mapping and contrast notes.
+Components consume semantic tokens, never literal hexes. There is no palette switcher, no `data-palette`, and no `src/config.ts` palette entry. If the theme changes permanently, update the favicon (`public/favicon.svg`) and the front matter in `DESIGN.md` at the same time. See `DESIGN.md` for the contrast notes and the role of each color.
 
 ## Deploy to Vercel
 
@@ -101,10 +104,10 @@ After connecting a custom domain, update the URL in `astro.config.mjs` (`site:`)
 src/
   components/        Header, Footer, HomePage, GalleryPage, GalleryGrid, ContactPanel, LegalPage, ThankYouPage, CtaBand, Icon, Lightbox
   data/              Bilingual copy, image registry, gallery order
-  layouts/           BaseLayout (head, fonts, SEO, motion setup)
+  layouts/           BaseLayout (head, fonts, SEO, overlay-header logic)
   lib/content.ts     Typed access to copy and images (incl. srcset derivation)
   pages/             HR and EN home, gallery, privacy policy and thank-you, plus 404
-  styles/            Palette tokens and global CSS
+  styles/            One theme (`theme.css`) and the global stylesheet
 public/              Favicon, robots.txt, local images
 docs/                Development guide
 DESIGN.md            Visual system of record (colors, type, components, rules)
@@ -115,5 +118,5 @@ CONTENT.md           Launch checklist of every placeholder
 
 - Booking is intentionally external. The contact form submits to Web3Forms; there is no database or CMS to maintain.
 - The gallery lightbox is keyboard accessible (`Esc`, arrow keys) and closes on outside click.
-- Scroll reveals and lightbox transitions are disabled automatically under `prefers-reduced-motion`.
+- The hero entrance, menu fade, and lightbox transitions are disabled automatically under `prefers-reduced-motion`.
 - Copy, photos, and the chef's name in the prototype are placeholders. See `CONTENT.md`; pricing is quoted by Take a Chef and is not shown on the site.

@@ -160,10 +160,10 @@
     }
   },
   "chef-portrait": {
-    "src": "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=400&h=400&q=80",
-    "full": "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&h=800&q=85",
-    "width": 400,
-    "height": 400,
+    "src": "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&h=1500&q=80",
+    "full": "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1600&h=2000&q=85",
+    "width": 1200,
+    "height": 1500,
     "alt": {
       "hr": "Ruke kuhara kako režu svježe bilje",
       "en": "A chef's hands chopping fresh herbs"
@@ -197,6 +197,26 @@
     "alt": {
       "hr": "Redovi vinove loze u istarskom krajoliku",
       "en": "Rows of vines in the Istrian landscape"
+    }
+  },
+  "hero-plated": {
+    "src": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&h=800&q=80",
+    "full": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1800&h=1200&q=85",
+    "width": 1200,
+    "height": 800,
+    "alt": {
+      "hr": "File lososa s zelenim povrćem na tamnom tanjuru",
+      "en": "Salmon fillet with green vegetables on a dark plate"
+    }
+  },
+  "chef-action": {
+    "src": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&h=800&q=80",
+    "full": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1800&h=1200&q=85",
+    "width": 1200,
+    "height": 800,
+    "alt": {
+      "hr": "Pečena piletina s povrćem na pladnju",
+      "en": "Roast chicken with vegetables on a platter"
     }
   }
 }

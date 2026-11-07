@@ -12,7 +12,7 @@ Legend: **required** = do not launch without it · **recommended** = affects tru
 | --- | --- | --- | --- | --- |
 | 1.1 | Brand / site name | `src/config.ts` → `site.name` | `Gušti iz Kužine` | **done** — confirmed November 2026 |
 | 1.2 | Chef's name | `src/data/site/hr.json` → `statement.attribution`; `src/data/site/en.json` → `statement.attribution` | `Tin Lučić` | **required** |
-| 1.3 | Favicon | `public/favicon.svg` | Palette 3 monogram | optional |
+| 1.3 | Favicon | `public/favicon.svg` | Oxblood square with ivory serif monogram | optional |
 
 The brand name is used in the header, footer, page titles, 404, and structured data. `src/config.ts` drives the layout templates; the hero's stacked name and page titles live in `src/data/site/hr.json` and `src/data/site/en.json`.
 
@@ -49,9 +49,9 @@ The current design has no reviews section, so there is nothing to replace or pub
 
 ## 6. Photography
 
-> **Development status (2026-11-05):** stock photography is intentional while the site is in development. Do not treat it as a launch defect or replace it until Tin says the real shoot is ready. The `chef-portrait` / `gallery-plating` duplicate is deferred with it; resolve that with the real portrait, not another stock frame. Future critique runs should honour `.impeccable/critique/ignore.md`.
+> **Development status (2026-11-07):** stock photography is intentional while the site is in development. Do not treat it as a launch defect or replace it until Tin says the real shoot is ready. The redesign now has explicit slots for the hero plate (`hero-plated`), the action band (`chef-action`), and the story portrait (`chef-portrait`); the real shoot should fill those first. The `chef-portrait` / `gallery-plating` duplicate is deferred with it; resolve that with the real portrait, not another stock frame. Future critique runs should honour `.impeccable/critique/ignore.md`.
 >
-> **Decision (2026-11-06):** the gallery teaser's “photographs are temporary” note stays visible until Tin completes the real photo shoot. It is an intentional development disclosure, not a launch defect. The decision is also recorded in `.impeccable/critique/ignore.md` so future critiques drop it silently.
+> **Decision (2026-11-07):** stock photography is labelled simply as a placeholder, without a shoot date. The teaser note reads “Photographs are placeholders for now.” and the gallery page lead carries the same short note. It is an intentional development disclosure, not a launch defect. The decision is also recorded in `.impeccable/critique/ignore.md` so future critiques drop it silently.
 
 | # | Item | Where | Current placeholder | Status |
 | --- | --- | --- | --- | --- |
@@ -60,9 +60,11 @@ The current design has no reviews section, so there is nothing to replace or pub
 | 6.3 | Set real dimensions | `src/data/images.json` → `width`, `height` | Unsplash dimensions | **required** |
 | 6.4 | Rewrite alt text in both languages | `src/data/images.json` → `alt.hr`, `alt.en` | Descriptive, but describes stock photos | **required** |
 | 6.5 | Update gallery captions | `src/data/gallery.json` | Generic dish descriptions | recommended |
-| 6.6 | Replace the byline portrait with the chef's real photo | `images.json` → `chef-portrait` | The intro byline ships a hands-only stock placeholder. Swap in a real portrait of Tin (hands-and-face welcome); keep the hero and any other slot free of identifiable strangers. One entry: `src`, `full`, `width`, `height`, both `alt` texts. | **required** |
+| 6.6 | Hero plate | `images.json` → `hero-plated` | Salmon fillet on a white plate; 3:2 landscape. Replace with a plated dish that survives the dark scrim. | **required** |
+| 6.7 | Story portrait | `images.json` → `chef-portrait` | Hands-only stock placeholder; 4:5 portrait. Replace with a real portrait of Tin at work. Do not ship a stock face as Tin. | **required** |
+| 6.8 | Action band | `images.json` → `chef-action` | Roast chicken on a platter; 3:2 landscape. Replace with hands, fire, or plating. | **required** |
 
-How to swap an image (four steps) is in `docs/development.md` → "Replacing an Unsplash image with a real photo". Keep the aspect ratio close to the slot it fills: hero and intro are 4:5, gallery images vary.
+How to swap an image (four steps) is in `docs/development.md` → "Replacing an Unsplash image with a real photo". Keep the aspect ratio close to the slot it fills: the hero and action band are 3:2 landscape, the story portrait is 4:5, and gallery images vary.
 
 **Photo quality bar:** natural light, real tables, real hands, no heavy filters. The design leans on whitespace and typography; overly styled stock imagery undercuts it.
 

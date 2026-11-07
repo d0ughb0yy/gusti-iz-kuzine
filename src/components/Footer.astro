@@ -13,8 +13,10 @@ const year = site.year;
 
 <footer class="site-footer">
   <div class="wrap">
+    <p class="footer__brand">{site.name}</p>
+
     <div class="footer__bottom">
-      <nav class="footer__links" aria-label={t.footer.navLabel} data-reveal style="--reveal-delay: 80ms">
+      <nav class="footer__links" aria-label={t.footer.navLabel}>
         <a href={routes.home[lang]}>{t.nav.home}</a>
         <a href={routes.gallery[lang]}>{t.nav.gallery}</a>
         <a href={`${routes.home[lang]}#jelovnici`}>{t.nav.menu}</a>
@@ -24,11 +26,11 @@ const year = site.year;
         </a>
       </nav>
 
-      <span class="footer__slogan" data-reveal style="--reveal-delay: 120ms">
+      <span class="footer__slogan">
         {t.footer.areaText}
       </span>
 
-      <div class="footer__copyright" data-reveal style="--reveal-delay: 160ms">
+      <div class="footer__copyright">
         <span>© {year} {site.name}</span>
         <span>{t.footer.rights}</span>
       </div>

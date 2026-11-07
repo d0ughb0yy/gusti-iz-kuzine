@@ -21,7 +21,7 @@ const { items, labels } = Astro.props;
 <ul class="gallery" role="list">
   {
     items.map((item, index) => (
-      <li class="gallery__item" data-reveal style={`--reveal-delay: ${(index % 4) * 70}ms`}>
+      <li class="gallery__item">
         <button
           class="gallery__button lightbox-trigger"
           type="button"

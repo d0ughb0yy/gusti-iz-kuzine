@@ -1,74 +1,124 @@
 ---
 name: Gušti iz Kužine
-description: A restrained, seasonal editorial site for a private chef in Istria — Barlow Condensed display over Barlow body, three-colour palette, type-does-the-decorating.
+description: A quiet fine-dining site for a private chef in Istria — EB Garamond display over Inter Tight working text, warm ivory ground, near-black ink, one oxblood accent, one dark field.
 colors:
-  ground: "#eff2e9"
-  ink: "#1b2418"
-  ink-soft: "#4c5747"
-  accent: "#2c5f16"
-  accent-deep: "#1e4210"
-  accent-soft: "#dfe6cf"
-  chartreuse: "#c9d94e"
-  field: "#1e2a18"
-  on-field: "#eff2e9"
-  on-field-soft: "#c9d1bf"
-  line: "#cbd1c1"
-  muted: "#4c5747"
+  ground: "#f4f0e7"
+  ground-raised: "#ede7da"
+  ink: "#1a1815"
+  ink-soft: "#5b554a"
+  line: "#d6cfc0"
+  line-strong: "#8a8272"
+  accent: "#5a1e23"
+  accent-deep: "#411519"
+  field: "#151310"
+  on-field: "#f4f0e7"
+  on-field-soft: "#c6bfb2"
 typography:
   display:
-    fontFamily: "Barlow Condensed, Barlow, Helvetica Neue, Arial, sans-serif"
-    fontWeight: 700
-    fontSize: "clamp(5rem, 14vw, 13rem)"
-    lineHeight: 0.82
-    letterSpacing: "-0.03em"
-  headline:
-    fontFamily: "Barlow Condensed, Barlow, Helvetica Neue, Arial, sans-serif"
-    fontWeight: 700
-    fontSize: "clamp(2.25rem, 4.4vw, 4rem)"
-    lineHeight: 1
-    letterSpacing: "-0.02em"
-  page-title:
-    fontFamily: "Barlow Condensed, Barlow, Helvetica Neue, Arial, sans-serif"
-    fontWeight: 700
-    fontSize: "clamp(2.5rem, 6vw, 5rem)"
-    lineHeight: 0.95
-    letterSpacing: "-0.02em"
-  title:
-    fontFamily: "Barlow Condensed, Barlow, Helvetica Neue, Arial, sans-serif"
-    fontWeight: 700
-    fontSize: "clamp(1.5rem, 2.3vw, 2.25rem)"
-    lineHeight: 1.1
-    letterSpacing: "-0.02em"
-  lead:
-    fontFamily: "Barlow, Helvetica Neue, Arial, sans-serif"
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
     fontWeight: 400
-    fontSize: "clamp(1.125rem, 1.35vw, 1.375rem)"
+    fontSize: "clamp(2.75rem, 6vw, 5.5rem)"
+    lineHeight: 0.95
+    letterSpacing: "-0.01em"
+  headline:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "clamp(2.25rem, 4.6vw, 3.75rem)"
+    lineHeight: 1.05
+    letterSpacing: "-0.01em"
+  title:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "clamp(1.5rem, 2.4vw, 2.125rem)"
+    lineHeight: 1.15
+    letterSpacing: "-0.01em"
+  lead:
+    fontFamily: "Inter Tight, Helvetica Neue, Arial, sans-serif"
+    fontWeight: 400
+    fontSize: "clamp(1.125rem, 1.4vw, 1.375rem)"
+    lineHeight: 1.5
   body:
-    fontFamily: "Barlow, Helvetica Neue, Arial, sans-serif"
+    fontFamily: "Inter Tight, Helvetica Neue, Arial, sans-serif"
     fontWeight: 400
     fontSize: "1.0625rem"
-    lineHeight: 1.6
-  menu-item:
-    fontFamily: "Barlow, Helvetica Neue, Arial, sans-serif"
+    lineHeight: 1.65
+  small:
+    fontFamily: "Inter Tight, Helvetica Neue, Arial, sans-serif"
     fontWeight: 400
-    fontSize: "clamp(1.05rem, 1.3vw, 1.18rem)"
-    lineHeight: 1.5
-  link:
-    fontFamily: "Barlow, Helvetica Neue, Arial, sans-serif"
-    fontWeight: 400
-    fontSize: "0.95rem"
-  label:
-    fontFamily: "Barlow, Helvetica Neue, Arial, sans-serif"
-    fontWeight: 600
     fontSize: "0.875rem"
   micro:
-    fontFamily: "Barlow, Helvetica Neue, Arial, sans-serif"
-    fontWeight: 400
+    fontFamily: "Inter Tight, Helvetica Neue, Arial, sans-serif"
+    fontWeight: 600
     fontSize: "0.75rem"
-    letterSpacing: "0.12em"
+    letterSpacing: "0.14em"
+  page-title:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "clamp(2.75rem, 6vw, 5rem)"
+    lineHeight: 0.98
+    letterSpacing: "-0.01em"
+  legal-title:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "clamp(2.5rem, 5vw, 4rem)"
+    lineHeight: 1.05
+    letterSpacing: "-0.01em"
+  statement:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "clamp(2rem, 4.5vw, 4rem)"
+    lineHeight: 1.08
+    letterSpacing: "-0.01em"
+  statement-phone:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "1.75rem"
+    lineHeight: 1.15
+  footer-brand:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "clamp(2rem, 4vw, 3rem)"
+    lineHeight: 1
+  section-subhead:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "1.75rem"
+    lineHeight: 1.15
+  subhead:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "1.25rem"
+    lineHeight: 1.25
+  menu-tab:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "1.25rem"
+    lineHeight: 1.15
+  action-link:
+    fontFamily: "Inter Tight, Helvetica Neue, Arial, sans-serif"
+    fontWeight: 600
+    fontSize: "0.8125rem"
+    letterSpacing: "0.06em"
+  nav-phone:
+    fontFamily: "Inter Tight, Helvetica Neue, Arial, sans-serif"
+    fontWeight: 600
+    fontSize: "1rem"
+    letterSpacing: "0.08em"
+  hero-phone:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "clamp(2.75rem, 13vw, 4rem)"
+    lineHeight: 0.95
+  hero-phone-small:
+    fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
+    fontWeight: 400
+    fontSize: "clamp(2.5rem, 14vw, 3.25rem)"
+    lineHeight: 0.95
 spacing:
-  gutter: "clamp(1.25rem, 3.5vw, 3rem)"
-  section-y: "clamp(4rem, 7vw, 7rem)"
+  gutter: "clamp(1.25rem, 4vw, 4rem)"
+  section-y: "clamp(5rem, 9vw, 9rem)"
+  max: "1360px"
+  header: "76px"
 components: {}
 ---
 
@@ -76,142 +126,234 @@ components: {}
 
 ## Overview
 
-**Creative North Star: "The Istrian Table."**
+**Creative North Star: "The Tasting Menu."**
 
-A private chef in Istria rents a stranger's kitchen and turns a season into a dinner. The site behaves the same way: it shows up, stays out of the way, and lets the food and the hospitality carry the evening. There is no decorative noise — no patterns, no gradients, no script fonts, no dark-luxury clichés. Restraint is the brand.
+The site is the printed menu of a private dinner: a warm paper ground, a serif that behaves like type set for a restaurant, one oxblood mark, and photographs given the room to be the event. It borrows the visual calm of Eleven Madison Park and Minamishima without copying either. The chef's own story is the spine; the food is the first thing a guest sees.
 
-The design is intentionally **seasonal editorial**: a well-printed food magazine from the Mediterranean. Generous whitespace, a condensed display face that sets a confident table, a quiet three-colour palette rooted in olive groves and garden herbs, and rectangular photography allowed to breathe. Type does the decorating; anatomy is hairline and sharp.
+This is not a fresh-market site. The old chartreuse, olive, and Barlow world is gone. The new world is quieter, older, and more expensive: ivory paper, near-black ink, oxblood, and a single near-black field. Square corners, hairlines, and whitespace do the composition. Nothing is decorated for its own sake.
 
-**Key Characteristics:**
-- One grounded `ground`, one `ink`, one `accent` — plus a single inverted `field` for emphasis. Three jobs, four surfaces.
-- Typography carries hierarchy. Bounds, hairlines, and whitespace do the composition; there are no boxes bullying the eye.
-- Rectangular, uncropped-by-mask photography; the decoration budget is nearly empty — selection color, the focus halo, the CTA-band button hover, and the footer booking link are the only chartreuse appearances.
-- Immobile furniture: nothing the visitor is reading moves. Motion is short, decorative, and disabled under reduced-motion.
+**Key characteristics:**
+- One warm ivory ground, one raised ivory for the menu sheet, one near-black ink, one oxblood accent, one dark field.
+- EB Garamond for display, headings, menu names, and quotes; Inter Tight for body, labels, buttons, and UI.
+- Photography is rectangular and full-bleed where it matters. No masks, no cards, no shadows, no rounded corners.
+- One authored entrance on the home hero. Nothing else moves on scroll.
+- The booking funnel, bilingual content, menu tabs, gallery lightbox, FAQ, contact form, and no-JS behaviour are load-bearing and must survive any visual change.
 
 ## Colors
 
-The palette is Palette 3 — **deep green, olive, chartreuse on a bone ground.** It reads as Istria without becoming a "green website." Colors are semantic roles, never literal hexes, so the layout survives switching palettes.
+The palette is a single theme, defined in `src/styles/theme.css`. There is no palette switcher and no `data-palette` attribute. Colors are semantic roles; use the token, never the literal hex.
 
-### Primary
-- **Deep Green (Accent)** (`#2c5f16`): the one interactive color — primary buttons, the caret in form fields. Rare by design.
-- **Deep Green Deep** (`#1e4210`): hover/down state for accent, the invalid-field underline, dark band backgrounds.
+### Surfaces
+- **Ground** (`#f4f0e7`): the page. Warm ivory, slightly paper-like, never pure white.
+- **Ground Raised** (`#ede7da`): the printed menu sheet only. One step darker than the page, so the menu reads as a sheet laid on the table.
+- **Field** (`#151310`): the inverted field for the statement, closing CTA, and footer. It is warm near-black, not blue-black.
 
-### Secondary
-- **Chartreuse** (`#c9d94e`): the single "surprise" note — text selection, the outer focus-ring halo, the CTA-band button hover, and the footer booking link.
-- **Accent Soft** (`#dfe6cf`): the tinted band behind the menus and (again) the contact panel.
+### Ink
+- **Ink** (`#1a1815`): body text and primary outlines. Contrast on ground: 15.6:1.
+- **Ink Soft** (`#5b554a`): secondary text, captions, labels, menu descriptions. Contrast on ground: 6.5:1.
+- **On Field** (`#f4f0e7`): text and controls on the dark field. Contrast on field: 16.3:1.
+- **On Field Soft** (`#c6bfb2`): secondary text on the dark field. Contrast on field: 10.2:1.
 
-### Neutral
-- **Bone (Ground)** (`#eff2e9`): page background and the raised form panel.
-- **Ink** (`#1b2418`): body text.
-- **Ink Soft** (`#4c5747`): secondary text, captions, labels.
-- **Field** (`#1e2a18`): the inverted band for statement / CTA / footer; text on it is `on-field`.
-- **On Field** (`#eff2e9`) / **On Field Soft** (`#c9d1bf`): text on dark.
-- **Line** (`#cbd1c1`): hairline table and form lines only — never a section divider.
+### Accent
+- **Oxblood** (`#5a1e23`): the single accent. Active menu tab, focus ring on light surfaces, selection, links in legal copy, hover on arrow links. Contrast on ground: 11.2:1; on raised: 10.4:1.
+- **Oxblood Deep** (`#411519`): invalid-field underline and error text. Contrast on ground: 13.7:1.
 
-### Named Rules
-**The Three-Job Rule.** The page uses only `ground`, `ink`, and `accent` as jobs, plus one inverted `field`. A new visual idea must earn one of these four surfaces — it is not an excuse to add a color.
+### Line
+- **Line** (`#d6cfc0`): 1px hairlines for table-like rows, menu tabs, section edges, and the form's top rule. It is a rule, not a border costume.
+- **Line Strong** (`#8a8272`): the form-field underline only. Contrast on ground: 3.35:1, which clears the 3:1 non-text bar because the underline is a field's only boundary.
 
-**The Hairline Rule.** Borders are 1px hairlines. The only thickness that varies is the 2px invalid-underline, because it must survive native validation messaging. `--line` is for tables and form underlines, never section borders.
+### Named rules
+**The One-Accent Rule.** Oxblood appears in small doses: the active menu tab, a focus ring, a selected string, an error, a hover. It never fills a large surface and never becomes a second brand color.
+
+**The Hairline Rule.** Structural separators are 1px. The only 2px line is the invalid-field underline, because it must survive native validation messaging.
+
+**The Form-Boundary Rule.** A hairline that is merely decorative stays `--line`. The moment a line is the only edge of an interactive field, it becomes `--line-strong` so it clears 3:1.
 
 ## Typography
 
-**Display Font:** Barlow Condensed (weight 700, tight tracking to `-0.03em`)
-**Body Font:** Barlow (weight 400–650)
-**Label Font:** Barlow (weight 600)
+**Display / serif:** EB Garamond (400, 400 italic, 500), bundled locally via `@fontsource/eb-garamond`.
+**Working text / sans:** Inter Tight (400, 500, 600), bundled locally via `@fontsource/inter-tight`.
 
-Both are bundled locally via `@fontsource` — no font from Google, no third-party request. This is the deliberate, shipped type system. (The original build spec's Fraunces/Inter pairing is **superseded by decision**; see the spec §5.2 note. Barlow Condensed over Barlow is the system of record.)
+Both are local packages. There is no Google Fonts request and no third-party font host. The old Barlow / Barlow Condensed pairing is retired.
 
-**Character:** A confident-but-quiet editorial voice. The condensed display packs typographic strength into a small footprint, letting the chef's name and section titles set a table without shouting. Body Barlow stays soft, neutral, and highly readable — the guest speaks, the headline sets the room.
+**Character:** EB Garamond carries the restaurant voice: old, quiet, confident, slightly literary. Inter Tight is the working voice: compact, neutral, and highly readable at small sizes. The serif sets the table; the sans explains it. Neither is decorative.
 
 ### Hierarchy
-- **Display** (Barlow Condensed, 700, `clamp(5rem, 14vw, 13rem)`, line-height 0.82, `-0.03em`): the chef's two-line name over the hero photo. `--monument`.
-- **Headline** (Barlow Condensed, 700, `clamp(2.25rem, 4.4vw, 4rem)`, line-height ~1): section titles and the statement quote. `--display`.
-- **Page Title** (Barlow Condensed, 700, `clamp(2.5rem, 6vw, 5rem)`, line-height 0.95): the gallery page and 404 `h1`s.
-- **Title** (Barlow Condensed, 700, `clamp(1.5rem, 2.3vw, 2.25rem)`): `h3`, step and menu titles; menu tabs inherit this. `--heading`.
-- **Lead** (Barlow, 400, `clamp(1.125rem, 1.35vw, 1.375rem)`): section intros. `--lead`.
-- **Body** (Barlow, 400, `1.0625rem`, line-height 1.6): paragraphs, `text-wrap: pretty`. `--body`.
-- **Menu Item** (Barlow, 400, `clamp(1.05rem, 1.3vw, 1.18rem)`, line-height 1.5): dish names inside menu panels.
-- **Link** (Barlow, 400, `0.95rem`): header navigation links.
-- **Label / Small** (Barlow, 600, `0.875rem`): course labels, menu tab descriptions, language switch. `--small`.
-- **Micro** (Barlow, 400, `0.75rem`, `0.12em` tracking, uppercase): the `or` / `ili` separator between dish options.
+- **Display** (EB Garamond 400, `clamp(2.75rem, 6vw, 5.5rem)`, line-height 0.95, `-0.01em`): the home hero name and the largest page titles.
+- **Headline** (EB Garamond 400, `clamp(2.25rem, 4.6vw, 3.75rem)`, line-height 1.05): section titles and the statement quote at smaller viewports.
+- **Title** (EB Garamond 400, `clamp(1.5rem, 2.4vw, 2.125rem)`, line-height 1.15): `h3`, process step titles, menu panel titles, FAQ questions, and menu tabs.
+- **Lead** (Inter Tight 400, `clamp(1.125rem, 1.4vw, 1.375rem)`, line-height 1.5): section intros and the hero lead.
+- **Body** (Inter Tight 400, `1.0625rem`, line-height 1.65, `text-wrap: pretty`): paragraphs and menu descriptions.
+- **Small** (Inter Tight 400, `0.875rem`): captions, notes, form fallback, footer meta.
+- **Micro** (Inter Tight 600, `0.75rem`, `0.14em` tracking, uppercase): buttons, nav links, labels, the `ili` / `or` separator, counters, and micro-attributions.
 
-**Breakpoint variants.** Media queries adjust documented roles rather than introducing new sizes: menu tabs compress to `1.25rem` ≤960px, the hero name steps to `clamp(3rem, 17vw, 6rem)` ≤680px and `clamp(2.9rem, 19vw, 6rem)` ≤399px, and the statement quote drops to `1.5rem` ≤680px. These live in `src/styles/global.css` and are intentional exceptions to the ramp above.
+**Breakpoints.** The ramp is fluid, but the hero name is explicitly capped on phones: `clamp(2.75rem, 13vw, 4rem)` at ≤680px and `clamp(2.5rem, 14vw, 3.25rem)` at ≤399px. The statement quote drops to `1.75rem` at ≤680px. Menu tabs drop to `1.25rem` at ≤960px. On phones the menu sheet tightens too: the panel title is `1.375rem` and dish names are `1.0625rem` at ≤680px, keeping the title at roughly 1.3× the dish size. These are the only intentional size exceptions; they live in `src/styles/global.css`.
 
-Fluid scale hits every viewport; the hero name (`--monument`) climbs aggressively (`clamp(5rem, 14vw, 13rem)`) but is capped on narrow phones so it holds over the full-bleed photo.
+### Named rules
+**The Two-Voice Rule.** EB Garamond is for things a guest would read on a menu or a letter: names, titles, dishes, quotes. Inter Tight is for things a guest needs to use: body copy, labels, buttons, navigation, form fields. Do not set UI in the serif and do not set a dish name in the sans.
 
-### Named Rules
-**The Type-Does-The-Decorating Rule.** Hierarchy is carried by weight, scale, and tracking, not by borders or backgrounds. If a section needs a rule to separate itself, the over-step is in the type scale, not a new line.
+**The No-Eyebrow Rule.** No small uppercase kicker above a heading. The heading is the first thing in the block. Micro type is reserved for labels, navigation, buttons, and metadata, not for decorating a section title.
 
 ## Layout
 
-- **Content width:** `min(var(--max), 100% − 2×gutter)`; `--max` is `1440px`, gutter `clamp(1.25rem, 3.5vw, 3rem)`.
-- **Section rhythm:** `--section-y` is `clamp(4rem, 7vw, 7rem)` block padding, shared by every band including the contact panel.
-- **Grid language:** editorial two-column splits. The hero is a full-split name over a photograph; `intro`, `included`, `faq`, and `contact` use a text-column / figure-or-surface split. Dark bands (`statement`, `cta`, `footer`) are set on the single inverted `field`.
+- **Content width:** `min(1360px, 100% − 2×gutter)`, gutter `clamp(1.25rem, 4vw, 4rem)`.
+- **Section rhythm:** `--section-y` is `clamp(5rem, 9vw, 9rem)` block padding. The rhythm is generous; the page should feel paced, not packed.
+- **Header:** 76px on desktop, 64px minimum on phone. Solid ivory by default. Transparent only over the home hero, where it sits on the dark scrim.
+- **Grid language:** editorial splits, not cards. The story is portrait / text; the process is three numbered columns; the included list and FAQ are definition lists; the menus are a tab rail beside a printed sheet; the gallery teaser is an asymmetric 12-column grid.
+- **Home sequence:** hero, menu explorer, story, process, action band, included, gallery teaser, statement, FAQ, closing CTA, contact. The food comes before the chef: a guest sees the menus as the second beat, then reads who is cooking.
+- **Full-bleed moments:** the hero, the action band, the statement, the closing CTA, and the footer. They are the only places the page breaks the wrap.
 
-Responsive behavior:
-- **≤960px** sections stack to single column; figures cap at roughly `44rem`. The hero moves to a single-column page-hero.
-- **≤680px** the hero photo runs full-bleed edge-to-edge and carries the first screen; a neutral scrim keeps the name legible over it. The header becomes a wrapping two-row brand-over-nav; gallery-teaser stacks to one column; menu tabs stack with 2px underlines.
-- **≤399px** the hero photo height is reduced and the display type capped so the name stays readable.
+Responsive behaviour:
+- **≤960px:** the story, process head, included, FAQ, contact, gallery page hero, and 404 stack to one column. Figures cap at 44rem. The menu explorer becomes one column with a three-column tab row. The gallery page drops to two masonry columns.
+- **≤680px:** the header becomes a two-row disclosure header; the hero shortens; the hero actions stack; menu tabs become a vertical list; the menu sheet sizes to content; the gallery teaser and gallery page become one column; the footer centres.
+- **≤399px:** the hero name is capped tighter and the action band has a shorter minimum height.
 
 ## Elevation & Depth
 
-The system is **flat by default**. Depth is conveyed by alternating tonal bands (`ground` ↔ `field`) and by typographic scale, not by shadows. This is asserted, not accidental: a light–dark–light band rhythm paces the scroll without introducing color.
+The system is flat. There are no shadows, no floating cards, and no glass. Depth comes from two devices only:
 
-### Named Rules
-**The Flat-By-Default Rule.** Surfaces are flat at rest. There is no ambient shadow vocabulary; an element that needs lift earns it through tone, never a drop-shadow costume.
+1. **Tonal bands:** ivory → dark field → ivory → dark field. The alternation paces the scroll.
+2. **The printed sheet:** the menu panel is the one raised surface. It is raised by a single step in ground tone plus a 1px border, not by a shadow.
+
+### Named rule
+**The Flat-By-Default Rule.** If a surface needs to feel lifted, change its tone or its border. Never add a drop shadow.
 
 ## Shapes
 
-Corner language is **square**. Buttons, inputs, panels, frames, and images are all radius `0`. Borders are hairlines; the only curved geometry is the lightbox nav's circular buttons.
+Corners are square everywhere: buttons, inputs, panels, images, lightbox controls. The only curved geometry is the circular icon inside the lightbox buttons, not the button itself.
 
-### Named Rules
-**The Square-Voice Rule.** Sharp corners and hairlines project hand-made restraint. Rounded-card layouts are an anti-reference for this system.
+### Named rule
+**The Square-Voice Rule.** Square corners and hairlines read as hand-set print. Rounded cards are an anti-reference for this system.
 
 ## Components
 
+### Header
+- **Desktop:** serif wordmark left; micro uppercase nav (Menu, Contact, Gallery) and the HR/EN pair right. The active language is marked with `aria-current`, not linked. Links have 48px-tall hit areas.
+- **Home hero:** the header is absolutely positioned over the hero with no background or bottom border. Brand, nav, and language switch to `--on-field`. On every other page the header is solid ivory with a hairline bottom border.
+- **Mobile (≤680px):** brand left, language pair outside the disclosure panel, 48px menu toggle right. The panel opens below the first row as a full-width dark field over the hero, with 48px link rows. It closes on link click, `Esc` (focus returns to the toggle), outside click, and resize. Without JavaScript the toggle is hidden and the panel is visible.
+- **The overlay rule:** the transparent header is allowed only on the two home routes. A 404 or a secondary page that shares the `home` route key must not inherit it.
+
 ### Buttons
-- **Shape:** square (radius 0), inline-flex, min-height 48px (touch target), padding `0.8rem 1.4rem`.
-- **Primary (`btn`):** `background: var(--accent)`, `color: var(--on-field)`, weight 600, arrow icon inline. Hover/down darkens to `--accent-deep` over 180ms.
-- **CtaBand variant (`btn--light`):** on the inverted field the button flips — bone background (`--on-field`) with dark `--field` text; hover turns the fill chartreuse with ink text. The one place the button inverts.
-- **No ghost/secondary buttons:** the site uses one button voice plus text links (`link-arrow`, an arrow inline). This restraint is deliberate.
+- **One voice:** `.btn` is a transparent rectangle with a 1px ink border, micro uppercase label, 48px minimum height, and an inline arrow. Hover fills ink and flips the label to ground.
+- **On dark:** `.btn--light` uses an on-field border and label; hover fills on-field and flips to field.
+- **No filled primary button, no second button shape.** The booking CTA is the only button; every other action is a text link or an arrow link.
 
-### Inputs / Fields (Contact panel)
-- **Style:** label above; input is borderless except a 1px `--line` bottom hairline, transparent background, `caret-color: var(--accent)` — so the caret is the one note of color while typing.
-- **Hover:** underline warms to `--ink-soft`.
-- **Error:** native validation drives it; once truly edited, `:user-invalid` swaps to a 2px `--accent-deep` underline so the flag survives the native bubble. `:focus-visible` uses the global two-tone ring — a 3px ink ring inside an 8px chartreuse halo (`outline-offset: 3px`); on dark bands the ring flips to `--on-field`.
-- **Labels:** Barlow small (600) in `--ink-soft`. Fields have correct `autocomplete` and `required`. Name/surname share a two-column row at every width; ≤680px only the row gap tightens.
-- **Delivery:** `mailto:` compose, no backend — nothing is stored.
+### Arrow links
+- `.link-arrow` is an underlined text link with an inline arrow, 44px minimum height. The underline is text-decoration, not a border, so the arrow sits outside it. Hover moves to oxblood.
+- Used for "how it works", "reserve the evening", "see the full gallery", and the menu CTA.
 
-### Navigation (Header)
-- **Desktop:** wordmark (`brand`) left; the three anchor links (menus, contact, gallery) and the HR/EN language pair right, one 72px row. Plain text anchors with an `--ink`→`--accent` hover; the active language is marked (`aria-current`), not linked.
-- **Mobile (≤680px):** collapses to a disclosure menu. Row one holds the brand left and the **language pair stays outside the panel** (wayfinding, not navigation) beside a 44px menu toggle (`menu`/`close` icon swap, `aria-expanded` + `aria-controls`). Row two is the stacked link panel: full-width rows at ~58px tap height, spacing only — no hairlines between items.
-- **Behavior:** closes on link click, `Esc` (focus returns to the toggle), outside click, and resize above the breakpoint; focus moves to the first link on open. Opens with a 300ms height collapse (`grid-template-rows 0fr ↔ 1fr`) plus a 240ms fade — never a snap. Without JavaScript the toggle hides and the panel stays visible stacked — the header never becomes a dead button.
+### Hero
+- Full-bleed food photograph, a warm near-black scrim, centred serif name, lead, one outline booking CTA, one underlined secondary link, and a booking note.
+- The scrim is a four-stop vertical gradient. Its minimum opacity over the text area is 0.55, which keeps ivory type at or above 4.5:1 even over a white plate.
+- One authored entrance: the photograph settles from a 1.04 scale over 1.6s, the content rises 12px over 800ms with a 160ms delay. `prefers-reduced-motion` removes both.
+- The hero image is decorative (`alt=""`) because the name and lead carry the meaning.
 
-### Menu Explorer
-- **Tabs** are text buttons (Barlow Condensed 700) with name + small description; active depth comes from underline and weight. They are an **`aria-pressed` toggle group, deliberately not a WAI-APG tabs widget** — three tabs, click to switch, no roving tabindex or arrow-key semantics; without JavaScript all panels stay visible. A polite live region (`[data-explorer-status]`) announces the menu now on screen, since the pressed state alone only reaches a screen-reader user while the button has focus. Record any future change to real tabs semantics as a decision, not a drift.
-- **Panels:** each menu is a fixed-height sheet above 680px; below that (phone) panels size to their content so the shorter tasting menu leaves no empty sheet. Inactive panels are `hidden`. Course name + one/two dish options; two options sit side by side with an uppercase `or` separator in hairline borders. No menu photography.
+### Story
+- 4:5 portrait slot left, heading and two paragraphs right, a hairline byline with the chef's name and one humanising fact, then the process link.
+- The portrait is a lightbox trigger. Its `alt` is empty; the button label names the chef.
+- On phone the image comes first, then the text.
+
+### Process
+- Three numbered steps (`01`, `02`, `03`), each with a hairline top, a micro number, a serif title, and a short paragraph. The numbers are information, not decoration.
+- The head is a two-column split: heading left, lead right. It stacks at ≤960px.
+
+### Action band
+- One full-bleed photograph with a dark bottom gradient and a single small caption. It is a cinematic pause between the process and the included list, not a gallery.
+
+### Included
+- A `<dl>` of item / detail rows with hairline tops and a final hairline bottom. No table, no card. The text column explains the offer; the list is the receipt.
+
+### Menu explorer
+- **Tabs:** serif name plus a small sans description. They are an `aria-pressed` toggle group, deliberately not a WAI-APG tabs widget: three tabs, click to switch, no roving tabindex or arrow keys. A polite live region announces the menu now on screen.
+- **Sheet:** the active menu sits on `--ground-raised` inside a 1px border. Course name in micro uppercase; one or two dish options in serif; two options sit side by side around an uppercase `ili` / `or` separator with hairline edges.
+- **Height:** on desktop and tablet, all panels share one grid cell, so the sheet keeps the tallest panel's height and switching tabs never moves the page. On phone, panels size to their content so the shorter menu leaves no empty sheet.
+- **No JS:** every panel is visible and stacked; the tabs remain visible but are not the only way to read the menus.
+- **No menu photography.** The menu is a printed sheet, not a gallery.
+
+### Gallery teaser
+- A 12-column asymmetric grid of four images: 4:3, 3:4, 1:1, 16:9, with captions. The images are offset vertically so the section reads as prints dropped on the page, not a uniform card grid.
+- Each image is a lightbox trigger. The section ends with a small stock-photography note and the full-gallery link.
+
+### Statement
+- A dark field with one large EB Garamond italic quote and a micro attribution. It is the emotional peak and the only place italic serif is used at scale.
+
+### FAQ
+- Heading and lead left; a `<dl>` of questions and answers right, separated by hairlines. Answers are always open. No accordion.
+
+### Closing CTA
+- A dark field split: serif headline and lead left, outline booking button right. On phone the action moves below the text and aligns left.
+- The Take a Chef handoff is explained once, in the hero booking note. The CTA band does not repeat it.
+
+### Contact
+- Text left, form right. The form is not a card: a hairline top, labels in micro uppercase, and fields that are transparent with a 1px `--line-strong` bottom edge, 48px tall.
+- Focus uses the global ring; invalid fields use a 2px oxblood-deep underline and a visible hint. The Web3Forms markup and script are preserved.
+- Name and surname share a row on desktop; everything stacks on phone. The form has a visible privacy note and a mailto fallback.
+
+### Footer
+- Dark field, serif wordmark, micro uppercase nav, a centred area line, and a right-aligned copyright. The booking link is underlined. Links have 44px-tall hit areas.
+
+### Gallery page
+- Page hero: serif title, lead, photo count, and a large 4:5 image (the bread photograph). The hero image is not repeated in the grid.
+- Grid: 3-column CSS masonry on desktop, 2 at ≤960px, 1 at ≤680px. Varied aspect ratios and small captions. Every item opens the lightbox with the group's count.
+- The page closes with the same dark CTA band.
 
 ### Lightbox
-- Native `<dialog>` (`showModal`), square photo stage with `object-fit: contain`, prev/next/shape controls, `aria-live` caption, keyboard (`←`/`→`/`Esc`), outside-click close, swipe on touch, and a token counter so rapid arrow presses cannot render the wrong photo. Focus returns to the trigger on close.
+- Native `<dialog>` with `showModal`, near-black field, square 1px-bordered controls, serif caption, micro counter.
+- Keyboard (`←`/`→`/`Esc`), outside-click close, touch swipe, and focus return to the trigger. Rapid arrow presses use a token counter so the wrong photo cannot render.
 
-### Intro Byline
-- A small square portrait (`4.5rem`, radius 0, `object-fit: cover`) beside the chef's name and one humanizing line, sitting between the intro paragraphs and the section link. The image is decorative (`alt=""`) — the name beside it is the content. It reads as an author byline, not a card: no border, no background, whitespace only.
+### Legal, thank-you, 404
+- **Legal:** one 44rem column, serif `h1`/`h2`, sans body, hairline sections, oxblood links.
+- **Thank-you:** centred serif headline, lead, one outline home button, two text actions.
+- **404:** serif headline, Croatian and English paths back, one outline home button, two text links, and a 2×2 image grid of Istria and the table.
 
-### Contact Panel
-- Accent-soft band (like menus) containing a `ground`-colored panel with the form — same syntax as the menu panel. Heading, lead, and a "reply within 24h" note left; form right.
+## Motion
+
+- **Hero:** the only authored entrance. Image settles; content rises once. No scroll-triggered reveals anywhere on the site.
+- **Menu:** a 300ms fade/8px rise when a panel becomes active. The panel height is stable on desktop.
+- **Hover:** buttons, arrow links, gallery images, and menu tabs use 220–420ms transitions. Image hover is a 1.02 scale and 0.9 opacity, never a colour wash.
+- **Reduced motion:** all animation and transition durations collapse to 0.01ms; the hero entrance and menu fade are removed; smooth scrolling is disabled.
+
+## Accessibility
+
+- **Contrast:** ink on ground 15.6:1; ink-soft on ground 6.5:1; oxblood on ground 11.2:1; on-field on field 16.3:1; on-field-soft on field 10.2:1. The hero scrim keeps the lead at or above 4.5:1.
+- **Focus:** 2px oxblood ring with 3px offset on light surfaces; 2px on-field ring on the hero, dark bands, footer, and lightbox.
+- **Targets:** primary controls, header links, language links, and form fields are at least 48px tall; arrow links and footer links are at least 44px. Inline links inside paragraphs are the only exception.
+- **No JS:** the header toggle hides, the nav stays visible, all three menus stack, and the form still posts. The site never depends on JavaScript for content.
+- **Forms:** labels, `required`, `autocomplete`, native validation, `:user-invalid` hints, a visible status region, and a mailto fallback.
+- **Images:** every image keeps intrinsic `width`/`height`; localised `alt` where the image is content; decorative images use `alt=""` and are labelled by the surrounding button or heading.
+- **Language:** `lang` is set on `<html>`; the HR/EN pair uses `aria-current`; all copy exists key-for-key in both languages.
+
+## Photography
+
+The site is designed around real photographs that are still being shot. The slots are fixed; the placeholder stock is temporary.
+
+| Slot | Where | Ratio | Notes |
+| --- | --- | --- | --- |
+| `hero-plated` | Home hero | 3:2 landscape | A plated dish, dark or moody enough to survive the scrim. The current salmon is a placeholder. |
+| `chef-portrait` | Story | 4:5 portrait | Tin, ideally at work or in the kitchen. The current hands-only image is a placeholder; do not present a stock face as Tin. |
+| `chef-action` | Action band | 3:2 landscape | Hands, fire, plating, or a finished roast. The current roast chicken is a placeholder. |
+| Gallery | Gallery page and teaser | mixed | Food, table, and Istria. The gallery page currently carries temporary food and preparation images plus real Istria photographs. |
+
+**Named rules**
+- **The Food-First Rule.** The first screen is food, not a portrait. The portrait belongs in the story section.
+- **The Real-Face Rule.** Do not ship a stock person as the chef. Until the real portrait exists, use a hands-only or detail image and keep the caption honest.
+- **The No-Mask Rule.** Photography is rectangular. No circles, blobs, or decorative masks.
 
 ## Do's and Don'ts
 
-### Do:
-- Do use one accent per surface and let it stay rare — the green button and the occasional chartreuse note (selection, focus halo, one hover, one footer link) are the entire drama budget.
-- Do use Barlow Condensed for display/headings and Barlow for body and UI. Do keep `--monument` fluid and capped on narrow phones.
-- Do use hairline (1px) borders and square corners; let whitespace and type carry the section change.
-- Do alternate light (`ground`) and dark (`field`) bands to pace the scroll, reusing the same two surfaces.
-- Do keep every image rectangular with intrinsic `width`/`height` (no layout shift) and local `alt` per language.
+### Do
+- Do use EB Garamond for display, headings, menu names, and quotes; Inter Tight for body, labels, buttons, navigation, and forms.
+- Do keep one oxblood accent and let it stay rare: active tab, focus ring, selection, error, hover.
+- Do use 1px hairlines and square corners; let whitespace and type carry the section change.
+- Do alternate the ivory ground and the dark field to pace the scroll.
+- Do keep the booking funnel, the bilingual keys, the menu tabs, the gallery lightbox, the FAQ, the contact form, and the no-JS fallback intact.
+- Do keep every image rectangular with intrinsic `width`/`height` and localised `alt` where it carries meaning.
+- Do keep the hero scrim dark enough that ivory type clears 4.5:1 over a bright plate.
 
-### Don't:
-- Don't add a second accent, a script display face, gold, or dark-luxury styling — restraint is the brand.
-- Don't use shadows for depth or rounded cards as the page skeleton; tone bands and type scale do that work.
-- Don't put an image inside a decorative mask (circle, shape) — photography is rectangular and uncropped.
-- Don't use `--line` as a section divider; it exists for tables and form underlines only.
-- Don't use a stock face anywhere. The intro byline (`chef-portrait` in `images.json`) ships a hands-only placeholder until the chef's real portrait replaces it — one entry swap, no markup change (`CONTENT.md` §6.6).
+### Don't
+- Don't add a second accent, a script face, gold, or dark-luxury styling. Restraint is the brand.
+- Don't add rounded cards, shadows, glass, or a second button shape.
+- Don't put a kicker or eyebrow above a heading.
+- Don't use a stock face as the chef.
+- Don't use `--line` as a decorative section divider; it exists for table rows, menu tabs, form underlines, and section edges.
+- Don't reintroduce a palette switcher, `data-palette`, the Barlow fonts, chartreuse, or the old scroll-reveal observer.

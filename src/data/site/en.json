@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Gušti iz Kužine: private chef in Istria",
-    "description": "Private chef in Istria for up to six guests. I cook seasonal food from local markets in your home or villa."
+    "description": "Private chef in Istria for up to six guests. I cook seasonal dishes from the local market in your home or villa."
   },
   "nav": {
     "home": "Home",
@@ -17,39 +17,42 @@
     "skip": "Skip to content"
   },
   "hero": {
-    "name": ["Gušti", "iz Kužine"],
-    "lead": "A private chef in Istria. The restaurant kitchen moves into your home: the same precision, the same technique, without the formality. The menu comes together that morning at the market.",
+    "name": [
+      "Gušti",
+      "iz Kužine"
+    ],
+    "lead": "A private chef in Istria. Restaurant cooking in your home, without the formality. The menu follows the season.",
     "primaryCta": "Check availability",
     "secondaryCta": "See the menus",
-    "bookingNote": "You'll pick a date on Take a Chef. I reply within 24 hours.",
-    "image": "istria-market",
-    "imageCaption": "Pula market hall, Istria."
+    "bookingNote": "Send an enquiry on Take a Chef. I'll get in touch within 24 hours.",
+    "image": "hero-plated",
+    "imageCaption": "Salmon, vegetables, and sauce."
   },
   "intro": {
     "title": "Local, in season.",
     "paragraphs": [
-      "Menu development always starts at the local market. I buy from local farmers and fishermen.",
-      "I cook with care to bring restaurant-level precision and techniques into your home. The plates are carefully plated and the service follows your pace."
+      "We agree the menu in advance. I choose the ingredients that morning at the market, from local growers and fishermen.",
+      "I bring restaurant technique and precision into your kitchen. Each plate is composed with care."
     ],
     "link": "How it works",
     "who": {
-      "name": "I'm Tin Lučić.",
-      "fact": "I grew up in a little fishing town in Fažana. Today I cook across Istria."
+      "name": "I'm Tin.",
+      "fact": "I grew up in the little fishing town of Fažana. Today I cook across Istria."
     },
     "image": "istria-motovun",
     "imageCaption": "Motovun, Istria."
   },
   "how": {
-    "title": "You choose the date, and leave the rest to me.",
-    "lead": "We set the date and the number of guests. We agree on a menu, I cook while you enjoy.",
+    "title": "You choose the date. I'll take care of the rest.",
+    "lead": "We set the date, the number of guests, and the menu. I cook; you enjoy the evening.",
     "steps": [
       {
         "title": "Choose a date and a place",
-        "text": "Tell me when and where: a home, a villa, a terrace. I bring my own knives and basic equipment."
+        "text": "Tell me when and where: a home, a villa, a terrace."
       },
       {
         "title": "We plan the menu",
-        "text": "We talk about preferences, allergies, and the occasion. I suggest a menu, and you confirm it."
+        "text": "We talk about your preferences, allergies, and the occasion. I suggest a menu, and you confirm it."
       },
       {
         "title": "I cook, you enjoy",
@@ -59,8 +62,8 @@
   },
   "included": {
     "title": "What the price covers",
-    "lead": "One price for the evening: food, service, cleaning, and drinks on request.",
-    "note": "The price is agreed by the number of guests and the menu you choose.",
+    "lead": "The price covers the whole evening: food, service, and cleaning.",
+    "note": "The price depends on the number of guests and the menu you choose.",
     "colItem": "Included",
     "colMeaning": "What it means",
     "rows": [
@@ -70,7 +73,7 @@
       },
       {
         "item": "Cooking and serving in your kitchen",
-        "detail": "I arrive with knives and basic equipment."
+        "detail": "I bring the basic equipment."
       },
       {
         "item": "Service course by course",
@@ -82,10 +85,10 @@
       },
       {
         "item": "Washing up and cleaning the kitchen",
-        "detail": "The kitchen is left clean."
+        "detail": "I leave the kitchen clean."
       },
       {
-        "item": "Quiet service during dinner",
+        "item": "Unobtrusive service during dinner",
         "detail": "Without interrupting the conversation."
       },
       {
@@ -96,22 +99,22 @@
   },
   "menus": {
     "title": "Every menu starts with a conversation.",
-    "lead": "The menus change with the season. These three are the current proposals; we adjust them together.",
+    "lead": "These three are a starting point; we adjust them together.",
     "selectLabel": "Choose a menu",
-    "current": "Showing menu",
+    "current": "Current menu",
     "choiceNote": "Choose one dish per course.",
     "tastingNote": "A set tasting menu, no choices.",
     "or": "or",
     "items": [
       {
         "name": "Meat lovers",
-        "description": "For meat lovers, the best and the most local.",
+        "description": "Fresh and local.",
         "courses": [
           {
             "name": "Starter",
             "options": [
               "Goat cheese mousse, vegetables three ways",
-              "Prosciutto seasonal salad"
+              "Seasonal salad with prosciutto"
             ]
           },
           {
@@ -139,7 +142,7 @@
       },
       {
         "name": "Fresh and local",
-        "description": "The chef's choice of local delights.",
+        "description": "The chef's choice of local dishes.",
         "courses": [
           {
             "name": "Starter",
@@ -173,15 +176,19 @@
       },
       {
         "name": "Fresh from the Adriatic",
-        "description": "Local seafood, freshly caught.",
+        "description": "Seafood from the local catch.",
         "courses": [
           {
             "name": "Starter",
-            "options": ["Fish of the day ceviche"]
+            "options": [
+              "Fish of the day ceviche"
+            ]
           },
           {
             "name": "First course",
-            "options": ["Squid ragu, charred leeks, polenta"]
+            "options": [
+              "Squid ragu, charred leeks, polenta"
+            ]
           },
           {
             "name": "Main course",
@@ -191,36 +198,59 @@
           },
           {
             "name": "Dessert",
-            "options": ["Cheesecake, chocolate crumble, white chocolate crisps"]
+            "options": [
+              "Cheesecake, chocolate crumble, white chocolate crisps"
+            ]
           }
         ]
       }
     ],
-    "cta": "Book your dinner"
+    "cta": "Check availability"
   },
   "galleryTeaser": {
     "title": "Table, plate, place.",
     "lead": "Photographs of the table, the plates, and Istria.",
-    "note": "Photographs of food and preparation are temporary. The Istrian photographs are real.",
+    "note": "Photographs are placeholders for now.",
     "cta": "Full gallery",
-    "images": ["gallery-charcuterie", "gallery-salmon", "gallery-olive-oil", "istria-vineyard"]
+    "images": [
+      "gallery-charcuterie",
+      "gallery-dessert",
+      "gallery-olive-oil",
+      "istria-vineyard"
+    ]
   },
   "statement": {
     "label": "From the kitchen",
-    "text": "The season sets the menu. What is best at the market that morning is what will be on the plate that evening.",
+    "text": "What is best at the market that morning ends up on the plate that evening.",
     "attribution": "Tin Lučić, chef"
   },
   "faq": {
     "title": "Good to know before you book.",
-    "lead": "If something isn't answered here, ask me on my Take a Chef profile.",
+    "lead": "If you can't find your answer here, write to me using the form below.",
     "items": [
       {
         "q": "How many guests do you cook for?",
-        "a": "Up to six. For larger groups, ask me and I will tell you what is possible."
+        "a": "Up to six. For larger groups, ask me and I'll tell you what's possible."
+      },
+      {
+        "q": "How far in advance should I book?",
+        "a": "At least four days before your dinner."
+      },
+      {
+        "q": "How do I book?",
+        "a": "You book through my Take a Chef profile. Choose a date and send an enquiry there, and we arrange the details afterwards."
+      },
+      {
+        "q": "How is the price set?",
+        "a": "The price depends on the number of guests and the menu you choose. You get the exact quote on Take a Chef."
+      },
+      {
+        "q": "How do I pay?",
+        "a": "Payment goes through Take a Chef. Refunds and cancellations are handled there too."
       },
       {
         "q": "Do you cook outside Istria?",
-        "a": "I cook across Istria. Outside Istria, travel costs are discussed and agreed in advance."
+        "a": "I cook across Istria. For locations outside Istria, travel costs are agreed when we get in touch."
       },
       {
         "q": "What do you need in the kitchen?",
@@ -228,15 +258,11 @@
       },
       {
         "q": "Allergies and dietary needs?",
-        "a": "Tell me about allergies and dietary needs before we set the menu. I adjust the menu for both."
+        "a": "Tell me about any allergies or dietary needs before we set the menu, and I'll plan around them."
       },
       {
         "q": "How long does dinner last?",
         "a": "Usually three to four hours, depending on the number of courses and the pace of the evening."
-      },
-      {
-        "q": "How do I book?",
-        "a": "You book through my Take a Chef profile. Choose a date and send an enquiry there, and we arrange the details afterwards."
       },
       {
         "q": "Do you leave the kitchen clean?",
@@ -246,8 +272,8 @@
   },
   "contact": {
     "title": "Still have a question? Write to me.",
-    "lead": "For everything else — a question, an idea, an occasion — write to me here.",
-    "note": "I reply within 24 hours.",
+    "lead": "Have a question, an idea, or a special occasion? Write to me here.",
+    "note": "I'll get in touch within 24 hours.",
     "formLabel": "Contact form",
     "subject": "Enquiry from the Gušti iz Kužine website",
     "fields": {
@@ -264,7 +290,7 @@
       "message": "This field is required."
     },
     "sending": "Sending your message...",
-    "success": "Thank you. Your message has been sent. I reply within 24 hours.",
+    "success": "Thank you. Your message has been sent. I'll get in touch within 24 hours.",
     "error": "Something went wrong. Please try again, or write to me directly at the address below.",
     "fallback": {
       "before": "Prefer email? Write to me directly at",
@@ -276,23 +302,22 @@
   },
   "cta": {
     "title": "Your dinner starts with one enquiry.",
-    "lead": "Check availability, choose a date, and send me a few details. I'll reply with a menu proposal.",
-    "button": "Check availability",
-    "note": "Bookings go through my Take a Chef profile."
+    "lead": "Choose a date on Take a Chef and send your enquiry. I'll get back to you with a menu proposal.",
+    "button": "Check availability"
   },
   "footer": {
     "navLabel": "Pages",
     "bookingLink": "Take a Chef profile",
-    "areaText": "Istria. I cook at your place.",
+    "areaText": "Istria. I cook in your home.",
     "rights": "All rights reserved."
   },
   "galleryPage": {
     "metaTitle": "Gallery: Gušti iz Kužine",
     "metaDescription": "Photographs of tables, plates, and Istria from private dinners.",
     "title": "What dinner looks like.",
-    "lead": "Photographs of the table, the plates, and Istria. Photographs of food and preparation are temporary.",
+    "lead": "Photographs are placeholders for now.",
     "countLabel": "photographs",
-    "ctaTitle": "Would you like a table like this for your evening?",
+    "ctaTitle": "Would you like an evening like this?",
     "ctaLead": "Check availability and send me a few details about your evening.",
     "ctaButton": "Check availability"
   },
@@ -311,7 +336,10 @@
           "For any question about this policy or about how personal data is handled, write to the email address below."
         ],
         "links": [
-          { "label": "tin.lucic172@gmail.com", "href": "mailto:tin.lucic172@gmail.com" }
+          {
+            "label": "tin.lucic172@gmail.com",
+            "href": "mailto:tin.lucic172@gmail.com"
+          }
         ]
       },
       {
@@ -342,7 +370,10 @@
           "I do not sell the data or share it with third parties for marketing."
         ],
         "links": [
-          { "label": "Web3Forms privacy policy", "href": "https://web3forms.com/privacy" }
+          {
+            "label": "Web3Forms privacy policy",
+            "href": "https://web3forms.com/privacy"
+          }
         ]
       },
       {
@@ -369,8 +400,14 @@
           "If you believe the processing is unlawful, you can complain to the Croatian Personal Data Protection Agency (AZOP), Ulica Metela Ožegovića 16, 10000 Zagreb, phone +385 1 4609 000."
         ],
         "links": [
-          { "label": "azop@azop.hr", "href": "mailto:azop@azop.hr" },
-          { "label": "www.azop.hr", "href": "https://azop.hr/" }
+          {
+            "label": "azop@azop.hr",
+            "href": "mailto:azop@azop.hr"
+          },
+          {
+            "label": "www.azop.hr",
+            "href": "https://azop.hr/"
+          }
         ]
       },
       {
@@ -395,7 +432,10 @@
           "For questions about privacy and data processing, write to the email address below."
         ],
         "links": [
-          { "label": "tin.lucic172@gmail.com", "href": "mailto:tin.lucic172@gmail.com" }
+          {
+            "label": "tin.lucic172@gmail.com",
+            "href": "mailto:tin.lucic172@gmail.com"
+          }
         ]
       }
     ]
@@ -404,9 +444,9 @@
     "metaTitle": "Thank you: Gušti iz Kužine",
     "metaDescription": "Your message has been sent.",
     "title": "Thank you. Your message has been sent.",
-    "lead": "I reply within 24 hours. If the message did not send or you change your mind, write to me directly at tin.lucic172@gmail.com.",
+    "lead": "I'll get in touch within 24 hours. If your message didn't go through, or you change your mind, write to me directly at tin.lucic172@gmail.com.",
     "home": "Back to home",
-    "booking": "Book your dinner",
+    "booking": "Check availability",
     "contact": "Write to me"
   },
   "lightbox": {
@@ -415,5 +455,8 @@
     "prev": "Previous photo",
     "next": "Next photo",
     "of": "of"
+  },
+  "action": {
+    "caption": "Roasted, served."
   }
 }
