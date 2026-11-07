@@ -102,8 +102,8 @@ typography:
   nav-phone:
     fontFamily: "Inter Tight, Helvetica Neue, Arial, sans-serif"
     fontWeight: 600
-    fontSize: "1rem"
-    letterSpacing: "0.08em"
+    fontSize: "0.9375rem"
+    letterSpacing: "0.1em"
   hero-phone:
     fontFamily: "EB Garamond, Georgia, Times New Roman, serif"
     fontWeight: 400
@@ -198,7 +198,7 @@ Both are local packages. There is no Google Fonts request and no third-party fon
 
 - **Content width:** `min(1360px, 100% − 2×gutter)`, gutter `clamp(1.25rem, 4vw, 4rem)`.
 - **Section rhythm:** `--section-y` is `clamp(5rem, 9vw, 9rem)` block padding. The rhythm is generous; the page should feel paced, not packed.
-- **Header:** 76px on desktop, 64px minimum on phone. Solid ivory by default. Transparent only over the home hero, where it sits on the dark scrim.
+- **Header:** 76px on desktop, 64px minimum on phone. Solid ivory by default. Transparent only over the home hero, where it sits on the dark scrim; opening the mobile menu returns it to solid ivory.
 - **Grid language:** editorial splits, not cards. The story is portrait / text; the process is three numbered columns; the included list and FAQ are definition lists; the menus are a tab rail beside a printed sheet; the gallery teaser is an asymmetric 12-column grid.
 - **Home sequence:** hero, menu explorer, story, process, action band, included, gallery teaser, statement, FAQ, closing CTA, contact. The food comes before the chef: a guest sees the menus as the second beat, then reads who is cooking.
 - **Full-bleed moments:** the hero, the action band, the statement, the closing CTA, and the footer. They are the only places the page breaks the wrap.
@@ -230,7 +230,7 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 ### Header
 - **Desktop:** serif wordmark left; micro uppercase nav (Menu, Contact, Gallery) and the HR/EN pair right. The active language is marked with `aria-current`, not linked. Links have 48px-tall hit areas.
 - **Home hero:** the header is absolutely positioned over the hero with no background or bottom border. Brand, nav, and language switch to `--on-field`. On every other page the header is solid ivory with a hairline bottom border.
-- **Mobile (≤680px):** brand left, language pair outside the disclosure panel, 48px menu toggle right. The panel opens below the first row as a full-width dark field over the hero, with 48px link rows. It closes on link click, `Esc` (focus returns to the toggle), outside click, and resize. Without JavaScript the toggle is hidden and the panel is visible.
+- **Mobile (≤680px):** brand left, language pair outside the disclosure panel, 48px menu toggle right. The panel opens below the first row as a full-width ivory sheet, with centered labels and 55px link rows. Opening it returns the overlay header to its solid ivory state: `--ground` background, `--ink` text, and a `--line` bottom rule. It closes on link click, `Esc` (focus returns to the toggle), outside click, and resize. Without JavaScript the toggle is hidden, the header is solid ivory, and the panel is visible.
 - **The overlay rule:** the transparent header is allowed only on the two home routes. A 404 or a secondary page that shares the `home` route key must not inherit it.
 
 ### Buttons

@@ -82,6 +82,7 @@ const contactHref = `${routes.home[lang]}#kontakt`;
 <script is:inline>
   (() => {
     const toggle = document.querySelector('[data-menu-toggle]');
+    const header = toggle?.closest('.site-header');
     // Scoped away from the menu-explorer panels, which use data-menu-panel.
     const panel = document.querySelector('[data-header-panel]');
     const status = document.querySelector('[data-menu-status]');
@@ -95,6 +96,7 @@ const contactHref = `${routes.home[lang]}#kontakt`;
       if (open === isOpen()) return;
       toggle.setAttribute('aria-expanded', String(open));
       panel.classList.toggle('is-open', open);
+      header?.classList.toggle('is-open', open);
 
       // The expanded state is only announced while the toggle has focus, and
       // opening moves focus into the panel. A polite live region carries the

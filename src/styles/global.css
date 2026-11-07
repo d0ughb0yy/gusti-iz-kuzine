@@ -1900,13 +1900,16 @@ figcaption {
     visibility: hidden;
     transition:
       grid-template-rows 300ms var(--ease),
-      visibility 0s linear 300ms;
+      visibility 0s linear 300ms,
+      border-color 240ms var(--ease);
   }
 
   .js .header__panel.is-open {
     grid-template-rows: 1fr;
     visibility: visible;
-    transition: grid-template-rows 300ms var(--ease);
+    transition:
+      grid-template-rows 300ms var(--ease),
+      border-color 240ms var(--ease);
   }
 
   .header__nav {
@@ -1933,6 +1936,62 @@ figcaption {
     letter-spacing: 0.1em;
   }
 
+  /* On the home hero the header is transparent while the menu is closed.
+     Opening the menu turns it back into the solid ivory header used on the
+     rest of the site, so the panel inherits the page surface instead of
+     introducing a dark slab. */
+  .site-header--overlay {
+    border-bottom: 1px solid transparent;
+    transition:
+      background-color 240ms var(--ease),
+      color 240ms var(--ease),
+      border-color 240ms var(--ease);
+  }
+
+  .site-header--overlay.is-open {
+    background: var(--ground);
+    color: var(--ink);
+    border-bottom-color: var(--line);
+  }
+
+  .site-header--overlay.is-open .brand,
+  .site-header--overlay.is-open .header__link,
+  .site-header--overlay.is-open .lang__item {
+    color: var(--ink);
+  }
+
+  .site-header--overlay.is-open .lang__sep {
+    color: var(--ink-soft);
+  }
+
+  .site-header--overlay.is-open :focus-visible {
+    outline-color: var(--accent);
+  }
+
+  /* Without JavaScript the panel is always visible, so the header is always
+     the solid ivory variant and sits in the flow instead of over the hero. */
+  html:not(.js) .site-header--overlay {
+    position: relative;
+    inset: auto;
+    background: var(--ground);
+    color: var(--ink);
+    border-bottom-color: var(--line);
+  }
+
+  html:not(.js) .site-header--overlay .brand,
+  html:not(.js) .site-header--overlay .header__link,
+  html:not(.js) .site-header--overlay .lang__item {
+    color: var(--ink);
+  }
+
+  html:not(.js) .site-header--overlay .lang__sep {
+    color: var(--ink-soft);
+  }
+
+  html:not(.js) .site-header--overlay :focus-visible {
+    outline-color: var(--accent);
+  }
+
   .site-header--overlay .header__panel {
     /* Full-bleed: match the viewport without relying on 100vw, then pull
        both edges out by one gutter. The panel's flex-basis is 100% in this
@@ -1940,7 +1999,12 @@ figcaption {
     flex-basis: calc(100% + (var(--gutter) * 2));
     margin-inline: calc(var(--gutter) * -1);
     padding-inline: var(--gutter);
-    background: var(--field);
+    border-top: 1px solid transparent;
+  }
+
+  .site-header--overlay .header__panel.is-open,
+  html:not(.js) .site-header--overlay .header__panel {
+    border-top-color: var(--line);
   }
 
   .hero {
