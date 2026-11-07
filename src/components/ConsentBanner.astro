@@ -1,0 +1,182 @@
+---
+import { routes, site } from '../config';
+import { getContent, type Lang } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const consent = t.consent;
+const measurementId = site.analytics.measurementId;
+// Keep the tag off local development and Vercel preview deployments. The
+// banner still renders so the consent flow can be reviewed there.
+const analyticsEnabled =
+  import.meta.env.PROD && import.meta.env.VERCEL_ENV !== 'preview';
+---
+
+<section
+  class="consent"
+  data-consent-banner
+  data-ga-id={measurementId}
+  data-analytics-enabled={analyticsEnabled ? 'true' : 'false'}
+  aria-label={consent.title}
+  tabindex="-1"
+  hidden
+>
+  <div class="wrap consent__inner">
+    <div class="consent__text">
+      <p class="consent__title">{consent.title}</p>
+      <p class="consent__body">
+        {consent.body}
+        {' '}
+        <a href={routes.privacy[lang]}>{consent.privacyLink}</a>
+      </p>
+      <p class="consent__note">{consent.note}</p>
+    </div>
+
+    <div class="consent__actions">
+      <button class="btn btn--light" type="button" data-consent-reject>
+        {consent.reject}
+      </button>
+      <button class="btn btn--light" type="button" data-consent-accept>
+        {consent.accept}
+      </button>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const KEY = 'gusti-consent-v1';
+    const banner = document.querySelector('[data-consent-banner]');
+    if (!banner) return;
+
+    const gaId = banner.dataset.gaId;
+    const enabled = banner.dataset.analyticsEnabled === 'true';
+    const acceptButton = banner.querySelector('[data-consent-accept]');
+    const rejectButton = banner.querySelector('[data-consent-reject]');
+    const settingsButtons = document.querySelectorAll('[data-consent-settings]');
+    let gaLoaded = false;
+    let lastTrigger = null;
+
+    const read = () => {
+      try {
+        return localStorage.getItem(KEY);
+      } catch {
+        return null;
+      }
+    };
+
+    const write = (value) => {
+      try {
+        localStorage.setItem(KEY, value);
+      } catch {
+        // The choice still applies to this page view.
+      }
+    };
+
+    const disableGa = () => {
+      if (!gaId) return;
+      window['ga-disable-' + gaId] = true;
+      document.cookie.split(';').forEach((cookie) => {
+        const name = cookie.split('=')[0].trim();
+        if (!name.startsWith('_ga') && !name.startsWith('_gid')) return;
+        document.cookie = name + '=; Max-Age=0; path=/; SameSite=Lax';
+        document.cookie =
+          name + '=; Max-Age=0; path=/; domain=' + location.hostname + '; SameSite=Lax';
+        document.cookie =
+          name + '=; Max-Age=0; path=/; domain=.' + location.hostname + '; SameSite=Lax';
+      });
+    };
+
+    const loadGa = () => {
+      if (!gaId || !enabled) return;
+      window['ga-disable-' + gaId] = false;
+
+      if (!gaLoaded) {
+        gaLoaded = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag('js', new Date());
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src =
+          'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+        document.head.appendChild(script);
+      }
+
+      window.gtag('config', gaId, {
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+        cookie_expires: 7776000,
+        cookie_update: false,
+      });
+    };
+
+    const updateOffset = () => {
+      if (banner.hidden) {
+        document.documentElement.style.removeProperty('--consent-height');
+        document.body.removeAttribute('data-consent-open');
+        return;
+      }
+      document.body.setAttribute('data-consent-open', '');
+      document.documentElement.style.setProperty(
+        '--consent-height',
+        banner.offsetHeight + 'px',
+      );
+    };
+
+    const show = (trigger) => {
+      lastTrigger = trigger || null;
+      banner.hidden = false;
+      updateOffset();
+      if (trigger) banner.focus();
+    };
+
+    const hide = () => {
+      banner.hidden = true;
+      updateOffset();
+      if (lastTrigger && typeof lastTrigger.focus === 'function') {
+        lastTrigger.focus();
+      }
+      lastTrigger = null;
+    };
+
+    const choose = (value) => {
+      write(value);
+      if (value === 'granted') {
+        loadGa();
+      } else {
+        disableGa();
+      }
+      hide();
+    };
+
+    // Exposed for the contact form and any future event tracking.
+    window.gustiTrack = (name, params) => {
+      if (read() !== 'granted' || typeof window.gtag !== 'function') return;
+      window.gtag('event', name, params || {});
+    };
+
+    acceptButton?.addEventListener('click', () => choose('granted'));
+    rejectButton?.addEventListener('click', () => choose('denied'));
+
+    settingsButtons.forEach((button) => {
+      button.addEventListener('click', () => show(button));
+    });
+
+    window.addEventListener('resize', updateOffset);
+
+    const stored = read();
+    if (stored === 'granted') {
+      loadGa();
+    } else if (stored !== 'denied') {
+      show(null);
+    }
+  })();
+</script>

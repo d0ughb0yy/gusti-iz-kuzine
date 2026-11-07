@@ -87,11 +87,12 @@ Vercel settings: framework Astro, build command `npm run build`, output director
 | --- | --- | --- | --- |
 | 8.1 | Privacy notice for the contact form | `src/components/ContactPanel.astro` → `.contact-form__privacy` | **done** — short note beside the form names Web3Forms as the processor and links to the privacy policy |
 | 8.2 | Business/sole-trader details (name, address, VAT ID) if required for Croatian e-commerce/consumer law | Footer | not applicable while Tin operates as a private individual; revisit if a company or obrt is registered |
-| 8.3 | Cookie banner only if non-essential cookies are introduced | — | not needed today: the site sets no cookies and loads no analytics |
+| 8.3 | Cookie banner and analytics consent | `src/components/ConsentBanner.astro`; footer **Cookie settings** | **done** — GA4 loads only after opt-in; rejecting leaves the site cookie-free |
 | 8.4 | Privacy policy page | `/politika-privatnosti/` and `/en/privacy-policy/` | **done**: bilingual policy covering controller, data, purposes, recipients, transfers, retention, rights and AZOP; linked from the contact form and footer |
 | 8.5 | Legal review of the privacy policy | `/politika-privatnosti/` and `/en/privacy-policy/` | **open**: Tin is arranging a review by a legal professional before launch |
+| 8.6 | GA4 property privacy settings | GA4 Admin → Data settings → Data retention (14 months); Data collection (Google Signals off); Account details (all data sharing off) | **required** — set once in the GA4 dashboard |
 
-The current build loads no third-party scripts, fonts from Google, or analytics. Fonts are bundled from `@fontsource`, so there is no third-party request beyond the Unsplash images — and those disappear when real local photos replace them.
+The current build loads Google Analytics 4 only after the visitor opts in. Fonts are bundled from `@fontsource`, so the remaining third-party requests are the Unsplash images (until real photos replace them) and the GA4 tag after consent; the contact form contacts Web3Forms only when submitted.
 
 ## 9. Contact form
 
@@ -114,4 +115,8 @@ The message is delivered through Web3Forms by email; the site itself stores noth
 - [ ] Mobile: navigation opens and closes; hero and menu tabs are readable at 390px; tab switching works.
 - [ ] Prices are either omitted or clearly marked as "from" (Take a Chef issues the real quote).
 - [ ] Footer year and service area are correct.
+- [ ] Consent: no GA request or `_ga` cookie before **Accept**; **Reject** leaves no cookies; **Cookie settings** reopens the bar.
+- [ ] Contact form: a successful submission fires `contact_submit` in GA4.
+- [ ] GA4 property: event data retention is 14 months, Google Signals is off, all data sharing is off, and `contact_submit` is marked as a key event.
+- [ ] Privacy policy reflects GA4, the contact event, and the 7 November 2026 update date.
 - [ ] Check the site with `prefers-reduced-motion` enabled — animations should disappear, not break.

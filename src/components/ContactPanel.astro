@@ -191,6 +191,17 @@ const t = getContent(lang);
 
         form.reset();
         setStatus('success', success);
+
+        try {
+          if (typeof window.gustiTrack === 'function') {
+            window.gustiTrack('contact_submit', {
+              form_name: 'contact',
+              language: document.documentElement.lang,
+            });
+          }
+        } catch {
+          // Analytics must never affect the form's success state.
+        }
       } catch {
         setStatus('error', error);
       } finally {

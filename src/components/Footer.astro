@@ -21,6 +21,9 @@ const year = site.year;
         <a href={routes.gallery[lang]}>{t.nav.gallery}</a>
         <a href={`${routes.home[lang]}#jelovnici`}>{t.nav.menu}</a>
         <a href={routes.privacy[lang]}>{t.nav.privacy}</a>
+        <button class="footer__consent" type="button" data-consent-settings>
+          {t.consent.settings}
+        </button>
         <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" class="footer__booking">
           {t.footer.bookingLink}
         </a>

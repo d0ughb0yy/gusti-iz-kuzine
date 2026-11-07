@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Astro 7, static output, deployed on Vercel. No server-side code, database, CMS, or analytics. The contact form posts to Web3Forms; bookings go through Take a Chef.
+Astro 7, static output, deployed on Vercel. No server-side code, database, or CMS. Google Analytics 4 loads only after opt-in. The contact form posts to Web3Forms; bookings go through Take a Chef.
 
 ## Users
 
@@ -39,10 +39,11 @@ Restaurant precision and technique brought into the guest's own home, with the m
 
 - Static Astro site, nine built pages: home, gallery, privacy, thank-you in HR and EN, plus the bilingual 404.
 - Bilingual content is key-for-key between `src/data/site/hr.json` and `src/data/site/en.json`; the two files move together.
-- No backend beyond Web3Forms. No cookies, analytics, or tracking.
+- No backend beyond Web3Forms. No cookies or tracking before opt-in; Google Analytics 4 runs only after consent.
+- Analytics: GA4 pageviews and a `contact_submit` event after a successful Web3Forms response. No GTM, ads, remarketing, or Google Signals.
 - Fonts are bundled locally; no Google Fonts or third-party font requests.
 - Images are declared in `src/data/images.json` with intrinsic width/height. Development photography is stock until the real shoot; the real shoot will provide portrait, action, and food images.
-- JavaScript is an enhancement: the header, menu tabs, form, and lightbox must keep working without it.
+- JavaScript is an enhancement: the header, menu tabs, form, and lightbox must keep working without it. Without JavaScript there is no consent bar and no tracking.
 - Accessibility target: WCAG 2.2 AA — keyboard operation, visible focus, 4.5:1 body contrast, 48px touch targets, reduced-motion support.
 - SEO: canonical URLs, hreflang alternates, ProfessionalService and FAQPage structured data.
 

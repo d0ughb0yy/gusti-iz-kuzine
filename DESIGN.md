@@ -292,6 +292,11 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 ### Footer
 - Dark field, serif wordmark, micro uppercase nav, a centred area line, and a right-aligned copyright. The booking link is underlined. Links have 44px-tall hit areas.
 
+### Consent banner
+- Fixed to the bottom on the dark field: a short serif title, one line of explanation with a privacy link, and two equal outline buttons — Reject and Accept. No close icon and no pre-selected choice.
+- It is non-blocking. The page behind stays usable, and the bar adds matching bottom padding while visible so it never covers the footer.
+- On phone the buttons form two equal columns. **Cookie settings** in the footer reopens the bar. Without JavaScript the bar stays hidden, because there is no tracking then.
+
 ### Gallery page
 - Page hero: serif title, lead, photo count, and a large 4:5 image (the bread photograph). The hero image is not repeated in the grid.
 - Grid: 3-column CSS masonry on desktop, 2 at ≤960px, 1 at ≤680px. Varied aspect ratios and small captions. Every item opens the lightbox with the group's count.
@@ -310,7 +315,7 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 
 - **Hero:** the only authored entrance. Image settles; content rises once. No scroll-triggered reveals anywhere on the site.
 - **Menu:** a 300ms fade/8px rise when a panel becomes active. The panel height is stable on desktop.
-- **Hover:** buttons, arrow links, gallery images, and menu tabs use 220–420ms transitions. Image hover is a 1.02 scale and 0.9 opacity, never a colour wash.
+- **Hover:** buttons, arrow links, header nav underlines, gallery images, and menu tabs use 220–420ms transitions. Image hover is a 1.02 scale and 0.9 opacity, never a colour wash.
 - **Reduced motion:** all animation and transition durations collapse to 0.01ms; the hero entrance and menu fade are removed; smooth scrolling is disabled.
 
 ## Accessibility
@@ -320,6 +325,7 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 - **Targets:** primary controls, header links, language links, and form fields are at least 48px tall; arrow links and footer links are at least 44px. Inline links inside paragraphs are the only exception.
 - **No JS:** the header toggle hides, the nav stays visible, all three menus stack, and the form still posts. The site never depends on JavaScript for content.
 - **Forms:** labels, `required`, `autocomplete`, native validation, `:user-invalid` hints, a visible status region, and a mailto fallback.
+- **Consent:** the bar is a labelled region; both choices are 48px buttons; it does not steal focus on first load, and focus returns to the footer trigger when it is opened from there.
 - **Images:** every image keeps intrinsic `width`/`height`; localised `alt` where the image is content; decorative images use `alt=""` and are labelled by the surrounding button or heading.
 - **Language:** `lang` is set on `<html>`; the HR/EN pair uses `aria-current`; all copy exists key-for-key in both languages.
 
@@ -349,6 +355,7 @@ The site is designed around real photographs that are still being shot. The slot
 - Do keep the booking funnel, the bilingual keys, the menu tabs, the gallery lightbox, the FAQ, the contact form, and the no-JS fallback intact.
 - Do keep every image rectangular with intrinsic `width`/`height` and localised `alt` where it carries meaning.
 - Do keep the hero scrim dark enough that ivory type clears 4.5:1 over a bright plate.
+- Do keep **Accept** and **Reject** visually equal in the consent banner.
 
 ### Don't
 - Don't add a second accent, a script face, gold, or dark-luxury styling. Restraint is the brand.
@@ -356,4 +363,5 @@ The site is designed around real photographs that are still being shot. The slot
 - Don't put a kicker or eyebrow above a heading.
 - Don't use a stock face as the chef.
 - Don't use `--line` as a decorative section divider; it exists for table rows, menu tabs, form underlines, and section edges.
+- Don't load analytics before consent, and don't hide rejection behind a smaller or close-only control.
 - Don't reintroduce a palette switcher, `data-palette`, the Barlow fonts, chartreuse, or the old scroll-reveal observer.

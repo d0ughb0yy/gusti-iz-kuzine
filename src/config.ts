@@ -8,6 +8,10 @@ export const site = {
   contactEmail: 'tin.lucic172@gmail.com',
   // Public Web3Forms access key. Safe to ship; enable domain restriction in the dashboard.
   web3formsKey: 'ea011cfb-5f48-4381-969b-caf93d576a30',
+  // Google Analytics 4. The tag is loaded only after the visitor opts in.
+  analytics: {
+    measurementId: 'G-7WQJEQ6MFB',
+  },
   // Used for canonical URLs, sitemap and social cards. Update if the domain changes.
   url: 'https://gusti-iz-kuzine.vercel.app',
   serviceArea: 'Istria, Croatia',

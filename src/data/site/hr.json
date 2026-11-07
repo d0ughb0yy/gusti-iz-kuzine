@@ -16,6 +16,15 @@
     "menuClosed": "Meni je zatvoren.",
     "skip": "Preskoči na sadržaj"
   },
+  "consent": {
+    "title": "Analitika",
+    "body": "Koristim Google Analytics da vidim koje se stranice čitaju. Ništa se ne učitava dok ne odaberete.",
+    "note": "Odabir možete promijeniti u podnožju stranice.",
+    "accept": "Prihvati analitiku",
+    "reject": "Odbij",
+    "settings": "Postavke kolačića",
+    "privacyLink": "Politika privatnosti"
+  },
   "hero": {
     "name": [
       "Gušti",
@@ -326,7 +335,7 @@
     "metaDescription": "Kako se obrađuju osobni podaci posjetitelja stranice Gušti iz Kužine: koje podatke prikupljam, zašto, kome se prosljeđuju i koja prava imate.",
     "title": "Politika privatnosti",
     "lead": "Ova politika objašnjava koje osobne podatke prikupljam preko stranice Gušti iz Kužine, zašto ih koristim i koja prava imate. Napisana je za posjetitelje iz Europskog gospodarskog prostora.",
-    "updated": "Posljednja izmjena: 6. studenoga 2026.",
+    "updated": "Posljednja izmjena: 7. studenoga 2026.",
     "sections": [
       {
         "id": "voditelj",
@@ -348,7 +357,9 @@
         "body": [
           "Podatke mi šaljete sami kada ispunite kontakt obrazac: ime, prezime, adresu e-pošte i sadržaj poruke. Bez tih podataka ne mogu odgovoriti na upit, pa je njihovo davanje potrebno ako želite odgovor.",
           "Poslužitelj na kojem stranica radi bilježi tehničke podatke o svakom zahtjevu, uobičajeno IP adresu, vrijeme i vrstu preglednika. Ti zapisi služe za sigurnost i rad stranice.",
-          "Stranica ne postavlja kolačiće, ne koristi alate za analitiku i ne izrađuje profile posjetitelja."
+          "Stranica ne postavlja kolačiće osim ako prihvatite analitiku. Ako prihvatite, Google Analytics 4 bilježi stranice koje posjećujete, približnu lokaciju izvedenu iz vaše IP adrese, vrstu preglednika i uređaja, jezik i stranicu s koje ste došli. Ne prima vaše ime ni adresu e-pošte.",
+          "Ako prihvatite analitiku, bilježim i da je kontakt obrazac poslan. Taj događaj sadrži naziv obrasca i jezik stranice, ne ime, adresu e-pošte ni sadržaj poruke.",
+          "Vaš odabir privole pohranjuje se u lokalnoj pohrani preglednika."
         ]
       },
       {
@@ -357,7 +368,7 @@
         "body": [
           "Podatke iz obrasca koristim isključivo da odgovorim na vaš upit i, ako dođe do rezervacije, da dogovorim detalje večere. Pravna osnova je obrada potrebna za poduzimanje radnji prije sklapanja ugovora i moj legitimni interes da odgovorim na upite.",
           "Tehničke zapise poslužitelja koristim na temelju legitimnog interesa za sigurnost i dostupnost stranice.",
-          "Ne koristim podatke za marketing, ne šaljem newsletter i ne donosim automatizirane odluke ni izrađujem profile."
+          "Podatke iz analitike koristim samo na temelju vaše privole, da razumijem koje se stranice čitaju i poboljšam stranicu. Ne koristim ih za oglašavanje, remarketing ni marketing, ne šaljem newsletter i ne povezujem ih s drugim podacima radi vaše identifikacije. Privolu možete povući u svakom trenutku; povlačenje ne utječe na obradu koja je prethodila."
         ]
       },
       {
@@ -366,6 +377,7 @@
         "body": [
           "Obrazac šalje podatke usluzi Web3Forms (Web3Creative), koja djeluje kao izvršitelj obrade. Web3Forms prima poruku, pohranjuje je na Amazon Web Services i prosljeđuje je na moju adresu e-pošte.",
           "Web3Forms provodi provjeru protiv spama i pritom može poslati IP adresu i adresu e-pošte pošiljatelja vanjskim servisima za zaštitu od spama. Dostava e-pošte ide preko Amazon SES, a poruka završava u mojem pretincu na Gmailu (Google).",
+          "Ako prihvatite analitiku, Google Ireland Limited i Google LLC obrađuju podatke analitike kao moji izvršitelji obrade. Google može obrađivati podatke u Sjedinjenim Američkim Državama. Politiku privatnosti Googlea možete pročitati na poveznici ispod.",
           "Poslužitelj Vercel bilježi tehničke podatke o zahtjevima. Fotografije u razvoju poslužuje Unsplash, čiji poslužitelj također vidi IP adresu posjetitelja.",
           "Ne prodajem podatke i ne dijelim ih s trećim stranama u marketinške svrhe."
         ],
@@ -373,6 +385,10 @@
           {
             "label": "Politika privatnosti usluge Web3Forms",
             "href": "https://web3forms.com/privacy"
+          },
+          {
+            "label": "Politika privatnosti Googlea",
+            "href": "https://policies.google.com/privacy"
           }
         ]
       },
@@ -380,7 +396,8 @@
         "id": "prijenosi",
         "title": "Prijenosi izvan EGP-a",
         "body": [
-          "Web3Forms posluje iz Indije i koristi standardne ugovorne klauzule Europske komisije kao zaštitne mjere za prijenos podataka izvan Europskog gospodarskog prostora. Amazon i Google obrađuju podatke u Sjedinjenim Američkim Državama; gdje je potrebno, prijenos se temelji na standardnim ugovornim klauzulama ili na okviru EU-a i SAD-a za privatnost podataka."
+          "Web3Forms posluje iz Indije i koristi standardne ugovorne klauzule Europske komisije kao zaštitne mjere za prijenos podataka izvan Europskog gospodarskog prostora. Amazon i Google obrađuju podatke u Sjedinjenim Američkim Državama; gdje je potrebno, prijenos se temelji na standardnim ugovornim klauzulama ili na okviru EU-a i SAD-a za privatnost podataka.",
+          "Google LLC obrađuje podatke analitike u Sjedinjenim Američkim Državama; gdje je potrebno, prijenos se temelji na okviru EU-a i SAD-a za privatnost podataka ili na standardnim ugovornim klauzulama."
         ]
       },
       {
@@ -388,6 +405,7 @@
         "title": "Koliko dugo čuvam podatke",
         "body": [
           "Web3Forms pohranjuje poslane obrasce do tri godine. Moja adresa e-pošte čuva poruku dok se upit ili rezervacija ne riješe, a potom najviše 24 mjeseca radi evidencije i zaštite od pravnih zahtjeva.",
+          "Google Analytics čuva podatke o događajima 14 mjeseci. Kolačići za analitiku traju 90 dana.",
           "Tehničke zapise poslužitelja Vercel čuva kratko, prema vlastitoj politici zadržavanja."
         ]
       },
@@ -396,6 +414,7 @@
         "title": "Vaša prava",
         "body": [
           "Imate pravo zatražiti pristup svojim podacima, ispravak netočnih podataka, brisanje, ograničenje obrade, prigovor na obradu i prijenos podataka. Ako se obrada temelji na privoli, možete je povući u svakom trenutku.",
+          "Ako ste dali privolu, možete je povući u svakom trenutku putem poveznice Postavke kolačića u podnožju stranice.",
           "Za ostvarenje prava pišite mi na adresu e-pošte ispod. Odgovorit ću u roku od mjesec dana.",
           "Ako smatrate da je obrada nezakonita, možete podnijeti pritužbu Agenciji za zaštitu osobnih podataka (AZOP), Ulica Metela Ožegovića 16, 10000 Zagreb, telefon +385 1 4609 000."
         ],
@@ -414,7 +433,9 @@
         "id": "kolacici",
         "title": "Kolačići i lokalna pohrana",
         "body": [
-          "Stranica ne postavlja kolačiće i ne koristi lokalnu pohranu za praćenje. Fontovi se poslužuju s vlastitog poslužitelja, pa nema zahtjeva prema Google Fonts.",
+          "Stranica ne postavlja kolačiće osim ako prihvatite analitiku. Odabir privole pohranjuje se u lokalnoj pohrani, nije kolačić i ne koristi se za praćenje. Fontovi se poslužuju s vlastitog poslužitelja, pa nema zahtjeva prema Google Fonts.",
+          "Ako prihvatite, Google Analytics postavlja kolačiće _ga i _ga_<property> radi razlikovanja posjetitelja i sesija. Oba istječu nakon 90 dana. Prije prihvaćanja ne postavlja se nijedan kolačić za analitiku, a ako odbijete, stranica ostaje bez kolačića.",
+          "Odabir možete promijeniti ili povući u svakom trenutku putem poveznice Postavke kolačića u podnožju stranice. Kolačiće možete blokirati ili obrisati i u pregledniku.",
           "Kada pošaljete obrazac, podaci idu izravno usluzi Web3Forms. Fotografije u razvoju učitavaju se s Unsplasha."
         ]
       },

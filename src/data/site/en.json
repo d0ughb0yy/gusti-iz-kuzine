@@ -16,6 +16,15 @@
     "menuClosed": "Menu closed.",
     "skip": "Skip to content"
   },
+  "consent": {
+    "title": "Analytics",
+    "body": "I use Google Analytics to see which pages are read. Nothing loads until you choose.",
+    "note": "You can change this choice at any time in the footer.",
+    "accept": "Accept analytics",
+    "reject": "Reject",
+    "settings": "Cookie settings",
+    "privacyLink": "Privacy policy"
+  },
   "hero": {
     "name": [
       "Gušti",
@@ -326,7 +335,7 @@
     "metaDescription": "How visitor data is handled on the Gušti iz Kužine website: what I collect, why, who receives it, and your rights.",
     "title": "Privacy policy",
     "lead": "This policy explains what personal data I collect through the Gušti iz Kužine website, why I use it, and what rights you have. It is written for visitors from the European Economic Area.",
-    "updated": "Last updated: 6 November 2026.",
+    "updated": "Last updated: 7 November 2026.",
     "sections": [
       {
         "id": "controller",
@@ -348,7 +357,9 @@
         "body": [
           "You send me data yourself when you fill in the contact form: first name, last name, email address, and the content of your message. Without that data I cannot reply to your enquiry, so providing it is necessary if you want an answer.",
           "The server that hosts the site records technical data for each request, usually the IP address, the time, and the browser type. Those logs are used for security and to keep the site running.",
-          "The site sets no cookies, uses no analytics, and does not build visitor profiles."
+          "The site sets no cookies unless you accept analytics. If you accept, Google Analytics 4 records the pages you visit, an approximate location derived from your IP address, your browser and device type, your language, and the site that referred you. It does not receive your name or email address.",
+          "If you accept analytics, I also record that the contact form was submitted. That event contains the form name and page language, not the name, email, or message you entered.",
+          "Your consent choice is stored in your browser's local storage."
         ]
       },
       {
@@ -357,7 +368,7 @@
         "body": [
           "I use the form data only to reply to your enquiry and, if a booking follows, to arrange the details of the dinner. The legal basis is processing necessary to take steps before entering a contract and my legitimate interest in answering enquiries.",
           "I use the server logs on the basis of my legitimate interest in the security and availability of the site.",
-          "I do not use the data for marketing, I do not send a newsletter, and I do not make automated decisions or build profiles."
+          "I use the analytics data only on the basis of your consent, to understand which pages are read and to improve the site. I do not use it for advertising, remarketing, or marketing, I do not send a newsletter, and I do not combine it with other data to identify you. You can withdraw consent at any time; this does not affect processing that happened before the withdrawal."
         ]
       },
       {
@@ -366,6 +377,7 @@
         "body": [
           "The form sends the data to Web3Forms (Web3Creative), which acts as a processor. Web3Forms receives the message, stores it on Amazon Web Services, and forwards it to my email address.",
           "Web3Forms screens submissions for spam and may send the sender's IP address and email address to external spam protection services in doing so. Email delivery runs through Amazon SES, and the message ends up in my Gmail inbox (Google).",
+          "If you accept analytics, Google Ireland Limited and Google LLC process the analytics data as my processors. Google may process data in the United States. You can read Google's privacy policy using the link below.",
           "Vercel, the host, records technical data about requests. The development photographs are served by Unsplash, whose server also sees the visitor's IP address.",
           "I do not sell the data or share it with third parties for marketing."
         ],
@@ -373,6 +385,10 @@
           {
             "label": "Web3Forms privacy policy",
             "href": "https://web3forms.com/privacy"
+          },
+          {
+            "label": "Google privacy policy",
+            "href": "https://policies.google.com/privacy"
           }
         ]
       },
@@ -380,7 +396,8 @@
         "id": "transfers",
         "title": "Transfers outside the EEA",
         "body": [
-          "Web3Forms operates from India and uses the European Commission's Standard Contractual Clauses as the safeguard for transfers outside the European Economic Area. Amazon and Google process data in the United States; where required, the transfer relies on Standard Contractual Clauses or the EU-US Data Privacy Framework."
+          "Web3Forms operates from India and uses the European Commission's Standard Contractual Clauses as the safeguard for transfers outside the European Economic Area. Amazon and Google process data in the United States; where required, the transfer relies on Standard Contractual Clauses or the EU-US Data Privacy Framework.",
+          "Google LLC processes analytics data in the United States; where required, the transfer relies on the EU-US Data Privacy Framework or the Standard Contractual Clauses."
         ]
       },
       {
@@ -388,6 +405,7 @@
         "title": "How long I keep data",
         "body": [
           "Web3Forms stores submitted forms for up to three years. My email inbox keeps the message until the enquiry or booking is resolved, and then for up to 24 months for records and protection against legal claims.",
+          "Google Analytics keeps event data for 14 months. The analytics cookies last 90 days.",
           "Vercel keeps technical server logs for a short period under its own retention policy."
         ]
       },
@@ -396,6 +414,7 @@
         "title": "Your rights",
         "body": [
           "You have the right to request access to your data, correction of inaccurate data, erasure, restriction of processing, objection to processing, and data portability. If processing is based on consent, you can withdraw it at any time.",
+          "If you have given consent, you can withdraw it at any time through the Cookie settings link in the footer.",
           "To exercise your rights, write to the email address below. I will reply within one month.",
           "If you believe the processing is unlawful, you can complain to the Croatian Personal Data Protection Agency (AZOP), Ulica Metela Ožegovića 16, 10000 Zagreb, phone +385 1 4609 000."
         ],
@@ -414,7 +433,9 @@
         "id": "cookies",
         "title": "Cookies and local storage",
         "body": [
-          "The site sets no cookies and uses no local storage for tracking. Fonts are served from the site itself, so there are no requests to Google Fonts.",
+          "The site does not set cookies unless you accept analytics. The consent choice is stored in local storage, not a cookie, and is not used for tracking. Fonts are served from the site itself, so there are no requests to Google Fonts.",
+          "If you accept, Google Analytics sets _ga and _ga_<property> cookies to distinguish visitors and sessions. Both expire after 90 days. No analytics cookies are set before you accept, and rejecting keeps the site cookie-free.",
+          "You can change or withdraw your choice at any time through the Cookie settings link in the footer. You can also block or delete cookies in your browser.",
           "When you submit the form, the data goes directly to Web3Forms. The development photographs load from Unsplash."
         ]
       },

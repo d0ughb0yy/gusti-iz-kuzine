@@ -24,7 +24,7 @@ npm run preview   # preview the production build
 
 | File | What lives there |
 | --- | --- |
-| `src/config.ts` | Brand name, Take a Chef URL, contact email, site URL, service area |
+| `src/config.ts` | Brand name, Take a Chef URL, contact email, site URL, service area, GA4 measurement ID |
 | `src/data/site/hr.json` | All Croatian copy: hero, intro, process, included, menus, statement, FAQ, CTA, footer, gallery |
 | `src/data/site/en.json` | All English copy |
 | `src/data/images.json` | Every image URL, dimensions, and bilingual alt text |
@@ -81,6 +81,18 @@ There is one theme. Edit `src/styles/theme.css`:
 - layout: `--max`, `--gutter`, `--section-y`, `--header-h`
 
 Components consume semantic tokens, never literal hexes. There is no palette switcher, no `data-palette`, and no `src/config.ts` palette entry. If the theme changes permanently, update the favicon (`public/favicon.svg`) and the front matter in `DESIGN.md` at the same time. See `DESIGN.md` for the contrast notes and the role of each color.
+
+### Analytics and consent
+
+The site loads Google Analytics 4 only after a visitor accepts. The measurement ID lives in `src/config.ts` → `site.analytics.measurementId`.
+
+- The consent bar is `src/components/ConsentBanner.astro`, rendered by `src/layouts/BaseLayout.astro`. The **Cookie settings** button in the footer reopens it.
+- The choice is stored in `localStorage` under `gusti-consent-v1` (`granted` or `denied`). If the policy or the scope of analytics changes, bump the key so visitors are asked again.
+- Before consent there is no `googletagmanager.com` request and no `_ga` cookie. Rejecting stores `denied` and keeps the site cookie-free. Withdrawing after accepting deletes the `_ga*` cookies, sets `ga-disable-<id>`, and stops further hits.
+- The tag is disabled in `astro dev` and on Vercel preview deployments. To test the real request, run `npm run build && npm run preview`; a local production preview counts as enabled. Clear the choice in DevTools with `localStorage.removeItem('gusti-consent-v1')`.
+- The contact form fires a `contact_submit` event after a successful Web3Forms response. It sends `form_name` and `language`; it never sends the name, email, or message. Mark `contact_submit` as a key event in GA4 (Admin → Events → Key events).
+- GA4 property settings: event data retention **14 months**, Google Signals **off**, and all data-sharing settings **off**. The code also sets `allow_google_signals: false` and `allow_ad_personalization_signals: false`.
+- There is no GTM container and no marketing tag. Keep the consent gate in front of any future tag.
 
 ## Deploy to Vercel
 
