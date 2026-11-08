@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Gušti iz Kužine: privatni kuhar u Istri",
-    "description": "Privatni kuhar u Istri za do šest gostiju. Pripremam sezonska jela od namirnica s lokalne tržnice, u vašem domu ili vili."
+    "description": "Privatni kuhar u Istri za do šest gostiju. Pripremam suvremena jela od namirnica s pulske tržnice, u vašem domu ili vili."
   },
   "nav": {
     "home": "Početna",
@@ -30,7 +30,7 @@
       "Gušti",
       "iz Kužine"
     ],
-    "lead": "Privatni kuhar u Istri. Restoranska kuhinja u vašem domu, bez formalnosti. Jelovnik prati sezonu.",
+    "lead": "Privatni kuhar u Istri. Tog jutra kupujem na pulskoj tržnici, kuham u vašoj kuhinji i poslužujem za vašim stolom. Tehnika fine dininga, u vašem domu.",
     "primaryCta": "Provjerite dostupnost",
     "secondaryCta": "Pogledajte jelovnike",
     "bookingNote": "Pošaljite upit na Take a Chef. Javim se unutar 24 sata.",
@@ -38,15 +38,16 @@
     "imageCaption": "Losos, povrće i umak."
   },
   "intro": {
-    "title": "Lokalno i u sezoni.",
+    "title": "Zašto Kužina.",
     "paragraphs": [
-      "Jelovnik dogovaramo unaprijed. Namirnice biram tog jutra na tržnici, kod lokalnih uzgajivača i ribara.",
-      "U vašu kuhinju donosim restoranske tehnike i preciznost. Svaki tanjur slažem do detalja."
+      "Gušti iz Kužine znači užitke iz kuhinje. Kužina je istarski naziv za kuhinju; gušti su ono dobro što iz nje izlazi.",
+      "Tog jutra kupujem na pulskoj tržnici, kod ribara i na štandovima s povrćem. Meso dolazi iz središnje Hrvatske. Ono što nađem određuje jelovnik.",
+      "Godinama sam radio u fine dining restoranima u Hrvatskoj i Irskoj. Suvremena jela kuham s tim znanjem. Večera ostaje za vašim stolom."
     ],
     "link": "Kako sve funkcionira",
     "who": {
       "name": "Ja sam Tin.",
-      "fact": "Odrastao sam u malom ribarskom mjestu Fažani. Danas kuham po cijeloj Istri."
+      "fact": "Odrastao sam u Fažani, ribarskom mjestu. Danas kuham po cijeloj Istri."
     },
     "image": "istria-motovun",
     "imageCaption": "Motovun, Istra."
@@ -70,19 +71,23 @@
     ]
   },
   "included": {
-    "title": "Što pokriva cijena",
-    "lead": "Cijena pokriva cijelu večeru: hranu, posluživanje i pospremanje.",
-    "note": "Cijena ovisi o broju gostiju i odabranom jelovniku.",
+    "title": "Što večera uključuje",
+    "lead": "Ponuda pokriva cijelu večeru: kupovinu, kuhanje, posluživanje i pospremljenu kuhinju.",
+    "note": "Ponuda ovisi o broju gostiju i odabranom jelovniku. Take a Chef je izdaje nakon upita.",
     "colItem": "U cijeni",
     "colMeaning": "Što to znači",
     "rows": [
       {
-        "item": "Kupovina na lokalnoj tržnici",
-        "detail": "Biram namirnice tog jutra."
+        "item": "Riba i povrće s pulske tržnice",
+        "detail": "Kupujem ih tog jutra."
+      },
+      {
+        "item": "Meso iz središnje Hrvatske",
+        "detail": "Naručeno za jelovnik."
       },
       {
         "item": "Kuhanje i posluživanje u vašoj kuhinji",
-        "detail": "Dolazim s osnovnom opremom."
+        "detail": "Dolazim s opremom koja vam nedostaje."
       },
       {
         "item": "Posluživanje jelo po jelo",
@@ -93,22 +98,22 @@
         "detail": "Prije večere dogovaramo sve."
       },
       {
+        "item": "Uparivanje vina na zahtjev",
+        "detail": "Istarska vina, odabrana prema jelovniku."
+      },
+      {
         "item": "Pranje suđa i pospremanje kuhinje",
         "detail": "Kuhinja ostaje čista."
       },
       {
         "item": "Nenametljivo posluživanje tijekom večere",
         "detail": "Bez prekidanja razgovora."
-      },
-      {
-        "item": "Piće na zahtjev",
-        "detail": "Dogovaramo unaprijed."
       }
     ]
   },
   "menus": {
     "title": "Svaki jelovnik počinje razgovorom.",
-    "lead": "Ovo su tri trenutna prijedloga; zajedno ih prilagođavamo.",
+    "lead": "Suvremena jela, složena od onoga što pulska tržnica ima tog dana. Ova su tri prijedloga početna točka; zajedno ih prilagođavamo.",
     "selectLabel": "Odaberite jelovnik",
     "current": "Trenutni jelovnik",
     "choiceNote": "Odaberite jedno jelo iz svakog slijeda.",
@@ -117,19 +122,19 @@
     "items": [
       {
         "name": "Ljubitelji mesa",
-        "description": "Svježe i lokalno.",
+        "description": "Meso iz središnje Hrvatske, povrće s pulske tržnice.",
         "courses": [
           {
             "name": "Predjelo",
             "options": [
-              "Mousse od kozjeg sira, povrće na tri načina",
-              "Sezonska salata s pršutom"
+              "Mousse od istarskog kozjeg sira, povrće na tri načina",
+              "Sezonska salata s istarskim pršutom"
             ]
           },
           {
             "name": "Prvo jelo",
             "options": [
-              "Rižot od gljiva, hrskava panceta",
+              "Rižot od šumskih gljiva, hrskava panceta",
               "Ravioli s raguom od govedine, marinirane mrkve"
             ]
           },
@@ -137,13 +142,13 @@
             "name": "Glavno jelo",
             "options": [
               "Pileća rolada, pečeni krumpir, chimichurri",
-              "Ribeye odrezak, pire od krumpira, pečena cvjetača i velouté umak od gljiva"
+              "Ribeye odrezak, pire od krumpira, pečena cvjetača i velouté umak od šumskih gljiva"
             ]
           },
           {
             "name": "Desert",
             "options": [
-              "Cheesecake, čokoladni crumble, listići bijele čokolade",
+              "Cheesecake, Petite Beurre crumble, listići bijele čokolade",
               "Čokoladni ganache, čokoladna chantilly krema, crumble od lješnjaka"
             ]
           }
@@ -151,33 +156,33 @@
       },
       {
         "name": "Svježe i lokalno",
-        "description": "Chefov izbor lokalnih jela.",
+        "description": "Lagani jelovnik s pulske tržnice, s ribom i povrćem u središtu.",
         "courses": [
           {
             "name": "Predjelo",
             "options": [
-              "Ceviche od ribe dana",
-              "Mousse od kozjeg sira, povrće na tri načina"
+              "Ceviche od jadranske ribe",
+              "Mousse od istarskog kozjeg sira, povrće na tri načina"
             ]
           },
           {
             "name": "Prvo jelo",
             "options": [
               "Kremasta juha od butternut tikve",
-              "Rižot od gljiva, hrskava panceta"
+              "Rižot od šumskih gljiva, hrskava panceta"
             ]
           },
           {
             "name": "Glavno jelo",
             "options": [
-              "Ragu od lignji, poriluk pečen na žaru, palenta",
+              "Ragu od jadranskih lignji, poriluk pečen na žaru, palenta",
               "Ravioli s raguom od govedine, marinirane mrkve"
             ]
           },
           {
             "name": "Desert",
             "options": [
-              "Cheesecake, čokoladni crumble, listići bijele čokolade",
+              "Cheesecake, Petite Beurre crumble, listići bijele čokolade",
               "Čokoladni ganache, čokoladna chantilly krema, crumble od lješnjaka"
             ]
           }
@@ -185,30 +190,30 @@
       },
       {
         "name": "Plodovi Jadrana",
-        "description": "Morski plodovi iz lokalnog ulova.",
+        "description": "Jutrošnji ulov s pulske tržnice.",
         "courses": [
           {
             "name": "Predjelo",
             "options": [
-              "Ceviche od ribe dana"
+              "Ceviche od jadranske ribe"
             ]
           },
           {
             "name": "Prvo jelo",
             "options": [
-              "Ragu od lignji, poriluk pečen na žaru, palenta"
+              "Ragu od jadranskih lignji, poriluk pečen na žaru, palenta"
             ]
           },
           {
             "name": "Glavno jelo",
             "options": [
-              "Riba dana pečena na tavi, dinjano sezonsko povrće, pire od korijena celera, beurre blanc s ružmarinom"
+              "Riba dana iz Jadrana pečena na tavi, dinstano sezonsko povrće, pire od korijena celera, beurre blanc s ružmarinom"
             ]
           },
           {
             "name": "Desert",
             "options": [
-              "Cheesecake, čokoladni crumble, listići bijele čokolade"
+              "Cheesecake, Petite Beurre crumble, listići bijele čokolade"
             ]
           }
         ]
@@ -230,7 +235,7 @@
   },
   "statement": {
     "label": "Iz kuhinje",
-    "text": "Ono što je tog jutra najbolje na tržnici, navečer je na tanjuru.",
+    "text": "Tržnica odlučuje što. Ja odlučujem kako.",
     "attribution": "Tin Lučić, kuhar"
   },
   "faq": {
@@ -276,6 +281,18 @@
       {
         "q": "Ostavljate li kuhinju čistom?",
         "a": "Da. Operem suđe i pospremim kuhinju prije odlaska."
+      },
+      {
+        "q": "Gdje kupujete?",
+        "a": "Na pulskoj tržnici, uključujući ribarnicu. Meso dolazi iz središnje Hrvatske."
+      },
+      {
+        "q": "Uparujete li vina?",
+        "a": "Da, na zahtjev. Biram istarska vina prema jelovniku."
+      },
+      {
+        "q": "Koje je vaše iskustvo?",
+        "a": "Godinama sam radio u fine dining restoranima u Hrvatskoj i Irskoj."
       }
     ]
   },

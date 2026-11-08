@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Gušti iz Kužine: private chef in Istria",
-    "description": "Private chef in Istria for up to six guests. I cook seasonal dishes from the local market in your home or villa."
+    "description": "Private chef in Istria for up to six guests. I cook contemporary dishes from the Pula market in your home or villa."
   },
   "nav": {
     "home": "Home",
@@ -30,7 +30,7 @@
       "Gušti",
       "iz Kužine"
     ],
-    "lead": "A private chef in Istria. Restaurant cooking in your home, without the formality. The menu follows the season.",
+    "lead": "A private chef in Istria. I shop the Pula market that morning, cook in your kitchen, and serve at your table. Fine-dining technique, in your home.",
     "primaryCta": "Check availability",
     "secondaryCta": "See the menus",
     "bookingNote": "Send an enquiry on Take a Chef. I'll get in touch within 24 hours.",
@@ -38,15 +38,16 @@
     "imageCaption": "Salmon, vegetables, and sauce."
   },
   "intro": {
-    "title": "Local, in season.",
+    "title": "Why Kužina.",
     "paragraphs": [
-      "We agree the menu in advance. I choose the ingredients that morning at the market, from local growers and fishermen.",
-      "I bring restaurant technique and precision into your kitchen. Each plate is composed with care."
+      "Gušti iz Kužine means the pleasures of the kitchen. Kužina is the Istrian word for kitchen; gušti are the good things that come out of it.",
+      "I shop the Pula market that morning, at the fishmongers and the produce stalls. The meat comes from central Croatia. What I find decides the menu.",
+      "I spent years in fine-dining kitchens in Croatia and Ireland. I cook contemporary dishes with that training. The evening stays at your table."
     ],
     "link": "How it works",
     "who": {
       "name": "I'm Tin.",
-      "fact": "I grew up in the little fishing town of Fažana. Today I cook across Istria."
+      "fact": "I grew up in Fažana, a fishing town. Today I cook across Istria."
     },
     "image": "istria-motovun",
     "imageCaption": "Motovun, Istria."
@@ -70,19 +71,23 @@
     ]
   },
   "included": {
-    "title": "What the price covers",
-    "lead": "The price covers the whole evening: food, service, and cleaning.",
-    "note": "The price depends on the number of guests and the menu you choose.",
+    "title": "What the evening includes",
+    "lead": "The quote covers the whole evening: the shopping, the cooking, the service, and the kitchen left clean.",
+    "note": "The quote depends on the number of guests and the menu. Take a Chef issues it after your enquiry.",
     "colItem": "Included",
     "colMeaning": "What it means",
     "rows": [
       {
-        "item": "Shopping at the local market",
-        "detail": "I choose the ingredients that morning."
+        "item": "Fish and vegetables from the Pula market",
+        "detail": "I buy them that morning."
+      },
+      {
+        "item": "Meat from central Croatia",
+        "detail": "Sourced for the menu."
       },
       {
         "item": "Cooking and serving in your kitchen",
-        "detail": "I bring the basic equipment."
+        "detail": "I bring the equipment your kitchen lacks."
       },
       {
         "item": "Service course by course",
@@ -93,22 +98,22 @@
         "detail": "We agree it before the evening."
       },
       {
+        "item": "Wine pairing on request",
+        "detail": "Istrian wines, chosen to match the menu."
+      },
+      {
         "item": "Washing up and cleaning the kitchen",
         "detail": "I leave the kitchen clean."
       },
       {
         "item": "Unobtrusive service during dinner",
         "detail": "Without interrupting the conversation."
-      },
-      {
-        "item": "Drinks on request",
-        "detail": "We agree them in advance."
       }
     ]
   },
   "menus": {
     "title": "Every menu starts with a conversation.",
-    "lead": "These three are a starting point; we adjust them together.",
+    "lead": "Contemporary dishes, built from what the Pula market has that day. These three are a starting point; we adjust them together.",
     "selectLabel": "Choose a menu",
     "current": "Current menu",
     "choiceNote": "Choose one dish per course.",
@@ -117,19 +122,19 @@
     "items": [
       {
         "name": "Meat lovers",
-        "description": "Fresh and local.",
+        "description": "Meat from central Croatia, vegetables from the Pula market.",
         "courses": [
           {
             "name": "Starter",
             "options": [
-              "Goat cheese mousse, vegetables three ways",
-              "Seasonal salad with prosciutto"
+              "Istrian goat cheese mousse, vegetables three ways",
+              "Seasonal salad with Istrian pršut"
             ]
           },
           {
             "name": "First course",
             "options": [
-              "Mushroom risotto, crispy bacon",
+              "Wild mushroom risotto, crispy bacon",
               "Ravioli with beef ragu, marinated carrots"
             ]
           },
@@ -137,7 +142,7 @@
             "name": "Main course",
             "options": [
               "Chicken roulade, roasted potatoes, chimichurri",
-              "Ribeye steak, potato purée, roasted cauliflower, mushroom velouté"
+              "Ribeye steak, potato purée, roasted cauliflower, wild mushroom velouté"
             ]
           },
           {
@@ -151,26 +156,26 @@
       },
       {
         "name": "Fresh and local",
-        "description": "The chef's choice of local dishes.",
+        "description": "A lighter menu from the Pula market, with fish and vegetables at its centre.",
         "courses": [
           {
             "name": "Starter",
             "options": [
-              "Fish of the day ceviche",
-              "Goat cheese mousse, vegetables three ways"
+              "Adriatic fish ceviche",
+              "Istrian goat cheese mousse, vegetables three ways"
             ]
           },
           {
             "name": "First course",
             "options": [
               "Creamy butternut squash soup",
-              "Mushroom risotto, crispy bacon"
+              "Wild mushroom risotto, crispy bacon"
             ]
           },
           {
             "name": "Main course",
             "options": [
-              "Squid ragu, charred leeks, polenta",
+              "Adriatic squid ragu, charred leeks, polenta",
               "Ravioli with beef ragu, marinated carrots"
             ]
           },
@@ -185,24 +190,24 @@
       },
       {
         "name": "Fresh from the Adriatic",
-        "description": "Seafood from the local catch.",
+        "description": "The morning's catch from the Pula fishmongers.",
         "courses": [
           {
             "name": "Starter",
             "options": [
-              "Fish of the day ceviche"
+              "Adriatic fish ceviche"
             ]
           },
           {
             "name": "First course",
             "options": [
-              "Squid ragu, charred leeks, polenta"
+              "Adriatic squid ragu, charred leeks, polenta"
             ]
           },
           {
             "name": "Main course",
             "options": [
-              "Pan-seared fish of the day, sauteed seasonal vegetables, celeriac purée, rosemary beurre blanc"
+              "Pan-seared Adriatic fish of the day, sauteed seasonal vegetables, celeriac purée, rosemary beurre blanc"
             ]
           },
           {
@@ -230,7 +235,7 @@
   },
   "statement": {
     "label": "From the kitchen",
-    "text": "What is best at the market that morning ends up on the plate that evening.",
+    "text": "The market decides what. I decide how.",
     "attribution": "Tin Lučić, chef"
   },
   "faq": {
@@ -276,6 +281,18 @@
       {
         "q": "Do you leave the kitchen clean?",
         "a": "Yes. I wash up and clean the kitchen before I go."
+      },
+      {
+        "q": "Where do you shop?",
+        "a": "The Pula market, including the fishmongers. The meat comes from central Croatia."
+      },
+      {
+        "q": "Can you pair wines?",
+        "a": "Yes, on request. I choose Istrian wines to match the menu."
+      },
+      {
+        "q": "What is your background?",
+        "a": "I spent years in fine-dining kitchens in Croatia and Ireland."
       }
     ]
   },

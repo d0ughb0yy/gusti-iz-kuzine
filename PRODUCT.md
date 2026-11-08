@@ -22,14 +22,16 @@ A bilingual (Croatian/English) site that presents Tin Lučić's private chef ser
 
 ## Positioning
 
-Restaurant precision and technique brought into the guest's own home, with the menu built that morning from what is best in Istria. It is not a restaurant, not a catering company, and not a generic private-chef listing: the chef is personally present, the sourcing is local and seasonal, and the evening stays at the guest's table.
+Fine-dining technique and contemporary dishes built from Istrian ingredients, cooked in the guest's own home. The fish and vegetables come from the Pula market that morning; the meat comes from central Croatia. It is not a restaurant, not a catering company, and not a generic private-chef listing: the chef is personally present, the sourcing is seasonal and named, and the evening stays at the guest's table.
 
 ## Operating Context
 
 - Service area: Istria, Croatia.
 - Capacity: up to six guests; larger groups by enquiry.
-- The chef shops that morning, brings knives and basic equipment, cooks and serves in the guest's kitchen, and leaves it clean.
-- Menus are proposals, adjusted with the guest for season, allergies, and diet. Three sample menus ship: meat, fresh/local, Adriatic seafood.
+- The chef shops the Pula market that morning for fish and vegetables; the meat comes from central Croatia. He brings basic equipment, cooks and serves in the guest's kitchen, and leaves it clean.
+- Menus are contemporary dishes built from Istrian fish and vegetables and meat from central Croatia, adjusted with the guest for season, allergies, and diet. Three menus ship: meat, fresh/local, Adriatic seafood.
+- Wine pairing is available on request.
+- Background: fine-dining kitchens in Croatia and Ireland. No restaurant names are published.
 - Bookings happen on the Take a Chef profile; the site sends every booking CTA there.
 - The contact form is delivered by Web3Forms to the chef's email; the site stores nothing.
 - No prices are shown: Take a Chef issues the real quote.
@@ -52,7 +54,7 @@ Restaurant precision and technique brought into the guest's own home, with the m
 - Name: **Gušti iz Kužine**.
 - Chef: **Tin Lučić**.
 - Voice: first person, warm but restrained; no competitor put-downs, no luxury clichés, no invented claims.
-- Place: Istria, and the chef's own history in Fažani. The "grandmother's kitchen in Kužine" line is a drafted placeholder, not confirmed biography; Tin must confirm or rewrite it in his own words.
+- Place: Istria, and the chef's own history in Fažana. Kužina is the Istrian word for kitchen; the name means the pleasures of the kitchen.
 - The site is personal: the chef is the differentiator, not an anonymous brand.
 
 ## Evidence on Hand

@@ -30,14 +30,23 @@ Every CTA on both pages — hero, menu panel, gallery CTA band, footer — reads
 
 | # | Item | Where | Notes | Status |
 | --- | --- | --- | --- | --- |
-| 3.1 | Croatian copy review | `src/data/site/hr.json` | Written as a first draft; have the chef read it aloud and adjust to their voice. The intro byline fact (`intro.who.fact` — the grandmother's kitchen in Kužine) is a **drafted placeholder story, not confirmed biography** — Tin must confirm or rewrite it in his own words. | **required** |
+| 3.1 | Croatian copy review | `src/data/site/hr.json` | Written as a first draft; have the chef read it aloud and adjust to their voice. The confirmed facts are recorded in the section below the table. | **required** |
 | 3.2 | English copy review | `src/data/site/en.json` | Mirrors the Croatian structure key for key. If you add or remove a menu/item in one file, do the same in the other. | **required** |
 | 3.3 | Service area wording | `src/config.ts` → `serviceArea`; both site JSON files (`hero.lead`, `faq`, `footer`) | Currently Istria / Istra. Decide whether nearby areas (Kvarner, Trieste, Ljubljana) should be mentioned. | recommended |
-| 3.4 | Menu names, courses, and dishes | `hr.json` / `en.json` → `menus.items[].courses[].options` | Three sample menus: Ljubitelji mesa / Svježe i lokalno / Plodovi Jadrana. Each course holds one or two options: one option renders as a tasting course, two render as a choice. | **required** |
-| 3.5 | "Included" list | `hr.json` / `en.json` → `included.rows` | Confirm each claim is true (travel, shopping, service, cleanup, discretion). | **required** |
-| 3.6 | FAQ answers | `hr.json` / `en.json` → `faq.items` | Travel radius, kitchen requirements, lead time, deposit, cancellation. Current answers are plausible defaults, not confirmed policy. | **required** |
+| 3.4 | Menu names, courses, and dishes | `hr.json` / `en.json` → `menus.items[].courses[].options` | Three confirmed menus: Ljubitelji mesa / Svježe i lokalno / Plodovi Jadrana. The dishes are real; the copy adds provenance labels (Istrian goat cheese, Istrian pršut, wild mushrooms, Adriatic fish and squid). Each course holds one or two options: one option renders as a tasting course, two render as a choice. | **done** |
+| 3.5 | "Included" list | `hr.json` / `en.json` → `included.rows` | Confirm each claim is true (travel, Pula market, central Croatia meat, service, wine pairing, cleanup, discretion). | **required** |
+| 3.6 | FAQ answers | `hr.json` / `en.json` → `faq.items` | Travel radius, kitchen requirements, lead time, deposit, cancellation, sourcing, wine pairing, background. Current answers are plausible defaults, not confirmed policy. | **required** |
 | 3.7 | Page titles and meta descriptions | `hr.json` / `en.json` → `meta`, `galleryPage.metaTitle`, `galleryPage.metaDescription` | Include the location and "private chef" for search. | recommended |
 | 3.8 | 404 page copy | `src/pages/404.astro` | Bilingual by design. | optional |
+
+### Confirmed copy facts (November 2026)
+
+- Tin grew up in Fažana, a fishing town, and cooks across Istria.
+- Kužina is the Istrian word for kitchen; the name means the pleasures of the kitchen.
+- He shops the Pula market, including the fishmongers, for fish and vegetables. The meat comes from central Croatia.
+- He has a fine-dining background in Croatia and Ireland. No restaurant names are published.
+- Wine pairing is available on request.
+- The three menus are the real menus. The dish names now carry provenance: Istrian goat cheese, Istrian pršut, wild mushrooms, Adriatic fish and squid. Confirm the Istrian goat cheese, Istrian pršut, and wild mushroom labels if any is not accurate.
 
 ## 4. Prices
 
