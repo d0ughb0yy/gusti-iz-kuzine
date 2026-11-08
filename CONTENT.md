@@ -41,7 +41,7 @@ Every CTA on both pages — hero, menu panel, gallery CTA band, footer — reads
 
 ### Confirmed copy facts (November 2026)
 
-- Tin grew up in Fažana, a fishing town, and cooks across Istria.
+- Tin grew up in Fažana, a small fishing town, and has been in kitchens since high school.
 - Kužina is the Istrian word for kitchen; the name means the pleasures of the kitchen.
 - He shops the Pula market, including the fishmongers, for fish and vegetables. The meat comes from central Croatia.
 - He has a fine-dining background in Croatia and Ireland. No restaurant names are published.
