@@ -79,11 +79,17 @@ const { labels } = Astro.props;
       groups.get(key).push(trigger);
     });
 
-    const itemFrom = (trigger) => ({
-      src: trigger.dataset.lightbox,
-      alt: trigger.dataset.lightboxAlt || '',
-      caption: trigger.dataset.lightboxCaption || '',
-    });
+    const itemFrom = (trigger) => {
+      const thumbnail = trigger.querySelector('img');
+      return {
+        src: trigger.dataset.lightbox,
+        // The grid already loaded a responsive thumbnail; show it immediately
+        // instead of leaving the stage blank while the full image downloads.
+        thumb: thumbnail?.currentSrc || thumbnail?.src || '',
+        alt: trigger.dataset.lightboxAlt || '',
+        caption: trigger.dataset.lightboxCaption || '',
+      };
+    };
 
     let items = [];
     let pending = 0;
@@ -107,13 +113,42 @@ const { labels } = Astro.props;
         image.classList.remove('is-out', 'is-in');
         image.style.setProperty('--shift', '0px');
         meta.classList.remove('is-changing');
-        image.src = item.src;
+
+        const placeholder = item.thumb && item.thumb !== item.src ? item.thumb : item.src;
+        const waitingForFull = placeholder !== item.src;
+
+        image.classList.toggle('is-placeholder', waitingForFull);
+        image.src = placeholder;
         image.alt = item.alt;
         updateMeta(item, target);
+
+        if (!waitingForFull) {
+          stage.classList.remove('is-loading');
+          stage.removeAttribute('aria-busy');
+          return;
+        }
+
+        stage.classList.add('is-loading');
+        stage.setAttribute('aria-busy', 'true');
+
+        const full = new Image();
+        full.src = item.src;
+        full
+          .decode()
+          .catch(() => {})
+          .then(() => {
+            if (myToken !== token) return;
+            image.src = item.src;
+            image.classList.remove('is-placeholder');
+            stage.classList.remove('is-loading');
+            stage.removeAttribute('aria-busy');
+          });
         return;
       }
 
-      image.classList.remove('is-in');
+      image.classList.remove('is-in', 'is-placeholder');
+      stage.classList.remove('is-loading');
+      stage.removeAttribute('aria-busy');
 
       const preload = new Image();
       preload.src = item.src;
@@ -150,6 +185,24 @@ const { labels } = Astro.props;
         });
     };
 
+    // Warm the neighbouring full images after the dialog opens so the first
+    // arrow press does not wait on the network.
+    const warmNeighbours = (index) => {
+      if (items.length < 2) return;
+      const load = () => {
+        [index - 1, index + 1].forEach((offset) => {
+          const target = (offset + items.length) % items.length;
+          const neighbour = new Image();
+          neighbour.src = itemFrom(items[target]).src;
+        });
+      };
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(load, { timeout: 2000 });
+      } else {
+        window.setTimeout(load, 200);
+      }
+    };
+
     const open = (trigger) => {
       const group = trigger.dataset.lightboxGroup;
       items = group ? groups.get(group) : [trigger];
@@ -167,6 +220,7 @@ const { labels } = Astro.props;
 
       show(index, 0, true);
       dialog.showModal();
+      warmNeighbours(index);
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
 
@@ -274,7 +328,9 @@ const { labels } = Astro.props;
       document.body.style.overflow = '';
       dialog.classList.remove('is-open', 'is-closing');
       token++;
-      image.classList.remove('is-out', 'is-in');
+      image.classList.remove('is-out', 'is-in', 'is-placeholder');
+      stage.classList.remove('is-loading');
+      stage.removeAttribute('aria-busy');
       meta.classList.remove('is-changing');
       if (lastTrigger) lastTrigger.focus({ preventScroll: true });
     });

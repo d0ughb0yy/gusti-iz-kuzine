@@ -192,12 +192,24 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
   <noscript>
     <style>
       /* No JS: every menu is shown, stacked vertically. Undo the grid-cell
-         stacking and the visibility-based hiding above. */
+         stacking and the visibility-based hiding above. The tab buttons and
+         live region have no behaviour without JS, so they are removed rather
+         than left as dead controls. */
+      .menu-tabs,
+      [data-explorer-status] {
+        display: none;
+      }
+      .menu-explorer {
+        grid-template-columns: 1fr;
+      }
       .menu-panels {
         display: block;
       }
       .menu-panel[data-menu-panel] {
         grid-area: auto;
+      }
+      .menu-panel[data-menu-panel] + .menu-panel[data-menu-panel] {
+        margin-top: 2rem;
       }
       .menu-panel[data-menu-panel][hidden] {
         display: block !important;

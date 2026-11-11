@@ -487,6 +487,16 @@
     "booking": "Provjerite dostupnost",
     "contact": "Pišite mi"
   },
+  "notFoundPage": {
+    "title": "Stranica nije pronađena: Gušti iz Kužine",
+    "description": "Ova stranica ne postoji. Vratite se na početnu ili pogledajte galeriju.",
+    "heading": "Ova stranica ne postoji.",
+    "lead": "Vratite se na početnu ili pogledajte galeriju.",
+    "detail": "Ako ste tražili jelovnik, nalazi se na početnoj stranici. Za rezervaciju večere javite mi se preko Take a Chef profila, a na pitanja o jelovniku i alergijama odgovaram unutar 24 sata.",
+    "home": "Početna",
+    "gallery": "Galerija",
+    "switch": "English"
+  },
   "lightbox": {
     "open": "Otvori fotografiju",
     "close": "Zatvori",

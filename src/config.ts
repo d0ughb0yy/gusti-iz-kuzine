@@ -12,6 +12,8 @@ export const site = {
   analytics: {
     measurementId: 'G-7WQJEQ6MFB',
   },
+  // Google Search Console HTML-tag verification. Static metadata, no consent needed.
+  googleSiteVerification: 'rzp7VigcEEQOEoQY4U-i5hhfRUbUCcleP_-9cUDDX8Y',
   // Used for canonical URLs, sitemap and social cards. Update if the domain changes.
   url: 'https://gusti-iz-kuzine.vercel.app',
   serviceArea: 'Istria, Croatia',
@@ -23,4 +25,6 @@ export const routes = {
   gallery: { hr: '/galerija/', en: '/en/gallery/' },
   privacy: { hr: '/politika-privatnosti/', en: '/en/privacy-policy/' },
   thanks: { hr: '/hvala/', en: '/en/thank-you/' },
+  // Not a navigable page: used so the language switch stays on the 404 pair.
+  notFound: { hr: '/404/', en: '/en/404/' },
 };

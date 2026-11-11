@@ -47,7 +47,6 @@ const schema = {
     '@type': 'AdministrativeArea',
     name: site.serviceArea,
   },
-  priceRange: '€€€',
   sameAs: [site.bookingUrl],
 };
 
@@ -72,12 +71,18 @@ const faqSchema =
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical.href} />
+    {site.googleSiteVerification && (
+      <meta name="google-site-verification" content={site.googleSiteVerification} />
+    )}
+    {!noindex && <link rel="canonical" href={canonical.href} />}
+    {!noindex && (
+      <>
+        <link rel="alternate" hreflang="hr" href={new URL(routes[current].hr, site.url).href} />
+        <link rel="alternate" hreflang="en" href={new URL(routes[current].en, site.url).href} />
+        <link rel="alternate" hreflang="x-default" href={new URL(routes[current].hr, site.url).href} />
+      </>
+    )}
     {noindex && <meta name="robots" content="noindex" />}
-
-    <link rel="alternate" hreflang="hr" href={new URL(routes[current].hr, site.url).href} />
-    <link rel="alternate" hreflang="en" href={new URL(routes[current].en, site.url).href} />
-    <link rel="alternate" hreflang="x-default" href={new URL(routes[current].hr, site.url).href} />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
@@ -106,6 +111,7 @@ const faqSchema =
 
   <body>
     <a class="skip-link" href="#main">{t.nav.skip}</a>
+    <ConsentBanner lang={lang} />
     <Header lang={lang} current={current} overlay={overlayHeader} />
 
     <main id="main">
@@ -115,6 +121,5 @@ const faqSchema =
     <Footer lang={lang} />
 
     <Lightbox labels={t.lightbox} />
-    <ConsentBanner lang={lang} />
   </body>
 </html>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NotFoundPage from '../../components/NotFoundPage.astro';
+import { getContent } from '../../lib/content';
+
+const t = getContent('en');
+---
+
+<BaseLayout
+  lang="en"
+  current="notFound"
+  noindex
+  title={t.notFoundPage.title}
+  description={t.notFoundPage.description}
+>
+  <NotFoundPage lang="en" />
+</BaseLayout>

@@ -1,0 +1,63 @@
+---
+import { routes } from '../config';
+import { getContent, getImage, type Lang } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const other: Lang = lang === 'hr' ? 'en' : 'hr';
+
+const figures = ['istria-motovun', 'istria-market', 'istria-vineyard', 'gallery-charcuterie'].map(
+  (key) => {
+    const image = getImage(key);
+    return { ...image, alt: image.alt[lang] };
+  }
+);
+---
+
+<section class="not-found">
+  <div class="wrap not-found__grid">
+    <div class="not-found__text">
+      <h1>{t.notFoundPage.heading}</h1>
+      <p>{t.notFoundPage.lead}</p>
+      <p>{t.notFoundPage.detail}</p>
+
+      <div class="not-found__actions">
+        <a class="btn" href={routes.home[lang]}>{t.notFoundPage.home}</a>
+        <a class="link-arrow" href={routes.gallery[lang]}>{t.notFoundPage.gallery}</a>
+        <a class="link-arrow" href={routes.notFound[other]} hreflang={other} lang={other}>
+          {t.notFoundPage.switch}
+        </a>
+      </div>
+    </div>
+
+    <div class="not-found__figures">
+      {
+        figures.map((figure, index) => (
+          <figure class="not-found__figure">
+            <button
+              class="lightbox-trigger"
+              type="button"
+              data-lightbox={figure.full}
+              data-lightbox-alt={figure.alt}
+              data-lightbox-caption={figure.alt}
+              aria-label={`${t.lightbox.open}: ${figure.alt}`}
+            >
+              <img
+                src={figure.src}
+                width={figure.width}
+                height={figure.height}
+                alt=""
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            </button>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

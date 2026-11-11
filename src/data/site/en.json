@@ -487,6 +487,16 @@
     "booking": "Check availability",
     "contact": "Write to me"
   },
+  "notFoundPage": {
+    "title": "Page not found: Gušti iz Kužine",
+    "description": "This page does not exist. Head back home or take a look at the gallery.",
+    "heading": "This page does not exist.",
+    "lead": "Head back home or take a look at the gallery.",
+    "detail": "If you were looking for the menu, it is on the home page. For a dinner reservation, contact me through my Take a Chef profile; I answer questions about menus and allergies within 24 hours.",
+    "home": "Home",
+    "gallery": "Gallery",
+    "switch": "Hrvatski"
+  },
   "lightbox": {
     "open": "Open photo",
     "close": "Close",

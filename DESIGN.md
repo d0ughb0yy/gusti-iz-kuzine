@@ -200,7 +200,7 @@ Both are local packages. There is no Google Fonts request and no third-party fon
 - **Section rhythm:** `--section-y` is `clamp(5rem, 9vw, 9rem)` block padding. The rhythm is generous; the page should feel paced, not packed.
 - **Header:** 76px on desktop, 64px minimum on phone. Solid ivory by default. Transparent only over the home hero, where it sits on the dark scrim; opening the mobile menu returns it to solid ivory.
 - **Grid language:** editorial splits, not cards. The story is portrait / text; the process is three numbered columns; the included list and FAQ are definition lists; the menus are a tab rail beside a printed sheet; the gallery teaser is an asymmetric 12-column grid.
-- **Home sequence:** hero, menu explorer, story, process, action band, included, gallery teaser, statement, FAQ, closing CTA, contact. The food comes before the chef: a guest sees the menus as the second beat, then reads who is cooking.
+- **Home sequence:** hero, story, menu explorer, process, action band, included, gallery teaser, statement, FAQ, closing CTA, contact. The chef comes before the menus: a guest meets the person cooking, then sees what he cooks, before the practical details.
 - **Full-bleed moments:** the hero, the action band, the statement, the closing CTA, and the footer. They are the only places the page breaks the wrap.
 
 Responsive behaviour:

@@ -21,14 +21,16 @@ const analyticsEnabled =
   data-consent-banner
   data-ga-id={measurementId}
   data-analytics-enabled={analyticsEnabled ? 'true' : 'false'}
+  role="region"
   aria-label={consent.title}
+  aria-describedby="consent-body"
   tabindex="-1"
   hidden
 >
   <div class="wrap consent__inner">
     <div class="consent__text">
       <p class="consent__title">{consent.title}</p>
-      <p class="consent__body">
+      <p class="consent__body" id="consent-body">
         {consent.body}
         {' '}
         <a href={routes.privacy[lang]}>{consent.privacyLink}</a>
@@ -47,7 +49,7 @@ const analyticsEnabled =
   </div>
 </section>
 
-<script is:inline>
+<script>
   (() => {
     const KEY = 'gusti-consent-v1';
     const banner = document.querySelector('[data-consent-banner]');
@@ -135,7 +137,9 @@ const analyticsEnabled =
       lastTrigger = trigger || null;
       banner.hidden = false;
       updateOffset();
-      if (trigger) banner.focus();
+      // The banner is fixed and sits early in the DOM, so first paint does not
+      // announce it. Move focus explicitly, including on the automatic first show.
+      banner.focus({ preventScroll: true });
     };
 
     const hide = () => {
