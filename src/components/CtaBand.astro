@@ -6,9 +6,10 @@ interface Props {
   title: string;
   lead: string;
   button: string;
+  newWindow: string;
 }
 
-const { title, lead, button } = Astro.props;
+const { title, lead, button, newWindow } = Astro.props;
 ---
 
 <section class="cta" aria-labelledby="cta-title">
@@ -26,7 +27,8 @@ const { title, lead, button } = Astro.props;
         rel="noopener noreferrer"
       >
         {button}
-        <Icon name="arrow-right" />
+        <Icon name="external" />
+        <span class="sr-only">{newWindow}</span>
       </a>
     </div>
   </div>

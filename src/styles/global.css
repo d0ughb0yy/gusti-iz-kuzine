@@ -63,8 +63,16 @@ a {
 .statement :focus-visible,
 .site-footer :focus-visible,
 .lightbox :focus-visible,
+.consent:focus-visible,
+.consent :focus-visible,
 .site-header--overlay :focus-visible {
   outline-color: var(--on-field);
+}
+
+/* <main> takes programmatic focus (skip link, consent dismissal). It is a
+   landmark, not a control, so it never paints the ring. */
+main:focus-visible {
+  outline: none;
 }
 
 ::selection {
@@ -630,17 +638,6 @@ figcaption {
   pointer-events: none;
 }
 
-.action__caption {
-  position: relative;
-  z-index: 1;
-  width: min(var(--max), calc(100% - (var(--gutter) * 2)));
-  margin: 0 auto;
-  padding-block: clamp(1.5rem, 3vw, 2.5rem);
-  color: var(--on-field);
-  font-size: var(--small);
-  letter-spacing: 0.04em;
-}
-
 /* --------------------------------------------------------------------------
    Included. A description list, not a table.
    -------------------------------------------------------------------------- */
@@ -765,21 +762,6 @@ figcaption {
 .menu-tab[aria-pressed='true'] {
   color: var(--accent);
   box-shadow: inset 0 -1px 0 var(--accent);
-}
-
-.menu-tab__desc {
-  display: block;
-  margin-top: 0.35rem;
-  font-family: var(--sans);
-  font-size: 0.8125rem;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.4;
-  color: var(--ink-soft);
-}
-
-.menu-tab[aria-pressed='true'] .menu-tab__desc {
-  color: var(--accent);
 }
 
 /* All panels share one grid cell, so the sheet keeps the tallest panel's
@@ -1423,17 +1405,40 @@ body[data-consent-open] {
 }
 
 @media (max-width: 40rem) {
+  .consent {
+    padding-block: 0.85rem;
+  }
+
   .consent__inner {
     align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .consent__title {
+    margin-bottom: 0.2rem;
+    font-size: var(--body);
+  }
+
+  .consent__body {
+    font-size: var(--small);
+    line-height: 1.4;
+  }
+
+  /* The footer's Cookie settings is still the way to change the choice, so the
+     third note only adds height on a phone. */
+  .consent__note {
+    display: none;
   }
 
   .consent__actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
   }
 
   .consent__actions .btn {
     min-width: 0;
+    padding-inline: 0.75rem;
   }
 }
 
@@ -1550,15 +1555,8 @@ body[data-consent-open] {
   transform: scale(1.02);
 }
 
-.gallery__caption {
-  margin-top: 0.5rem;
-  font-size: var(--small);
-  line-height: 1.4;
-  color: var(--ink-soft);
-}
-
 /* --------------------------------------------------------------------------
-   Lightbox. Dark, square controls, serif caption.
+   Lightbox. Dark, square controls, micro counter.
    -------------------------------------------------------------------------- */
 
 .lightbox {
@@ -1677,12 +1675,6 @@ body[data-consent-open] {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.35rem 1.25rem;
-}
-
-.lightbox__caption {
-  font-family: var(--serif);
-  font-size: 1.25rem;
-  line-height: 1.3;
 }
 
 .lightbox__count {

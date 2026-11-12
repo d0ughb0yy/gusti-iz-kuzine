@@ -24,6 +24,8 @@ const page = t.thanksPage;
       </a>
       <a class="link-arrow" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">
         {page.booking}
+        <Icon name="external" />
+        <span class="sr-only">{t.newWindow}</span>
       </a>
       <a class="link-arrow" href={`mailto:${site.contactEmail}`}>
         {page.contact}

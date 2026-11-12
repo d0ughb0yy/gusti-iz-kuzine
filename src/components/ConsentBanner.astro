@@ -137,9 +137,11 @@ const analyticsEnabled =
       lastTrigger = trigger || null;
       banner.hidden = false;
       updateOffset();
-      // The banner is fixed and sits early in the DOM, so first paint does not
-      // announce it. Move focus explicitly, including on the automatic first show.
-      banner.focus({ preventScroll: true });
+      // Only a visitor who opens the bar from Cookie settings gets focus moved.
+      // On first load the bar is the second tab stop, so it must not steal focus.
+      if (lastTrigger) {
+        banner.focus({ preventScroll: true });
+      }
     };
 
     const hide = () => {
@@ -147,6 +149,10 @@ const analyticsEnabled =
       updateOffset();
       if (lastTrigger && typeof lastTrigger.focus === 'function') {
         lastTrigger.focus();
+      } else {
+        // Focus would otherwise fall to <body> and the visitor restarts at the
+        // top of the page. <main> is a non-interactive focus target.
+        document.getElementById('main')?.focus({ preventScroll: true });
       }
       lastTrigger = null;
     };

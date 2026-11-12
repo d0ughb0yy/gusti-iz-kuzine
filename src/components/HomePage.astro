@@ -54,7 +54,8 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
         rel="noopener noreferrer"
       >
         {t.hero.primaryCta}
-        <Icon name="arrow-right" />
+        <Icon name="external" />
+        <span class="sr-only">{t.newWindow}</span>
       </a>
       <a class="hero__link" href="#jelovnici">{t.hero.secondaryCta}</a>
     </div>
@@ -126,7 +127,6 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
               data-menu-tab={index}
             >
               {menu.name}
-              <span class="menu-tab__desc">{menu.description}</span>
             </button>
           ))
         }
@@ -173,7 +173,8 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
                 rel="noopener noreferrer"
               >
                 {t.menus.cta}
-                <Icon name="arrow-right" />
+                <Icon name="external" />
+                <span class="sr-only">{t.newWindow}</span>
               </a>
             </div>
           ))
@@ -240,7 +241,7 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
   </div>
 </section>
 
-<section class="action" aria-label={t.action.caption}>
+<section class="action" aria-label={t.action.label}>
   <figure class="action__figure">
     <img
       src={actionImage.src}
@@ -248,11 +249,10 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
       sizes="100vw"
       width={actionImage.width}
       height={actionImage.height}
-      alt=""
+      alt={actionImage.alt[lang]}
       loading="lazy"
       decoding="async"
     />
-    <figcaption class="action__caption">{t.action.caption}</figcaption>
   </figure>
 </section>
 
@@ -307,7 +307,6 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
                 decoding="async"
               />
             </button>
-            <figcaption>{item.caption}</figcaption>
           </figure>
         ))
       }
@@ -356,6 +355,7 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
   title={t.cta.title}
   lead={t.cta.lead}
   button={t.cta.button}
+  newWindow={t.newWindow}
 />
 
 <ContactPanel lang={lang} />

@@ -34,8 +34,7 @@
     "primaryCta": "Check availability",
     "secondaryCta": "See the menus",
     "bookingNote": "Send an enquiry on Take a Chef. I'll get in touch within 24 hours.",
-    "image": "hero-plated",
-    "imageCaption": "Salmon, vegetables, and sauce."
+    "image": "hero-plated"
   },
   "intro": {
     "title": "Why Kužina.",
@@ -48,9 +47,7 @@
     "who": {
       "name": "I'm Tin.",
       "fact": "I grew up in Fažana, a small fishing town. I've been in kitchens since high school. Today I bring those techniques into your kitchen."
-    },
-    "image": "istria-motovun",
-    "imageCaption": "Motovun, Istria."
+    }
   },
   "how": {
     "title": "You choose the date. I'll take care of the rest.",
@@ -121,40 +118,6 @@
     "or": "or",
     "items": [
       {
-        "name": "Meat lovers",
-        "description": "Meat from central Croatia, vegetables from the Pula market.",
-        "courses": [
-          {
-            "name": "Starter",
-            "options": [
-              "Istrian goat cheese mousse, vegetables three ways",
-              "Seasonal salad with Istrian pršut"
-            ]
-          },
-          {
-            "name": "First course",
-            "options": [
-              "Wild mushroom risotto, crispy bacon",
-              "Ravioli with beef ragu, marinated carrots"
-            ]
-          },
-          {
-            "name": "Main course",
-            "options": [
-              "Chicken roulade, roasted potatoes, chimichurri",
-              "Ribeye steak, potato purée, roasted cauliflower, wild mushroom velouté"
-            ]
-          },
-          {
-            "name": "Dessert",
-            "options": [
-              "Cheesecake, chocolate crumble, white chocolate crisps",
-              "Chocolate ganache, chocolate chantilly, hazelnut crumble"
-            ]
-          }
-        ]
-      },
-      {
         "name": "Fresh and local",
         "description": "A lighter menu from the Pula market, with fish and vegetables at its centre.",
         "courses": [
@@ -177,6 +140,40 @@
             "options": [
               "Adriatic squid ragu, charred leeks, polenta",
               "Ravioli with beef ragu, marinated carrots"
+            ]
+          },
+          {
+            "name": "Dessert",
+            "options": [
+              "Cheesecake, chocolate crumble, white chocolate crisps",
+              "Chocolate ganache, chocolate chantilly, hazelnut crumble"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Meat lovers",
+        "description": "Meat from central Croatia, vegetables from the Pula market.",
+        "courses": [
+          {
+            "name": "Starter",
+            "options": [
+              "Istrian goat cheese mousse, vegetables three ways",
+              "Seasonal salad with Istrian pršut"
+            ]
+          },
+          {
+            "name": "First course",
+            "options": [
+              "Wild mushroom risotto, crispy bacon",
+              "Ravioli with beef ragu, marinated carrots"
+            ]
+          },
+          {
+            "name": "Main course",
+            "options": [
+              "Chicken roulade, roasted potatoes, chimichurri",
+              "Ribeye steak, potato purée, roasted cauliflower, wild mushroom velouté"
             ]
           },
           {
@@ -263,10 +260,6 @@
         "a": "Payment goes through Take a Chef. Refunds and cancellations are handled there too."
       },
       {
-        "q": "Do you cook outside Istria?",
-        "a": "I cook across Istria. For locations outside Istria, travel costs are agreed when we get in touch."
-      },
-      {
         "q": "What do you need in the kitchen?",
         "a": "An ordinary home kitchen with a stove and an oven is enough. If something specific is needed, I'll let you know in advance."
       },
@@ -275,24 +268,8 @@
         "a": "Tell me about any allergies or dietary needs before we set the menu, and I'll plan around them."
       },
       {
-        "q": "How long does dinner last?",
-        "a": "Usually three to four hours, depending on the number of courses and the pace of the evening."
-      },
-      {
         "q": "Do you leave the kitchen clean?",
         "a": "Yes. I wash up and clean the kitchen before I go."
-      },
-      {
-        "q": "Where do you shop?",
-        "a": "The Pula market, including the fishmongers. The meat comes from central Croatia."
-      },
-      {
-        "q": "Can you pair wines?",
-        "a": "Yes, on request. I choose Istrian wines to match the menu."
-      },
-      {
-        "q": "What is your background?",
-        "a": "I spent years in fine-dining kitchens in Croatia and Ireland."
       }
     ]
   },
@@ -505,6 +482,7 @@
     "of": "of"
   },
   "action": {
-    "caption": "Roasted, served."
-  }
+    "label": "In the kitchen"
+  },
+  "newWindow": "opens in a new window"
 }

@@ -34,8 +34,7 @@
     "primaryCta": "Provjerite dostupnost",
     "secondaryCta": "Pogledajte jelovnike",
     "bookingNote": "Pošaljite upit na Take a Chef. Javim se unutar 24 sata.",
-    "image": "hero-plated",
-    "imageCaption": "Losos, povrće i umak."
+    "image": "hero-plated"
   },
   "intro": {
     "title": "Zašto Kužina.",
@@ -48,9 +47,7 @@
     "who": {
       "name": "Ja sam Tin.",
       "fact": "Odrastao sam u Fažani, malom ribarskom mjestu. U kuhinji sam od srednje škole. Danas te tehnike donosim u vašu kuhinju."
-    },
-    "image": "istria-motovun",
-    "imageCaption": "Motovun, Istra."
+    }
   },
   "how": {
     "title": "Vi birate datum. Ostalo je na meni.",
@@ -121,40 +118,6 @@
     "or": "ili",
     "items": [
       {
-        "name": "Ljubitelji mesa",
-        "description": "Meso iz središnje Hrvatske, povrće s pulske tržnice.",
-        "courses": [
-          {
-            "name": "Predjelo",
-            "options": [
-              "Mousse od istarskog kozjeg sira, povrće na tri načina",
-              "Sezonska salata s istarskim pršutom"
-            ]
-          },
-          {
-            "name": "Prvo jelo",
-            "options": [
-              "Rižot od šumskih gljiva, hrskava panceta",
-              "Ravioli s raguom od govedine, marinirane mrkve"
-            ]
-          },
-          {
-            "name": "Glavno jelo",
-            "options": [
-              "Pileća rolada, pečeni krumpir, chimichurri",
-              "Ribeye odrezak, pire od krumpira, pečena cvjetača i velouté umak od šumskih gljiva"
-            ]
-          },
-          {
-            "name": "Desert",
-            "options": [
-              "Cheesecake, Petite Beurre crumble, listići bijele čokolade",
-              "Čokoladni ganache, čokoladna chantilly krema, crumble od lješnjaka"
-            ]
-          }
-        ]
-      },
-      {
         "name": "Svježe i lokalno",
         "description": "Lagani jelovnik s pulske tržnice, s ribom i povrćem u središtu.",
         "courses": [
@@ -177,6 +140,40 @@
             "options": [
               "Ragu od jadranskih lignji, poriluk pečen na žaru, palenta",
               "Ravioli s raguom od govedine, marinirane mrkve"
+            ]
+          },
+          {
+            "name": "Desert",
+            "options": [
+              "Cheesecake, Petite Beurre crumble, listići bijele čokolade",
+              "Čokoladni ganache, čokoladna chantilly krema, crumble od lješnjaka"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ljubitelji mesa",
+        "description": "Meso iz središnje Hrvatske, povrće s pulske tržnice.",
+        "courses": [
+          {
+            "name": "Predjelo",
+            "options": [
+              "Mousse od istarskog kozjeg sira, povrće na tri načina",
+              "Sezonska salata s istarskim pršutom"
+            ]
+          },
+          {
+            "name": "Prvo jelo",
+            "options": [
+              "Rižot od šumskih gljiva, hrskava panceta",
+              "Ravioli s raguom od govedine, marinirane mrkve"
+            ]
+          },
+          {
+            "name": "Glavno jelo",
+            "options": [
+              "Pileća rolada, pečeni krumpir, chimichurri",
+              "Ribeye odrezak, pire od krumpira, pečena cvjetača i velouté umak od šumskih gljiva"
             ]
           },
           {
@@ -263,10 +260,6 @@
         "a": "Plaćanje ide preko Take a Chef platforme. Povrati i otkazivanja također se rješavaju preko njih."
       },
       {
-        "q": "Kuhate li i izvan Istre?",
-        "a": "Kuham po cijeloj Istri. Za lokacije izvan Istre troškovi puta dogovaraju se prilikom kontakta."
-      },
-      {
         "q": "Što vam treba u kuhinji?",
         "a": "Dovoljna je uobičajena kućna kuhinja sa štednjakom i pećnicom. Ako nešto posebno treba, javit ću vam se unaprijed."
       },
@@ -275,24 +268,8 @@
         "a": "Recite mi ima li alergija ili posebnih prehrambenih potreba prije nego složimo jelovnik. Prilagodit ću ga."
       },
       {
-        "q": "Koliko traje večera?",
-        "a": "Obično tri do četiri sata, ovisno o broju jela i ritmu večeri."
-      },
-      {
         "q": "Ostavljate li kuhinju čistom?",
         "a": "Da. Operem suđe i pospremim kuhinju prije odlaska."
-      },
-      {
-        "q": "Gdje kupujete?",
-        "a": "Na pulskoj tržnici, uključujući ribarnicu. Meso dolazi iz središnje Hrvatske."
-      },
-      {
-        "q": "Uparujete li vina?",
-        "a": "Da, na zahtjev. Biram istarska vina prema jelovniku."
-      },
-      {
-        "q": "Koje je vaše iskustvo?",
-        "a": "Godinama sam radio u fine dining restoranima u Hrvatskoj i Irskoj."
       }
     ]
   },
@@ -505,6 +482,7 @@
     "of": "od"
   },
   "action": {
-    "caption": "Pečeno, posluženo."
-  }
+    "label": "U kuhinji"
+  },
+  "newWindow": "otvara se u novom prozoru"
 }

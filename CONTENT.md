@@ -24,7 +24,7 @@ The brand name is used in the header, footer, page titles, 404, and structured d
 | 2.2 | Confirm the profile accepts bookings for up to 6 guests | Take a Chef dashboard | — | **required** |
 | 2.3 | Confirm service area matches the site | Take a Chef dashboard | Istria, Croatia | **required** |
 
-Every CTA on both pages — hero, menu panel, gallery CTA band, footer — reads `bookingUrl`. Reservations still go through Take a Chef; the home page also carries a contact panel (see §10) for questions and custom ideas. If the profile URL is wrong, every button is wrong.
+Every CTA on every page — hero, menu panel, closing CTA bands, contact fallback, thank-you page, footer — reads `bookingUrl` and opens it in a new tab with an announced cue. Reservations still go through Take a Chef; the home page also carries a contact panel (see §9) for questions and custom ideas. If the profile URL is wrong, every button is wrong.
 
 ## 3. Copy
 
@@ -33,11 +33,11 @@ Every CTA on both pages — hero, menu panel, gallery CTA band, footer — reads
 | 3.1 | Croatian copy review | `src/data/site/hr.json` | Written as a first draft; have the chef read it aloud and adjust to their voice. The confirmed facts are recorded in the section below the table. | **required** |
 | 3.2 | English copy review | `src/data/site/en.json` | Mirrors the Croatian structure key for key. If you add or remove a menu/item in one file, do the same in the other. | **required** |
 | 3.3 | Service area wording | `src/config.ts` → `serviceArea`; both site JSON files (`hero.lead`, `faq`, `footer`) | Currently Istria / Istra. Decide whether nearby areas (Kvarner, Trieste, Ljubljana) should be mentioned. | recommended |
-| 3.4 | Menu names, courses, and dishes | `hr.json` / `en.json` → `menus.items[].courses[].options` | Three confirmed menus: Ljubitelji mesa / Svježe i lokalno / Plodovi Jadrana. The dishes are real; the copy adds provenance labels (Istrian goat cheese, Istrian pršut, wild mushrooms, Adriatic fish and squid). Each course holds one or two options: one option renders as a tasting course, two render as a choice. | **done** |
+| 3.4 | Menu names, courses, and dishes | `hr.json` / `en.json` → `menus.items[].courses[].options` | Three confirmed menus, in page order: Svježe i lokalno (the default open menu) / Ljubitelji mesa / Plodovi Jadrana. The dishes are real; the copy adds provenance labels (Istrian goat cheese, Istrian pršut, wild mushrooms, Adriatic fish and squid). Each course holds one or two options: one option renders as a tasting course, two render as a choice. | **done** |
 | 3.5 | "Included" list | `hr.json` / `en.json` → `included.rows` | Confirm each claim is true (travel, Pula market, central Croatia meat, service, wine pairing, cleanup, discretion). | **required** |
-| 3.6 | FAQ answers | `hr.json` / `en.json` → `faq.items` | Travel radius, kitchen requirements, lead time, deposit, cancellation, sourcing, wine pairing, background. Current answers are plausible defaults, not confirmed policy. | **required** |
+| 3.6 | FAQ answers | `hr.json` / `en.json` → `faq.items` | Eight questions: capacity, lead time, booking route, pricing, payment, kitchen equipment, allergies and dietary needs, and cleaning up. Travel, sourcing, wine pairing, and background are answered by the footer area line, the included list, and the story; dinner length is not listed. Current answers are plausible defaults, not confirmed policy. | **required** |
 | 3.7 | Page titles and meta descriptions | `hr.json` / `en.json` → `meta`, `galleryPage.metaTitle`, `galleryPage.metaDescription` | Include the location and "private chef" for search. | recommended |
-| 3.8 | 404 page copy | `src/pages/404.astro` | Bilingual by design. | optional |
+| 3.8 | 404 page copy | `src/pages/404.astro`, `src/pages/en/404.astro` | Routed bilingual pair; the English page carries its own copy. | optional |
 
 ### Confirmed copy facts (November 2026)
 
@@ -68,10 +68,10 @@ The current design has no reviews section, so there is nothing to replace or pub
 | 6.2 | Add local files | `public/images/` | Already holds the three Istrian photos | **required** |
 | 6.3 | Set real dimensions | `src/data/images.json` → `width`, `height` | Unsplash dimensions | **required** |
 | 6.4 | Rewrite alt text in both languages | `src/data/images.json` → `alt.hr`, `alt.en` | Descriptive, but describes stock photos | **required** |
-| 6.5 | Update gallery captions | `src/data/gallery.json` | Generic dish descriptions | recommended |
+| 6.5 | Update gallery descriptions | `src/data/gallery.json` → `caption` | Generic dish descriptions, now used as the lightbox caption and the image button's accessible name (not printed on the page) | recommended |
 | 6.6 | Hero plate | `images.json` → `hero-plated` | Salmon fillet on a white plate; 3:2 landscape. Replace with a plated dish that survives the dark scrim. | **required** |
 | 6.7 | Story portrait | `images.json` → `chef-portrait` | Hands-only stock placeholder; 4:5 portrait. Replace with a real portrait of Tin at work. Do not ship a stock face as Tin. | **required** |
-| 6.8 | Action band | `images.json` → `chef-action` | Roast chicken on a platter; 3:2 landscape. Replace with hands, fire, or plating. | **required** |
+| 6.8 | Action band | `images.json` → `chef-action` | Roast chicken on a platter; 3:2 landscape. Replace with hands, fire, plating, or the morning's catch; lead with fish and vegetables. | **required** |
 
 How to swap an image (four steps) is in `docs/development.md` → "Replacing an Unsplash image with a real photo". Keep the aspect ratio close to the slot it fills: the hero and action band are 3:2 landscape, the story portrait is 4:5, and gallery images vary.
 
@@ -85,7 +85,7 @@ How to swap an image (four steps) is in `docs/development.md` → "Replacing an 
 | 7.2 | Connect the custom domain in Vercel | Vercel dashboard | — | **required** |
 | 7.3 | Rebuild after changing the URL | `npm run build` | — | **required** |
 | 7.4 | Check canonical + hreflang after deploy | View source on the home, gallery and privacy pages in both languages | They derive from `site.url` | recommended |
-| 7.5 | Submit the sitemap or request indexing | Google Search Console | No sitemap is generated; submit the six indexable URLs (home, gallery and privacy in both languages) manually or add `@astrojs/sitemap` | optional |
+| 7.5 | Submit the sitemap or request indexing | Google Search Console | `@astrojs/sitemap` generates `/sitemap-index.xml`; thank-you pages and 404s are filtered out | optional |
 | 7.6 | Add an OG image if social previews matter | `src/layouts/BaseLayout.astro` → `ogImage` | Uses the hero Unsplash image | optional |
 
 Vercel settings: framework Astro, build command `npm run build`, output directory `dist`, Node 24.x (from `package.json` `engines`). No functions, rewrites, or `vercel.json` are required.
@@ -107,9 +107,9 @@ The current build loads Google Analytics 4 only after the visitor opts in. Fonts
 
 | # | Item | Where | Current placeholder | Status |
 | --- | --- | --- | --- | --- |
-| 10.1 | Contact email address | `src/config.ts` → `contactEmail` | `tin.lucic172@gmail.com` — real address supplied by Tin | **done** |
-| 10.2 | Privacy notice | `src/components/ContactPanel.astro` → `.contact-form__privacy` | Short note near the form names the four fields and states the data is sent through Web3Forms and delivered by email, and is not stored on this site (GDPR art. 5/6). It links to the privacy policy page | **done** |
-| 10.3 | Form delivery | `src/components/ContactPanel.astro` | The form posts to Web3Forms via fetch and the message arrives by email. The public access key lives in `src/config.ts`; enable domain restriction in the Web3Forms dashboard. No server-side code or database on this site. A hidden redirect sends native fallback submissions to `/hvala/` or `/en/thank-you/`. | **done** |
+| 9.1 | Contact email address | `src/config.ts` → `contactEmail` | `tin.lucic172@gmail.com` — real address supplied by Tin | **done** |
+| 9.2 | Privacy notice | `src/components/ContactPanel.astro` → `.contact-form__privacy` | Short note near the form names the four fields and states the data is sent through Web3Forms and delivered by email, and is not stored on this site (GDPR art. 5/6). It links to the privacy policy page | **done** |
+| 9.3 | Form delivery | `src/components/ContactPanel.astro` | The form posts to Web3Forms via fetch and the message arrives by email. The public access key lives in `src/config.ts`; enable domain restriction in the Web3Forms dashboard. No server-side code or database on this site. A hidden redirect sends native fallback submissions to `/hvala/` or `/en/thank-you/`. | **done** |
 
 The message is delivered through Web3Forms by email; the site itself stores nothing. If JavaScript fails, the native form posts to Web3Forms and the hidden redirect sends the visitor to the thank-you page.
 
@@ -118,7 +118,7 @@ The message is delivered through Web3Forms by email; the site itself stores noth
 - [ ] `npm install && npm run build` succeeds from a clean checkout.
 - [ ] All main pages return 200: `/`, `/galerija/`, `/en/`, `/en/gallery/`, plus `/politika-privatnosti/`, `/en/privacy-policy/`, `/hvala/`, and `/en/thank-you/`.
 - [ ] No "Dalmacija", "Dalmatia", "Split", or stock-photo credit remains.
-- [ ] Every CTA opens the real Take a Chef profile in a new tab.
+- [ ] Every CTA opens the real Take a Chef profile in a new tab, and each one announces that with an outbound arrow and a screen-reader suffix.
 - [ ] Language switch keeps you on the equivalent page (home ↔ home, gallery ↔ gallery, privacy ↔ privacy).
 - [ ] Gallery: all photos load while scrolling; lightbox opens, arrows stay still between portrait and landscape photos, outside click and `Esc` close it.
 - [ ] Mobile: navigation opens and closes; hero and menu tabs are readable at 390px; tab switching works.

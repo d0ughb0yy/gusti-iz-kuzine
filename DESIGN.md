@@ -150,7 +150,7 @@ The palette is a single theme, defined in `src/styles/theme.css`. There is no pa
 
 ### Ink
 - **Ink** (`#1a1815`): body text and primary outlines. Contrast on ground: 15.6:1.
-- **Ink Soft** (`#5b554a`): secondary text, captions, labels, menu descriptions. Contrast on ground: 6.5:1.
+- **Ink Soft** (`#5b554a`): secondary text, notes, labels, menu descriptions. Contrast on ground: 6.5:1.
 - **On Field** (`#f4f0e7`): text and controls on the dark field. Contrast on field: 16.3:1.
 - **On Field Soft** (`#c6bfb2`): secondary text on the dark field. Contrast on field: 10.2:1.
 
@@ -184,7 +184,7 @@ Both are local packages. There is no Google Fonts request and no third-party fon
 - **Title** (EB Garamond 400, `clamp(1.5rem, 2.4vw, 2.125rem)`, line-height 1.15): `h3`, process step titles, menu panel titles, FAQ questions, and menu tabs.
 - **Lead** (Inter Tight 400, `clamp(1.125rem, 1.4vw, 1.375rem)`, line-height 1.5): section intros and the hero lead.
 - **Body** (Inter Tight 400, `1.0625rem`, line-height 1.65, `text-wrap: pretty`): paragraphs and menu descriptions.
-- **Small** (Inter Tight 400, `0.875rem`): captions, notes, form fallback, footer meta.
+- **Small** (Inter Tight 400, `0.875rem`): notes, form fallback, footer meta.
 - **Micro** (Inter Tight 600, `0.75rem`, `0.14em` tracking, uppercase): buttons, nav links, labels, the `ili` / `or` separator, counters, and micro-attributions.
 
 **Breakpoints.** The ramp is fluid, but the hero name is explicitly capped on phones: `clamp(2.75rem, 13vw, 4rem)` at ≤680px and `clamp(2.5rem, 14vw, 3.25rem)` at ≤399px. The statement quote drops to `1.75rem` at ≤680px. Menu tabs drop to `1.25rem` at ≤960px. On phones the menu sheet tightens too: the panel title is `1.375rem` and dish names are `1.0625rem` at ≤680px, keeping the title at roughly 1.3× the dish size. These are the only intentional size exceptions; they live in `src/styles/global.css`.
@@ -234,12 +234,12 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 - **The overlay rule:** the transparent header is allowed only on the two home routes. A 404 or a secondary page that shares the `home` route key must not inherit it.
 
 ### Buttons
-- **One voice:** `.btn` is a transparent rectangle with a 1px ink border, micro uppercase label, 48px minimum height, and an inline arrow. Hover fills ink and flips the label to ground.
+- **One voice:** `.btn` is a transparent rectangle with a 1px ink border, micro uppercase label, 48px minimum height, and an inline arrow — the outbound arrow when the destination opens in a new tab. Hover fills ink and flips the label to ground.
 - **On dark:** `.btn--light` uses an on-field border and label; hover fills on-field and flips to field.
 - **No filled primary button, no second button shape.** The booking CTA is the only button; every other action is a text link or an arrow link.
 
 ### Arrow links
-- `.link-arrow` is an underlined text link with an inline arrow, 44px minimum height. The underline is text-decoration, not a border, so the arrow sits outside it. Hover moves to oxblood.
+- `.link-arrow` is an underlined text link with an inline arrow (the outbound arrow for a new-tab destination), 44px minimum height. The underline is text-decoration, not a border, so the arrow sits outside it. Hover moves to oxblood.
 - Used for "how it works", "reserve the evening", "see the full gallery", and the menu CTA.
 
 ### Hero
@@ -258,20 +258,20 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 - The head is a two-column split: heading left, lead right. It stacks at ≤960px.
 
 ### Action band
-- One full-bleed photograph with a dark bottom gradient and a single small caption. It is a cinematic pause between the process and the included list, not a gallery.
+- One full-bleed photograph with a dark bottom gradient. No visible caption. The region is labelled “U kuhinji” / “In the kitchen”, not by the old caption line.
 
 ### Included
 - A `<dl>` of item / detail rows with hairline tops and a final hairline bottom. No table, no card. The text column explains the offer; the list is the receipt.
 
 ### Menu explorer
-- **Tabs:** serif name plus a small sans description. They are an `aria-pressed` toggle group, deliberately not a WAI-APG tabs widget: three tabs, click to switch, no roving tabindex or arrow keys. A polite live region announces the menu now on screen.
+- **Tabs:** the serif menu name alone; the description belongs to the sheet below. They are an `aria-pressed` toggle group, deliberately not a WAI-APG tabs widget: three tabs, click to switch, no roving tabindex or arrow keys. A polite live region announces the menu now on screen. The fresh/local menu is the default, so the first menu a guest meets leads with fish and vegetables.
 - **Sheet:** the active menu sits on `--ground-raised` inside a 1px border. Course name in micro uppercase; one or two dish options in serif; two options sit side by side around an uppercase `ili` / `or` separator with hairline edges.
 - **Height:** on desktop and tablet, all panels share one grid cell, so the sheet keeps the tallest panel's height and switching tabs never moves the page. On phone, panels size to their content so the shorter menu leaves no empty sheet.
 - **No JS:** every panel is visible and stacked; the tabs remain visible but are not the only way to read the menus.
 - **No menu photography.** The menu is a printed sheet, not a gallery.
 
 ### Gallery teaser
-- A 12-column asymmetric grid of four images: 4:3, 3:4, 1:1, 16:9, with captions. The images are offset vertically so the section reads as prints dropped on the page, not a uniform card grid.
+- A 12-column asymmetric grid of four images: 4:3, 3:4, 1:1, 16:9. The images are offset vertically so the section reads as prints dropped on the page, not a uniform card grid.
 - Each image is a lightbox trigger. The section ends with a small stock-photography note and the full-gallery link.
 
 ### Statement
@@ -279,6 +279,8 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 
 ### FAQ
 - Heading and lead left; a `<dl>` of questions and answers right, separated by hairlines. Answers are always open. No accordion.
+- Eight questions, all booking-critical or logistics the guest needs before sending an enquiry: capacity, lead time, booking, price, payment, kitchen equipment, allergies and dietary needs, and whether the kitchen is left clean. Travel, sourcing, wine pairing, and background are answered elsewhere (footer area line, included list, story); dinner length is not listed because the evening follows the guest's pace rather than a fixed clock.
+- The block sits before the closing CTA on purpose. Always-open answers are the honest form, and Tin chose this length and placement over a split or a compact early CTA. Do not treat the always-open FAQ or its position as a conversion defect.
 
 ### Closing CTA
 - A dark field split: serif headline and lead left, outline booking button right. On phone the action moves below the text and aligns left.
@@ -293,17 +295,17 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 - Dark field, serif wordmark, micro uppercase nav, a centred area line, and a right-aligned copyright. The booking link is underlined. Links have 44px-tall hit areas.
 
 ### Consent banner
-- Fixed to the bottom on the dark field: a short serif title, one line of explanation with a privacy link, and two equal outline buttons — Reject and Accept. No close icon and no pre-selected choice.
+- Fixed to the bottom on the dark field: a short serif title, one line of explanation with a privacy link, and two outline buttons of equal weight — Reject and Accept. No close icon and no pre-selected choice.
 - It is non-blocking. The page behind stays usable, and the bar adds matching bottom padding while visible so it never covers the footer.
-- On phone the buttons form two equal columns. **Cookie settings** in the footer reopens the bar. Without JavaScript the bar stays hidden, because there is no tracking then.
+- On phone the buttons form two equal columns, the explanatory note line is dropped to keep the band short, and the title and body tighten to `--body` / `--small`. **Cookie settings** in the footer reopens the bar. Without JavaScript the bar stays hidden, because there is no tracking then.
 
 ### Gallery page
 - Page hero: serif title, lead, photo count, and a large 4:5 image (the bread photograph). The hero image is not repeated in the grid.
-- Grid: 3-column CSS masonry on desktop, 2 at ≤960px, 1 at ≤680px. Varied aspect ratios and small captions. Every item opens the lightbox with the group's count.
+- Grid: 3-column CSS masonry on desktop, 2 at ≤960px, 1 at ≤680px. Varied aspect ratios. Every item opens the lightbox with the group's count.
 - The page closes with the same dark CTA band.
 
 ### Lightbox
-- Native `<dialog>` with `showModal`, near-black field, square 1px-bordered controls, serif caption, micro counter.
+- Native `<dialog>` with `showModal`, near-black field, square 1px-bordered controls, micro counter. No visible caption; the image `alt` and the dialog label carry the description.
 - Keyboard (`←`/`→`/`Esc`), outside-click close, touch swipe, and focus return to the trigger. Rapid arrow presses use a token counter so the wrong photo cannot render.
 
 ### Legal, thank-you, 404
@@ -325,9 +327,10 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 - **Targets:** primary controls, header links, language links, and form fields are at least 48px tall; arrow links and footer links are at least 44px. Inline links inside paragraphs are the only exception.
 - **No JS:** the header toggle hides, the nav stays visible, all three menus stack, and the form still posts. The site never depends on JavaScript for content.
 - **Forms:** labels, `required`, `autocomplete`, native validation, `:user-invalid` hints, a visible status region, and a mailto fallback.
-- **Consent:** the bar is a labelled region; both choices are 48px buttons; it does not steal focus on first load, and focus returns to the footer trigger when it is opened from there.
+- **Consent:** the bar is a labelled region; both choices are 48px buttons; it does not steal focus on first load, and focus returns to the footer trigger when it was opened from there, or to `<main>` when the choice was made on first load.
 - **Images:** every image keeps intrinsic `width`/`height`; localised `alt` where the image is content; decorative images use `alt=""` and are labelled by the surrounding button or heading.
 - **Language:** `lang` is set on `<html>`; the HR/EN pair uses `aria-current`; all copy exists key-for-key in both languages.
+- **New windows:** every Take a Chef link opens in a new tab. Icon-bearing links swap the arrow for the outbound glyph, and every one carries an `sr-only` suffix naming the new window.
 
 ## Photography
 
@@ -337,12 +340,13 @@ The site is designed around real photographs that are still being shot. The slot
 | --- | --- | --- | --- |
 | `hero-plated` | Home hero | 3:2 landscape | A plated dish, dark or moody enough to survive the scrim. The current salmon is a placeholder. |
 | `chef-portrait` | Story | 4:5 portrait | Tin, ideally at work or in the kitchen. The current hands-only image is a placeholder; do not present a stock face as Tin. |
-| `chef-action` | Action band | 3:2 landscape | Hands, fire, plating, or a finished roast. The current roast chicken is a placeholder. |
+| `chef-action` | Action band | 3:2 landscape | Hands, fire, plating, or the morning's catch. The current roast chicken is a placeholder; the real shoot should lead with fish and vegetables. |
 | Gallery | Gallery page and teaser | mixed | Food, table, and Istria. The gallery page currently carries temporary food and preparation images plus real Istria photographs. |
 
 **Named rules**
+- **The No-Caption Rule.** No image prints a visible caption. The description lives in the surrounding control's accessible name, or in the image `alt` when the image is not a control.
 - **The Food-First Rule.** The first screen is food, not a portrait. The portrait belongs in the story section.
-- **The Real-Face Rule.** Do not ship a stock person as the chef. Until the real portrait exists, use a hands-only or detail image and keep the caption honest.
+- **The Real-Face Rule.** Do not ship a stock person as the chef. Until the real portrait exists, use a hands-only or detail image and keep its alt honest.
 - **The No-Mask Rule.** Photography is rectangular. No circles, blobs, or decorative masks.
 
 ## Do's and Don'ts
