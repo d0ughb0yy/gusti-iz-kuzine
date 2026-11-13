@@ -22,9 +22,9 @@ const { items, labels } = Astro.props;
   {
     items.map((item, index) => (
       <li class="gallery__item">
-        <button
+        <a
           class="gallery__button lightbox-trigger"
-          type="button"
+          href={item.full}
           data-lightbox={item.full}
           data-lightbox-alt={item.alt}
           data-lightbox-caption={item.caption}
@@ -41,7 +41,7 @@ const { items, labels } = Astro.props;
             loading={index < 2 ? 'eager' : 'lazy'}
             decoding="async"
           />
-        </button>
+        </a>
       </li>
     ))
   }

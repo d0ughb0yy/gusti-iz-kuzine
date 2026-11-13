@@ -21,22 +21,22 @@ const year = site.year;
         <a href={routes.gallery[lang]}>{t.nav.gallery}</a>
         <a href={`${routes.home[lang]}#jelovnici`}>{t.nav.menu}</a>
         <a href={routes.privacy[lang]}>{t.nav.privacy}</a>
-        <button class="footer__consent" type="button" data-consent-settings>
-          {t.consent.settings}
-        </button>
+      </nav>
+
+      <div class="footer__slogan">
+        <span>{t.footer.areaText}</span>
         <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" class="footer__booking">
           {t.footer.bookingLink}
           <span class="sr-only">{t.newWindow}</span>
         </a>
-      </nav>
-
-      <span class="footer__slogan">
-        {t.footer.areaText}
-      </span>
+      </div>
 
       <div class="footer__copyright">
         <span>© {year} {site.name}</span>
         <span>{t.footer.rights}</span>
+        <button class="footer__consent" type="button" data-consent-settings>
+          {t.consent.settings}
+        </button>
       </div>
     </div>
   </div>

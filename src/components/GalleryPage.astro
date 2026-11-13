@@ -25,9 +25,9 @@ const galleryCount = items.length + 1;
     </div>
 
     <figure class="page-hero__figure">
-      <button
+      <a
         class="lightbox-trigger"
-        type="button"
+        href={heroImage.full}
         data-lightbox={heroImage.full}
         data-lightbox-alt={heroImage.alt[lang]}
         data-lightbox-caption={heroImage.alt[lang]}
@@ -45,7 +45,7 @@ const galleryCount = items.length + 1;
           decoding="async"
           fetchpriority="high"
         />
-      </button>
+      </a>
     </figure>
   </div>
 </section>

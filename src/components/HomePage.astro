@@ -67,9 +67,9 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
 <section class="section story" id="o-kuhanju" aria-labelledby="story-title">
   <div class="wrap story__grid">
     <figure class="story__figure">
-      <button
+      <a
         class="lightbox-trigger"
-        type="button"
+        href={portraitImage.full}
         data-lightbox={portraitImage.full}
         data-lightbox-alt={portraitImage.alt[lang]}
         data-lightbox-caption={t.intro.who.name}
@@ -85,7 +85,7 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
           loading="lazy"
           decoding="async"
         />
-      </button>
+      </a>
     </figure>
 
     <div class="story__text">
@@ -286,14 +286,15 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
 
     <div class="gallery-teaser__grid">
       {
-        teaserItems.map((item, index) => (
+        teaserItems.map((item) => (
           <figure class="gallery-teaser__item">
-            <button
+            <a
               class="lightbox-trigger"
-              type="button"
+              href={item.full}
               data-lightbox={item.full}
               data-lightbox-alt={item.alt}
               data-lightbox-caption={item.caption}
+              data-lightbox-group="gallery"
               aria-label={`${t.lightbox.open}: ${item.caption}`}
             >
               <img
@@ -303,10 +304,10 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
                 width={item.width}
                 height={item.height}
                 alt=""
-                loading={index === 0 ? 'eager' : 'lazy'}
+                loading="lazy"
                 decoding="async"
               />
-            </button>
+            </a>
           </figure>
         ))
       }

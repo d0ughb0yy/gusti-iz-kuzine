@@ -31,9 +31,9 @@
       "iz Kužine"
     ],
     "lead": "A private chef in Istria. I shop the Pula market that morning, cook in your kitchen, and serve at your table. Fine-dining technique, in your home.",
-    "primaryCta": "Check availability",
+    "primaryCta": "Send an enquiry",
     "secondaryCta": "See the menus",
-    "bookingNote": "Send an enquiry on Take a Chef. I'll get in touch within 24 hours.",
+    "bookingNote": "Choose a date and number of guests on Take a Chef. I'll get in touch within 24 hours.",
     "image": "hero-plated"
   },
   "intro": {
@@ -216,7 +216,7 @@
         ]
       }
     ],
-    "cta": "Check availability"
+    "cta": "Send an enquiry"
   },
   "galleryTeaser": {
     "title": "Table, plate, place.",
@@ -278,6 +278,7 @@
     "lead": "Have a question, an idea, or a special occasion? Write to me here.",
     "note": "I'll get in touch within 24 hours.",
     "formLabel": "Contact form",
+    "requiredNote": "All fields except last name are required.",
     "subject": "Enquiry from the Gušti iz Kužine website",
     "fields": {
       "name": "First name",
@@ -288,7 +289,6 @@
     },
     "hints": {
       "name": "This field is required.",
-      "surname": "This field is required.",
       "email": "Required. Enter a valid email address.",
       "message": "This field is required."
     },
@@ -300,13 +300,13 @@
       "after": "or book your dinner on my",
       "booking": "Take a Chef profile"
     },
-    "privacy": "Your first name, last name, email, and message are used only to reply to your enquiry. The data is sent through Web3Forms and delivered by email; it is not stored on this site.",
+    "privacy": "Your first name, email, and message are used only to reply to your enquiry. Your last name is optional and used only if you enter it. The data is sent through Web3Forms and delivered by email; it is not stored on this site.",
     "privacyLink": "Read the privacy policy"
   },
   "cta": {
     "title": "Your dinner starts with one enquiry.",
-    "lead": "Choose a date on Take a Chef and send your enquiry. I'll get back to you with a menu proposal.",
-    "button": "Check availability"
+    "lead": "Choose a date on Take a Chef and send me a few details. I'll get back to you with a menu proposal.",
+    "button": "Send an enquiry"
   },
   "footer": {
     "navLabel": "Pages",
@@ -321,8 +321,8 @@
     "lead": "Photographs are placeholders for now.",
     "countLabel": "photographs",
     "ctaTitle": "Would you like an evening like this?",
-    "ctaLead": "Check availability and send me a few details about your evening.",
-    "ctaButton": "Check availability"
+    "ctaLead": "Send an enquiry and tell me a few details about your evening.",
+    "ctaButton": "Send an enquiry"
   },
   "privacyPage": {
     "metaTitle": "Privacy policy: Gušti iz Kužine",
@@ -349,7 +349,7 @@
         "id": "data",
         "title": "What data I collect",
         "body": [
-          "You send me data yourself when you fill in the contact form: first name, last name, email address, and the content of your message. Without that data I cannot reply to your enquiry, so providing it is necessary if you want an answer.",
+          "You send me data yourself when you fill in the contact form: first name, email address, and the content of your message. You can add a last name if you wish. Without the first name, email address, and message I cannot reply to your enquiry, so providing them is necessary if you want an answer.",
           "The server that hosts the site records technical data for each request, usually the IP address, the time, and the browser type. Those logs are used for security and to keep the site running.",
           "The site sets no cookies unless you accept analytics. If you accept, Google Analytics 4 records the pages you visit, an approximate location derived from your IP address, your browser and device type, your language, and the site that referred you. It does not receive your name or email address.",
           "If you accept analytics, I also record that the contact form was submitted. That event contains the form name and page language, not the name, email, or message you entered.",
@@ -461,7 +461,7 @@
     "title": "Thank you. Your message has been sent.",
     "lead": "I'll get in touch within 24 hours. If your message didn't go through, or you change your mind, write to me directly at tin.lucic172@gmail.com.",
     "home": "Back to home",
-    "booking": "Check availability",
+    "booking": "Send an enquiry",
     "contact": "Write to me"
   },
   "notFoundPage": {

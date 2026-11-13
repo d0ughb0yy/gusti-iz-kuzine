@@ -38,9 +38,9 @@ const figures = ['istria-motovun', 'istria-market', 'istria-vineyard', 'gallery-
       {
         figures.map((figure, index) => (
           <figure class="not-found__figure">
-            <button
+            <a
               class="lightbox-trigger"
-              type="button"
+              href={figure.full}
               data-lightbox={figure.full}
               data-lightbox-alt={figure.alt}
               data-lightbox-caption={figure.alt}
@@ -54,7 +54,7 @@ const figures = ['istria-motovun', 'istria-market', 'istria-vineyard', 'gallery-
                 loading={index === 0 ? 'eager' : 'lazy'}
                 decoding="async"
               />
-            </button>
+            </a>
           </figure>
         ))
       }

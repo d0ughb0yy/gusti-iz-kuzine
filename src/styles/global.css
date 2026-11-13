@@ -1128,6 +1128,12 @@ figcaption {
   gap: 1.5rem;
 }
 
+.contact-form__required {
+  font-size: var(--small);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
 .contact-form__row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1298,6 +1304,17 @@ figcaption {
 
 .footer__consent {
   display: none;
+  padding-block: 0.75rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: var(--micro);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .js .footer__consent {
@@ -1305,13 +1322,26 @@ figcaption {
   align-items: center;
 }
 
+.footer__consent:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+}
+
 .footer__booking {
+  padding-block: 0.75rem;
   color: var(--on-field);
+  font-size: var(--micro);
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-decoration: underline !important;
+  text-transform: uppercase;
   text-underline-offset: 0.35em;
 }
 
 .footer__slogan {
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
   justify-self: center;
   min-width: 0;
   font-size: var(--small);
@@ -1323,6 +1353,7 @@ figcaption {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  align-items: center;
   gap: 0.35rem 1rem;
   font-size: var(--small);
   color: var(--on-field-soft);
@@ -1536,6 +1567,7 @@ body[data-consent-open] {
   color: inherit;
   font: inherit;
   text-align: left;
+  text-decoration: none;
   cursor: zoom-in;
   overflow: hidden;
 }
@@ -1985,6 +2017,10 @@ body[data-consent-open] {
   .footer__copyright {
     justify-self: start;
     text-align: left;
+  }
+
+  .footer__slogan {
+    justify-items: start;
   }
 }
 

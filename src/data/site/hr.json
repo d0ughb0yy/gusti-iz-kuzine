@@ -31,9 +31,9 @@
       "iz Kužine"
     ],
     "lead": "Privatni kuhar u Istri. Tog jutra kupujem na pulskoj tržnici, kuham u vašoj kuhinji i poslužujem za vašim stolom. Tehnika fine dininga, u vašem domu.",
-    "primaryCta": "Provjerite dostupnost",
+    "primaryCta": "Pošaljite upit",
     "secondaryCta": "Pogledajte jelovnike",
-    "bookingNote": "Pošaljite upit na Take a Chef. Javim se unutar 24 sata.",
+    "bookingNote": "Odaberite datum i broj gostiju na Take a Chef. Javim se unutar 24 sata.",
     "image": "hero-plated"
   },
   "intro": {
@@ -216,7 +216,7 @@
         ]
       }
     ],
-    "cta": "Provjerite dostupnost"
+    "cta": "Pošaljite upit"
   },
   "galleryTeaser": {
     "title": "Stol, tanjur, mjesto.",
@@ -278,6 +278,7 @@
     "lead": "Imate pitanje, ideju ili poseban povod? Pišite mi ovdje.",
     "note": "Javim se unutar 24 sata.",
     "formLabel": "Kontakt obrazac",
+    "requiredNote": "Sva polja osim prezimena su obavezna.",
     "subject": "Upit sa stranice Gušti iz Kužine",
     "fields": {
       "name": "Ime",
@@ -288,7 +289,6 @@
     },
     "hints": {
       "name": "Obavezno polje.",
-      "surname": "Obavezno polje.",
       "email": "Obavezno polje. Unesite ispravnu adresu.",
       "message": "Obavezno polje."
     },
@@ -300,13 +300,13 @@
       "after": "ili rezervirajte večeru na",
       "booking": "Take a Chef profilu"
     },
-    "privacy": "Ime, prezime, e-pošta i poruka koriste se samo za odgovor na vaš upit. Podaci se šalju putem usluge Web3Forms i dostavljaju e-poštom; na ovoj se stranici ne pohranjuju.",
+    "privacy": "Ime, e-pošta i poruka koriste se samo za odgovor na vaš upit; prezime je neobavezno i koristi se samo ako ga upišete. Podaci se šalju putem usluge Web3Forms i dostavljaju e-poštom; na ovoj se stranici ne pohranjuju.",
     "privacyLink": "Pročitajte politiku privatnosti"
   },
   "cta": {
     "title": "Vaša večera počinje jednim upitom.",
-    "lead": "Odaberite datum i pošaljite upit na Take a Chef. Javit ću se s prijedlogom jelovnika.",
-    "button": "Provjerite dostupnost"
+    "lead": "Odaberite datum na Take a Chef i pošaljite mi nekoliko detalja. Javit ću se s prijedlogom jelovnika.",
+    "button": "Pošaljite upit"
   },
   "footer": {
     "navLabel": "Stranice",
@@ -321,8 +321,8 @@
     "lead": "Fotografije su zasad zamjenske.",
     "countLabel": "fotografija",
     "ctaTitle": "Želite ovakvu večeru?",
-    "ctaLead": "Provjerite dostupnost i pošaljite mi nekoliko detalja o svojoj večeri.",
-    "ctaButton": "Provjerite dostupnost"
+    "ctaLead": "Pošaljite upit i recite mi nekoliko detalja o svojoj večeri.",
+    "ctaButton": "Pošaljite upit"
   },
   "privacyPage": {
     "metaTitle": "Politika privatnosti: Gušti iz Kužine",
@@ -349,7 +349,7 @@
         "id": "podaci",
         "title": "Koje podatke prikupljam",
         "body": [
-          "Podatke mi šaljete sami kada ispunite kontakt obrazac: ime, prezime, adresu e-pošte i sadržaj poruke. Bez tih podataka ne mogu odgovoriti na upit, pa je njihovo davanje potrebno ako želite odgovor.",
+          "Podatke mi šaljete sami kada ispunite kontakt obrazac: ime, adresu e-pošte i sadržaj poruke. Prezime možete navesti ako želite. Bez imena, adrese e-pošte i poruke ne mogu odgovoriti na upit, pa je njihovo davanje potrebno ako želite odgovor.",
           "Poslužitelj na kojem stranica radi bilježi tehničke podatke o svakom zahtjevu, uobičajeno IP adresu, vrijeme i vrstu preglednika. Ti zapisi služe za sigurnost i rad stranice.",
           "Stranica ne postavlja kolačiće osim ako prihvatite analitiku. Ako prihvatite, Google Analytics 4 bilježi stranice koje posjećujete, približnu lokaciju izvedenu iz vaše IP adrese, vrstu preglednika i uređaja, jezik i stranicu s koje ste došli. Ne prima vaše ime ni adresu e-pošte.",
           "Ako prihvatite analitiku, bilježim i da je kontakt obrazac poslan. Taj događaj sadrži naziv obrasca i jezik stranice, ne ime, adresu e-pošte ni sadržaj poruke.",
@@ -461,7 +461,7 @@
     "title": "Hvala. Poruka je poslana.",
     "lead": "Javim se unutar 24 sata. Ako poruka nije prošla ili se predomislite, pišite mi izravno na tin.lucic172@gmail.com.",
     "home": "Natrag na početnu",
-    "booking": "Provjerite dostupnost",
+    "booking": "Pošaljite upit",
     "contact": "Pišite mi"
   },
   "notFoundPage": {

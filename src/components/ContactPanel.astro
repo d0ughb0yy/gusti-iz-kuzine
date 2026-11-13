@@ -41,6 +41,7 @@ const t = getContent(lang);
           tabindex="-1"
           autocomplete="off"
         />
+        <p class="contact-form__required">{t.contact.requiredNote}</p>
         <div class="contact-form__row">
           <div class="contact-form__field">
             <label class="contact-form__label" for="contact-name">{t.contact.fields.name}</label>
@@ -68,10 +69,7 @@ const t = getContent(lang);
               type="text"
               autocomplete="family-name"
               autocapitalize="sentences"
-              aria-describedby="contact-surname-hint"
-              required
             />
-            <p class="contact-form__hint" id="contact-surname-hint">{t.contact.hints.surname}</p>
           </div>
         </div>
 

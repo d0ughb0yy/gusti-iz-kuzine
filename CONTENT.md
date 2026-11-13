@@ -26,6 +26,8 @@ The brand name is used in the header, footer, page titles, 404, and structured d
 
 Every CTA on every page — hero, menu panel, closing CTA bands, contact fallback, thank-you page, footer — reads `bookingUrl` and opens it in a new tab with an announced cue. Reservations still go through Take a Chef; the home page also carries a contact panel (see §9) for questions and custom ideas. If the profile URL is wrong, every button is wrong.
 
+The Take a Chef profile is a request form, not a live calendar: it has no dates. CTAs therefore say “Pošaljite upit” / “Send an enquiry”, not “Check availability”. Keep that wording unless a real availability calendar is added.
+
 ## 3. Copy
 
 | # | Item | Where | Notes | Status |
@@ -46,6 +48,7 @@ Every CTA on every page — hero, menu panel, closing CTA bands, contact fallbac
 - He shops the Pula market, including the fishmongers, for fish and vegetables. The meat comes from central Croatia.
 - He has a fine-dining background in Croatia and Ireland. No restaurant names are published.
 - Wine pairing is available on request.
+- Tin replies to enquiries within 24 hours.
 - The three menus are the real menus. The dish names now carry provenance: Istrian goat cheese, Istrian pršut, wild mushrooms, Adriatic fish and squid. Confirm the Istrian goat cheese, Istrian pršut, and wild mushroom labels if any is not accurate.
 
 ## 4. Prices
@@ -108,7 +111,7 @@ The current build loads Google Analytics 4 only after the visitor opts in. Fonts
 | # | Item | Where | Current placeholder | Status |
 | --- | --- | --- | --- | --- |
 | 9.1 | Contact email address | `src/config.ts` → `contactEmail` | `tin.lucic172@gmail.com` — real address supplied by Tin | **done** |
-| 9.2 | Privacy notice | `src/components/ContactPanel.astro` → `.contact-form__privacy` | Short note near the form names the four fields and states the data is sent through Web3Forms and delivered by email, and is not stored on this site (GDPR art. 5/6). It links to the privacy policy page | **done** |
+| 9.2 | Privacy notice | `src/components/ContactPanel.astro` → `.contact-form__privacy` | Short note near the form names the fields (last name optional), states the data is sent through Web3Forms and delivered by email, and is not stored on this site (GDPR art. 5/6). It links to the privacy policy page | **done** |
 | 9.3 | Form delivery | `src/components/ContactPanel.astro` | The form posts to Web3Forms via fetch and the message arrives by email. The public access key lives in `src/config.ts`; enable domain restriction in the Web3Forms dashboard. No server-side code or database on this site. A hidden redirect sends native fallback submissions to `/hvala/` or `/en/thank-you/`. | **done** |
 
 The message is delivered through Web3Forms by email; the site itself stores nothing. If JavaScript fails, the native form posts to Web3Forms and the hidden redirect sends the visitor to the thank-you page.

@@ -288,11 +288,13 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 
 ### Contact
 - Text left, form right. The form is not a card: a hairline top, labels in micro uppercase, and fields that are transparent with a 1px `--line-strong` bottom edge, 48px tall.
+- A visible line under the top rule says all fields except last name are required. Last name is optional; name, email, and message are required.
 - Focus uses the global ring; invalid fields use a 2px oxblood-deep underline and a visible hint. The Web3Forms markup and script are preserved.
 - Name and surname share a row on desktop; everything stacks on phone. The form has a visible privacy note and a mailto fallback.
 
 ### Footer
-- Dark field, serif wordmark, micro uppercase nav, a centred area line, and a right-aligned copyright. The booking link is underlined. Links have 44px-tall hit areas.
+- Dark field, serif wordmark, micro uppercase nav, a centred area line, and a right-aligned copyright. The booking link sits under the area line; **Cookie settings** sits with the copyright. Both are underlined.
+- Links have 44px-tall hit areas.
 
 ### Consent banner
 - Fixed to the bottom on the dark field: a short serif title, one line of explanation with a privacy link, and two outline buttons of equal weight — Reject and Accept. No close icon and no pre-selected choice.
@@ -306,6 +308,7 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 
 ### Lightbox
 - Native `<dialog>` with `showModal`, near-black field, square 1px-bordered controls, micro counter. No visible caption; the image `alt` and the dialog label carry the description.
+- Every trigger is an `<a href>` to the full image. With JavaScript the plain click is intercepted and opens the dialog with focus return to the trigger; without it, the link opens the image. Modifier-clicks keep normal link behaviour.
 - Keyboard (`←`/`→`/`Esc`), outside-click close, touch swipe, and focus return to the trigger. Rapid arrow presses use a token counter so the wrong photo cannot render.
 
 ### Legal, thank-you, 404
@@ -326,7 +329,7 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 - **Focus:** 2px oxblood ring with 3px offset on light surfaces; 2px on-field ring on the hero, dark bands, footer, and lightbox.
 - **Targets:** primary controls, header links, language links, and form fields are at least 48px tall; arrow links and footer links are at least 44px. Inline links inside paragraphs are the only exception.
 - **No JS:** the header toggle hides, the nav stays visible, all three menus stack, and the form still posts. The site never depends on JavaScript for content.
-- **Forms:** labels, `required`, `autocomplete`, native validation, `:user-invalid` hints, a visible status region, and a mailto fallback.
+- **Forms:** labels, `required` on name, email and message, an optional last name, `autocomplete`, native validation, `:user-invalid` hints, a visible status region, and a mailto fallback.
 - **Consent:** the bar is a labelled region; both choices are 48px buttons; it does not steal focus on first load, and focus returns to the footer trigger when it was opened from there, or to `<main>` when the choice was made on first load.
 - **Images:** every image keeps intrinsic `width`/`height`; localised `alt` where the image is content; decorative images use `alt=""` and are labelled by the surrounding button or heading.
 - **Language:** `lang` is set on `<html>`; the HR/EN pair uses `aria-current`; all copy exists key-for-key in both languages.
