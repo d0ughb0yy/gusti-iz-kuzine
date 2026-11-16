@@ -7,6 +7,7 @@
     "home": "Home",
     "gallery": "Gallery",
     "menu": "Menu",
+    "popup": "Pop-up",
     "contact": "Contact",
     "privacy": "Privacy",
     "language": "Language",
@@ -323,6 +324,115 @@
     "ctaTitle": "Would you like an evening like this?",
     "ctaLead": "Send an enquiry and tell me a few details about your evening.",
     "ctaButton": "Send an enquiry"
+  },
+  "popupPage": {
+    "metaTitle": "Pop-up dinner: Gušti iz Kužine",
+    "metaDescription": "A pop-up dinner in Istria: one menu, three courses, two bites and two signature cocktails. Saturday, 5 December 2026, Fažana.",
+    "title": "Gušti iz Kužine pop-up",
+    "lead": "One evening, one menu, one table. I cook from what I find at the market that morning, and two signature cocktails come with dinner.",
+    "status": "open",
+    "dates": [
+      {
+        "label": "Saturday, 5 December 2026",
+        "time": "19:30",
+        "iso": "2026-12-05T19:30:00+01:00"
+      }
+    ],
+    "place": "Fažana, Istria",
+    "placeNote": "I send the exact address with your confirmation.",
+    "price": "€85",
+    "priceUnit": "per person",
+    "priceNote": "Includes dinner and two signature cocktails.",
+    "metaLabels": {
+      "date": "Date",
+      "place": "Place",
+      "price": "Price"
+    },
+    "booking": {
+      "cta": "Reserve a seat",
+      "note": "I take reservations on WhatsApp. I'll confirm your seat and send the details.",
+      "waitlistCta": "Join the waiting list",
+      "waitlistNote": "This dinner is full. Message me and I'll let you know if a seat opens.",
+      "message": "Hi Tin, I'd like to reserve a seat for the pop-up dinner on {date}.",
+      "waitlistMessage": "Hi Tin, I'd like to join the waiting list for the pop-up dinner on {date}.",
+      "emailSubject": "Pop-up dinner reservation"
+    },
+    "menu": {
+      "title": "The menu",
+      "lead": "I write the menu that week, from the market. This is the menu for this dinner.",
+      "cardName": "Gušti iz Kužine",
+      "amuse": {
+        "label": "Amuse bouche",
+        "dish": "Istrian goat's cheese croquette, honey and rosemary",
+        "description": "A warm bite to begin."
+      },
+      "courses": [
+        {
+          "name": "First course",
+          "dish": "Adriatic fish ceviche",
+          "description": "Lime, spring onion, olive oil."
+        },
+        {
+          "name": "Main course",
+          "dish": "Adriatic squid ragù, charred leek, polenta",
+          "description": "Braised squid, smoked leek, creamy polenta."
+        },
+        {
+          "name": "Dessert",
+          "dish": "Cheesecake, Petite Beurre crumble, white chocolate shards",
+          "description": "Creamy cheesecake, butter crumble, white chocolate."
+        }
+      ],
+      "petitFour": {
+        "label": "Petit four",
+        "dish": "Almond biscuit, candied fig, Teran",
+        "description": "A small bite to close."
+      },
+      "note": "I adapt the menu for allergies and dietary needs when you let me know in advance."
+    },
+    "drinks": {
+      "title": "Two signature cocktails",
+      "lead": "Every pop-up has its own two cocktails, mixed for that dinner.",
+      "items": [
+        {
+          "name": "Maslina",
+          "ingredients": "Gin, dry vermouth, olive brine, rosemary."
+        },
+        {
+          "name": "Smokva",
+          "ingredients": "Fig rakija, Teran, honey, lemon."
+        }
+      ],
+      "note": "The cocktails are included in the dinner price."
+    },
+    "evening": {
+      "title": "How the evening runs",
+      "lead": "A small table, no rush. What to know before the evening.",
+      "rows": [
+        {
+          "item": "Arrival",
+          "detail": "Doors open at 19:00; dinner begins at 19:30."
+        },
+        {
+          "item": "The table",
+          "detail": "Seats are limited; I confirm yours with the reservation."
+        },
+        {
+          "item": "Dietary needs",
+          "detail": "Tell me about allergies and dietary needs when you reserve."
+        },
+        {
+          "item": "Drinks",
+          "detail": "Two signature cocktails are included in the price."
+        }
+      ]
+    },
+    "reserve": {
+      "title": "Reserve a seat",
+      "lead": "Message me on WhatsApp and I'll confirm your seat. Seats are limited.",
+      "button": "Message me on WhatsApp",
+      "note": "With your confirmation I send the exact address and a few details about the evening."
+    }
   },
   "privacyPage": {
     "metaTitle": "Privacy policy: Gušti iz Kužine",

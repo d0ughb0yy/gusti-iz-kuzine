@@ -23,8 +23,13 @@ The brand name is used in the header, footer, page titles, 404, and structured d
 | 2.1 | Take a Chef profile URL | `src/config.ts` → `bookingUrl` | `https://www.takeachef.com/en-hr/chef/tin-lu-i` | **required** |
 | 2.2 | Confirm the profile accepts bookings for up to 6 guests | Take a Chef dashboard | — | **required** |
 | 2.3 | Confirm service area matches the site | Take a Chef dashboard | Istria, Croatia | **required** |
+| 2.4 | WhatsApp number for pop-up reservations | `src/config.ts` → `site.whatsapp.number` | Empty string; the pop-up falls back to a prefilled email | **required** |
+| 2.5 | Confirm the pop-up date, place, and price | `src/data/site/hr.json` / `en.json` → `popupPage.dates`, `place`, `price` | Saturday, 5 December 2026, 19:30, Fažana, €85 per person | **required** |
+| 2.6 | Confirm the sample pop-up menu and cocktails | `popupPage.menu`, `popupPage.drinks` | Three courses plus amuse bouche and petit four, and two cocktails (“Maslina”, “Smokva”) | **required** |
 
 Every CTA on every page — hero, menu panel, closing CTA bands, contact fallback, thank-you page, footer — reads `bookingUrl` and opens it in a new tab with an announced cue. Reservations still go through Take a Chef; the home page also carries a contact panel (see §9) for questions and custom ideas. If the profile URL is wrong, every button is wrong.
+
+The pop-up page is the one exception to Take a Chef: its two reservation buttons go to WhatsApp with a prefilled message, or to a prefilled email while `site.whatsapp.number` is empty. Enter the number in international format with no `+`, e.g. `'385911234567'`. Set `popupPage.status` to `"soldOut"` to swap both buttons and notes to the waiting-list copy.
 
 The Take a Chef profile is a request form, not a live calendar: it has no dates. CTAs therefore say “Pošaljite upit” / “Send an enquiry”, not “Check availability”. Keep that wording unless a real availability calendar is added.
 
@@ -54,6 +59,8 @@ The Take a Chef profile is a request form, not a live calendar: it has no dates.
 ## 4. Prices
 
 The menu section does not show prices by design. Take a Chef issues the real quote after the guest sends an enquiry. If an indicative "from" price is added later, keep the wording and the disclaimer explicit.
+
+The pop-up page is the one place with a price: it is a fixed, dated dinner, so `popupPage.price` and `priceUnit` are shown directly. Confirm the amount and what it includes (`priceNote`) before launch.
 
 ## 5. Reviews
 
@@ -119,10 +126,11 @@ The message is delivered through Web3Forms by email; the site itself stores noth
 ## 10. Final pre-launch pass
 
 - [ ] `npm install && npm run build` succeeds from a clean checkout.
-- [ ] All main pages return 200: `/`, `/galerija/`, `/en/`, `/en/gallery/`, plus `/politika-privatnosti/`, `/en/privacy-policy/`, `/hvala/`, and `/en/thank-you/`.
+- [ ] All main pages return 200: `/`, `/popup/`, `/galerija/`, `/en/`, `/en/popup/`, `/en/gallery/`, plus `/politika-privatnosti/`, `/en/privacy-policy/`, `/hvala/`, and `/en/thank-you/`.
 - [ ] No "Dalmacija", "Dalmatia", "Split", or stock-photo credit remains.
 - [ ] Every CTA opens the real Take a Chef profile in a new tab, and each one announces that with an outbound arrow and a screen-reader suffix.
-- [ ] Language switch keeps you on the equivalent page (home ↔ home, gallery ↔ gallery, privacy ↔ privacy).
+- [ ] Language switch keeps you on the equivalent page (home ↔ home, pop-up ↔ pop-up, gallery ↔ gallery, privacy ↔ privacy).
+- [ ] Pop-up: the WhatsApp button opens the right number with the date in the message; the email fallback works while the number is empty; `soldOut` shows the waiting-list copy.
 - [ ] Gallery: all photos load while scrolling; lightbox opens, arrows stay still between portrait and landscape photos, outside click and `Esc` close it.
 - [ ] Mobile: navigation opens and closes; hero and menu tabs are readable at 390px; tab switching works.
 - [ ] Prices are either omitted or clearly marked as "from" (Take a Chef issues the real quote).

@@ -27,18 +27,22 @@ Every menu adapts to allergies, intolerances, and dietary needs.
 
 All reservations go through the chef's profile on [Take a Chef](https://www.takeachef.com/en-hr/chef/tin-lu-i); this is unchanged. The home page additionally has a contact panel that submits directly to Web3Forms and arrives by email. The access key and recipient address live in `src/config.ts`; the form needs no backend or database.
 
+The pop-up page is the one exception: seats for a dated pop-up dinner are requested on WhatsApp, with a prefilled message. Until a number is set in `src/config.ts`, the same button falls back to a prefilled email.
+
 ## The website
 
 A small, bilingual portfolio site:
 
-- **Croatian**: home page, gallery and privacy policy at `/`, `/galerija/` and `/politika-privatnosti/`
-- **English**: home page, gallery and privacy policy at `/en/`, `/en/gallery/` and `/en/privacy-policy/`
+- **Croatian**: home page, pop-up, gallery and privacy policy at `/`, `/popup/`, `/galerija/` and `/politika-privatnosti/`
+- **English**: home page, pop-up, gallery and privacy policy at `/en/`, `/en/popup/`, `/en/gallery/` and `/en/privacy-policy/`
 - **Thank-you pages**: `/hvala/` and `/en/thank-you/`, used only when the contact form falls back to a native submit
 
 The home page answers the practical questions up front: how it works, what is included, what the chef needs in your kitchen, and how a reservation happens. The three menus are presented as tabbed panels, with one or two dishes per course and no menu photography. The gallery shows the food and the tables.
+
+The pop-up page is a single invitation for the current dated dinner: the date, place and price, a printed menu card (an amuse bouche, three courses and a petit four), the two signature cocktails, how the evening runs, and one WhatsApp reservation action. The chef edits it in the two language JSON files; see `docs/development.md`.
 
 ## Project notes
 
 The copy, photos, and chef name are being finalised; `CONTENT.md` is the checklist of what to replace before going live. The visual system of record is `DESIGN.md` at the project root.
 
-For anything technical (running the site locally, deploying to Vercel, editing text and images, switching palettes), see `docs/development.md`.
+For anything technical (running the site locally, deploying to Vercel, editing text, images, and the pop-up page), see `docs/development.md`.

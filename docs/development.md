@@ -24,7 +24,7 @@ npm run preview   # preview the production build
 
 | File | What lives there |
 | --- | --- |
-| `src/config.ts` | Brand name, Take a Chef URL, contact email, site URL, service area, GA4 measurement ID |
+| `src/config.ts` | Brand name, Take a Chef URL, contact email, WhatsApp number, site URL, service area, GA4 measurement ID |
 | `src/data/site/hr.json` | All Croatian copy: hero, intro, process, included, menus, statement, FAQ, CTA, footer, gallery |
 | `src/data/site/en.json` | All English copy |
 | `src/data/images.json` | Every image URL, dimensions, and bilingual alt text |
@@ -57,6 +57,18 @@ A `<noscript>` rule reveals every panel when JavaScript is unavailable.
 - Headings: **EB Garamond**, weight 400.
 - Dish names (`.course__option`) and body copy: **Inter Tight**, weight 400.
 - Course labels and the choice/tasting note: micro uppercase labels in `--ink-soft`.
+
+### Editing the pop-up page
+
+The pop-up is one page, not a list: `/popup/` and `/en/popup/`, both rendered by `src/components/PopupPage.astro`. Everything the chef changes lives in `popupPage` in `src/data/site/hr.json` and `src/data/site/en.json`. Keep the two objects structurally identical.
+
+- **Dates** — `popupPage.dates` is an array of `{ label, time, iso }`. The page prints the label and time; `iso` is kept for structured data. Add more entries only if the same pop-up runs on several dates; the page stays one page.
+- **Place and price** — `place`, `placeNote`, `price`, `priceUnit`, `priceNote`. The exact address is intentionally not printed; the note says it arrives with the confirmation.
+- **Status** — `popupPage.status` is `"open"` or `"soldOut"`. `"soldOut"` swaps every reservation button to the waiting-list copy and the waiting-list message.
+- **Menu** — `menu.amuse`, `menu.courses` (three entries), and `menu.petitFour`. The amuse and petit four render as smaller “bite” rows around the three courses, so the menu still reads as 3 + 2.
+- **Drinks** — `drinks.items` holds the two signature cocktails as `{ name, ingredients }`. The design expects exactly two; they stack in the rail beside the menu card. Keep both filled.
+- **Text** — `booking`, `evening`, and `reserve` hold the button labels, notes, WhatsApp message templates (`{date}` is replaced with the date labels), and the email subject used in the fallback.
+- **Reservations** — set `site.whatsapp.number` in `src/config.ts` to the international number with no `+`, e.g. `'385911234567'`. While it is empty, every reservation link falls back to a prefilled email to `contactEmail`, so the page works before the number exists. `hasWhatsapp()` in `src/lib/content.ts` picks the link, the external-link cue, and the screen-reader “new window” text.
 
 ### Replacing an Unsplash image with a real photo
 
@@ -114,11 +126,11 @@ After connecting a custom domain, update the URL in `astro.config.mjs` (`site:`)
 
 ```
 src/
-  components/        Header, Footer, HomePage, GalleryPage, GalleryGrid, ContactPanel, LegalPage, ThankYouPage, CtaBand, Icon, Lightbox
+  components/        Header, Footer, HomePage, PopupPage, GalleryPage, GalleryGrid, ContactPanel, LegalPage, ThankYouPage, CtaBand, Icon, Lightbox
   data/              Bilingual copy, image registry, gallery order
   layouts/           BaseLayout (head, fonts, SEO, overlay-header logic)
   lib/content.ts     Typed access to copy and images (incl. srcset derivation)
-  pages/             HR and EN home, gallery, privacy policy and thank-you, plus 404
+  pages/             HR and EN home, pop-up, gallery, privacy policy and thank-you, plus 404
   styles/            One theme (`theme.css`) and the global stylesheet
 public/              Favicon, robots.txt, local images
 docs/                Development guide
@@ -129,6 +141,7 @@ CONTENT.md           Launch checklist of every placeholder
 ## Notes
 
 - Booking is intentionally external. The contact form submits to Web3Forms; there is no database or CMS to maintain.
+- Pop-up reservations go to WhatsApp when `site.whatsapp.number` is set, otherwise to a prefilled email. Nothing is stored on the site either way.
 - The gallery lightbox is keyboard accessible (`Esc`, arrow keys) and closes on outside click.
 - The hero entrance, menu fade, and lightbox transitions are disabled automatically under `prefers-reduced-motion`.
 - Copy, photos, and the chef's name in the prototype are placeholders. See `CONTENT.md`; pricing is quoted by Take a Chef and is not shown on the site.

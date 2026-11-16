@@ -2,7 +2,7 @@ import hr from '../data/site/hr.json';
 import en from '../data/site/en.json';
 import images from '../data/images.json';
 import gallery from '../data/gallery.json';
-import { routes } from '../config';
+import { routes, site } from '../config';
 
 export type Lang = 'hr' | 'en';
 export type SiteContent = typeof hr;
@@ -58,6 +58,26 @@ function parseWidthParam(url: string): number {
 
 export function getContent(lang: Lang): SiteContent {
   return lang === 'hr' ? hr : en;
+}
+
+/**
+ * True when a public WhatsApp number is configured. The pop-up page uses it
+ * to choose the reservation link and the new-tab cue.
+ */
+export function hasWhatsapp(): boolean {
+  return site.whatsapp.number.replace(/\D/g, '').length > 0;
+}
+
+/**
+ * Reservation link for a pop-up seat. WhatsApp when a number is configured,
+ * otherwise a prefilled email so the button still works during setup.
+ */
+export function reservationHref(message: string, subject: string): string {
+  const number = site.whatsapp.number.replace(/\D/g, '');
+  if (number) {
+    return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+  }
+  return `mailto:${site.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 }
 
 export function getImage(key: string): ImageEntry {

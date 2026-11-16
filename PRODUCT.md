@@ -32,14 +32,15 @@ Fine-dining technique and contemporary dishes built from Istrian ingredients, co
 - Menus are contemporary dishes built from Istrian fish and vegetables and meat from central Croatia, adjusted with the guest for season, allergies, and diet. Three menus ship: meat, fresh/local, Adriatic seafood.
 - Wine pairing is available on request.
 - Background: fine-dining kitchens in Croatia and Ireland. No restaurant names are published.
-- Bookings happen on the Take a Chef profile; the site sends every booking CTA there.
+- Bookings for the private-chef service happen on the Take a Chef profile; those CTAs go there.
+- Pop-up seats are requested on WhatsApp with a prefilled message; the pop-up page shows a fixed per-person price. Until a number is configured, the button falls back to a prefilled email.
 - The contact form is delivered by Web3Forms to the chef's email; the site stores nothing.
-- No prices are shown: Take a Chef issues the real quote.
+- The private-chef service shows no prices: Take a Chef issues the real quote. The pop-up is the exception because it is a fixed, dated dinner.
 - No guest reviews are published yet.
 
 ## Capabilities and Constraints
 
-- Static Astro site, nine built pages: home, gallery, privacy, thank-you in HR and EN, plus the bilingual 404.
+- Static Astro site, twelve built pages: home, pop-up, gallery, privacy and thank-you in HR and EN, plus a 404 in each language.
 - Bilingual content is key-for-key between `src/data/site/hr.json` and `src/data/site/en.json`; the two files move together.
 - No backend beyond Web3Forms. No cookies or tracking before opt-in; Google Analytics 4 runs only after consent.
 - Analytics: GA4 pageviews and a `contact_submit` event after a successful Web3Forms response. No GTM, ads, remarketing, or Google Signals.

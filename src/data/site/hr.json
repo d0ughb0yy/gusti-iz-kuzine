@@ -7,6 +7,7 @@
     "home": "Početna",
     "gallery": "Galerija",
     "menu": "Jelovnik",
+    "popup": "Pop-up",
     "contact": "Kontakt",
     "privacy": "Privatnost",
     "language": "Jezik",
@@ -323,6 +324,115 @@
     "ctaTitle": "Želite ovakvu večeru?",
     "ctaLead": "Pošaljite upit i recite mi nekoliko detalja o svojoj večeri.",
     "ctaButton": "Pošaljite upit"
+  },
+  "popupPage": {
+    "metaTitle": "Pop-up večera: Gušti iz Kužine",
+    "metaDescription": "Pop-up večera u Istri: jedan jelovnik, tri slijeda, dva zalogaja i dva potpisna koktela. Subota, 5. prosinca 2026., Fažana.",
+    "title": "Gušti iz Kužine pop-up",
+    "lead": "Jedna večera, jedan jelovnik, jedan stol. Kuham od onoga što tog jutra nađem na tržnici, a uz večeru idu dva potpisna koktela.",
+    "status": "open",
+    "dates": [
+      {
+        "label": "subota, 5. prosinca 2026.",
+        "time": "19:30",
+        "iso": "2026-12-05T19:30:00+01:00"
+      }
+    ],
+    "place": "Fažana, Istra",
+    "placeNote": "Točnu adresu šaljem uz potvrdu.",
+    "price": "85 €",
+    "priceUnit": "po osobi",
+    "priceNote": "Uključuje večeru i dva potpisna koktela.",
+    "metaLabels": {
+      "date": "Datum",
+      "place": "Mjesto",
+      "price": "Cijena"
+    },
+    "booking": {
+      "cta": "Rezervirajte mjesto",
+      "note": "Rezervacije primam na WhatsApp. Potvrdit ću mjesto i poslati detalje.",
+      "waitlistCta": "Javite se za listu čekanja",
+      "waitlistNote": "Večera je popunjena. Javite se i javit ću vam ako se mjesto oslobodi.",
+      "message": "Bok Tin, želio/la bih rezervirati mjesto za pop-up večeru {date}.",
+      "waitlistMessage": "Bok Tin, želio/la bih biti na listi čekanja za pop-up večeru {date}.",
+      "emailSubject": "Rezervacija pop-up večere"
+    },
+    "menu": {
+      "title": "Jelovnik večeri",
+      "lead": "Jelovnik slažem tog tjedna, prema tržnici. Ovo je jelovnik za ovu večeru.",
+      "cardName": "Gušti iz Kužine",
+      "amuse": {
+        "label": "Amuse bouche",
+        "dish": "Kroket od istarskog kozjeg sira, med i ružmarin",
+        "description": "Topli zalogaj za početak."
+      },
+      "courses": [
+        {
+          "name": "Prvi slijed",
+          "dish": "Ceviche od jadranske ribe",
+          "description": "Limeta, mladi luk, maslinovo ulje."
+        },
+        {
+          "name": "Glavni slijed",
+          "dish": "Ragu od jadranskih lignji, poriluk pečen na žaru, palenta",
+          "description": "Dinstane lignje, dimljeni poriluk, kremasta palenta."
+        },
+        {
+          "name": "Desert",
+          "dish": "Cheesecake, Petite Beurre crumble, listići bijele čokolade",
+          "description": "Kremasti kolač od sira, maslac i bijela čokolada."
+        }
+      ],
+      "petitFour": {
+        "label": "Petit four",
+        "dish": "Bademov kolačić, kandirana smokva, teran",
+        "description": "Mali zalogaj uz kraj večere."
+      },
+      "note": "Jelovnik prilagođavam alergijama i posebnoj prehrani uz najavu."
+    },
+    "drinks": {
+      "title": "Dva potpisna koktela",
+      "lead": "Svaki pop-up ima svoja dva koktela, složena za tu večeru.",
+      "items": [
+        {
+          "name": "Maslina",
+          "ingredients": "Gin, suhi vermut, salamura maslina, ružmarin."
+        },
+        {
+          "name": "Smokva",
+          "ingredients": "Rakija od smokve, teran, med, limun."
+        }
+      ],
+      "note": "Kokteli su uključeni u cijenu večere."
+    },
+    "evening": {
+      "title": "Kako večer izgleda",
+      "lead": "Mali stol, bez žurbe. Evo što treba znati prije večere.",
+      "rows": [
+        {
+          "item": "Dolazak",
+          "detail": "Vrata se otvaraju u 19:00, večera počinje u 19:30."
+        },
+        {
+          "item": "Stol",
+          "detail": "Ograničen broj mjesta; mjesto potvrđujem uz rezervaciju."
+        },
+        {
+          "item": "Prehrana",
+          "detail": "Alergije i posebnu prehranu javite pri rezervaciji."
+        },
+        {
+          "item": "Piće",
+          "detail": "Dva potpisna koktela uključena su u cijenu."
+        }
+      ]
+    },
+    "reserve": {
+      "title": "Rezervirajte mjesto",
+      "lead": "Javite mi se na WhatsApp i potvrdit ću vam mjesto. Broj mjesta je ograničen.",
+      "button": "Javite se na WhatsApp",
+      "note": "Uz potvrdu šaljem točnu adresu i nekoliko detalja o večeri."
+    }
   },
   "privacyPage": {
     "metaTitle": "Politika privatnosti: Gušti iz Kužine",

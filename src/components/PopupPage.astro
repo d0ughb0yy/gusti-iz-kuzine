@@ -1,0 +1,247 @@
+---
+import Icon from './Icon.astro';
+import {
+  getContent,
+  getImage,
+  hasWhatsapp,
+  reservationHref,
+  type Lang,
+} from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const popup = t.popupPage;
+
+const heroImage = getImage('istria-vineyard');
+const marketImage = getImage('istria-market');
+const bandImage = getImage('istria-motovun');
+
+const isSoldOut = popup.status === 'soldOut';
+const whatsapp = hasWhatsapp();
+const linkTarget = whatsapp ? '_blank' : undefined;
+const linkRel = whatsapp ? 'noopener noreferrer' : undefined;
+
+const dateSummary = popup.dates
+  .map((date) => `${date.label}, ${date.time}`)
+  .join(' · ');
+const dateMessage = popup.dates.map((date) => date.label).join(', ');
+
+const bookingMessage = (
+  isSoldOut ? popup.booking.waitlistMessage : popup.booking.message
+).replace('{date}', dateMessage);
+const bookingHref = reservationHref(bookingMessage, popup.booking.emailSubject);
+const bookingLabel = isSoldOut
+  ? popup.booking.waitlistCta
+  : popup.booking.cta;
+const bookingNote = isSoldOut
+  ? popup.booking.waitlistNote
+  : popup.booking.note;
+const reserveLabel = isSoldOut
+  ? popup.booking.waitlistCta
+  : popup.reserve.button;
+const reserveNote = isSoldOut
+  ? popup.booking.waitlistNote
+  : popup.reserve.note;
+---
+
+<section class="popup-hero" aria-labelledby="popup-title">
+  <div class="wrap popup-hero__grid">
+    <div class="popup-hero__text">
+      <h1 id="popup-title">{popup.title}</h1>
+      <p class="popup-hero__lead">{popup.lead}</p>
+
+      <dl class="popup-meta">
+        <div class="popup-meta__item">
+          <dt>{popup.metaLabels.date}</dt>
+          <dd>
+            {
+              popup.dates.map((date) => (
+                <span class="popup-meta__line">
+                  {date.label}
+                  <span class="popup-meta__sub">{date.time}</span>
+                </span>
+              ))
+            }
+          </dd>
+        </div>
+
+        <div class="popup-meta__item">
+          <dt>{popup.metaLabels.place}</dt>
+          <dd>
+            {popup.place}
+            <span class="popup-meta__sub">{popup.placeNote}</span>
+          </dd>
+        </div>
+
+        <div class="popup-meta__item">
+          <dt>{popup.metaLabels.price}</dt>
+          <dd>
+            <span class="popup-meta__price">{popup.price}</span>
+            <span class="popup-meta__sub">
+              {popup.priceUnit} · {popup.priceNote}
+            </span>
+          </dd>
+        </div>
+      </dl>
+
+      <div class="popup-hero__actions">
+        <a class="btn" href={bookingHref} target={linkTarget} rel={linkRel}>
+          {bookingLabel}
+          <Icon name={whatsapp ? 'external' : 'arrow-right'} />
+          {whatsapp && <span class="sr-only">{t.newWindow}</span>}
+        </a>
+      </div>
+
+      <p class="popup-hero__note">{bookingNote}</p>
+    </div>
+
+    <figure class="popup-hero__figure">
+      <img
+        src={heroImage.src}
+        srcset={heroImage.srcset}
+        sizes="(max-width: 960px) 100vw, 38rem"
+        width={heroImage.width}
+        height={heroImage.height}
+        alt={heroImage.alt[lang]}
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </figure>
+  </div>
+</section>
+
+<section class="section popup-spread" id="jelovnik" aria-labelledby="popup-menu-title">
+  <div class="wrap">
+    <div class="popup-menu__head">
+      <h2 id="popup-menu-title">{popup.menu.title}</h2>
+      <p class="popup-menu__lead">{popup.menu.lead}</p>
+    </div>
+
+    <div class="popup-spread__grid">
+      <article class="menu-card">
+        <header class="menu-card__head">
+          <p class="menu-card__name">{popup.menu.cardName}</p>
+          <p class="menu-card__meta">{popup.place} · {dateSummary}</p>
+        </header>
+
+        <div class="menu-card__body">
+          <div class="menu-item menu-item--bite">
+            <p class="menu-item__label">{popup.menu.amuse.label}</p>
+            <p class="menu-item__dish">{popup.menu.amuse.dish}</p>
+            <p class="menu-item__desc">{popup.menu.amuse.description}</p>
+          </div>
+
+          {
+            popup.menu.courses.map((course) => (
+              <div class="menu-item">
+                <p class="menu-item__label">{course.name}</p>
+                <p class="menu-item__dish">{course.dish}</p>
+                <p class="menu-item__desc">{course.description}</p>
+              </div>
+            ))
+          }
+
+          <div class="menu-item menu-item--bite">
+            <p class="menu-item__label">{popup.menu.petitFour.label}</p>
+            <p class="menu-item__dish">{popup.menu.petitFour.dish}</p>
+            <p class="menu-item__desc">{popup.menu.petitFour.description}</p>
+          </div>
+        </div>
+
+        <p class="menu-card__note">{popup.menu.note}</p>
+      </article>
+
+      <aside class="popup-drinks" aria-labelledby="popup-drinks-title">
+        <div class="popup-drinks__head">
+          <h3 id="popup-drinks-title">{popup.drinks.title}</h3>
+          <p class="popup-drinks__lead">{popup.drinks.lead}</p>
+        </div>
+
+        <ul class="popup-drinks__list" role="list">
+          {
+            popup.drinks.items.map((drink) => (
+              <li class="popup-drink">
+                <p class="popup-drink__name">{drink.name}</p>
+                <p class="popup-drink__ingredients">{drink.ingredients}</p>
+              </li>
+            ))
+          }
+        </ul>
+
+        <p class="popup-drinks__note">{popup.drinks.note}</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<figure class="popup-band">
+  <img
+    src={bandImage.src}
+    srcset={bandImage.srcset}
+    sizes="100vw"
+    width={bandImage.width}
+    height={bandImage.height}
+    alt={bandImage.alt[lang]}
+    loading="lazy"
+    decoding="async"
+  />
+</figure>
+
+<section class="section popup-evening" aria-labelledby="popup-evening-title">
+  <div class="wrap popup-evening__grid">
+    <figure class="popup-evening__figure">
+      <img
+        src={marketImage.src}
+        srcset={marketImage.srcset}
+        sizes="(max-width: 960px) 100vw, 32rem"
+        width={marketImage.width}
+        height={marketImage.height}
+        alt={marketImage.alt[lang]}
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+
+    <div class="popup-evening__text">
+      <h2 id="popup-evening-title">{popup.evening.title}</h2>
+      <p class="popup-evening__lead">{popup.evening.lead}</p>
+
+      <dl class="popup-evening__list">
+        {
+          popup.evening.rows.map((row) => (
+            <div class="popup-evening__row">
+              <dt>{row.item}</dt>
+              <dd>{row.detail}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="popup-reserve" aria-labelledby="popup-reserve-title">
+  <div class="wrap popup-reserve__grid">
+    <div>
+      <h2 id="popup-reserve-title">{popup.reserve.title}</h2>
+      <p class="popup-reserve__lead">{popup.reserve.lead}</p>
+      <p class="popup-reserve__meta">
+        {dateSummary} · {popup.place} · {popup.price} {popup.priceUnit}
+      </p>
+    </div>
+
+    <div class="popup-reserve__action">
+      <a class="btn btn--light" href={bookingHref} target={linkTarget} rel={linkRel}>
+        {reserveLabel}
+        <Icon name={whatsapp ? 'external' : 'arrow-right'} />
+        {whatsapp && <span class="sr-only">{t.newWindow}</span>}
+      </a>
+      <p class="popup-reserve__note">{reserveNote}</p>
+    </div>
+  </div>
+</section>

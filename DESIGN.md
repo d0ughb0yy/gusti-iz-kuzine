@@ -228,7 +228,7 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 ## Components
 
 ### Header
-- **Desktop:** serif wordmark left; micro uppercase nav (Menu, Contact, Gallery) and the HR/EN pair right. The active language is marked with `aria-current`, not linked. Links have 48px-tall hit areas.
+- **Desktop:** serif wordmark left; micro uppercase nav (Menu, Pop-up, Contact, Gallery) and the HR/EN pair right. The active language is marked with `aria-current`, not linked. Links have 48px-tall hit areas.
 - **Home hero:** the header is absolutely positioned over the hero with no background or bottom border. Brand, nav, and language switch to `--on-field`. On every other page the header is solid ivory with a hairline bottom border.
 - **Mobile (≤680px):** brand left, language pair outside the disclosure panel, 48px menu toggle right. The panel opens below the first row as a full-width ivory sheet, with centered labels and 55px link rows. Opening it returns the overlay header to its solid ivory state: `--ground` background, `--ink` text, and a `--line` bottom rule. It closes on link click, `Esc` (focus returns to the toggle), outside click, and resize. Without JavaScript the toggle is hidden, the header is solid ivory, and the panel is visible.
 - **The overlay rule:** the transparent header is allowed only on the two home routes. A 404 or a secondary page that shares the `home` route key must not inherit it.
@@ -306,6 +306,17 @@ Corners are square everywhere: buttons, inputs, panels, images, lightbox control
 - Grid: 3-column CSS masonry on desktop, 2 at ≤960px, 1 at ≤680px. Varied aspect ratios. Every item opens the lightbox with the group's count.
 - The page closes with the same dark CTA band.
 
+### Pop-up page
+- One page for the current pop-up, not a listing. Header and footer carry a **Pop-up** link; the page marks itself with `aria-current` when active.
+- **Invitation hero:** headline and lead left, a 4:3 Istria photograph right. Beneath the lead, a three-column `<dl>` prints date and time, place with the exact-address note, and the price with what it includes. One outline reservation button and a short note follow.
+- **Menu and cocktails spread:** one section under the menu head, a two-column grid at a roughly 2:1 ratio — the printed menu card left, the cocktail rail right, both starting on the same top line. It stacks to one column at ≤960px, menu first.
+- **Printed menu card:** on `--ground-raised` inside a 1px border, up to 46rem wide and left-aligned in the spread; full width when stacked. It has a small serif card name, the place and date, then hairline rows: amuse bouche, three serif courses, petit four. The two bites are set smaller than the courses so the menu reads as 3 + 2, not 5. A dietary note closes the card. No menu photography.
+- **Cocktail rail:** “Two signature cocktails” as a serif `h3`, the lead in body size, then the two cocktails stacked vertically, each on a hairline top with an oversized serif name and ingredients beneath. The included note closes the rail. Always two; the narrower column keeps them prominent without competing with the menu.
+- **Full-bleed Istria band:** a single 2.4:1 Motovun photograph after the spread and before the evening details, breaking the text-heavy middle without adding a caption.
+- **Evening details:** 4:5 market photograph left, heading, lead, and a `<dl>` of arrival, table, dietary needs, and drinks right. Stacks with the text first on phone.
+- **Reserve band:** the same dark field as the closing CTA, with the date, place, and price in small type and one light outline button. `status: "soldOut"` swaps the button, note, and message to the waiting-list copy.
+- **Reservation links:** WhatsApp (`wa.me`) with a prefilled dated message when `site.whatsapp.number` is set; otherwise a prefilled email. Both use the outline button and the outbound arrow only for the new-tab WhatsApp case.
+
 ### Lightbox
 - Native `<dialog>` with `showModal`, near-black field, square 1px-bordered controls, micro counter. No visible caption; the image `alt` and the dialog label carry the description.
 - Every trigger is an `<a href>` to the full image. With JavaScript the plain click is intercepted and opens the dialog with focus return to the trigger; without it, the link opens the image. Modifier-clicks keep normal link behaviour.
@@ -345,6 +356,7 @@ The site is designed around real photographs that are still being shot. The slot
 | `chef-portrait` | Story | 4:5 portrait | Tin, ideally at work or in the kitchen. The current hands-only image is a placeholder; do not present a stock face as Tin. |
 | `chef-action` | Action band | 3:2 landscape | Hands, fire, plating, or the morning's catch. The current roast chicken is a placeholder; the real shoot should lead with fish and vegetables. |
 | Gallery | Gallery page and teaser | mixed | Food, table, and Istria. The gallery page currently carries temporary food and preparation images plus real Istria photographs. |
+| Pop-up | Pop-up page | 4:3, 2.4:1, 4:5 | Three real Istria photographs: vineyard in the hero, Motovun as a full-bleed band, the Pula market interior in the details. Replace with real pop-up photography when it exists. |
 
 **Named rules**
 - **The No-Caption Rule.** No image prints a visible caption. The description lives in the surrounding control's accessible name, or in the image `alt` when the image is not a control.

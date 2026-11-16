@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PopupPage from '../components/PopupPage.astro';
+import { getContent } from '../lib/content';
+
+const lang = 'hr' as const;
+const t = getContent(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  current="popup"
+  title={t.popupPage.metaTitle}
+  description={t.popupPage.metaDescription}
+  ogImage="istria-vineyard"
+>
+  <PopupPage lang={lang} />
+</BaseLayout>
