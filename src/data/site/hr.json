@@ -424,6 +424,10 @@
         {
           "item": "Piće",
           "detail": "Dva potpisna koktela uključena su u cijenu."
+        },
+        {
+          "item": "Plaćanje",
+          "detail": "Plaćanje na večeri: Revolut ili gotovina."
         }
       ]
     },

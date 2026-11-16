@@ -424,6 +424,10 @@
         {
           "item": "Drinks",
           "detail": "Two signature cocktails are included in the price."
+        },
+        {
+          "item": "Payment",
+          "detail": "Paid on the evening: Revolut or cash."
         }
       ]
     },
