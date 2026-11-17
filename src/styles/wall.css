@@ -585,7 +585,7 @@ h3 {
   color: var(--ink-soft);
 }
 
-.contact-prompt .link-arrow {
+.contact-prompt .btn {
   justify-self: end;
 }
 
@@ -692,7 +692,7 @@ h3 {
     align-items: start;
   }
 
-  .contact-prompt .link-arrow {
+  .contact-prompt .btn {
     justify-self: start;
   }
 }
