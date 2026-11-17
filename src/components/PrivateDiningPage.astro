@@ -1,0 +1,334 @@
+---
+import Icon from './Icon.astro';
+import CtaBand from './CtaBand.astro';
+import ContactPanel from './ContactPanel.astro';
+import { site } from '../config';
+import { getContent, getImage, type Lang } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const page = t.privateDiningPage;
+
+const heroImage = getImage(page.image);
+const portraitImage = getImage('chef-portrait');
+const actionImage = getImage('chef-action');
+---
+
+<section class="page-hero page-hero--private" aria-labelledby="private-title">
+  <div class="wrap page-hero__grid">
+    <div class="page-hero__text">
+      <p class="eyebrow">{page.label}</p>
+      <h1 id="private-title">{page.title}</h1>
+      <p class="page-hero__lead">{page.lead}</p>
+
+      <div class="page-hero__actions">
+        <a class="btn" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">
+          {page.cta}
+          <Icon name="external" />
+          <span class="sr-only">{t.newWindow}</span>
+        </a>
+      </div>
+
+      <p class="page-hero__note">{page.note}</p>
+    </div>
+
+    <figure class="page-hero__figure">
+      <img
+        src={heroImage.src}
+        srcset={heroImage.srcset}
+        sizes="(max-width: 960px) 100vw, 42rem"
+        width={heroImage.width}
+        height={heroImage.height}
+        alt={heroImage.alt[lang]}
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </figure>
+  </div>
+</section>
+
+<section class="section story" id="o-kuhanju" aria-labelledby="story-title">
+  <div class="wrap story__grid">
+    <figure class="story__figure">
+      <a
+        class="lightbox-trigger"
+        href={portraitImage.full}
+        data-lightbox={portraitImage.full}
+        data-lightbox-alt={portraitImage.alt[lang]}
+        data-lightbox-caption={t.intro.who.name}
+        aria-label={`${t.lightbox.open}: ${t.intro.who.name}`}
+      >
+        <img
+          src={portraitImage.src}
+          srcset={portraitImage.srcset}
+          sizes="(max-width: 960px) 100vw, 34rem"
+          width={portraitImage.width}
+          height={portraitImage.height}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+    </figure>
+
+    <div class="story__text">
+      <h2 id="story-title">{t.intro.title}</h2>
+
+      <div class="story__paragraphs">
+        {t.intro.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+
+      <div class="story__byline">
+        <p class="story__name">{t.intro.who.name}</p>
+        <p class="story__fact">{t.intro.who.fact}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section menus" id="jelovnici" aria-labelledby="menus-title">
+  <div class="wrap">
+    <div class="menus__head">
+      <h2 id="menus-title">{t.menus.title}</h2>
+      <p class="menus__lead">{t.menus.lead}</p>
+    </div>
+
+    <div class="menu-explorer">
+      <div class="menu-tabs" role="group" aria-label={t.menus.selectLabel}>
+        {
+          t.menus.items.map((menu, index) => (
+            <button
+              class="menu-tab"
+              type="button"
+              aria-pressed={index === 0 ? 'true' : 'false'}
+              aria-controls={`menu-panel-${index}`}
+              data-menu-tab={index}
+            >
+              {menu.name}
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="menu-panels">
+        {
+          t.menus.items.map((menu, index) => (
+            <div
+              class="menu-panel"
+              id={`menu-panel-${index}`}
+              data-menu-panel={index}
+              hidden={index !== 0}
+            >
+              <h3>{menu.name}</h3>
+              <p class="menu-panel__desc">{menu.description}</p>
+
+              <div class="courses">
+                {menu.courses.map((course) => (
+                  <div class="course">
+                    <p class="course__name">{course.name}</p>
+                    <div class="course__options" data-count={course.options.length}>
+                      {course.options.map((option, optionIndex) => (
+                        <>
+                          {optionIndex > 0 && <span class="course__or">{t.menus.or}</span>}
+                          <span class="course__option">{option}</span>
+                        </>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <p class="menu-panel__note">
+                {menu.courses.every((course) => course.options.length === 1)
+                  ? t.menus.tastingNote
+                  : t.menus.choiceNote}
+              </p>
+
+              <a
+                class="link-arrow menu-explorer__cta"
+                href={site.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.menus.cta}
+                <Icon name="external" />
+                <span class="sr-only">{t.newWindow}</span>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+
+      <p
+        class="sr-only"
+        aria-live="polite"
+        data-explorer-status
+        data-label={t.menus.current}
+      ></p>
+    </div>
+  </div>
+
+  <noscript>
+    <style>
+      .menu-tabs,
+      [data-explorer-status] {
+        display: none;
+      }
+      .menu-explorer {
+        grid-template-columns: 1fr;
+      }
+      .menu-panels {
+        display: block;
+      }
+      .menu-panel[data-menu-panel] {
+        grid-area: auto;
+      }
+      .menu-panel[data-menu-panel] + .menu-panel[data-menu-panel] {
+        margin-top: 2rem;
+      }
+      .menu-panel[data-menu-panel][hidden] {
+        display: block !important;
+        visibility: visible !important;
+      }
+    </style>
+  </noscript>
+</section>
+
+<section class="section included" id="ukljuceno" aria-labelledby="included-title">
+  <div class="wrap included__grid">
+    <div class="included__text">
+      <h2 id="included-title">{t.included.title}</h2>
+      <p class="included__lead">{t.included.lead}</p>
+      <p class="included__note">{t.included.note}</p>
+    </div>
+
+    <dl class="included__list">
+      {
+        t.included.rows.map((row) => (
+          <div class="included__row">
+            <dt>{row.item}</dt>
+            <dd>{row.detail}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<section class="section process" id="tijek" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="process__head">
+      <h2 id="process-title">{t.how.title}</h2>
+      <p class="process__lead">{t.how.lead}</p>
+    </div>
+
+    <ol class="steps">
+      {
+        t.how.steps.map((step, index) => (
+          <li class="step">
+            <span class="step__num">{String(index + 1).padStart(2, '0')}</span>
+            <h3 class="step__title">{step.title}</h3>
+            <p class="step__text">{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="action" aria-label={t.action.label}>
+  <figure class="action__figure">
+    <img
+      src={actionImage.src}
+      srcset={actionImage.srcset}
+      sizes="100vw"
+      width={actionImage.width}
+      height={actionImage.height}
+      alt={actionImage.alt[lang]}
+      loading="lazy"
+      decoding="async"
+    />
+  </figure>
+</section>
+
+<section class="statement" aria-label={t.statement.label}>
+  <div class="wrap statement__inner">
+    <blockquote>
+      <p>{t.statement.text}</p>
+    </blockquote>
+    <p class="statement__attribution">{t.statement.attribution}</p>
+  </div>
+</section>
+
+<section class="section faq" id="pitanja" aria-labelledby="faq-title">
+  <div class="wrap faq__grid">
+    <div class="faq__text">
+      <h2 id="faq-title">{t.faq.title}</h2>
+      <p class="faq__lead">{t.faq.lead}</p>
+    </div>
+
+    <dl class="faq__list">
+      {
+        t.faq.items.map((item) => (
+          <div class="faq__item">
+            <dt class="faq__q">{item.q}</dt>
+            <dd class="faq__a">{item.a}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<CtaBand
+  title={t.cta.title}
+  lead={t.cta.lead}
+  button={t.cta.button}
+  newWindow={t.newWindow}
+/>
+
+<ContactPanel lang={lang} />
+
+<script is:inline>
+  (() => {
+    const tabs = Array.from(document.querySelectorAll('.menu-tab[data-menu-tab]'));
+    const panels = Array.from(document.querySelectorAll('.menu-panel[data-menu-panel]'));
+
+    if (!tabs.length || tabs.length !== panels.length) return;
+
+    const status = document.querySelector('[data-explorer-status]');
+    let announced = 0;
+
+    const select = (activeIndex) => {
+      tabs.forEach((tab, index) => {
+        tab.setAttribute('aria-pressed', String(index === activeIndex));
+      });
+
+      panels.forEach((panel, index) => {
+        const active = index === activeIndex;
+        panel.hidden = !active;
+
+        if (active) {
+          panel.style.animation = 'none';
+          void panel.offsetWidth;
+          panel.style.animation = '';
+        }
+      });
+
+      if (status && activeIndex !== announced) {
+        const name = panels[activeIndex]?.querySelector('h3')?.textContent?.trim();
+        if (name) status.textContent = `${status.dataset.label}: ${name}`;
+        announced = activeIndex;
+      }
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => select(index));
+    });
+  })();
+</script>

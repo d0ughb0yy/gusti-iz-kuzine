@@ -1,12 +1,11 @@
 {
   "meta": {
-    "title": "Gušti iz Kužine: private chef in Istria",
-    "description": "Private chef in Istria for up to six guests. I cook contemporary dishes from the Pula market in your home or villa."
+    "title": "Gušti iz Kužine — private dining, pop-ups and workshops in Istria",
+    "description": "Tin Lučić cooks private dinners in Istrian homes and villas, runs pop-ups in Fažana, and plans small cooking workshops. The market decides the menu."
   },
   "nav": {
     "home": "Home",
     "gallery": "Gallery",
-    "menu": "Menu",
     "popup": "Pop-up",
     "contact": "Contact",
     "privacy": "Privacy",
@@ -15,7 +14,9 @@
     "menuToggle": "Menu",
     "menuOpened": "Menu opened.",
     "menuClosed": "Menu closed.",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "private": "Private dining",
+    "workshops": "Workshops"
   },
   "consent": {
     "title": "Analytics",
@@ -27,15 +28,56 @@
     "privacyLink": "Privacy policy"
   },
   "hero": {
+    "projectLabel": "A gastro project — Istria",
     "name": [
       "Gušti",
       "iz Kužine"
     ],
-    "lead": "A private chef in Istria. I shop the Pula market that morning, cook in your kitchen, and serve at your table. Fine-dining technique, in your home.",
-    "primaryCta": "Send an enquiry",
-    "secondaryCta": "See the menus",
-    "bookingNote": "Choose a date and number of guests on Take a Chef. I'll get in touch within 24 hours.",
-    "image": "hero-plated"
+    "lead": "Private dinners, pop-ups and cooking workshops. One chef, one table, three ways to sit at it.",
+    "primaryCta": "Book a private dinner",
+    "secondaryCta": "See the programme",
+    "bookingNote": "Dinners for up to six. Bookings go through Take a Chef.",
+    "image": "gallery-terrace",
+    "dayLabel": "One day, one table",
+    "day": [
+      {
+        "time": "07:00",
+        "label": "Pula market"
+      },
+      {
+        "time": "12:00",
+        "label": "Prep in your kitchen"
+      },
+      {
+        "time": "19:30",
+        "label": "Dinner at your table"
+      }
+    ]
+  },
+  "formats": {
+    "label": "Three ways to the table",
+    "title": "One kitchen. Three formats.",
+    "lead": "A private dinner in your home, a pop-up in Fažana, or a workshop still being planned. Choose how you want to sit at the table.",
+    "items": [
+      {
+        "key": "private",
+        "title": "Private dinner",
+        "text": "Up to six guests, in your home or villa. I shop that morning, cook and serve; the kitchen is left clean.",
+        "cta": "See private dining"
+      },
+      {
+        "key": "popup",
+        "title": "Pop-up",
+        "text": "A fixed date, one menu and one table in Fažana. The next dinner is 5 December 2026.",
+        "cta": "See the pop-up"
+      },
+      {
+        "key": "workshops",
+        "title": "Workshops",
+        "text": "Small cooking workshops are being planned. Dates and prices are not set yet; register for the first news.",
+        "cta": "See workshops"
+      }
+    ]
   },
   "intro": {
     "title": "Why Kužina.",
@@ -217,7 +259,7 @@
         ]
       }
     ],
-    "cta": "Send an enquiry"
+    "cta": "Book a dinner"
   },
   "galleryTeaser": {
     "title": "Table, plate, place.",
@@ -307,23 +349,63 @@
   "cta": {
     "title": "Your dinner starts with one enquiry.",
     "lead": "Choose a date on Take a Chef and send me a few details. I'll get back to you with a menu proposal.",
-    "button": "Send an enquiry"
+    "button": "Book a private dinner"
   },
   "footer": {
     "navLabel": "Pages",
     "bookingLink": "Take a Chef profile",
-    "areaText": "Istria. I cook in your home.",
+    "areaText": "Istria. Private tables, pop-ups, workshops.",
     "rights": "All rights reserved."
   },
   "galleryPage": {
     "metaTitle": "Gallery: Gušti iz Kužine",
     "metaDescription": "Photographs of tables, plates, and Istria from private dinners.",
-    "title": "What dinner looks like.",
-    "lead": "Photographs are placeholders for now.",
+    "title": "At the table and in the kitchen.",
+    "lead": "Photographs of the table, the plates and Istria. Some photographs are placeholders for now.",
     "countLabel": "photographs",
     "ctaTitle": "Would you like an evening like this?",
     "ctaLead": "Send an enquiry and tell me a few details about your evening.",
-    "ctaButton": "Send an enquiry"
+    "ctaButton": "Book a private dinner"
+  },
+  "privateDiningPage": {
+    "metaTitle": "Private dining: Gušti iz Kužine",
+    "metaDescription": "Private dining in Istria for up to six guests. Tin Lučić shops the Pula market, cooks in your kitchen, and serves at your table.",
+    "label": "Private dining",
+    "title": "Dinner in your home.",
+    "lead": "Up to six guests, one table, and a menu written that day. I shop the Pula market, cook in your kitchen, and serve course by course.",
+    "cta": "Book a dinner",
+    "note": "Choose a date and number of guests on Take a Chef. I will get back to you within 24 hours.",
+    "image": "hero-plated"
+  },
+  "workshopsPage": {
+    "metaTitle": "Workshops: Gušti iz Kužine",
+    "metaDescription": "Small cooking workshops in Istria are being planned. Dates and prices are not set yet; register your interest and I will write when they are.",
+    "label": "Workshops",
+    "title": "A kitchen learned at the table.",
+    "lead": "Small cooking workshops in Istria are being planned. I cannot announce dates or prices yet; if you are interested, write to me and you will be first to know.",
+    "statusLabel": "In planning",
+    "statusNote": "Dates and prices are not set.",
+    "image": "gallery-plating",
+    "processTitle": "How it will work",
+    "processLead": "No promise of a programme until dates are set. This is how we will start.",
+    "steps": [
+      {
+        "title": "Write to me",
+        "text": "Tell me what you would like to learn and how many of you there are. No obligation and no payment in advance."
+      },
+      {
+        "title": "We set a date",
+        "text": "When there is enough interest, I will set a date and the size of the group."
+      },
+      {
+        "title": "We cook and eat",
+        "text": "We work together, and the day ends at the table."
+      }
+    ],
+    "interestTitle": "Register your interest",
+    "interestLead": "Write with what you would like to learn and how many of you there are. I will write when dates are set.",
+    "interestNote": "No obligation and no payment in advance.",
+    "subject": "Workshop interest — Gušti iz Kužine"
   },
   "popupPage": {
     "metaTitle": "Pop-up dinner: Gušti iz Kužine",
@@ -355,7 +437,9 @@
       "waitlistNote": "This dinner is full. Message me and I'll let you know if a seat opens.",
       "message": "Hi Tin, I'd like to reserve a seat for the pop-up dinner on {date}.",
       "waitlistMessage": "Hi Tin, I'd like to join the waiting list for the pop-up dinner on {date}.",
-      "emailSubject": "Pop-up dinner reservation"
+      "emailSubject": "Pop-up dinner reservation",
+      "emailCta": "Reserve by email",
+      "emailNote": "The WhatsApp number is not published yet. An email with the dinner details opens instead."
     },
     "menu": {
       "title": "The menu",
@@ -435,7 +519,10 @@
       "title": "Reserve a seat",
       "lead": "Message me on WhatsApp and I'll confirm your seat. Seats are limited.",
       "button": "Message me on WhatsApp",
-      "note": "With your confirmation I send the exact address and a few details about the evening."
+      "note": "With your confirmation I send the exact address and a few details about the evening.",
+      "soldOutTitle": "Waiting list",
+      "soldOutLead": "This dinner is full. Write to me and I will let you know if a seat opens.",
+      "emailLead": "Email me and I'll confirm your seat. Seats are limited."
     }
   },
   "privacyPage": {
@@ -583,7 +670,7 @@
     "description": "This page does not exist. Head back home or take a look at the gallery.",
     "heading": "This page does not exist.",
     "lead": "Head back home or take a look at the gallery.",
-    "detail": "If you were looking for the menu, it is on the home page. For a dinner reservation, contact me through my Take a Chef profile; I answer questions about menus and allergies within 24 hours.",
+    "detail": "If you were looking for the menu, it is on the private dining page. For a dinner reservation, contact me through my Take a Chef profile; I answer questions about menus and allergies within 24 hours.",
     "home": "Home",
     "gallery": "Gallery",
     "switch": "Hrvatski"

@@ -1,7 +1,6 @@
 ---
 import Icon from './Icon.astro';
 import CtaBand from './CtaBand.astro';
-import ContactPanel from './ContactPanel.astro';
 import { routes, site } from '../config';
 import { getContent, getGallery, getImage, type Lang } from '../lib/content';
 
@@ -14,9 +13,9 @@ const t = getContent(lang);
 
 const heroImage = getImage(t.hero.image);
 const portraitImage = getImage('chef-portrait');
-const actionImage = getImage('chef-action');
 const allGallery = getGallery(lang);
-const heroName = t.hero.name.join(' ');
+const nextPopup = t.popupPage.dates[0];
+
 // A renamed or missing teaser key must fail the build, not silently render
 // a broken grid.
 const teaserItems = t.galleryTeaser.images.map((key) => {
@@ -24,43 +23,109 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
   if (!item) throw new Error(`Unknown image key in galleryTeaser: ${key}`);
   return item;
 });
+
+const formatRoutes: Record<string, string> = {
+  private: routes.privateDining[lang],
+  popup: routes.popup[lang],
+  workshops: routes.workshops[lang],
+};
+
+// A renamed format key must fail the build, not render an empty link.
+const formatItems = t.formats.items.map((item) => {
+  const href = formatRoutes[item.key];
+  if (!href) throw new Error(`Unknown format key: ${item.key}`);
+  return { ...item, href };
+});
 ---
 
-<section class="hero" aria-labelledby="hero-name">
-  <div class="hero__media">
-    <img
-      src={heroImage.src}
-      srcset={heroImage.srcset}
-      sizes="100vw"
-      width={heroImage.width}
-      height={heroImage.height}
-      alt=""
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-    />
-  </div>
-  <div class="hero__scrim" aria-hidden="true"></div>
+<section class="wall-hero" aria-labelledby="hero-name">
+  <div class="wrap">
+    <div class="wall">
+      <div class="wall__name">
+        <p class="eyebrow">{t.hero.projectLabel}</p>
+        <h1 id="hero-name" aria-label={t.hero.name.join(' ')}>
+          {t.hero.name.map((line) => <span class="wall__name-line">{line}</span>)}
+        </h1>
+      </div>
 
-  <div class="hero__content">
-    <h1 class="hero__name" id="hero-name">{heroName}</h1>
-    <p class="hero__lead">{t.hero.lead}</p>
+      <aside class="wall__day" aria-label={t.hero.dayLabel}>
+        <p class="wall__day-label">{t.hero.dayLabel}</p>
+        <ol class="day-list" role="list">
+          {
+            t.hero.day.map((entry) => (
+              <li class="day-list__item">
+                <span class="day-list__time">{entry.time}</span>
+                <span class="day-list__label">{entry.label}</span>
+              </li>
+            ))
+          }
+        </ol>
+      </aside>
 
-    <div class="hero__actions">
-      <a
-        class="btn btn--light"
-        href={site.bookingUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {t.hero.primaryCta}
-        <Icon name="external" />
-        <span class="sr-only">{t.newWindow}</span>
-      </a>
-      <a class="hero__link" href="#jelovnici">{t.hero.secondaryCta}</a>
+      <figure class="wall__media">
+        <img
+          src={heroImage.src}
+          srcset={heroImage.srcset}
+          sizes="(max-width: 960px) 100vw, 58vw"
+          width={heroImage.width}
+          height={heroImage.height}
+          alt=""
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </figure>
+
+      <div class="wall__intro">
+        <p class="wall__lead">{t.hero.lead}</p>
+
+        <div class="wall__actions">
+          <a class="btn" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">
+            {t.hero.primaryCta}
+            <Icon name="external" />
+            <span class="sr-only">{t.newWindow}</span>
+          </a>
+          <a class="link-arrow" href="#program">
+            {t.hero.secondaryCta}
+            <Icon name="arrow-right" />
+          </a>
+        </div>
+
+        <p class="wall__note">{t.hero.bookingNote}</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <p class="hero__note">{t.hero.bookingNote}</p>
+<section class="section formats" id="program" aria-labelledby="formats-title">
+  <div class="wrap">
+    <header class="formats__head">
+      <p class="eyebrow">{t.formats.label}</p>
+      <h2 id="formats-title">{t.formats.title}</h2>
+      <p class="formats__lead">{t.formats.lead}</p>
+    </header>
+
+    <div class="format-stones">
+      {
+        formatItems.map((item, index) => (
+          <a
+            class:list={[
+              'format-stone',
+              item.key === 'private' && 'format-stone--lead',
+            ]}
+            href={item.href}
+          >
+            <span class="format-stone__index">{String(index + 1).padStart(2, '0')}</span>
+            <span class="format-stone__title">{item.title}</span>
+            <span class="format-stone__text">{item.text}</span>
+            <span class="format-stone__cta">
+              {item.cta}
+              <Icon name="arrow-right" />
+            </span>
+          </a>
+        ))
+      }
+    </div>
   </div>
 </section>
 
@@ -100,7 +165,7 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
         <p class="story__fact">{t.intro.who.fact}</p>
       </div>
 
-      <a class="link-arrow" href="#tijek">
+      <a class="link-arrow" href={routes.privateDining[lang]}>
         {t.intro.link}
         <Icon name="arrow-right" />
       </a>
@@ -108,172 +173,39 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
   </div>
 </section>
 
-<section class="section menus" id="jelovnici" aria-labelledby="menus-title">
-  <div class="wrap">
-    <div class="menus__head">
-      <h2 id="menus-title">{t.menus.title}</h2>
-      <p class="menus__lead">{t.menus.lead}</p>
+<section class="popup-strip" aria-labelledby="popup-strip-title">
+  <div class="wrap popup-strip__grid">
+    <div class="popup-strip__text">
+      <p class="eyebrow eyebrow--light">{t.popupPage.metaLabels.date}</p>
+      <h2 id="popup-strip-title">{t.popupPage.title}</h2>
+      <p>{t.popupPage.lead}</p>
     </div>
 
-    <div class="menu-explorer">
-      <div class="menu-tabs" role="group" aria-label={t.menus.selectLabel}>
-        {
-          t.menus.items.map((menu, index) => (
-            <button
-              class="menu-tab"
-              type="button"
-              aria-pressed={index === 0 ? 'true' : 'false'}
-              aria-controls={`menu-panel-${index}`}
-              data-menu-tab={index}
-            >
-              {menu.name}
-            </button>
-          ))
-        }
+    <dl class="popup-strip__facts">
+      <div class="popup-strip__fact">
+        <dt>{t.popupPage.metaLabels.date}</dt>
+        <dd>
+          <time datetime={nextPopup.iso}>{nextPopup.label}</time>
+          <span>{nextPopup.time}</span>
+        </dd>
       </div>
-
-      <div class="menu-panels">
-        {
-          t.menus.items.map((menu, index) => (
-            <div
-              class="menu-panel"
-              id={`menu-panel-${index}`}
-              data-menu-panel={index}
-              hidden={index !== 0}
-            >
-              <h3>{menu.name}</h3>
-              <p class="menu-panel__desc">{menu.description}</p>
-
-              <div class="courses">
-                {menu.courses.map((course) => (
-                  <div class="course">
-                    <p class="course__name">{course.name}</p>
-                    <div class="course__options" data-count={course.options.length}>
-                      {course.options.map((option, optionIndex) => (
-                        <>
-                          {optionIndex > 0 && <span class="course__or">{t.menus.or}</span>}
-                          <span class="course__option">{option}</span>
-                        </>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <p class="menu-panel__note">
-                {menu.courses.every((course) => course.options.length === 1)
-                  ? t.menus.tastingNote
-                  : t.menus.choiceNote}
-              </p>
-
-              <a
-                class="link-arrow menu-explorer__cta"
-                href={site.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t.menus.cta}
-                <Icon name="external" />
-                <span class="sr-only">{t.newWindow}</span>
-              </a>
-            </div>
-          ))
-        }
+      <div class="popup-strip__fact">
+        <dt>{t.popupPage.metaLabels.place}</dt>
+        <dd>{t.popupPage.place}</dd>
       </div>
-
-      <p
-        class="sr-only"
-        aria-live="polite"
-        data-explorer-status
-        data-label={t.menus.current}
-      ></p>
-    </div>
-  </div>
-
-  <noscript>
-    <style>
-      /* No JS: every menu is shown, stacked vertically. Undo the grid-cell
-         stacking and the visibility-based hiding above. The tab buttons and
-         live region have no behaviour without JS, so they are removed rather
-         than left as dead controls. */
-      .menu-tabs,
-      [data-explorer-status] {
-        display: none;
-      }
-      .menu-explorer {
-        grid-template-columns: 1fr;
-      }
-      .menu-panels {
-        display: block;
-      }
-      .menu-panel[data-menu-panel] {
-        grid-area: auto;
-      }
-      .menu-panel[data-menu-panel] + .menu-panel[data-menu-panel] {
-        margin-top: 2rem;
-      }
-      .menu-panel[data-menu-panel][hidden] {
-        display: block !important;
-        visibility: visible !important;
-      }
-    </style>
-  </noscript>
-</section>
-
-<section class="section process" id="tijek" aria-labelledby="process-title">
-  <div class="wrap">
-    <div class="process__head">
-      <h2 id="process-title">{t.how.title}</h2>
-      <p class="process__lead">{t.how.lead}</p>
-    </div>
-
-    <ol class="steps">
-      {
-        t.how.steps.map((step, index) => (
-          <li class="step">
-            <span class="step__num">{String(index + 1).padStart(2, '0')}</span>
-            <h3 class="step__title">{step.title}</h3>
-            <p class="step__text">{step.text}</p>
-          </li>
-        ))
-      }
-    </ol>
-  </div>
-</section>
-
-<section class="action" aria-label={t.action.label}>
-  <figure class="action__figure">
-    <img
-      src={actionImage.src}
-      srcset={actionImage.srcset}
-      sizes="100vw"
-      width={actionImage.width}
-      height={actionImage.height}
-      alt={actionImage.alt[lang]}
-      loading="lazy"
-      decoding="async"
-    />
-  </figure>
-</section>
-
-<section class="section included" id="ukljuceno" aria-labelledby="included-title">
-  <div class="wrap included__grid">
-    <div class="included__text">
-      <h2 id="included-title">{t.included.title}</h2>
-      <p class="included__lead">{t.included.lead}</p>
-      <p class="included__note">{t.included.note}</p>
-    </div>
-
-    <dl class="included__list">
-      {
-        t.included.rows.map((row) => (
-          <div class="included__row">
-            <dt>{row.item}</dt>
-            <dd>{row.detail}</dd>
-          </div>
-        ))
-      }
+      <div class="popup-strip__fact">
+        <dt>{t.popupPage.metaLabels.price}</dt>
+        <dd>
+          {t.popupPage.price}
+          <span>{t.popupPage.priceUnit}</span>
+        </dd>
+      </div>
     </dl>
+
+    <a class="btn btn--light" href={routes.popup[lang]}>
+      {t.formats.items[1].cta}
+      <Icon name="arrow-right" />
+    </a>
   </div>
 </section>
 
@@ -332,74 +264,9 @@ const teaserItems = t.galleryTeaser.images.map((key) => {
   </div>
 </section>
 
-<section class="section faq" id="pitanja" aria-labelledby="faq-title">
-  <div class="wrap faq__grid">
-    <div class="faq__text">
-      <h2 id="faq-title">{t.faq.title}</h2>
-      <p class="faq__lead">{t.faq.lead}</p>
-    </div>
-
-    <dl class="faq__list">
-      {
-        t.faq.items.map((item) => (
-          <div class="faq__item">
-            <dt class="faq__q">{item.q}</dt>
-            <dd class="faq__a">{item.a}</dd>
-          </div>
-        ))
-      }
-    </dl>
-  </div>
-</section>
-
 <CtaBand
   title={t.cta.title}
   lead={t.cta.lead}
   button={t.cta.button}
   newWindow={t.newWindow}
 />
-
-<ContactPanel lang={lang} />
-
-<script is:inline>
-  (() => {
-    const tabs = Array.from(document.querySelectorAll('.menu-tab[data-menu-tab]'));
-    const panels = Array.from(document.querySelectorAll('.menu-panel[data-menu-panel]'));
-
-    if (!tabs.length || tabs.length !== panels.length) return;
-
-    const status = document.querySelector('[data-explorer-status]');
-    let announced = 0;
-
-    const select = (activeIndex) => {
-      tabs.forEach((tab, index) => {
-        tab.setAttribute('aria-pressed', String(index === activeIndex));
-      });
-
-      panels.forEach((panel, index) => {
-        const active = index === activeIndex;
-        panel.hidden = !active;
-
-        if (active) {
-          // The sheet keeps its height by hiding panels with visibility, which
-          // also stops the CSS entry animation from restarting on its own.
-          panel.style.animation = 'none';
-          void panel.offsetWidth;
-          panel.style.animation = '';
-        }
-      });
-
-      // The toggle group announces its pressed state only while the button has
-      // focus; a polite live region carries which menu is now on screen.
-      if (status && activeIndex !== announced) {
-        const name = panels[activeIndex]?.querySelector('h3')?.textContent?.trim();
-        if (name) status.textContent = `${status.dataset.label}: ${name}`;
-        announced = activeIndex;
-      }
-    };
-
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => select(index));
-    });
-  })();
-</script>

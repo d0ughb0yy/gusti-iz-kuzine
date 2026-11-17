@@ -1,0 +1,641 @@
+/* ==========================================================================
+   Gušti iz Kužine — the dry-stone layer.
+   Loaded after global.css. It carries the new home wall, the format stones
+   and the kažun finish applied over the existing funnel components.
+   ========================================================================== */
+
+::selection {
+  background: var(--sun);
+  color: var(--ink);
+}
+
+body {
+  background: var(--ground);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.section {
+  border-top: 1px solid var(--line);
+}
+
+.page-hero {
+  border-bottom: 1px solid var(--line);
+}
+
+/* Adjacent 1px joints would otherwise stack into a 2px seam. */
+.page-hero + .section,
+.popup-strip + .section {
+  border-top: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: var(--micro);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.eyebrow--light {
+  color: var(--on-field-soft);
+}
+
+.status-tag {
+  display: inline-flex;
+  margin: 1.5rem 0 0;
+  padding: 0.45rem 0.7rem;
+  background: var(--sun);
+  color: var(--ink);
+  font-size: var(--micro);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Home: the wall
+   -------------------------------------------------------------------------- */
+
+.wall-hero {
+  padding-block: clamp(1.25rem, 2.5vw, 2.5rem) clamp(2rem, 4vw, 4rem);
+}
+
+.wall {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.wall > * {
+  min-width: 0;
+  background: var(--ground);
+}
+
+.wall__name {
+  grid-column: span 8;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  padding-block-end: clamp(2rem, 4vw, 3.5rem);
+}
+
+.wall__name h1 {
+  max-width: none;
+  margin: 0;
+  font-size: clamp(3.25rem, 7.6vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.wall__name-line {
+  display: block;
+}
+
+.wall__day {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--sun);
+  color: var(--ink);
+}
+
+.wall__day-label {
+  margin: 0;
+  font-size: var(--micro);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.day-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.day-list__item {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding-block: 0.9rem;
+  border-top: 1px solid rgba(32, 28, 22, 0.28);
+}
+
+.day-list__item:last-child {
+  border-bottom: 1px solid rgba(32, 28, 22, 0.28);
+}
+
+.day-list__time {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.day-list__label {
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.wall__media {
+  grid-column: span 7;
+  margin: 0;
+  padding: 0;
+  background: var(--ink);
+}
+
+.wall__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.wall__intro {
+  grid-column: span 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  background: var(--paper);
+}
+
+.wall__lead {
+  margin: 0;
+  max-width: 30ch;
+  font-family: var(--serif);
+  font-size: clamp(1.375rem, 2.1vw, 1.875rem);
+  line-height: 1.25;
+}
+
+.wall__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+.wall__note {
+  margin: 0;
+  font-size: var(--small);
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+/* --------------------------------------------------------------------------
+   Home: three format stones
+   -------------------------------------------------------------------------- */
+
+.formats__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.5rem, 5vw, 5rem);
+  align-items: end;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.formats__head .eyebrow {
+  grid-column: 1 / -1;
+}
+
+.formats__head h2 {
+  margin: 0;
+  max-width: 18ch;
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  line-height: 1.02;
+}
+
+.formats__lead {
+  margin: 0;
+  max-width: 40ch;
+  font-size: var(--lead);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.format-stones {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.format-stone {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: clamp(18rem, 26vw, 23rem);
+  padding: clamp(1.25rem, 2.4vw, 2rem);
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color 240ms var(--ease);
+}
+
+.format-stone__index {
+  font-size: var(--micro);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.format-stone__title {
+  margin-top: auto;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.1vw, 2rem);
+  line-height: 1.08;
+}
+
+.format-stone__text {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.format-stone__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+  font-size: var(--micro);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.format-stone__cta svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.format-stone--lead {
+  background: var(--sun);
+}
+
+.format-stone--lead .format-stone__text {
+  color: var(--ink);
+}
+
+.format-stone:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -4px;
+}
+
+/* The sun rests on private dining and moves to whichever stone is active. */
+.format-stones:has(.format-stone:not(.format-stone--lead):hover) .format-stone--lead,
+.format-stones:has(.format-stone:not(.format-stone--lead):focus-visible) .format-stone--lead {
+  background: var(--paper);
+}
+
+.format-stone:not(.format-stone--lead):hover,
+.format-stone:not(.format-stone--lead):focus-visible {
+  background: var(--sun);
+}
+
+/* On the sun, the quieter text must darken to keep 4.5:1. */
+.format-stone:not(.format-stone--lead):hover .format-stone__text,
+.format-stone:not(.format-stone--lead):focus-visible .format-stone__text {
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+   Home: the dated pop-up strip
+   -------------------------------------------------------------------------- */
+
+.popup-strip {
+  padding-block: var(--section-y);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--field);
+  color: var(--on-field);
+}
+
+.popup-strip__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) auto;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.popup-strip h2 {
+  margin: 0.75rem 0 0;
+  max-width: 16ch;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  line-height: 1.04;
+}
+
+.popup-strip__text > p:last-child {
+  max-width: 42ch;
+  margin: 1rem 0 0;
+  color: var(--on-field-soft);
+  line-height: 1.55;
+}
+
+.popup-strip__facts {
+  margin: 0;
+}
+
+.popup-strip__fact {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 0.85rem;
+  border-top: 1px solid rgba(244, 239, 227, 0.28);
+}
+
+.popup-strip__fact:last-child {
+  border-bottom: 1px solid rgba(244, 239, 227, 0.28);
+}
+
+.popup-strip__fact dt {
+  font-size: var(--micro);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--on-field-soft);
+}
+
+.popup-strip__fact dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.75rem;
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.popup-strip__fact dd span {
+  color: var(--on-field-soft);
+}
+
+.popup-strip .btn {
+  justify-self: start;
+}
+
+/* --------------------------------------------------------------------------
+   Page heroes
+   -------------------------------------------------------------------------- */
+
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.page-hero__note {
+  margin: 1rem 0 0;
+  font-size: var(--small);
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.page-hero__figure img {
+  border: 1px solid var(--line);
+}
+
+.page-hero--workshops .page-hero__figure img {
+  aspect-ratio: 3 / 2;
+}
+
+/* --------------------------------------------------------------------------
+   Existing funnel components, re-cut in stone
+   -------------------------------------------------------------------------- */
+
+.step__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 0.75rem;
+  background: var(--sun);
+  color: var(--ink);
+  font-size: var(--micro);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.menu-panel {
+  border-color: var(--line);
+  background: var(--paper);
+}
+
+.menu-tab[aria-pressed='true'] {
+  box-shadow: inset 0 -2px 0 var(--ink);
+}
+
+.story__figure img,
+.action__figure img {
+  border: 1px solid var(--line);
+}
+
+.included__row,
+.faq__item {
+  border-color: var(--line);
+}
+
+.contact {
+  border-top: 1px solid var(--line);
+}
+
+.contact-form__input {
+  border-color: var(--line-strong);
+}
+
+.consent {
+  box-shadow: none;
+  border-top: 1px solid var(--ink);
+}
+
+.site-header {
+  background: var(--ground);
+}
+
+.brand {
+  font-weight: 400;
+}
+
+/* Five nav links are wider than the old four between the phone menu and the
+   tablet breakpoint; tighten the header there instead of letting it overflow. */
+@media (min-width: 681px) and (max-width: 900px) {
+  .header__inner {
+    gap: 0.75rem;
+  }
+
+  .header__nav {
+    gap: 0.65rem;
+  }
+
+  .brand {
+    font-size: 1.25rem;
+  }
+
+  .header__link {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+  }
+
+  .lang {
+    margin-inline: -0.4rem;
+  }
+
+  .lang__item {
+    padding-inline: 0.4rem;
+    font-size: 0.7rem;
+  }
+}
+
+.link-arrow:hover {
+  color: var(--ink);
+  text-decoration-thickness: 2px;
+}
+
+.footer__brand {
+  letter-spacing: -0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   Pop-up page: action above the facts on a phone
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 680px) {
+  .popup-hero__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .popup-hero__text > h1 {
+    order: 1;
+  }
+
+  .popup-hero__lead {
+    order: 2;
+  }
+
+  .popup-hero__actions {
+    order: 3;
+    margin-top: 1.5rem;
+  }
+
+  .popup-hero__text > .popup-meta {
+    order: 4;
+  }
+
+  .popup-hero__note {
+    order: 5;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tablet and phone
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 960px) {
+  .wall__name,
+  .wall__day,
+  .wall__media,
+  .wall__intro {
+    grid-column: 1 / -1;
+  }
+
+  .wall__day {
+    gap: 1.5rem;
+  }
+
+  .day-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    border-top: 1px solid rgba(32, 28, 22, 0.28);
+  }
+
+  .day-list__item {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    padding: 0.9rem;
+    border-top: 0;
+    border-right: 1px solid rgba(32, 28, 22, 0.28);
+  }
+
+  .day-list__item:last-child {
+    border-bottom: 0;
+    border-right: 0;
+  }
+
+  .popup-strip__grid {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .formats__head {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .format-stones {
+    grid-template-columns: 1fr;
+  }
+
+  .format-stone {
+    min-height: 0;
+  }
+
+  .format-stone__title {
+    margin-top: 1rem;
+  }
+
+  .page-hero__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .day-list {
+    grid-template-columns: 1fr;
+  }
+
+  .day-list__item {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    border-right: 0;
+    border-bottom: 1px solid rgba(32, 28, 22, 0.28);
+  }
+
+  .day-list__item:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .format-stone {
+    transition: none;
+  }
+}

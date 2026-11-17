@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PrivateDiningPage from '../../components/PrivateDiningPage.astro';
+import { getContent } from '../../lib/content';
+
+const lang = 'en' as const;
+const t = getContent(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  current="privateDining"
+  title={t.privateDiningPage.metaTitle}
+  description={t.privateDiningPage.metaDescription}
+  ogImage={t.privateDiningPage.image}
+  faq={t.faq.items}
+>
+  <PrivateDiningPage lang={lang} />
+</BaseLayout>

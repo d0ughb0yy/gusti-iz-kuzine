@@ -11,8 +11,12 @@ interface Props {
 
 const { lang, current, overlay = false } = Astro.props;
 const t = getContent(lang);
-const menuHref = `${routes.home[lang]}#jelovnici`;
-const contactHref = `${routes.home[lang]}#kontakt`;
+// The two pages that carry a contact form link to their own; every other
+// page sends the visitor to the private dining form.
+const contactHref =
+  current === 'privateDining' || current === 'workshops'
+    ? '#kontakt'
+    : `${routes.privateDining[lang]}#kontakt`;
 ---
 
 <header class:list={['site-header', overlay && 'site-header--overlay']}>
@@ -23,13 +27,26 @@ const contactHref = `${routes.home[lang]}#kontakt`;
 
     <div class="header__panel" data-header-panel>
       <nav class="header__nav" id="site-menu" aria-label={t.nav.navigation}>
-        <a class="header__link" href={menuHref}>{t.nav.menu}</a>
+        <a
+          class="header__link"
+          href={routes.privateDining[lang]}
+          aria-current={current === 'privateDining' ? 'page' : undefined}
+        >
+          {t.nav.private}
+        </a>
         <a
           class="header__link"
           href={routes.popup[lang]}
           aria-current={current === 'popup' ? 'page' : undefined}
         >
           {t.nav.popup}
+        </a>
+        <a
+          class="header__link"
+          href={routes.workshops[lang]}
+          aria-current={current === 'workshops' ? 'page' : undefined}
+        >
+          {t.nav.workshops}
         </a>
         <a class="header__link" href={contactHref}>{t.nav.contact}</a>
         <a
@@ -42,7 +59,7 @@ const contactHref = `${routes.home[lang]}#kontakt`;
       </nav>
     </div>
 
-    <div class="lang" aria-label={t.nav.language}>
+    <nav class="lang" aria-label={t.nav.language}>
       {
         lang === 'hr' ? (
           <span class="lang__item" lang="hr" aria-current="page">
@@ -66,7 +83,7 @@ const contactHref = `${routes.home[lang]}#kontakt`;
           </a>
         )
       }
-    </div>
+    </nav>
 
     <button
       class="header__toggle"

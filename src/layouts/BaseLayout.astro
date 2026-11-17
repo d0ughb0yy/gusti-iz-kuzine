@@ -1,12 +1,11 @@
 ---
-import '@fontsource/eb-garamond/400.css';
-import '@fontsource/eb-garamond/400-italic.css';
-import '@fontsource/eb-garamond/500.css';
-import '@fontsource/inter-tight/400.css';
-import '@fontsource/inter-tight/500.css';
-import '@fontsource/inter-tight/600.css';
+import '@fontsource/young-serif/400.css';
+import '@fontsource/archivo/400.css';
+import '@fontsource/archivo/500.css';
+import '@fontsource/archivo/600.css';
 import '../styles/theme.css';
 import '../styles/global.css';
+import '../styles/wall.css';
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -31,10 +30,8 @@ const canonical = new URL(Astro.url.pathname, site.url);
 const image = getImage(ogImage);
 // Scrapers resolve og:image against the page URL, so it must be absolute.
 const imageUrl = new URL(image.src, site.url).href;
-// The header is transparent only over the home hero, never over a 404 or a
-// secondary page that happens to share the "home" route key.
-const overlayHeader =
-  current === 'home' && [routes.home.hr, routes.home.en].includes(Astro.url.pathname);
+// The kažun header is always solid: the home wall starts below it.
+const overlayHeader = false;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -99,7 +96,7 @@ const faqSchema =
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
 
-    <meta name="theme-color" content="#f4f0e7" />
+    <meta name="theme-color" content="#e6dfd2" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />

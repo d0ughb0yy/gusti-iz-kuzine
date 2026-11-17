@@ -28,10 +28,13 @@ export const site = {
 
 export const routes = {
   home: { hr: '/', en: '/en/' },
-  gallery: { hr: '/galerija/', en: '/en/gallery/' },
+  privateDining: { hr: '/privatno/', en: '/en/private-dining/' },
   popup: { hr: '/popup/', en: '/en/popup/' },
+  workshops: { hr: '/radionice/', en: '/en/workshops/' },
+  gallery: { hr: '/galerija/', en: '/en/gallery/' },
   privacy: { hr: '/politika-privatnosti/', en: '/en/privacy-policy/' },
   thanks: { hr: '/hvala/', en: '/en/thank-you/' },
   // Not a navigable page: used so the language switch stays on the 404 pair.
-  notFound: { hr: '/404/', en: '/en/404/' },
+  // Astro emits the Croatian 404 as dist/404.html, so its URL has no slash.
+  notFound: { hr: '/404', en: '/en/404/' },
 };

@@ -5,24 +5,32 @@ import Icon from './Icon.astro';
 
 interface Props {
   lang: Lang;
+  title?: string;
+  lead?: string;
+  note?: string;
+  subject?: string;
 }
 
-const { lang } = Astro.props;
+const { lang, title, lead, note, subject } = Astro.props;
 const t = getContent(lang);
+const heading = title ?? t.contact.title;
+const intro = lead ?? t.contact.lead;
+const aside = note ?? t.contact.note;
+const formSubject = subject ?? t.contact.subject;
 ---
 
 <section class="contact" id="kontakt" aria-labelledby="contact-title">
   <div class="wrap contact__grid">
     <div class="contact__text">
-      <h2 id="contact-title">{t.contact.title}</h2>
-      <p class="contact__lead">{t.contact.lead}</p>
-      <p class="contact__note">{t.contact.note}</p>
+      <h2 id="contact-title">{heading}</h2>
+      <p class="contact__lead">{intro}</p>
+      <p class="contact__note">{aside}</p>
     </div>
 
     <div class="contact__panel">
       <form
         class="contact-form"
-        aria-label={t.contact.formLabel}
+        aria-labelledby="contact-title"
         action="https://api.web3forms.com/submit"
         method="POST"
         data-contact-form
@@ -31,7 +39,7 @@ const t = getContent(lang);
         data-error={t.contact.error}
       >
         <input type="hidden" name="access_key" value={site.web3formsKey} />
-        <input type="hidden" name="subject" value={t.contact.subject} />
+        <input type="hidden" name="subject" value={formSubject} />
         <input type="hidden" name="from_name" value={site.name} />
         <input type="hidden" name="redirect" value={new URL(routes.thanks[lang], site.url).href} />
         <input

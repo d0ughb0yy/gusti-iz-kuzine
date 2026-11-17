@@ -36,16 +36,30 @@ const bookingMessage = (
 const bookingHref = reservationHref(bookingMessage, popup.booking.emailSubject);
 const bookingLabel = isSoldOut
   ? popup.booking.waitlistCta
-  : popup.booking.cta;
+  : whatsapp
+    ? popup.booking.cta
+    : popup.booking.emailCta;
 const bookingNote = isSoldOut
   ? popup.booking.waitlistNote
-  : popup.booking.note;
+  : whatsapp
+    ? popup.booking.note
+    : popup.booking.emailNote;
 const reserveLabel = isSoldOut
   ? popup.booking.waitlistCta
-  : popup.reserve.button;
+  : whatsapp
+    ? popup.reserve.button
+    : popup.booking.emailCta;
 const reserveNote = isSoldOut
   ? popup.booking.waitlistNote
-  : popup.reserve.note;
+  : whatsapp
+    ? popup.reserve.note
+    : popup.booking.emailNote;
+const reserveTitle = isSoldOut ? popup.reserve.soldOutTitle : popup.reserve.title;
+const reserveLead = isSoldOut
+  ? popup.reserve.soldOutLead
+  : whatsapp
+    ? popup.reserve.lead
+    : popup.reserve.emailLead;
 ---
 
 <section class="popup-hero" aria-labelledby="popup-title">
@@ -61,7 +75,7 @@ const reserveNote = isSoldOut
             {
               popup.dates.map((date) => (
                 <span class="popup-meta__line">
-                  {date.label}
+                  <time datetime={date.iso}>{date.label}</time>
                   <span class="popup-meta__sub">{date.time}</span>
                 </span>
               ))
@@ -228,8 +242,8 @@ const reserveNote = isSoldOut
 <section class="popup-reserve" aria-labelledby="popup-reserve-title">
   <div class="wrap popup-reserve__grid">
     <div>
-      <h2 id="popup-reserve-title">{popup.reserve.title}</h2>
-      <p class="popup-reserve__lead">{popup.reserve.lead}</p>
+      <h2 id="popup-reserve-title">{reserveTitle}</h2>
+      <p class="popup-reserve__lead">{reserveLead}</p>
       <p class="popup-reserve__meta">
         {dateSummary} · {popup.place} · {popup.price} {popup.priceUnit}
       </p>

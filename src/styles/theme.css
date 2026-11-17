@@ -1,36 +1,42 @@
 /*
   Gušti iz Kužine — one palette.
-  Ivory ground, near-black ink, oxblood accent, one dark field.
-  The old multi-palette switcher is gone; this file is the only theme source.
+  Istrian dry-stone: limestone ground, bleached paper, iron ink, one sun
+  surface, olive-black field. This file is the only theme source.
 */
 
 :root {
   color-scheme: light;
 
-  --ground: #f4f0e7;
-  --ground-raised: #ede7da;
-  --ink: #1a1815;
-  --ink-soft: #5b554a;
-  --line: #d6cfc0;
-  --line-strong: #8a8272;
+  --ground: #e6dfd2;
+  --ground-raised: #f4efe3;
+  --paper: #f4efe3;
+  --ink: #201c16;
+  --ink-soft: #5f574a;
+  --line: #bdb09a;
+  --line-strong: #201c16;
 
-  --accent: #5a1e23;
-  --accent-deep: #411519;
+  /* The one coloured surface. Never used for body text. */
+  --sun: #e5b33e;
+  --sun-deep: #c9972a;
 
-  --field: #151310;
-  --on-field: #f4f0e7;
-  --on-field-soft: #c6bfb2;
-  --scrim: rgba(15, 13, 11, 0.48);
+  /* Interactive states are iron, not a second accent. */
+  --accent: #201c16;
+  --accent-deep: #000000;
 
-  --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
-  --sans: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+  --field: #262820;
+  --on-field: #f4efe3;
+  --on-field-soft: #c9c3b4;
+  --scrim: rgba(32, 28, 22, 0.45);
 
-  --max: 1360px;
+  --serif: 'Young Serif', Georgia, 'Times New Roman', serif;
+  --sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+
+  --max: 1440px;
   --gutter: clamp(1.25rem, 4vw, 4rem);
-  --section-y: clamp(5rem, 9vw, 9rem);
+  --section-y: clamp(4.5rem, 8vw, 8rem);
   --header-h: 76px;
 
-  --display: clamp(2.75rem, 6vw, 5.5rem);
+  --display: clamp(2.75rem, 6.2vw, 5.75rem);
   --heading: clamp(1.5rem, 2.4vw, 2.125rem);
   --lead: clamp(1.125rem, 1.4vw, 1.375rem);
   --body: 1.0625rem;

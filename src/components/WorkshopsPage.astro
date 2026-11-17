@@ -1,0 +1,82 @@
+---
+import Icon from './Icon.astro';
+import ContactPanel from './ContactPanel.astro';
+import { routes } from '../config';
+import { getContent, getImage, type Lang } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const page = t.workshopsPage;
+const heroImage = getImage(page.image);
+---
+
+<section class="page-hero page-hero--workshops" aria-labelledby="workshops-title">
+  <div class="wrap page-hero__grid">
+    <div class="page-hero__text">
+      <p class="eyebrow">{page.label}</p>
+      <h1 id="workshops-title">{page.title}</h1>
+      <p class="page-hero__lead">{page.lead}</p>
+
+      <p class="status-tag">{page.statusLabel}</p>
+      <p class="page-hero__note">{page.statusNote}</p>
+
+      <div class="page-hero__actions">
+        <a class="link-arrow" href={routes.privateDining[lang]}>
+          {t.nav.private}
+          <Icon name="arrow-right" />
+        </a>
+        <a class="link-arrow" href={routes.popup[lang]}>
+          {t.nav.popup}
+          <Icon name="arrow-right" />
+        </a>
+      </div>
+    </div>
+
+    <figure class="page-hero__figure">
+      <img
+        src={heroImage.src}
+        srcset={heroImage.srcset}
+        sizes="(max-width: 960px) 100vw, 42rem"
+        width={heroImage.width}
+        height={heroImage.height}
+        alt={heroImage.alt[lang]}
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </figure>
+  </div>
+</section>
+
+<section class="section process workshop-process" aria-labelledby="workshop-process-title">
+  <div class="wrap">
+    <div class="process__head">
+      <h2 id="workshop-process-title">{page.processTitle}</h2>
+      <p class="process__lead">{page.processLead}</p>
+    </div>
+
+    <ol class="steps">
+      {
+        page.steps.map((step, index) => (
+          <li class="step">
+            <span class="step__num">{String(index + 1).padStart(2, '0')}</span>
+            <h3 class="step__title">{step.title}</h3>
+            <p class="step__text">{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<ContactPanel
+  lang={lang}
+  title={page.interestTitle}
+  lead={page.interestLead}
+  note={page.interestNote}
+  subject={page.subject}
+/>

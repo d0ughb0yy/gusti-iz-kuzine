@@ -1,12 +1,11 @@
 {
   "meta": {
-    "title": "Gušti iz Kužine: privatni kuhar u Istri",
-    "description": "Privatni kuhar u Istri za do šest gostiju. Pripremam suvremena jela od namirnica s pulske tržnice, u vašem domu ili vili."
+    "title": "Gušti iz Kužine — privatne večere, pop-upovi i radionice u Istri",
+    "description": "Tin Lučić kuha privatne večere u istarskim domovima i vilama, vodi pop-upove u Fažani i planira male kuharske radionice. Jelovnik određuje tržnica."
   },
   "nav": {
     "home": "Početna",
     "gallery": "Galerija",
-    "menu": "Jelovnik",
     "popup": "Pop-up",
     "contact": "Kontakt",
     "privacy": "Privatnost",
@@ -15,7 +14,9 @@
     "menuToggle": "Meni",
     "menuOpened": "Meni je otvoren.",
     "menuClosed": "Meni je zatvoren.",
-    "skip": "Preskoči na sadržaj"
+    "skip": "Preskoči na sadržaj",
+    "private": "Privatno",
+    "workshops": "Radionice"
   },
   "consent": {
     "title": "Analitika",
@@ -27,15 +28,56 @@
     "privacyLink": "Politika privatnosti"
   },
   "hero": {
+    "projectLabel": "Gastro projekt — Istra",
     "name": [
       "Gušti",
       "iz Kužine"
     ],
-    "lead": "Privatni kuhar u Istri. Tog jutra kupujem na pulskoj tržnici, kuham u vašoj kuhinji i poslužujem za vašim stolom. Tehnika fine dininga, u vašem domu.",
-    "primaryCta": "Pošaljite upit",
-    "secondaryCta": "Pogledajte jelovnike",
-    "bookingNote": "Odaberite datum i broj gostiju na Take a Chef. Javim se unutar 24 sata.",
-    "image": "hero-plated"
+    "lead": "Privatne večere, pop-upovi i kuharske radionice. Jedan kuhar, jedan stol, tri načina da sjednete za njega.",
+    "primaryCta": "Rezervirajte privatnu večeru",
+    "secondaryCta": "Pogledajte program",
+    "bookingNote": "Večere za do šest gostiju. Rezervacije idu preko Take a Chefa.",
+    "image": "gallery-terrace",
+    "dayLabel": "Jedan dan, jedan stol",
+    "day": [
+      {
+        "time": "07:00",
+        "label": "Pulska tržnica"
+      },
+      {
+        "time": "12:00",
+        "label": "Priprema u vašoj kuhinji"
+      },
+      {
+        "time": "19:30",
+        "label": "Večera za vašim stolom"
+      }
+    ]
+  },
+  "formats": {
+    "label": "Tri načina za stol",
+    "title": "Jedna kuhinja. Tri formata.",
+    "lead": "Privatna večera u vašem domu, pop-up u Fažani ili radionica koja se tek planira. Odaberite kako želite sjesti za stol.",
+    "items": [
+      {
+        "key": "private",
+        "title": "Privatna večera",
+        "text": "Do šest gostiju, u vašem domu ili vili. Kupujem tog jutra, kuham i poslužujem; kuhinja ostaje čista.",
+        "cta": "Pogledajte privatnu večeru"
+      },
+      {
+        "key": "popup",
+        "title": "Pop-up",
+        "text": "Određeni datum, jedan jelovnik i jedan stol u Fažani. Sljedeća večera je 5. prosinca 2026.",
+        "cta": "Pogledajte pop-up"
+      },
+      {
+        "key": "workshops",
+        "title": "Radionice",
+        "text": "Male kuharske radionice su u planu. Datumi i cijene još nisu određeni; javite se za prve vijesti.",
+        "cta": "Pogledajte radionice"
+      }
+    ]
   },
   "intro": {
     "title": "Zašto Kužina.",
@@ -217,7 +259,7 @@
         ]
       }
     ],
-    "cta": "Pošaljite upit"
+    "cta": "Rezervirajte večeru"
   },
   "galleryTeaser": {
     "title": "Stol, tanjur, mjesto.",
@@ -307,23 +349,63 @@
   "cta": {
     "title": "Vaša večera počinje jednim upitom.",
     "lead": "Odaberite datum na Take a Chef i pošaljite mi nekoliko detalja. Javit ću se s prijedlogom jelovnika.",
-    "button": "Pošaljite upit"
+    "button": "Rezervirajte privatnu večeru"
   },
   "footer": {
     "navLabel": "Stranice",
     "bookingLink": "Take a Chef profil",
-    "areaText": "Istra. Kuham u vašem domu.",
+    "areaText": "Istra. Privatne večere, pop-upovi, radionice.",
     "rights": "Sva prava pridržana."
   },
   "galleryPage": {
     "metaTitle": "Galerija: Gušti iz Kužine",
     "metaDescription": "Fotografije stola, tanjura i Istre s privatnih večera.",
-    "title": "Kako izgleda večera.",
-    "lead": "Fotografije su zasad zamjenske.",
+    "title": "Za stolom i u kuhinji.",
+    "lead": "Fotografije stola, tanjura i Istre. Fotografije su zasad zamjenske.",
     "countLabel": "fotografija",
     "ctaTitle": "Želite ovakvu večeru?",
     "ctaLead": "Pošaljite upit i recite mi nekoliko detalja o svojoj večeri.",
-    "ctaButton": "Pošaljite upit"
+    "ctaButton": "Rezervirajte privatnu večeru"
+  },
+  "privateDiningPage": {
+    "metaTitle": "Privatna večera: Gušti iz Kužine",
+    "metaDescription": "Privatna večera u Istri za do šest gostiju. Tin Lučić kupuje na pulskoj tržnici, kuha u vašoj kuhinji i poslužuje za vašim stolom.",
+    "label": "Privatna večera",
+    "title": "Večera u vašem domu.",
+    "lead": "Do šest gostiju, jedan stol i jelovnik složen tog dana. Kupujem na pulskoj tržnici, kuham u vašoj kuhinji i poslužujem jelo po jelo.",
+    "cta": "Rezervirajte večeru",
+    "note": "Odaberite datum i broj gostiju na Take a Chef. Javim se unutar 24 sata.",
+    "image": "hero-plated"
+  },
+  "workshopsPage": {
+    "metaTitle": "Radionice: Gušti iz Kužine",
+    "metaDescription": "Male kuharske radionice u Istri su u planu. Datumi i cijene još nisu određeni; javite se i javit ću vam kad budu.",
+    "label": "Radionice",
+    "title": "Kuhinja koja se uči za stolom.",
+    "lead": "Male kuharske radionice u Istri su u planu. Još ne mogu objaviti datume ni cijene; ako vas zanima, javite se i prvi ćete znati.",
+    "statusLabel": "U planu",
+    "statusNote": "Datumi i cijene nisu određeni.",
+    "image": "gallery-plating",
+    "processTitle": "Kako će to izgledati",
+    "processLead": "Bez obećanja o programu dok datumi nisu određeni. Ovako ćemo krenuti.",
+    "steps": [
+      {
+        "title": "Javite se",
+        "text": "Pišite mi što vas zanima i koliko vas je. Bez obveze i bez plaćanja unaprijed."
+      },
+      {
+        "title": "Dogovorimo termin",
+        "text": "Kad bude dovoljno interesa, odredit ću datum i veličinu grupe."
+      },
+      {
+        "title": "Kuhamo i jedemo",
+        "text": "Radimo zajedno, a dan završava za stolom."
+      }
+    ],
+    "interestTitle": "Javite se za radionice",
+    "interestLead": "Pišite mi što biste željeli naučiti i koliko vas je. Javit ću vam se kad datumi budu određeni.",
+    "interestNote": "Bez obveze i bez plaćanja unaprijed.",
+    "subject": "Interes za radionice — Gušti iz Kužine"
   },
   "popupPage": {
     "metaTitle": "Pop-up večera: Gušti iz Kužine",
@@ -355,7 +437,9 @@
       "waitlistNote": "Večera je popunjena. Javite se i javit ću vam ako se mjesto oslobodi.",
       "message": "Bok Tin, želio/la bih rezervirati mjesto za pop-up večeru {date}.",
       "waitlistMessage": "Bok Tin, želio/la bih biti na listi čekanja za pop-up večeru {date}.",
-      "emailSubject": "Rezervacija pop-up večere"
+      "emailSubject": "Rezervacija pop-up večere",
+      "emailCta": "Rezervirajte e-poštom",
+      "emailNote": "WhatsApp broj još nije objavljen. Otvara se poruka e-pošte s podacima o večeri."
     },
     "menu": {
       "title": "Jelovnik večeri",
@@ -435,7 +519,10 @@
       "title": "Rezervirajte mjesto",
       "lead": "Javite mi se na WhatsApp i potvrdit ću vam mjesto. Broj mjesta je ograničen.",
       "button": "Javite se na WhatsApp",
-      "note": "Uz potvrdu šaljem točnu adresu i nekoliko detalja o večeri."
+      "note": "Uz potvrdu šaljem točnu adresu i nekoliko detalja o večeri.",
+      "soldOutTitle": "Lista čekanja",
+      "soldOutLead": "Večera je popunjena. Javite se i javit ću vam ako se mjesto oslobodi.",
+      "emailLead": "Javite mi se e-poštom i potvrdit ću vam mjesto. Broj mjesta je ograničen."
     }
   },
   "privacyPage": {
@@ -583,7 +670,7 @@
     "description": "Ova stranica ne postoji. Vratite se na početnu ili pogledajte galeriju.",
     "heading": "Ova stranica ne postoji.",
     "lead": "Vratite se na početnu ili pogledajte galeriju.",
-    "detail": "Ako ste tražili jelovnik, nalazi se na početnoj stranici. Za rezervaciju večere javite mi se preko Take a Chef profila, a na pitanja o jelovniku i alergijama odgovaram unutar 24 sata.",
+    "detail": "Ako ste tražili jelovnik, nalazi se na stranici privatne večere. Za rezervaciju večere javite mi se preko Take a Chef profila, a na pitanja o jelovniku i alergijama odgovaram unutar 24 sata.",
     "home": "Početna",
     "gallery": "Galerija",
     "switch": "English"

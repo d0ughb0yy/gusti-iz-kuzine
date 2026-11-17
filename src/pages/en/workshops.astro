@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkshopsPage from '../../components/WorkshopsPage.astro';
+import { getContent } from '../../lib/content';
+
+const lang = 'en' as const;
+const t = getContent(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  current="workshops"
+  title={t.workshopsPage.metaTitle}
+  description={t.workshopsPage.metaDescription}
+  ogImage={t.workshopsPage.image}
+>
+  <WorkshopsPage lang={lang} />
+</BaseLayout>

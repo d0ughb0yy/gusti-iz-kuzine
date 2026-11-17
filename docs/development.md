@@ -5,8 +5,8 @@ Technical notes for maintaining and deploying the site. For the business descrip
 ## Stack
 
 - Astro static output, no client framework, no adapter, no CMS.
-- Hand-written CSS with semantic theme tokens (`src/styles/theme.css`) and one global stylesheet (`src/styles/global.css`).
-- Fonts bundled locally via `@fontsource` (EB Garamond display, Inter Tight working text).
+- Hand-written CSS with semantic theme tokens (`src/styles/theme.css`), one global stylesheet (`src/styles/global.css`) and the dry-stone layer (`src/styles/wall.css`).
+- Fonts bundled locally via `@fontsource` (Young Serif display, Archivo working text).
 - Copy lives in plain JSON files; templates read from `src/config.ts`.
 
 ## Run it locally
@@ -25,12 +25,13 @@ npm run preview   # preview the production build
 | File | What lives there |
 | --- | --- |
 | `src/config.ts` | Brand name, Take a Chef URL, contact email, WhatsApp number, site URL, service area, GA4 measurement ID |
-| `src/data/site/hr.json` | All Croatian copy: hero, intro, process, included, menus, statement, FAQ, CTA, footer, gallery |
+| `src/data/site/hr.json` | All Croatian copy: home wall and formats, private dining, workshops, process, included, menus, statement, FAQ, CTA, footer, gallery |
 | `src/data/site/en.json` | All English copy |
 | `src/data/images.json` | Every image URL, dimensions, and bilingual alt text |
 | `src/data/gallery.json` | Gallery order and bilingual captions |
-| `src/styles/theme.css` | The single theme: ivory, ink, oxblood, dark field, type and spacing tokens |
-| `src/styles/global.css` | Layout, type, components, motion |
+| `src/styles/theme.css` | The single theme: limestone, paper, iron ink, sun, olive field, type and spacing tokens |
+| `src/styles/global.css` | Layout, type and components inherited from the first build |
+| `src/styles/wall.css` | The dry-stone layer: home wall, format stones, pop-up strip and page-level overrides; loaded after `global.css` |
 
 `CONTENT.md` lists every placeholder that must be replaced before launch. `DESIGN.md` holds the visual system of record — colors, type, components, and guardrails.
 
@@ -41,11 +42,11 @@ Menus live in `src/data/site/hr.json` and `en.json` under `menus.items`. Each me
 - **One option** renders as a set tasting course.
 - **Two options** render side by side with the `menus.or` separator.
 
-The homepage picks `choiceNote` or `tastingNote` automatically: a menu with at least one two-option course gets the choice note, otherwise it gets the tasting note. The surrounding `menus` object also supplies the bilingual labels `selectLabel`, `or`, and `cta`. Add or remove menus freely — the tabs and panels follow the array length. Keep `hr.json` and `en.json` structurally identical.
+The private dining page picks `choiceNote` or `tastingNote` automatically: a menu with at least one two-option course gets the choice note, otherwise it gets the tasting note. The surrounding `menus` object also supplies the bilingual labels `selectLabel`, `or`, and `cta`. Add or remove menus freely — the tabs and panels follow the array length. Keep `hr.json` and `en.json` structurally identical.
 
 #### Menu tabs
 
-`src/components/HomePage.astro` renders one `.menu-tab` button and one `.menu-panel` per menu. The first panel is visible; the rest carry the `hidden` attribute. An inline script in the same component:
+`src/components/PrivateDiningPage.astro` renders one `.menu-tab` button and one `.menu-panel` per menu. The first panel is visible; the rest carry the `hidden` attribute. An inline script in the same component:
 
 - sets `aria-pressed` on the active tab;
 - toggles `hidden` on the panels.
@@ -54,9 +55,21 @@ A `<noscript>` rule reveals every panel when JavaScript is unavailable.
 
 #### Menu typography
 
-- Headings: **EB Garamond**, weight 400.
-- Dish names (`.course__option`) and body copy: **Inter Tight**, weight 400.
+- Headings: **Young Serif**, weight 400.
+- Dish names (`.course__option`) and body copy: **Archivo**, weight 400.
 - Course labels and the choice/tasting note: micro uppercase labels in `--ink-soft`.
+
+### Editing the home wall and format stones
+
+`src/components/HomePage.astro` renders the home wall from `hero` (project label, name, lead, booking note, day entries) and `formats` (label, title, lead, and three `items` with `key`, `title`, `text`, `cta`). The three keys are `private`, `popup` and `workshops`; they map to `routes.privateDining`, `routes.popup` and `routes.workshops` in `src/config.ts`. Keep all three.
+
+The private dining stone is sun-filled by default (`format-stone--lead`). `wall.css` moves the sun to another stone on hover or keyboard focus with `:has`; when `:has` is unsupported the default state stands. Do not add a fourth format without also adding a route and a stone.
+
+The home wall deliberately has no contact form. The form lives on private dining and workshops.
+
+### Editing the workshops page
+
+`workshopsPage` carries only planning copy: `label`, `title`, `lead`, `statusLabel`, `statusNote`, `image`, three `steps`, and the interest form strings. The page (`src/components/WorkshopsPage.astro`) must never print a date, price, format or capacity until those are confirmed. When they are, add them to both JSON files and update this guide and `CONTENT.md`.
 
 ### Editing the pop-up page
 
@@ -64,11 +77,11 @@ The pop-up is one page, not a list: `/popup/` and `/en/popup/`, both rendered by
 
 - **Dates** — `popupPage.dates` is an array of `{ label, time, iso }`. The page prints the label and time; `iso` is kept for structured data. Add more entries only if the same pop-up runs on several dates; the page stays one page.
 - **Place and price** — `place`, `placeNote`, `price`, `priceUnit`, `priceNote`. The exact address is intentionally not printed; the note says it arrives with the confirmation.
-- **Status** — `popupPage.status` is `"open"` or `"soldOut"`. `"soldOut"` swaps every reservation button to the waiting-list copy and the waiting-list message.
+- **Status** — `popupPage.status` is `"open"` or `"soldOut"`. `"soldOut"` swaps the reserve title, lead, every reservation button and note to the waiting-list copy.
 - **Menu** — `menu.amuse`, `menu.courses` (three entries), and `menu.petitFour`. The amuse and petit four render as smaller “bite” rows around the three courses, so the menu still reads as 3 + 2.
 - **Drinks** — `drinks.items` holds the two signature cocktails as `{ name, ingredients }`. The design expects exactly two; they stack in the rail beside the menu card. Keep both filled.
 - **Text** — `booking`, `evening`, and `reserve` hold the button labels, notes, WhatsApp message templates (`{date}` is replaced with the date labels), and the email subject used in the fallback.
-- **Reservations** — set `site.whatsapp.number` in `src/config.ts` to the international number with no `+`, e.g. `'385911234567'`. While it is empty, every reservation link falls back to a prefilled email to `contactEmail`, so the page works before the number exists. `hasWhatsapp()` in `src/lib/content.ts` picks the link, the external-link cue, and the screen-reader “new window” text.
+- **Reservations** — set `site.whatsapp.number` in `src/config.ts` to the international number with no `+`, e.g. `'385911234567'`. While it is empty, every reservation link falls back to a prefilled email to `contactEmail`, so the page works before the number exists. `hasWhatsapp()` in `src/lib/content.ts` picks the link, the label, the note, the external-link cue, and the screen-reader “new window” text. Change the number and the copy follows.
 
 ### Replacing an Unsplash image with a real photo
 
@@ -85,9 +98,9 @@ Gallery entries reference image keys, so you only edit `images.json` — not the
 
 There is one theme. Edit `src/styles/theme.css`:
 
-- surfaces: `--ground`, `--ground-raised`, `--field`
+- surfaces: `--ground`, `--ground-raised`, `--paper`, `--sun`, `--sun-deep`, `--field`
 - ink: `--ink`, `--ink-soft`, `--on-field`, `--on-field-soft`
-- accent: `--accent`, `--accent-deep`
+- accent: `--accent`, `--accent-deep` (iron states, not a second colour)
 - rule: `--line`, `--line-strong`
 - type: `--serif`, `--sans`, and the `--display` / `--heading` / `--lead` / `--body` / `--small` / `--micro` ramp
 - layout: `--max`, `--gutter`, `--section-y`, `--header-h`
@@ -126,12 +139,12 @@ After connecting a custom domain, update the URL in `astro.config.mjs` (`site:`)
 
 ```
 src/
-  components/        Header, Footer, HomePage, PopupPage, GalleryPage, GalleryGrid, ContactPanel, LegalPage, ThankYouPage, CtaBand, Icon, Lightbox
+  components/        Header, Footer, HomePage, PrivateDiningPage, WorkshopsPage, PopupPage, GalleryPage, GalleryGrid, ContactPanel, LegalPage, ThankYouPage, CtaBand, Icon, Lightbox
   data/              Bilingual copy, image registry, gallery order
-  layouts/           BaseLayout (head, fonts, SEO, overlay-header logic)
-  lib/content.ts     Typed access to copy and images (incl. srcset derivation)
-  pages/             HR and EN home, pop-up, gallery, privacy policy and thank-you, plus 404
-  styles/            One theme (`theme.css`) and the global stylesheet
+  layouts/           BaseLayout (head, fonts, SEO)
+  lib/content.ts     Typed access to copy and images (incl. srcset derivation, hasWhatsapp, reservationHref)
+  pages/             HR and EN home, private dining, pop-up, workshops, gallery, privacy policy and thank-you, plus 404
+  styles/            Theme tokens (`theme.css`), the inherited stylesheet (`global.css`) and the dry-stone layer (`wall.css`)
 public/              Favicon, robots.txt, local images
 docs/                Development guide
 DESIGN.md            Visual system of record (colors, type, components, rules)
@@ -143,5 +156,5 @@ CONTENT.md           Launch checklist of every placeholder
 - Booking is intentionally external. The contact form submits to Web3Forms; there is no database or CMS to maintain.
 - Pop-up reservations go to WhatsApp when `site.whatsapp.number` is set, otherwise to a prefilled email. Nothing is stored on the site either way.
 - The gallery lightbox is keyboard accessible (`Esc`, arrow keys) and closes on outside click.
-- The hero entrance, menu fade, and lightbox transitions are disabled automatically under `prefers-reduced-motion`.
-- Copy, photos, and the chef's name in the prototype are placeholders. See `CONTENT.md`; pricing is quoted by Take a Chef and is not shown on the site.
+- The menu fade and lightbox transitions are disabled automatically under `prefers-reduced-motion`; the sun's 240ms move between format stones is disabled too.
+- Copy, photos, and the chef's name in the prototype are placeholders. See `CONTENT.md`; private dining pricing is quoted by Take a Chef, and the workshops page carries no price because there is no workshop to price yet.
