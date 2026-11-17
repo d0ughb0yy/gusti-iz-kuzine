@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Gušti iz Kužine — private dining, pop-ups and workshops in Istria",
-    "description": "Tin Lučić cooks private dinners in Istrian homes and villas, runs pop-ups in Fažana, and plans small cooking workshops. The market decides the menu."
+    "description": "A gastro project in Istria: private dinners for up to six guests, pop-ups in Fažana and cooking workshops. The market decides the menu."
   },
   "nav": {
     "home": "Home",
@@ -34,7 +34,7 @@
       "Gušti",
       "iz Kužine"
     ],
-    "lead": "Private dinners, pop-ups and cooking workshops. One chef, one table, three ways to sit at it.",
+    "lead": "Private dinners, pop-ups and workshops. One chef, one table, three ways to sit at the table.",
     "primaryCta": "Book a private dinner",
     "secondaryCta": "See the formats",
     "bookingNote": "Dinners for up to six. Bookings go through Take a Chef.",
@@ -56,9 +56,8 @@
     ]
   },
   "formats": {
-    "label": "Three ways to the table",
     "title": "One kitchen. Three formats.",
-    "lead": "A private dinner in your home, a pop-up in Fažana, or a workshop still being planned. Choose how you want to sit at the table.",
+    "lead": "A private dinner in your home, a pop-up in Fažana, or a workshop still being planned.",
     "items": [
       {
         "key": "private",
@@ -116,7 +115,7 @@
   },
   "included": {
     "title": "What the evening includes",
-    "lead": "The quote covers the whole evening: the shopping, the cooking, the service, and the kitchen left clean.",
+    "lead": "The quote covers the whole evening: shopping, cooking, service, and cleaning the kitchen.",
     "note": "The quote depends on the number of guests and the menu. Take a Chef issues it after your enquiry.",
     "colItem": "Included",
     "colMeaning": "What it means",
@@ -280,11 +279,11 @@
   "statement": {
     "label": "From the kitchen",
     "text": "The market decides what. I decide how.",
-    "attribution": "Tin Lučić, chef"
+    "attribution": "Tin, chef"
   },
   "faq": {
     "title": "Good to know before you book.",
-    "lead": "If you can't find your answer here, write to me using the form below.",
+    "lead": "If your question isn't answered here, write to me on the contact page.",
     "items": [
       {
         "q": "How many guests do you cook for?",
@@ -321,8 +320,8 @@
     ]
   },
   "contact": {
-    "title": "Still have a question? Write to me.",
-    "lead": "Have a question, an idea, or a special occasion? Write to me here.",
+    "title": "Have a question? Write to me.",
+    "lead": "A dinner, a pop-up or a workshop, a special occasion, or a group larger than six: write to me here.",
     "note": "I'll get in touch within 24 hours.",
     "formLabel": "Contact form",
     "requiredNote": "All fields except last name are required.",
@@ -367,14 +366,14 @@
   "footer": {
     "navLabel": "Pages",
     "bookingLink": "Take a Chef profile",
-    "areaText": "Istria. Private tables, pop-ups, workshops.",
+    "areaText": "Istria. Private dinners, pop-ups, workshops.",
     "rights": "All rights reserved."
   },
   "galleryPage": {
     "metaTitle": "Gallery: Gušti iz Kužine",
     "metaDescription": "Photographs of tables, plates, and Istria from private dinners.",
     "title": "At the table and in the kitchen.",
-    "lead": "Photographs of the table, the plates and Istria. Some photographs are placeholders for now.",
+    "lead": "Photographs of tables, plates and Istria. They are placeholders for now.",
     "countLabel": "photographs",
     "ctaTitle": "Would you like an evening like this?",
     "ctaLead": "Send an enquiry and tell me a few details about your evening.",
@@ -382,7 +381,7 @@
   },
   "privateDiningPage": {
     "metaTitle": "Private dining: Gušti iz Kužine",
-    "metaDescription": "Private dining in Istria for up to six guests. Tin Lučić shops the Pula market, cooks in your kitchen, and serves at your table.",
+    "metaDescription": "Private dining in Istria for up to six guests. I shop the Pula market, cook in your kitchen, and serve course by course.",
     "title": "Dinner in your home.",
     "lead": "Up to six guests, one table, and a menu written that day. I shop the Pula market, cook in your kitchen, and serve course by course.",
     "cta": "Book a dinner",
@@ -401,7 +400,7 @@
     "statusNote": "Dates and prices are not set.",
     "image": "gallery-plating",
     "processTitle": "How it will work",
-    "processLead": "No promise of a programme until dates are set. This is how we will start.",
+    "processLead": "No promise until dates are set. This is how we will start.",
     "steps": [
       {
         "title": "Write to me",
@@ -417,15 +416,15 @@
       }
     ],
     "interestTitle": "Register your interest",
-    "interestLead": "Write with what you would like to learn and how many of you there are. I will write when dates are set.",
+    "interestLead": "I'll write as soon as dates are set.",
     "interestNote": "No obligation and no payment in advance.",
     "interestCta": "Ask about workshops"
   },
   "popupPage": {
     "metaTitle": "Pop-up dinner: Gušti iz Kužine",
     "metaDescription": "A pop-up dinner in Istria: one menu, three courses, two bites and two signature cocktails. Saturday, 5 December 2026, Fažana.",
-    "title": "Gušti iz Kužine pop-up",
-    "lead": "One evening, one menu, one table. I cook from what I find at the market that morning, and two signature cocktails come with dinner.",
+    "title": "A pop-up dinner in Fažana.",
+    "lead": "I cook from what I find at the market that morning. Two signature cocktails come with dinner.",
     "status": "open",
     "dates": [
       {
@@ -457,7 +456,7 @@
     },
     "menu": {
       "title": "The menu",
-      "lead": "I write the menu that week, from the market. This is the menu for this dinner.",
+      "lead": "I write the menu a few days before the dinner, from the market. This is the menu for this dinner.",
       "cardName": "Gušti iz Kužine",
       "amuse": {
         "label": "Amuse bouche",
@@ -684,7 +683,7 @@
     "description": "This page does not exist. Head back home or take a look at the gallery.",
     "heading": "This page does not exist.",
     "lead": "Head back home or take a look at the gallery.",
-    "detail": "If you were looking for the menu, it is on the private dining page. For a dinner reservation, contact me through my Take a Chef profile; I answer questions about menus and allergies within 24 hours.",
+    "detail": "If you were looking for the menu, it is on the private dining page. For questions about the menu or allergies, write to me on the contact page; bookings go through my Take a Chef profile.",
     "home": "Home",
     "gallery": "Gallery",
     "switch": "Hrvatski"
@@ -702,6 +701,6 @@
   "newWindow": "opens in a new window",
   "contactPage": {
     "metaTitle": "Contact: Gušti iz Kužine",
-    "metaDescription": "A question about a private dinner, a pop-up or a workshop? Write to Tin Lučić; I reply within 24 hours."
+    "metaDescription": "A question about a private dinner, a pop-up or a workshop? Write to me; I reply within 24 hours."
   }
 }

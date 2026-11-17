@@ -169,9 +169,10 @@ sans.
 - **Micro** (Archivo 600, `0.75rem`, `0.14em`, uppercase): buttons, nav, labels,
   eyebrows, counters.
 
-**Eyebrow:** a micro uppercase label opens the home wall name and the formats
-block. Interior page heroes no longer carry one: the h1 already names the page.
-It is a label, not decoration, and it never repeats the heading.
+**Eyebrow:** a micro uppercase label opens the home wall name ("Gastro projekt —
+Istra"). That is the only one on the site: interior page heroes and the formats
+block dropped theirs because they only restated the heading. It is a label, not
+decoration, and it never repeats the heading.
 
 ## Layout
 
