@@ -1,6 +1,5 @@
 ---
 import Icon from './Icon.astro';
-import ContactPanel from './ContactPanel.astro';
 import { routes } from '../config';
 import { getContent, getImage, type Lang } from '../lib/content';
 
@@ -73,10 +72,16 @@ const heroImage = getImage(page.image);
   </div>
 </section>
 
-<ContactPanel
-  lang={lang}
-  title={page.interestTitle}
-  lead={page.interestLead}
-  note={page.interestNote}
-  subject={page.subject}
-/>
+<section class="section contact-prompt" aria-labelledby="workshop-interest-title">
+  <div class="wrap contact-prompt__grid">
+    <div>
+      <h2 id="workshop-interest-title">{page.interestTitle}</h2>
+      <p class="contact-prompt__lead">{page.interestLead}</p>
+      <p class="contact-prompt__note">{page.interestNote}</p>
+    </div>
+    <a class="link-arrow" href={`${routes.contact[lang]}#kontakt`}>
+      {page.interestCta}
+      <Icon name="arrow-right" />
+    </a>
+  </div>
+</section>

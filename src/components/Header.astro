@@ -11,12 +11,6 @@ interface Props {
 
 const { lang, current, overlay = false } = Astro.props;
 const t = getContent(lang);
-// The two pages that carry a contact form link to their own; every other
-// page sends the visitor to the private dining form.
-const contactHref =
-  current === 'privateDining' || current === 'workshops'
-    ? '#kontakt'
-    : `${routes.privateDining[lang]}#kontakt`;
 ---
 
 <header class:list={['site-header', overlay && 'site-header--overlay']}>
@@ -48,7 +42,13 @@ const contactHref =
         >
           {t.nav.workshops}
         </a>
-        <a class="header__link" href={contactHref}>{t.nav.contact}</a>
+        <a
+          class="header__link"
+          href={routes.contact[lang]}
+          aria-current={current === 'contact' ? 'page' : undefined}
+        >
+          {t.nav.contact}
+        </a>
         <a
           class="header__link"
           href={routes.gallery[lang]}

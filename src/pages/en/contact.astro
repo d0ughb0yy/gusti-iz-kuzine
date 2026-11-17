@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactPanel from '../../components/ContactPanel.astro';
+import { getContent } from '../../lib/content';
+
+const lang = 'en' as const;
+const t = getContent(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  current="contact"
+  title={t.contactPage.metaTitle}
+  description={t.contactPage.metaDescription}
+>
+  <ContactPanel lang={lang} page />
+</BaseLayout>

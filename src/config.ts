@@ -31,6 +31,7 @@ export const routes = {
   privateDining: { hr: '/privatno/', en: '/en/private-dining/' },
   popup: { hr: '/popup/', en: '/en/popup/' },
   workshops: { hr: '/radionice/', en: '/en/workshops/' },
+  contact: { hr: '/kontakt/', en: '/en/contact/' },
   gallery: { hr: '/galerija/', en: '/en/gallery/' },
   privacy: { hr: '/politika-privatnosti/', en: '/en/privacy-policy/' },
   thanks: { hr: '/hvala/', en: '/en/thank-you/' },

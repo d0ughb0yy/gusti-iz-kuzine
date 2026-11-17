@@ -522,6 +522,48 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
+   Contact page and the contact prompt on the two format pages
+   -------------------------------------------------------------------------- */
+
+.contact--page {
+  padding-top: clamp(3.5rem, 8vw, 7rem);
+}
+
+.contact--page #contact-title {
+  max-width: 16ch;
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  line-height: 0.98;
+}
+
+.contact-prompt__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+}
+
+.contact-prompt h2 {
+  max-width: 22ch;
+}
+
+.contact-prompt__lead {
+  max-width: 46ch;
+  margin-top: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.contact-prompt__note {
+  max-width: 46ch;
+  margin-top: 0.5rem;
+  font-size: var(--small);
+  color: var(--ink-soft);
+}
+
+.contact-prompt .link-arrow {
+  justify-self: end;
+}
+
+/* --------------------------------------------------------------------------
    Pop-up page: action above the facts on a phone
    -------------------------------------------------------------------------- */
 
@@ -615,6 +657,15 @@ h3 {
 
   .page-hero__grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-prompt__grid {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .contact-prompt .link-arrow {
+    justify-self: start;
   }
 }
 

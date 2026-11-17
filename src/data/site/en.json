@@ -343,8 +343,17 @@
       "after": "or book your dinner on my",
       "booking": "Take a Chef profile"
     },
-    "privacy": "Your first name, email, and message are used only to reply to your enquiry. Your last name is optional and used only if you enter it. The data is sent through Web3Forms and delivered by email; it is not stored on this site.",
-    "privacyLink": "Read the privacy policy"
+    "privacy": "Your first name, the topic, your email, and your message are used only to reply to your enquiry. Your last name is optional and used only if you enter it. The data is sent through Web3Forms and delivered by email; it is not stored on this site.",
+    "privacyLink": "Read the privacy policy",
+    "topics": {
+      "label": "What is your enquiry about?",
+      "options": [
+        "Private dinner",
+        "Pop-up",
+        "Workshops",
+        "Something else"
+      ]
+    }
   },
   "cta": {
     "title": "Your dinner starts with one enquiry.",
@@ -375,7 +384,10 @@
     "lead": "Up to six guests, one table, and a menu written that day. I shop the Pula market, cook in your kitchen, and serve course by course.",
     "cta": "Book a dinner",
     "note": "Choose a date and number of guests on Take a Chef. I will get back to you within 24 hours.",
-    "image": "hero-plated"
+    "image": "hero-plated",
+    "contactTitle": "Have a question about the dinner?",
+    "contactLead": "Allergies, a special occasion, or a group larger than six? Write to me before booking.",
+    "contactCta": "Write to me"
   },
   "workshopsPage": {
     "metaTitle": "Workshops: Gušti iz Kužine",
@@ -405,7 +417,7 @@
     "interestTitle": "Register your interest",
     "interestLead": "Write with what you would like to learn and how many of you there are. I will write when dates are set.",
     "interestNote": "No obligation and no payment in advance.",
-    "subject": "Workshop interest — Gušti iz Kužine"
+    "interestCta": "Ask about workshops"
   },
   "popupPage": {
     "metaTitle": "Pop-up dinner: Gušti iz Kužine",
@@ -685,5 +697,9 @@
   "action": {
     "label": "In the kitchen"
   },
-  "newWindow": "opens in a new window"
+  "newWindow": "opens in a new window",
+  "contactPage": {
+    "metaTitle": "Contact: Gušti iz Kužine",
+    "metaDescription": "A question about a private dinner, a pop-up or a workshop? Write to Tin Lučić; I reply within 24 hours."
+  }
 }

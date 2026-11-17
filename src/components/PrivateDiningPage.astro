@@ -1,8 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import CtaBand from './CtaBand.astro';
-import ContactPanel from './ContactPanel.astro';
-import { site } from '../config';
+import { routes, site } from '../config';
 import { getContent, getImage, type Lang } from '../lib/content';
 
 interface Props {
@@ -285,14 +284,25 @@ const actionImage = getImage('chef-action');
   </div>
 </section>
 
+<section class="section contact-prompt" aria-labelledby="contact-prompt-title">
+  <div class="wrap contact-prompt__grid">
+    <div>
+      <h2 id="contact-prompt-title">{page.contactTitle}</h2>
+      <p class="contact-prompt__lead">{page.contactLead}</p>
+    </div>
+    <a class="link-arrow" href={`${routes.contact[lang]}#kontakt`}>
+      {page.contactCta}
+      <Icon name="arrow-right" />
+    </a>
+  </div>
+</section>
+
 <CtaBand
   title={t.cta.title}
   lead={t.cta.lead}
   button={t.cta.button}
   newWindow={t.newWindow}
 />
-
-<ContactPanel lang={lang} />
 
 <script is:inline>
   (() => {

@@ -343,8 +343,17 @@
       "after": "ili rezervirajte večeru na",
       "booking": "Take a Chef profilu"
     },
-    "privacy": "Ime, e-pošta i poruka koriste se samo za odgovor na vaš upit; prezime je neobavezno i koristi se samo ako ga upišete. Podaci se šalju putem usluge Web3Forms i dostavljaju e-poštom; na ovoj se stranici ne pohranjuju.",
-    "privacyLink": "Pročitajte politiku privatnosti"
+    "privacy": "Ime, tema upita, e-pošta i poruka koriste se samo za odgovor na vaš upit; prezime je neobavezno i koristi se samo ako ga upišete. Podaci se šalju putem usluge Web3Forms i dostavljaju e-poštom; na ovoj se stranici ne pohranjuju.",
+    "privacyLink": "Pročitajte politiku privatnosti",
+    "topics": {
+      "label": "O čemu je upit?",
+      "options": [
+        "Privatna večera",
+        "Pop-up",
+        "Radionice",
+        "Nešto drugo"
+      ]
+    }
   },
   "cta": {
     "title": "Vaša večera počinje jednim upitom.",
@@ -375,7 +384,10 @@
     "lead": "Do šest gostiju, jedan stol i jelovnik složen tog dana. Kupujem na pulskoj tržnici, kuham u vašoj kuhinji i poslužujem jelo po jelo.",
     "cta": "Rezervirajte večeru",
     "note": "Odaberite datum i broj gostiju na Take a Chef. Javim se unutar 24 sata.",
-    "image": "hero-plated"
+    "image": "hero-plated",
+    "contactTitle": "Imate pitanje o večeri?",
+    "contactLead": "Alergije, poseban povod ili grupa veća od šest? Pišite mi prije rezervacije.",
+    "contactCta": "Pišite mi"
   },
   "workshopsPage": {
     "metaTitle": "Radionice: Gušti iz Kužine",
@@ -405,7 +417,7 @@
     "interestTitle": "Javite se za radionice",
     "interestLead": "Pišite mi što biste željeli naučiti i koliko vas je. Javit ću vam se kad datumi budu određeni.",
     "interestNote": "Bez obveze i bez plaćanja unaprijed.",
-    "subject": "Interes za radionice — Gušti iz Kužine"
+    "interestCta": "Pitajte za radionice"
   },
   "popupPage": {
     "metaTitle": "Pop-up večera: Gušti iz Kužine",
@@ -685,5 +697,9 @@
   "action": {
     "label": "U kuhinji"
   },
-  "newWindow": "otvara se u novom prozoru"
+  "newWindow": "otvara se u novom prozoru",
+  "contactPage": {
+    "metaTitle": "Kontakt: Gušti iz Kužine",
+    "metaDescription": "Pitanje o privatnoj večeri, pop-upu ili radionicama? Pišite Tin Lučiću; javim se unutar 24 sata."
+  }
 }

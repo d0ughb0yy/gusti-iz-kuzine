@@ -5,32 +5,30 @@ import Icon from './Icon.astro';
 
 interface Props {
   lang: Lang;
-  title?: string;
-  lead?: string;
-  note?: string;
-  subject?: string;
+  page?: boolean;
 }
 
-const { lang, title, lead, note, subject } = Astro.props;
+const { lang, page = false } = Astro.props;
 const t = getContent(lang);
-const heading = title ?? t.contact.title;
-const intro = lead ?? t.contact.lead;
-const aside = note ?? t.contact.note;
-const formSubject = subject ?? t.contact.subject;
+const Heading = page ? 'h1' : 'h2';
 ---
 
-<section class="contact" id="kontakt" aria-labelledby="contact-title">
+<section
+  class:list={['contact', page && 'contact--page']}
+  id="kontakt"
+  aria-labelledby="contact-title"
+>
   <div class="wrap contact__grid">
     <div class="contact__text">
-      <h2 id="contact-title">{heading}</h2>
-      <p class="contact__lead">{intro}</p>
-      <p class="contact__note">{aside}</p>
+      <Heading id="contact-title">{t.contact.title}</Heading>
+      <p class="contact__lead">{t.contact.lead}</p>
+      <p class="contact__note">{t.contact.note}</p>
     </div>
 
     <div class="contact__panel">
       <form
         class="contact-form"
-        aria-labelledby="contact-title"
+        aria-label={t.contact.formLabel}
         action="https://api.web3forms.com/submit"
         method="POST"
         data-contact-form
@@ -39,7 +37,7 @@ const formSubject = subject ?? t.contact.subject;
         data-error={t.contact.error}
       >
         <input type="hidden" name="access_key" value={site.web3formsKey} />
-        <input type="hidden" name="subject" value={formSubject} />
+        <input type="hidden" name="subject" value={t.contact.subject} />
         <input type="hidden" name="from_name" value={site.name} />
         <input type="hidden" name="redirect" value={new URL(routes.thanks[lang], site.url).href} />
         <input
@@ -80,6 +78,20 @@ const formSubject = subject ?? t.contact.subject;
             />
           </div>
         </div>
+
+        <fieldset class="contact-form__field contact-form__topics">
+          <legend class="contact-form__label">{t.contact.topics.label}</legend>
+          <div class="contact-form__topic-list">
+            {
+              t.contact.topics.options.map((option) => (
+                <label class="contact-form__topic">
+                  <input type="radio" name="topic" value={option} required />
+                  <span>{option}</span>
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
 
         <div class="contact-form__field">
           <label class="contact-form__label" for="contact-email">{t.contact.fields.email}</label>
