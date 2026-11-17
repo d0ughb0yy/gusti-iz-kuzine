@@ -61,6 +61,7 @@ a {
 .hero :focus-visible,
 .cta :focus-visible,
 .statement :focus-visible,
+.popup-strip :focus-visible,
 .popup-reserve :focus-visible,
 .site-footer :focus-visible,
 .lightbox :focus-visible,

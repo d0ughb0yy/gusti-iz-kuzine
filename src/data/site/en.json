@@ -68,7 +68,7 @@
       {
         "key": "popup",
         "title": "Pop-up",
-        "text": "A fixed date, one menu and one table in Fažana. The next dinner is 5 December 2026.",
+        "text": "A fixed date, one menu and one table in Fažana. The next dinner is {date}.",
         "cta": "See the pop-up"
       },
       {

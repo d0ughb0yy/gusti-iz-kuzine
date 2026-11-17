@@ -68,7 +68,7 @@
       {
         "key": "popup",
         "title": "Pop-up",
-        "text": "Određeni datum, jedan jelovnik i jedan stol u Fažani. Sljedeća večera je 5. prosinca 2026.",
+        "text": "Određeni datum, jedan jelovnik i jedan stol u Fažani. Sljedeća večera je {date}.",
         "cta": "Pogledajte pop-up"
       },
       {

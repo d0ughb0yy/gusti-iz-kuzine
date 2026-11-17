@@ -34,7 +34,11 @@ const formatRoutes: Record<string, string> = {
 const formatItems = t.formats.items.map((item) => {
   const href = formatRoutes[item.key];
   if (!href) throw new Error(`Unknown format key: ${item.key}`);
-  return { ...item, href };
+  // The pop-up stone names its next date, so it reads the same source as the
+  // pop-up page instead of carrying a second, drifting copy. The Croatian
+  // label ends with a full stop; the sentence supplies its own.
+  const nextDate = nextPopup.label.replace(/\.$/, '');
+  return { ...item, href, text: item.text.replace('{date}', nextDate) };
 });
 ---
 

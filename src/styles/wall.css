@@ -674,6 +674,16 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  /* On a phone the booking action should come before the photograph, not
+     after it: the wall stacks in source order there. */
+  .wall__media {
+    order: 4;
+  }
+
+  .wall__intro {
+    order: 3;
+  }
+
   .day-list__item {
     grid-template-columns: 4.5rem minmax(0, 1fr);
     border-right: 0;
