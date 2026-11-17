@@ -25,7 +25,7 @@ npm run preview   # preview the production build
 | File | What lives there |
 | --- | --- |
 | `src/config.ts` | Brand name, Take a Chef URL, contact email, WhatsApp number, site URL, service area, GA4 measurement ID |
-| `src/data/site/hr.json` | All Croatian copy: home wall and formats, private dining, workshops, process, included, menus, statement, FAQ, CTA, footer, gallery |
+| `src/data/site/hr.json` | All Croatian copy: home wall and formats, private dining, workshops, contact, process, included, menus, statement, FAQ, CTA, footer, gallery |
 | `src/data/site/en.json` | All English copy |
 | `src/data/images.json` | Every image URL, dimensions, and bilingual alt text |
 | `src/data/gallery.json` | Gallery order and bilingual captions |
@@ -63,13 +63,23 @@ A `<noscript>` rule reveals every panel when JavaScript is unavailable.
 
 `src/components/HomePage.astro` renders the home wall from `hero` (project label, name, lead, booking note, day entries) and `formats` (label, title, lead, and three `items` with `key`, `title`, `text`, `cta`). The three keys are `private`, `popup` and `workshops`; they map to `routes.privateDining`, `routes.popup` and `routes.workshops` in `src/config.ts`. Keep all three.
 
+The pop-up stone's `text` may contain a `{date}` token; the page fills it from `popupPage.dates[0].label` so the stone and the pop-up page cannot disagree. Do not hardcode a date there.
+
 The private dining stone is sun-filled by default (`format-stone--lead`). `wall.css` moves the sun to another stone on hover or keyboard focus with `:has`; when `:has` is unsupported the default state stands. Do not add a fourth format without also adding a route and a stone.
 
-The home wall deliberately has no contact form. The form lives on private dining and workshops.
+The home wall deliberately has no contact form. The only form on the site is the one on `/kontakt/`; private dining and workshops link to it.
 
 ### Editing the workshops page
 
-`workshopsPage` carries only planning copy: `label`, `title`, `lead`, `statusLabel`, `statusNote`, `image`, three `steps`, and the interest form strings. The page (`src/components/WorkshopsPage.astro`) must never print a date, price, format or capacity until those are confirmed. When they are, add them to both JSON files and update this guide and `CONTENT.md`.
+`workshopsPage` carries only planning copy: `title`, `lead`, `statusLabel`, `statusNote`, `image`, three `steps`, and the interest prompt (`interestTitle`, `interestLead`, `interestNote`, `interestCta`). The page (`src/components/WorkshopsPage.astro`) must never print a date, price, format or capacity until those are confirmed. It carries no form; the interest block links to `/kontakt/`. When dates are real, add them to both JSON files and update this guide and `CONTENT.md`.
+
+### Editing the contact page
+
+`/kontakt/` and `/en/contact/` render `src/components/ContactPanel.astro` with `page`, which turns its heading into the page h1. The form is the only one on the site: it posts to Web3Forms with the key from `src/config.ts`, keeps `id="kontakt"` (so `/kontakt/#kontakt` lands on it), and offers the email and Take a Chef fallbacks.
+
+Opening the form is a required topic group, `contact.topics.label` plus `contact.topics.options` (four labels). The chosen label is submitted as `topic` and arrives in the email, which is how the chef knows whether an enquiry is about a dinner, a pop-up or a workshop. Keep exactly four options and keep them identical in shape across both languages; the labels double as the submitted values.
+
+The page copy lives in `contact.title`, `contact.lead`, `contact.note` and `contact.privacy`; `contactPage.metaTitle` and `contactPage.metaDescription` carry the metadata. Do not add a second form to private dining or workshops: both close with a `contact-prompt` block that links to `/kontakt/#kontakt`.
 
 ### Editing the pop-up page
 
@@ -143,7 +153,7 @@ src/
   data/              Bilingual copy, image registry, gallery order
   layouts/           BaseLayout (head, fonts, SEO)
   lib/content.ts     Typed access to copy and images (incl. srcset derivation, hasWhatsapp, reservationHref)
-  pages/             HR and EN home, private dining, pop-up, workshops, gallery, privacy policy and thank-you, plus 404
+  pages/             HR and EN home, private dining, pop-up, workshops, contact, gallery, privacy policy and thank-you, plus 404
   styles/            Theme tokens (`theme.css`), the inherited stylesheet (`global.css`) and the dry-stone layer (`wall.css`)
 public/              Favicon, robots.txt, local images
 docs/                Development guide

@@ -164,9 +164,9 @@ sans.
 - **Micro** (Archivo 600, `0.75rem`, `0.14em`, uppercase): buttons, nav, labels,
   eyebrows, counters.
 
-**Eyebrow:** a micro uppercase label may open a wall block or a page hero. This
-replaces the old no-eyebrow rule; it is a label, not decoration, and it never
-repeats the heading.
+**Eyebrow:** a micro uppercase label opens the home wall name and the formats
+block. Interior page heroes no longer carry one: the h1 already names the page.
+It is a label, not decoration, and it never repeats the heading.
 
 ## Layout
 
@@ -180,11 +180,13 @@ repeats the heading.
 - **Section joints:** interior sections carry a 1px top border; page heroes a
   1px bottom border. The pop-up strip is bounded by joints on both sides.
 - **Home sequence:** wall hero → three format stones → story → dated pop-up
-  strip → gallery teaser → statement → closing CTA. No contact form on home.
+  strip → gallery teaser → closing CTA. No contact form on home.
 - **Private dining sequence:** page hero → story → menu explorer → included →
-  process → action band → statement → FAQ → closing CTA → contact.
+  process → action band → statement → FAQ → contact prompt → closing CTA.
 - **Workshops sequence:** page hero with planning status → three process steps →
-  interest form. No formats, dates or prices.
+  interest prompt. No formats, dates or prices.
+- **Contact page:** one centred form page, `/kontakt/` and `/en/contact/`. It is
+  the only place the form lives; the header and footer link to it.
 - **Full-bleed moments:** the action band, the statement, the closing CTA, the
   pop-up strip and the footer.
 
@@ -195,6 +197,8 @@ Responsive behaviour:
 - **≤760px:** format stones stack; page heroes stack with the text and booking action first, the figure after.
 - **≤680px:** the header becomes a two-row disclosure; the pop-up action moves
   above the facts; the gallery teaser becomes one column.
+- **≤560px:** the day list becomes one column, and the wall puts the lead and
+  booking action above the photograph.
 
 ## Elevation & Depth
 
@@ -296,8 +300,8 @@ The only curve is the circular icon inside the lightbox buttons.
 ### Footer
 
 - Olive field, serif wordmark, micro nav (Home, Private dining, Pop-up,
-  Workshops, Gallery, Privacy), centred area line, right-aligned copyright and
-  Cookie settings. Booking link under the area line.
+  Workshops, Contact, Gallery, Privacy), centred area line, right-aligned
+  copyright and Cookie settings. Booking link under the area line.
 
 ### Consent banner
 
@@ -323,8 +327,17 @@ The only curve is the circular icon inside the lightbox buttons.
 
 - Planning status is a sun tag; the lead says dates and prices are not set.
 - Three process steps only: write, set a date, cook and eat.
-- The interest form reuses the contact panel with the workshop subject.
+- The interest block points to `/kontakt/`; the page carries no form.
 - No formats, dates, prices or invented capacity.
+
+### Contact page
+
+- Page title, lead and reply note on the left, the form on the right; one column
+  at ≤760px.
+- The form opens with a required topic group (private dinner, pop-up, workshop,
+  something else) so the enquiry arrives labelled.
+- It is the only form on the site. Private dining and workshops close with a
+  prompt that links here.
 
 ### Lightbox, legal, thank-you, 404
 
@@ -392,8 +405,8 @@ Real photography is still coming; the stock placeholders are labelled.
   navigation and forms.
 - Do keep one sun surface and let it rest on private dining.
 - Do use 1px joints and square corners; let tone and type carry the change.
-- Do keep the booking funnel, bilingual keys, menu tabs, lightbox, FAQ, contact
-  form and no-JS fallback intact.
+- Do keep the booking funnel, bilingual keys, menu tabs, lightbox, FAQ, one
+  contact form and no-JS fallback intact.
 - Do keep every image rectangular with intrinsic dimensions and honest alt text.
 - Do keep Accept and Reject visually equal.
 

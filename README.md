@@ -10,7 +10,7 @@ Gušti iz Kužine is Tin Lučić's gastro project in Istria. It has three format
 
 - **Private dining.** The chef comes to you: to a home, a villa, or a terrace, cooks for up to six guests, and serves a dinner with the precision of a good restaurant and none of its formality. This is the main business.
 - **Pop-up.** A fixed, dated dinner with one menu and one table. The current pop-up is Saturday 5 December 2026 in Fažana, €85 per person including two signature cocktails. Seats are requested on WhatsApp, or by prefilled email while no number is configured.
-- **Workshops.** Small cooking workshops are in planning. No dates, prices, formats or capacity are published; the page carries the planning status, a three-step outline of how it will work, and an interest form.
+- **Workshops.** Small cooking workshops are in planning. No dates, prices, formats or capacity are published; the page carries the planning status, a three-step outline of how it will work, and an interest prompt that leads to the contact page.
 
 ## How the chef cooks
 
@@ -31,7 +31,7 @@ Every menu adapts to allergies, intolerances, and dietary needs.
 
 ## Booking
 
-Private dining reservations go through the chef's profile on [Take a Chef](https://www.takeachef.com/en-hr/chef/tin-lu-i). The private dining page also carries a contact panel that submits directly to Web3Forms and arrives by email; the workshops page reuses the same form with a workshop-interest subject. The access key and recipient address live in `src/config.ts`; the form needs no backend or database.
+Private dining reservations go through the chef's profile on [Take a Chef](https://www.takeachef.com/en-hr/chef/tin-lu-i). The site has one contact form, on `/kontakt/` and `/en/contact/`; it submits directly to Web3Forms and arrives by email with a topic label. The access key and recipient address live in `src/config.ts`; the form needs no backend or database.
 
 The pop-up page is the exception: seats for the dated dinner are requested on WhatsApp, with a prefilled message. Until a number is set in `src/config.ts`, the same action falls back to a prefilled email and the label changes to match.
 
@@ -39,18 +39,20 @@ The pop-up page is the exception: seats for the dated dinner are requested on Wh
 
 A small, bilingual site built as one chef's project, not a service listing:
 
-- **Croatian**: home, private dining, pop-up, workshops, gallery and privacy policy at `/`, `/privatno/`, `/popup/`, `/radionice/`, `/galerija/` and `/politika-privatnosti/`
-- **English**: the same pages at `/en/`, `/en/private-dining/`, `/en/popup/`, `/en/workshops/`, `/en/gallery/` and `/en/privacy-policy/`
+- **Croatian**: home, private dining, pop-up, workshops, contact, gallery and privacy policy at `/`, `/privatno/`, `/popup/`, `/radionice/`, `/kontakt/`, `/galerija/` and `/politika-privatnosti/`
+- **English**: the same pages at `/en/`, `/en/private-dining/`, `/en/popup/`, `/en/workshops/`, `/en/contact/`, `/en/gallery/` and `/en/privacy-policy/`
 - **Thank-you pages**: `/hvala/` and `/en/thank-you/`, used only when the contact form falls back to a native submit
 - **404**: one page in each language
 
-The home page is a wall: the name, a sun day stone, a photographic opening, the lead and one booking action, then three format stones for private dining, the pop-up and workshops. Private dining is sun-filled by default; the sun moves to whichever stone is active. Below the wall: the chef's story, a dated pop-up strip, the gallery teaser, the statement and a closing CTA.
+The home page is a wall: the name, a sun day stone, a photographic opening, the lead and one booking action, then three format stones for private dining, the pop-up and workshops. Private dining is sun-filled by default; the sun moves to whichever stone is active. Below the wall: the chef's story, a dated pop-up strip, the gallery teaser and a closing CTA.
 
-The private dining page holds the full funnel: hero, story, tabbed menus with one or two dishes per course and no menu photography, what is included, the process, an action band, the statement, the FAQ and the contact form.
+The private dining page holds the full funnel: hero, story, tabbed menus with one or two dishes per course and no menu photography, what is included, the process, an action band, the statement, the FAQ, a contact prompt and the closing CTA.
 
 The pop-up page is a single invitation for the current dated dinner: the date, place and price, a printed menu card, the two signature cocktails, how the evening runs, and one reservation action.
 
-The workshops page says plainly that dates and prices are not set. It carries three process steps and the interest form, and nothing that implies a scheduled programme.
+The workshops page says plainly that dates and prices are not set. It carries three process steps and an interest prompt, and nothing that implies a scheduled programme.
+
+The contact page carries the site's only form. A required topic group labels each enquiry — private dinner, pop-up, workshop or something else — and the message arrives by email through Web3Forms.
 
 ## Project notes
 

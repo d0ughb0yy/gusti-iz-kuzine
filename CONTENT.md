@@ -26,9 +26,9 @@ The brand name is used in the header, footer, page titles, 404, and structured d
 | 2.4 | WhatsApp number for pop-up reservations | `src/config.ts` → `site.whatsapp.number` | Empty string; the pop-up falls back to a prefilled email | **required** |
 | 2.5 | Confirm the pop-up date, place, and price | `src/data/site/hr.json` / `en.json` → `popupPage.dates`, `place`, `price` | Saturday, 5 December 2026, 19:30, Fažana, €85 per person | **required** |
 | 2.6 | Confirm the sample pop-up menu and cocktails | `popupPage.menu`, `popupPage.drinks` | Three courses plus amuse bouche and petit four, and two cocktails (“Maslina”, “Smokva”) | **required** |
-| 2.7 | Confirm the workshop page stays truthful | `hr.json` / `en.json` → `workshopsPage` | “In planning”; no dates, prices, formats or capacity | **required** |
+| 2.7 | Confirm the workshop page stays truthful | `hr.json` / `en.json` → `workshopsPage` | “In planning”; no dates, prices, formats or capacity; the interest block links to the contact page | **required** |
 
-Every private dining CTA — the home wall, the format stone, the private dining page hero, menu panel and closing CTA band, the thank-you page and the footer — reads `bookingUrl` and opens it in a new tab with an announced cue. Reservations go through Take a Chef; the private dining page carries the contact panel (see §9) for questions and custom ideas. The home page does not repeat the form. If the profile URL is wrong, every booking button is wrong.
+Every private dining CTA — the home wall, the format stone, the private dining page hero, menu panel and closing CTA band, the thank-you page and the footer — reads `bookingUrl` and opens it in a new tab with an announced cue. Reservations go through Take a Chef; the contact page (see §9) takes questions and custom ideas. The home page does not repeat the form. If the profile URL is wrong, every booking button is wrong.
 
 The pop-up page is the one exception to Take a Chef: its reservation buttons go to WhatsApp with a prefilled message, or to a prefilled email while `site.whatsapp.number` is empty. Enter the number in international format with no `+`, e.g. `'385911234567'`. The label and note derive from `hasWhatsapp()`, so the promise always matches the link. Set `popupPage.status` to `"soldOut"` to swap the reserve title, lead, both buttons and notes to the waiting-list copy.
 
@@ -125,22 +125,25 @@ The current build loads Google Analytics 4 only after the visitor opts in. Fonts
 | # | Item | Where | Current placeholder | Status |
 | --- | --- | --- | --- | --- |
 | 9.1 | Contact email address | `src/config.ts` → `contactEmail` | `tin.lucic172@gmail.com` — real address supplied by Tin | **done** |
-| 9.2 | Privacy notice | `src/components/ContactPanel.astro` → `.contact-form__privacy` | Short note near the form names the fields (last name optional), states the data is sent through Web3Forms and delivered by email, and is not stored on this site (GDPR art. 5/6). It links to the privacy policy page | **done** |
+| 9.2 | Privacy notice | `src/components/ContactPanel.astro` → `.contact-form__privacy` | Short note near the form names the fields (topic, last name optional), states the data is sent through Web3Forms and delivered by email, and is not stored on this site (GDPR art. 5/6). It links to the privacy policy page | **done** |
 | 9.3 | Form delivery | `src/components/ContactPanel.astro` | The form posts to Web3Forms via fetch and the message arrives by email. The public access key lives in `src/config.ts`; enable domain restriction in the Web3Forms dashboard. No server-side code or database on this site. A hidden redirect sends native fallback submissions to `/hvala/` or `/en/thank-you/`. | **done** |
-| 9.4 | Form placement and subject | `PrivateDiningPage.astro`, `WorkshopsPage.astro` | The same panel renders on private dining (default booking subject) and on workshops (workshop interest subject, planning copy). Both carry `id="kontakt"`, so the header's Contact link resolves on either page. | **done** |
+| 9.4 | Form placement | `src/pages/kontakt.astro`, `src/pages/en/contact.astro` | One form, on the contact page only. The header and footer link to it; private dining and workshops close with a prompt instead of a second form. | **done** |
+| 9.5 | Topic group | `hr.json` / `en.json` → `contact.topics` | Required radios: private dinner, pop-up, workshops, something else. The chosen label arrives in the email. | **done** |
 
 The message is delivered through Web3Forms by email; the site itself stores nothing. If JavaScript fails, the native form posts to Web3Forms and the hidden redirect sends the visitor to the thank-you page.
 
 ## 10. Final pre-launch pass
 
-- [ ] `npm install && npm run build` succeeds from a clean checkout and produces sixteen pages.
-- [ ] All routes return 200: `/`, `/privatno/`, `/popup/`, `/radionice/`, `/galerija/`, plus `/en/`, `/en/private-dining/`, `/en/popup/`, `/en/workshops/`, `/en/gallery/`, `/politika-privatnosti/`, `/en/privacy-policy/`, `/hvala/`, and `/en/thank-you/`. The two 404s return 404.
+- [ ] `npm install && npm run build` succeeds from a clean checkout and produces eighteen pages.
+- [ ] All routes return 200: `/`, `/privatno/`, `/popup/`, `/radionice/`, `/galerija/`, `/kontakt/`, plus `/en/`, `/en/private-dining/`, `/en/popup/`, `/en/workshops/`, `/en/gallery/`, `/en/contact/`, `/politika-privatnosti/`, `/en/privacy-policy/`, `/hvala/`, and `/en/thank-you/`. The two 404s return 404.
 - [ ] No "Dalmacija", "Dalmatia", "Split", or stock-photo credit remains.
 - [ ] Every booking CTA opens the real Take a Chef profile in a new tab, and each one announces that with an outbound arrow and a screen-reader suffix.
-- [ ] Language switch keeps you on the equivalent page (home ↔ home, private dining ↔ private dining, pop-up ↔ pop-up, workshops ↔ workshops, gallery ↔ gallery, privacy ↔ privacy, thank-you ↔ thank-you).
+- [ ] Language switch keeps you on the equivalent page (home ↔ home, private dining ↔ private dining, pop-up ↔ pop-up, workshops ↔ workshops, contact ↔ contact, gallery ↔ gallery, privacy ↔ privacy, thank-you ↔ thank-you).
 - [ ] Home: the wall shows the name, the sun day stone, the opening photograph, the lead and one booking action; the three format stones link to private dining, the pop-up and workshops.
-- [ ] Private dining: the funnel is complete on its own page — hero, story, menu tabs, included, process, action band, statement, FAQ, closing CTA, contact form with `id="kontakt"`.
-- [ ] Workshops: the page says “in planning”, shows no date, price, format or capacity, and the form arrives with the workshop subject.
+- [ ] Private dining: the funnel is complete on its own page — hero, story, menu tabs, included, process, action band, statement, FAQ, contact prompt, closing CTA.
+- [ ] Workshops: the page says “in planning”, shows no date, price, format or capacity, and the interest block points to the contact page.
+- [ ] Contact: `/kontakt/` and `/en/contact/` carry the only form; the topic group is required; a submission arrives with the topic, name, email and message.
+- [ ] The header Contact link goes to the contact page and is marked current there; the footer carries the same link.
 - [ ] Pop-up: the reservation label matches the link (WhatsApp when a number is set, otherwise “Reserve by email”); the email fallback works; `soldOut` shows the waiting-list title, lead, buttons and notes.
 - [ ] Gallery: all photos load while scrolling; lightbox opens, arrows stay still between portrait and landscape photos, outside click and `Esc` close it.
 - [ ] Mobile: navigation opens and closes; the home wall, format stones, menu tabs and pop-up action are readable and usable at 390px.

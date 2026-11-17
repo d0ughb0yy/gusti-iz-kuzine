@@ -38,13 +38,13 @@ It is not a restaurant, not a catering company, and not a generic private-chef l
 - Background: fine-dining kitchens in Croatia and Ireland. No restaurant names are published.
 - Private dining bookings happen on the Take a Chef profile; those CTAs go there. No private dining prices are shown; Take a Chef issues the real quote.
 - The pop-up is a fixed, dated dinner: Saturday 5 December 2026, Fažana, €85 per person, including two signature cocktails. Seats are requested on WhatsApp with a prefilled message; while no number is configured, the button says "Reserve by email" and opens a prefilled email.
-- Workshops are in planning. No dates, prices, formats, capacity, or schedule are published. The page carries a planning status, a three-step outline of how it will work, and an interest form; it promises nothing more.
-- The contact form is delivered by Web3Forms to the chef's email; the site stores nothing.
+- Workshops are in planning. No dates, prices, formats, capacity, or schedule are published. The page carries a planning status, a three-step outline of how it will work, and an interest prompt that links to the contact page; it promises nothing more.
+- The contact form is one page, `/kontakt/` and `/en/contact/`, delivered by Web3Forms to the chef's email; the site stores nothing. A required topic group labels each enquiry.
 - No guest reviews are published yet.
 
 ## Capabilities and Constraints
 
-- Static Astro site, sixteen built pages: home, private dining, pop-up, workshops, gallery, privacy and thank-you in HR and EN, plus a 404 in each language.
+- Static Astro site, eighteen built pages: home, private dining, pop-up, workshops, contact, gallery, privacy and thank-you in HR and EN, plus a 404 in each language.
 - Bilingual content is key-for-key between `src/data/site/hr.json` and `src/data/site/en.json`; the two files move together.
 - No backend beyond Web3Forms. No cookies or tracking before opt-in; Google Analytics 4 runs only after consent.
 - Analytics: GA4 pageviews and a `contact_submit` event after a successful Web3Forms response. No GTM, ads, remarketing, or Google Signals.
