@@ -192,6 +192,7 @@ figcaption {
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 0.35em;
+  transition: text-decoration-color 240ms var(--ease) 60ms;
   white-space: nowrap;
 }
 
