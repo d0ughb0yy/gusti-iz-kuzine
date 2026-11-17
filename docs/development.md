@@ -91,7 +91,7 @@ The pop-up is one page, not a list: `/popup/` and `/en/popup/`, both rendered by
 - **Menu** — `menu.amuse`, `menu.courses` (three entries), and `menu.petitFour`. The amuse and petit four render as smaller “bite” rows around the three courses, so the menu still reads as 3 + 2.
 - **Drinks** — `drinks.items` holds the two signature cocktails as `{ name, ingredients }`. The design expects exactly two; they stack in the rail beside the menu card. Keep both filled.
 - **Text** — `booking`, `evening`, and `reserve` hold the button labels, notes, WhatsApp message templates (`{date}` is replaced with the date labels), and the email subject used in the fallback.
-- **Reservations** — set `site.whatsapp.number` in `src/config.ts` to the international number with no `+`, e.g. `'385911234567'`. While it is empty, every reservation link falls back to a prefilled email to `contactEmail`, so the page works before the number exists. `hasWhatsapp()` in `src/lib/content.ts` picks the link, the label, the note, the external-link cue, and the screen-reader “new window” text. Change the number and the copy follows.
+- **Reservations** — the number lives in `site.whatsapp.number` in `src/config.ts`, in international format with no `+`. The current number is set; if you clear it, every reservation link falls back to a prefilled email to `contactEmail`. `hasWhatsapp()` in `src/lib/content.ts` picks the link, the label, the note, the external-link cue, and the screen-reader “new window” text. Change the number and the copy follows.
 
 ### Replacing an Unsplash image with a real photo
 
@@ -164,7 +164,7 @@ CONTENT.md           Launch checklist of every placeholder
 ## Notes
 
 - Booking is intentionally external. The contact form submits to Web3Forms; there is no database or CMS to maintain.
-- Pop-up reservations go to WhatsApp when `site.whatsapp.number` is set, otherwise to a prefilled email. Nothing is stored on the site either way.
+- Pop-up reservations go to WhatsApp when `site.whatsapp.number` is set (it is), otherwise to a prefilled email. The privacy policy names WhatsApp as a separate controller. Nothing is stored on the site either way.
 - The gallery lightbox is keyboard accessible (`Esc`, arrow keys) and closes on outside click.
 - The menu fade and lightbox transitions are disabled automatically under `prefers-reduced-motion`; the sun's 240ms move between format stones is disabled too.
 - Copy, photos, and the chef's name in the prototype are placeholders. See `CONTENT.md`; private dining pricing is quoted by Take a Chef, and the workshops page carries no price because there is no workshop to price yet.

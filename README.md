@@ -9,7 +9,7 @@ Gušti iz Kužine is Tin Lučić's gastro project in Istria. It has three format
 ## The three formats
 
 - **Private dining.** The chef comes to you: to a home, a villa, or a terrace, cooks for up to six guests, and serves a dinner with the precision of a good restaurant and none of its formality. This is the main business.
-- **Pop-up.** A fixed, dated dinner with one menu and one table. The current pop-up is Saturday 5 December 2026 in Fažana, €85 per person including two signature cocktails. Seats are requested on WhatsApp, or by prefilled email while no number is configured.
+- **Pop-up.** A fixed, dated dinner with one menu and one table. The current pop-up is Saturday 5 December 2026 in Fažana, €85 per person including two signature cocktails. Seats are requested on WhatsApp with a prefilled message.
 - **Workshops.** Small cooking workshops are in planning. No dates, prices, formats or capacity are published; the page carries the planning status, a three-step outline of how it will work, and an interest prompt that leads to the contact page.
 
 ## How the chef cooks
@@ -33,7 +33,7 @@ Every menu adapts to allergies, intolerances, and dietary needs.
 
 Private dining reservations go through the chef's profile on [Take a Chef](https://www.takeachef.com/en-hr/chef/tin-lu-i). The site has one contact form, on `/kontakt/` and `/en/contact/`; it submits directly to Web3Forms and arrives by email with a topic label. The access key and recipient address live in `src/config.ts`; the form needs no backend or database.
 
-The pop-up page is the exception: seats for the dated dinner are requested on WhatsApp, with a prefilled message. Until a number is set in `src/config.ts`, the same action falls back to a prefilled email and the label changes to match.
+The pop-up page is the exception: seats for the dated dinner are requested on WhatsApp, with a prefilled message, using the number in `src/config.ts`. If the number is cleared, the same action falls back to a prefilled email and the label changes to match.
 
 ## The website
 

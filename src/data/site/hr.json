@@ -543,7 +543,7 @@
     "metaDescription": "Kako se obrađuju osobni podaci posjetitelja stranice Gušti iz Kužine: koje podatke prikupljam, zašto, kome se prosljeđuju i koja prava imate.",
     "title": "Politika privatnosti",
     "lead": "Ova politika objašnjava koje osobne podatke prikupljam preko stranice Gušti iz Kužine, zašto ih koristim i koja prava imate. Napisana je za posjetitelje iz Europskog gospodarskog prostora.",
-    "updated": "Posljednja izmjena: 7. studenoga 2026.",
+    "updated": "Posljednja izmjena: 17. studenoga 2026.",
     "sections": [
       {
         "id": "voditelj",
@@ -567,7 +567,8 @@
           "Poslužitelj na kojem stranica radi bilježi tehničke podatke o svakom zahtjevu, uobičajeno IP adresu, vrijeme i vrstu preglednika. Ti zapisi služe za sigurnost i rad stranice.",
           "Stranica ne postavlja kolačiće osim ako prihvatite analitiku. Ako prihvatite, Google Analytics 4 bilježi stranice koje posjećujete, približnu lokaciju izvedenu iz vaše IP adrese, vrstu preglednika i uređaja, jezik i stranicu s koje ste došli. Ne prima vaše ime ni adresu e-pošte.",
           "Ako prihvatite analitiku, bilježim i da je kontakt obrazac poslan. Taj događaj sadrži naziv obrasca i jezik stranice, ne ime, adresu e-pošte ni sadržaj poruke.",
-          "Vaš odabir privole pohranjuje se u lokalnoj pohrani preglednika."
+          "Vaš odabir privole pohranjuje se u lokalnoj pohrani preglednika.",
+          "Za pop-up večeru rezervacija ide preko WhatsAppa. Poruku šaljete iz svoje aplikacije, pa uz nju WhatsApp prenosi i vaš broj telefona. WhatsApp (Meta) obrađuje te podatke prema svojim pravilima."
         ]
       },
       {
@@ -587,7 +588,8 @@
           "Web3Forms provodi provjeru protiv spama i pritom može poslati IP adresu i adresu e-pošte pošiljatelja vanjskim servisima za zaštitu od spama. Dostava e-pošte ide preko Amazon SES, a poruka završava u mojem pretincu na Gmailu (Google).",
           "Ako prihvatite analitiku, Google Ireland Limited i Google LLC obrađuju podatke analitike kao moji izvršitelji obrade. Google može obrađivati podatke u Sjedinjenim Američkim Državama. Politiku privatnosti Googlea možete pročitati na poveznici ispod.",
           "Poslužitelj Vercel bilježi tehničke podatke o zahtjevima. Fotografije u razvoju poslužuje Unsplash, čiji poslužitelj također vidi IP adresu posjetitelja.",
-          "Ne prodajem podatke i ne dijelim ih s trećim stranama u marketinške svrhe."
+          "Ne prodajem podatke i ne dijelim ih s trećim stranama u marketinške svrhe.",
+          "Ako rezervirate preko WhatsAppa, poruka ide preko usluge WhatsApp (Meta Platforms Ireland Limited). WhatsApp je zaseban voditelj obrade i podatke obrađuje prema vlastitoj politici privatnosti."
         ],
         "links": [
           {
@@ -597,6 +599,10 @@
           {
             "label": "Politika privatnosti Googlea",
             "href": "https://policies.google.com/privacy"
+          },
+          {
+            "label": "Politika privatnosti WhatsAppa",
+            "href": "https://www.whatsapp.com/legal/privacy-policy"
           }
         ]
       },

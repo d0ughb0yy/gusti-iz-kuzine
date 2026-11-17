@@ -23,14 +23,14 @@ The brand name is used in the header, footer, page titles, 404, and structured d
 | 2.1 | Take a Chef profile URL | `src/config.ts` → `bookingUrl` | `https://www.takeachef.com/en-hr/chef/tin-lu-i` | **required** |
 | 2.2 | Confirm the profile accepts bookings for up to 6 guests | Take a Chef dashboard | — | **required** |
 | 2.3 | Confirm service area matches the site | Take a Chef dashboard | Istria, Croatia | **required** |
-| 2.4 | WhatsApp number for pop-up reservations | `src/config.ts` → `site.whatsapp.number` | Empty string; the pop-up falls back to a prefilled email | **required** |
+| 2.4 | WhatsApp number for pop-up reservations | `src/config.ts` → `site.whatsapp.number` | `385951985369` — supplied by Tin | **done** |
 | 2.5 | Confirm the pop-up date, place, and price | `src/data/site/hr.json` / `en.json` → `popupPage.dates`, `place`, `price` | Saturday, 5 December 2026, 19:30, Fažana, €85 per person | **required** |
 | 2.6 | Confirm the sample pop-up menu and cocktails | `popupPage.menu`, `popupPage.drinks` | Three courses plus amuse bouche and petit four, and two cocktails (“Maslina”, “Smokva”) | **required** |
 | 2.7 | Confirm the workshop page stays truthful | `hr.json` / `en.json` → `workshopsPage` | “In planning”; no dates, prices, formats or capacity; the interest block links to the contact page | **required** |
 
 Every private dining CTA — the home wall, the format stone, the private dining page hero, menu panel and closing CTA band, the thank-you page and the footer — reads `bookingUrl` and opens it in a new tab with an announced cue. Reservations go through Take a Chef; the contact page (see §9) takes questions and custom ideas. The home page does not repeat the form. If the profile URL is wrong, every booking button is wrong.
 
-The pop-up page is the one exception to Take a Chef: its reservation buttons go to WhatsApp with a prefilled message, or to a prefilled email while `site.whatsapp.number` is empty. Enter the number in international format with no `+`, e.g. `'385911234567'`. The label and note derive from `hasWhatsapp()`, so the promise always matches the link. Set `popupPage.status` to `"soldOut"` to swap the reserve title, lead, both buttons and notes to the waiting-list copy.
+The pop-up page is the one exception to Take a Chef: its reservation buttons go to WhatsApp with a prefilled message, using the number in `site.whatsapp.number` (international format, no `+`). If that number is ever cleared, the same buttons fall back to a prefilled email. The label and note derive from `hasWhatsapp()`, so the promise always matches the link. Set `popupPage.status` to `"soldOut"` to swap the reserve title, lead, both buttons and notes to the waiting-list copy.
 
 The Take a Chef profile is a request form, not a live calendar: it has no dates. CTAs therefore say “Rezervirajte večeru” / “Book a dinner”, not “Check availability”. Keep that wording unless a real availability calendar is added.
 
@@ -152,6 +152,6 @@ The message is delivered through Web3Forms by email; the site itself stores noth
 - [ ] Consent: no GA request or `_ga` cookie before **Accept**; **Reject** and the close control both leave no cookies; **Cookie settings** reopens the bar.
 - [ ] Contact form: a successful submission fires `contact_submit` in GA4.
 - [ ] GA4 property: event data retention is 14 months, Google Signals is off, all data sharing is off, and `contact_submit` is marked as a key event.
-- [ ] Privacy policy reflects GA4, the contact event, and the 7 November 2026 update date.
+- [ ] Privacy policy reflects GA4, the contact event, WhatsApp reservations, and the 17 November 2026 update date.
 - [ ] Check the site with `prefers-reduced-motion` enabled — animations should disappear, not break.
 - [ ] Check the site with JavaScript off — nav, menus, form and lightbox still work; the home wall and sun default state stand.

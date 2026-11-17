@@ -6,11 +6,10 @@ export const site = {
   bookingUrl: 'https://www.takeachef.com/en-hr/chef/tin-lu-i',
   // Contact form address. The form posts to Web3Forms, which emails the message.
   contactEmail: 'tin.lucic172@gmail.com',
-  // Pop-up reservations. Enter the number in international format with the
-  // country code and no plus sign, e.g. '385911234567'. While the number is
-  // empty, the pop-up reservation button falls back to the contact email.
+  // Pop-up reservations. International format, country code, no plus sign.
+  // If you clear it, the pop-up reservation button falls back to the contact email.
   whatsapp: {
-    number: '',
+    number: '385951985369',
   },
   // Public Web3Forms access key. Safe to ship; enable domain restriction in the dashboard.
   web3formsKey: 'ea011cfb-5f48-4381-969b-caf93d576a30',

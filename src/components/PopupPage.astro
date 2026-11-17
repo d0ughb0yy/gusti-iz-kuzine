@@ -28,7 +28,10 @@ const linkRel = whatsapp ? 'noopener noreferrer' : undefined;
 const dateSummary = popup.dates
   .map((date) => `${date.label}, ${date.time}`)
   .join(' · ');
-const dateMessage = popup.dates.map((date) => date.label).join(', ');
+// The labels carry their own full stop; the message adds its own.
+const dateMessage = popup.dates
+  .map((date) => date.label.replace(/\.$/, ''))
+  .join(', ');
 
 const bookingMessage = (
   isSoldOut ? popup.booking.waitlistMessage : popup.booking.message

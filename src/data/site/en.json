@@ -543,7 +543,7 @@
     "metaDescription": "How visitor data is handled on the Gušti iz Kužine website: what I collect, why, who receives it, and your rights.",
     "title": "Privacy policy",
     "lead": "This policy explains what personal data I collect through the Gušti iz Kužine website, why I use it, and what rights you have. It is written for visitors from the European Economic Area.",
-    "updated": "Last updated: 7 November 2026.",
+    "updated": "Last updated: 17 November 2026.",
     "sections": [
       {
         "id": "controller",
@@ -567,7 +567,8 @@
           "The server that hosts the site records technical data for each request, usually the IP address, the time, and the browser type. Those logs are used for security and to keep the site running.",
           "The site sets no cookies unless you accept analytics. If you accept, Google Analytics 4 records the pages you visit, an approximate location derived from your IP address, your browser and device type, your language, and the site that referred you. It does not receive your name or email address.",
           "If you accept analytics, I also record that the contact form was submitted. That event contains the form name and page language, not the name, email, or message you entered.",
-          "Your consent choice is stored in your browser's local storage."
+          "Your consent choice is stored in your browser's local storage.",
+          "Pop-up reservations go through WhatsApp. You send the message from your own app, so WhatsApp also passes on your phone number. WhatsApp (Meta) processes that data under its own terms."
         ]
       },
       {
@@ -587,7 +588,8 @@
           "Web3Forms screens submissions for spam and may send the sender's IP address and email address to external spam protection services in doing so. Email delivery runs through Amazon SES, and the message ends up in my Gmail inbox (Google).",
           "If you accept analytics, Google Ireland Limited and Google LLC process the analytics data as my processors. Google may process data in the United States. You can read Google's privacy policy using the link below.",
           "Vercel, the host, records technical data about requests. The development photographs are served by Unsplash, whose server also sees the visitor's IP address.",
-          "I do not sell the data or share it with third parties for marketing."
+          "I do not sell the data or share it with third parties for marketing.",
+          "If you reserve through WhatsApp, the message goes through WhatsApp (Meta Platforms Ireland Limited). WhatsApp is a separate controller and processes the data under its own privacy policy."
         ],
         "links": [
           {
@@ -597,6 +599,10 @@
           {
             "label": "Google privacy policy",
             "href": "https://policies.google.com/privacy"
+          },
+          {
+            "label": "WhatsApp privacy policy",
+            "href": "https://www.whatsapp.com/legal/privacy-policy"
           }
         ]
       },
