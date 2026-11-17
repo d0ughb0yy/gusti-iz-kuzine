@@ -13,7 +13,6 @@ const t = getContent(lang);
 const page = t.privateDiningPage;
 
 const heroImage = getImage(page.image);
-const portraitImage = getImage('chef-portrait');
 const actionImage = getImage('chef-action');
 ---
 
@@ -47,45 +46,6 @@ const actionImage = getImage('chef-action');
         fetchpriority="high"
       />
     </figure>
-  </div>
-</section>
-
-<section class="section story" id="o-kuhanju" aria-labelledby="story-title">
-  <div class="wrap story__grid">
-    <figure class="story__figure">
-      <a
-        class="lightbox-trigger"
-        href={portraitImage.full}
-        data-lightbox={portraitImage.full}
-        data-lightbox-alt={portraitImage.alt[lang]}
-        data-lightbox-caption={t.intro.who.name}
-        aria-label={`${t.lightbox.open}: ${t.intro.who.name}`}
-      >
-        <img
-          src={portraitImage.src}
-          srcset={portraitImage.srcset}
-          sizes="(max-width: 960px) 100vw, 34rem"
-          width={portraitImage.width}
-          height={portraitImage.height}
-          alt=""
-          loading="lazy"
-          decoding="async"
-        />
-      </a>
-    </figure>
-
-    <div class="story__text">
-      <h2 id="story-title">{t.intro.title}</h2>
-
-      <div class="story__paragraphs">
-        {t.intro.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-      </div>
-
-      <div class="story__byline">
-        <p class="story__name">{t.intro.who.name}</p>
-        <p class="story__fact">{t.intro.who.fact}</p>
-      </div>
-    </div>
   </div>
 </section>
 

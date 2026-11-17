@@ -140,7 +140,7 @@ The message is delivered through Web3Forms by email; the site itself stores noth
 - [ ] Every booking CTA opens the real Take a Chef profile in a new tab, and each one announces that with an outbound arrow and a screen-reader suffix.
 - [ ] Language switch keeps you on the equivalent page (home ↔ home, private dining ↔ private dining, pop-up ↔ pop-up, workshops ↔ workshops, contact ↔ contact, gallery ↔ gallery, privacy ↔ privacy, thank-you ↔ thank-you).
 - [ ] Home: the wall shows the name, the sun day stone, the opening photograph, the lead and one booking action; the three format stones link to private dining, the pop-up and workshops.
-- [ ] Private dining: the funnel is complete on its own page — hero, story, menu tabs, included, process, action band, statement, FAQ, contact prompt, closing CTA.
+- [ ] Private dining: the funnel is complete on its own page — hero, menu tabs, included, process, action band, statement, FAQ, contact prompt, closing CTA.
 - [ ] Workshops: the page says “in planning”, shows no date, price, format or capacity, and the interest block points to the contact page.
 - [ ] Contact: `/kontakt/` and `/en/contact/` carry the only form; the topic group is required; a submission arrives with the topic, name, email and message.
 - [ ] The header Contact link goes to the contact page and is marked current there; the footer carries the same link.

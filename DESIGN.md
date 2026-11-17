@@ -185,8 +185,9 @@ It is a label, not decoration, and it never repeats the heading.
   1px bottom border. The pop-up strip is bounded by joints on both sides.
 - **Home sequence:** wall hero → three format stones → story → dated pop-up
   strip → gallery teaser → closing CTA. No contact form on home.
-- **Private dining sequence:** page hero → story → menu explorer → included →
+- **Private dining sequence:** page hero → menu explorer → included →
   process → action band → statement → FAQ → contact prompt → closing CTA.
+  The chef's story lives on the home page only; private dining does not repeat it.
 - **Workshops sequence:** page hero with planning status → three process steps →
   interest prompt. No formats, dates or prices.
 - **Contact page:** one centred form page, `/kontakt/` and `/en/contact/`. It is
@@ -249,16 +250,23 @@ The only curve is the circular icon inside the lightbox buttons.
 
 ### Format stones
 
-- Three equal stone widths, unequal content. The whole stone is the link.
-- Private dining is sun-filled by default. On hover or keyboard focus of another
-  stone, the sun moves to it and private dining returns to paper (`:has`). When
-  `:has` is unsupported the default state stands; nothing breaks.
-- Each stone prints an index, a serif title, a short text and an arrow label.
+- Unequal stone widths on the same 12-column wall as the hero: private dining
+  spans six columns, the pop-up and workshops three each. Below 760px they
+  stack full width carrying colour instead of width.
+- Private dining is sun-filled by default and taller than the other two. On
+  hover or keyboard focus of another stone, the sun moves to it and private
+  dining returns to paper (`:has`). When `:has` is unsupported the default
+  state stands; nothing breaks.
+- Each stone prints a real meta line, a serif title, a short text and an arrow
+  label. The private stone says "Do šest gostiju", the pop-up stone its next
+  date (filled from `popupPage.dates[0]`), the workshop stone "U planu". There
+  are no decorative numbers.
 
 ### Story
 
-- 4:5 portrait left, heading and paragraphs right, hairline byline, then a link
-  into private dining. The portrait is a lightbox trigger.
+- Home only: 4:5 portrait left, heading and paragraphs right, hairline byline,
+  then a link into private dining. The portrait is a lightbox trigger. Private
+  dining does not repeat it.
 
 ### Process
 

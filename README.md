@@ -44,9 +44,9 @@ A small, bilingual site built as one chef's project, not a service listing:
 - **Thank-you pages**: `/hvala/` and `/en/thank-you/`, used only when the contact form falls back to a native submit
 - **404**: one page in each language
 
-The home page is a wall: the name, a sun day stone, a photographic opening, the lead and one booking action, then three format stones for private dining, the pop-up and workshops. Private dining is sun-filled by default; the sun moves to whichever stone is active. Below the wall: the chef's story, a dated pop-up strip, the gallery teaser and a closing CTA.
+The home page is a wall: the name, a sun day stone, a photographic opening, the lead and one booking action, then three format stones of unequal width for private dining, the pop-up and workshops. Private dining is sun-filled by default; the sun moves to whichever stone is active. Below the wall: the chef's story, a dated pop-up strip, the gallery teaser and a closing CTA.
 
-The private dining page holds the full funnel: hero, story, tabbed menus with one or two dishes per course and no menu photography, what is included, the process, an action band, the statement, the FAQ, a contact prompt and the closing CTA.
+The private dining page holds the full funnel: hero, tabbed menus with one or two dishes per course and no menu photography, what is included, the process, an action band, the statement, the FAQ, a contact prompt and the closing CTA. The chef's story stays on the home page; private dining does not repeat it.
 
 The pop-up page is a single invitation for the current dated dinner: the date, place and price, a printed menu card, the two signature cocktails, how the evening runs, and one reservation action.
 

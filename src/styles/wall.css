@@ -236,17 +236,18 @@ h3 {
 
 .format-stones {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1px;
   border: 1px solid var(--line);
   background: var(--line);
 }
 
 .format-stone {
+  grid-column: span 3;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  min-height: clamp(18rem, 26vw, 23rem);
+  min-height: clamp(16rem, 22vw, 19rem);
   padding: clamp(1.25rem, 2.4vw, 2rem);
   background: var(--paper);
   color: var(--ink);
@@ -254,10 +255,18 @@ h3 {
   transition: background-color 240ms var(--ease);
 }
 
-.format-stone__index {
+/* Three courses of unequal width: the main business gets half the wall. */
+.format-stone--lead {
+  grid-column: span 6;
+  min-height: clamp(18rem, 26vw, 23rem);
+}
+
+.format-stone__meta {
   font-size: var(--micro);
   font-weight: 600;
   letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
 }
 
 .format-stone__title {
@@ -296,7 +305,8 @@ h3 {
   background: var(--sun);
 }
 
-.format-stone--lead .format-stone__text {
+.format-stone--lead .format-stone__text,
+.format-stone--lead .format-stone__meta {
   color: var(--ink);
 }
 
@@ -318,7 +328,9 @@ h3 {
 
 /* On the sun, the quieter text must darken to keep 4.5:1. */
 .format-stone:not(.format-stone--lead):hover .format-stone__text,
-.format-stone:not(.format-stone--lead):focus-visible .format-stone__text {
+.format-stone:not(.format-stone--lead):hover .format-stone__meta,
+.format-stone:not(.format-stone--lead):focus-visible .format-stone__text,
+.format-stone:not(.format-stone--lead):focus-visible .format-stone__meta {
   color: var(--ink);
 }
 
@@ -661,7 +673,9 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .format-stone {
+  .format-stone,
+  .format-stone--lead {
+    grid-column: auto;
     min-height: 0;
   }
 

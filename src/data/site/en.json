@@ -64,19 +64,22 @@
         "key": "private",
         "title": "Private dinner",
         "text": "Up to six guests, in your home or villa. I shop that morning, cook and serve; the kitchen is left clean.",
-        "cta": "See private dining"
+        "cta": "See private dining",
+        "meta": "Up to six guests"
       },
       {
         "key": "popup",
         "title": "Pop-up",
         "text": "A fixed date, one menu and one table in Fažana. The next dinner is {date}.",
-        "cta": "See the pop-up"
+        "cta": "See the pop-up",
+        "meta": "{date}"
       },
       {
         "key": "workshops",
         "title": "Workshops",
         "text": "Small cooking workshops are being planned. Dates and prices are not set yet; register for the first news.",
-        "cta": "See workshops"
+        "cta": "See workshops",
+        "meta": "In planning"
       }
     ]
   },

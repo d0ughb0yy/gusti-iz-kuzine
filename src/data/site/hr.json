@@ -64,19 +64,22 @@
         "key": "private",
         "title": "Privatna večera",
         "text": "Do šest gostiju, u vašem domu ili vili. Kupujem tog jutra, kuham i poslužujem; kuhinja ostaje čista.",
-        "cta": "Pogledajte privatnu večeru"
+        "cta": "Pogledajte privatnu večeru",
+        "meta": "Do šest gostiju"
       },
       {
         "key": "popup",
         "title": "Pop-up",
         "text": "Određeni datum, jedan jelovnik i jedan stol u Fažani. Sljedeća večera je {date}.",
-        "cta": "Pogledajte pop-up"
+        "cta": "Pogledajte pop-up",
+        "meta": "{date}"
       },
       {
         "key": "workshops",
         "title": "Radionice",
         "text": "Male kuharske radionice su u planu. Datumi i cijene još nisu određeni; javite se za prve vijesti.",
-        "cta": "Pogledajte radionice"
+        "cta": "Pogledajte radionice",
+        "meta": "U planu"
       }
     ]
   },
