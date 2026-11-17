@@ -1733,10 +1733,6 @@ body[data-consent-open] {
   object-fit: cover;
 }
 
-.popup-spread {
-  padding-top: 0;
-}
-
 .popup-menu__head {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
