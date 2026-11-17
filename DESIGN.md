@@ -108,8 +108,9 @@ Use the token, never the literal hex.
   panels and the quiet side of the wall.
 - **Sun** (`#e5b33e`): the one coloured surface. The day stone, the leading
   format stone, step numbers, status tags.
-- **Field** (`#262820`): olive-black. Statement, closing CTA, pop-up strip,
-  footer, consent.
+- **Field** (`#262820`): olive-black. Closing CTA, pop-up strip, footer,
+  consent. Not used for the statement: a dark band there pulled the middle of
+  the private dining page away from the wall.
 
 ### Ink
 
@@ -192,8 +193,8 @@ It is a label, not decoration, and it never repeats the heading.
   interest prompt. No formats, dates or prices.
 - **Contact page:** one centred form page, `/kontakt/` and `/en/contact/`. It is
   the only place the form lives; the header and footer link to it.
-- **Full-bleed moments:** the action band, the statement, the closing CTA, the
-  pop-up strip and the footer.
+- **Full-bleed moments:** the action band, the closing CTA, the pop-up strip
+  and the footer.
 
 Responsive behaviour:
 
@@ -272,6 +273,12 @@ The only curve is the circular icon inside the lightbox buttons.
 
 - Three numbered steps on hairline rows. The number sits in a sun square; it is
   information, not decoration.
+
+### Statement
+
+- Private dining only: a full-width paper sheet between the action band and the
+  FAQ. Iron italic serif quote, hairline uppercase attribution in `--ink-soft`.
+  No dark surface, no border — the paper is the joint.
 
 ### Menu explorer
 

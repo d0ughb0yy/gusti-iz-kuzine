@@ -60,7 +60,6 @@ a {
 
 .hero :focus-visible,
 .cta :focus-visible,
-.statement :focus-visible,
 .popup-strip :focus-visible,
 .popup-reserve :focus-visible,
 .site-footer :focus-visible,
@@ -975,9 +974,9 @@ figcaption {
    -------------------------------------------------------------------------- */
 
 .statement {
-  padding-block: clamp(5rem, 10vw, 10rem);
-  background: var(--field);
-  color: var(--on-field);
+  padding-block: clamp(4rem, 7vw, 7rem);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .statement__inner {
@@ -999,7 +998,7 @@ figcaption {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--on-field-soft);
+  color: var(--ink-soft);
 }
 
 /* --------------------------------------------------------------------------
