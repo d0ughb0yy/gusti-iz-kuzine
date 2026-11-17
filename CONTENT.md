@@ -149,7 +149,7 @@ The message is delivered through Web3Forms by email; the site itself stores noth
 - [ ] Mobile: navigation opens and closes; the home wall, format stones, menu tabs and pop-up action are readable and usable at 390px.
 - [ ] Prices are either omitted or clearly marked as "from" (Take a Chef issues the real quote); the workshops page has none.
 - [ ] Footer year and service area are correct.
-- [ ] Consent: no GA request or `_ga` cookie before **Accept**; **Reject** leaves no cookies; **Cookie settings** reopens the bar.
+- [ ] Consent: no GA request or `_ga` cookie before **Accept**; **Reject** and the close control both leave no cookies; **Cookie settings** reopens the bar.
 - [ ] Contact form: a successful submission fires `contact_submit` in GA4.
 - [ ] GA4 property: event data retention is 14 months, Google Signals is off, all data sharing is off, and `contact_submit` is marked as a key event.
 - [ ] Privacy policy reflects GA4, the contact event, and the 7 November 2026 update date.

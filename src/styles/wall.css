@@ -512,6 +512,18 @@ h3 {
   }
 }
 
+@media (min-width: 1241px) and (max-width: 1440px) {
+  .footer__links {
+    gap: 0.4rem 0.9rem;
+  }
+
+  .footer__links a,
+  .footer__links button {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+  }
+}
+
 .link-arrow:hover {
   color: var(--ink);
   text-decoration-thickness: 2px;
@@ -527,6 +539,8 @@ h3 {
 
 .contact--page {
   padding-top: clamp(3.5rem, 8vw, 7rem);
+  /* The header already draws the joint; a second border would read as 2px. */
+  border-top: 0;
 }
 
 .contact--page #contact-title {

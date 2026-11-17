@@ -25,7 +25,8 @@
     "accept": "Prihvati analitiku",
     "reject": "Odbij",
     "settings": "Postavke kolačića",
-    "privacyLink": "Politika privatnosti"
+    "privacyLink": "Politika privatnosti",
+    "dismiss": "Zatvori"
   },
   "hero": {
     "projectLabel": "Gastro projekt — Istra",

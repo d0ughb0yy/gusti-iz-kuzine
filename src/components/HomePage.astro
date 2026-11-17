@@ -52,7 +52,7 @@ const formatItems = t.formats.items.map((item) => {
         </h1>
       </div>
 
-      <aside class="wall__day" aria-label={t.hero.dayLabel}>
+      <div class="wall__day">
         <p class="wall__day-label">{t.hero.dayLabel}</p>
         <ol class="day-list" role="list">
           {
@@ -64,7 +64,7 @@ const formatItems = t.formats.items.map((item) => {
             ))
           }
         </ol>
-      </aside>
+      </div>
 
       <figure class="wall__media">
         <img
@@ -119,7 +119,7 @@ const formatItems = t.formats.items.map((item) => {
             ]}
             href={item.href}
           >
-            <span class="format-stone__index">{String(index + 1).padStart(2, '0')}</span>
+            <span class="format-stone__index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
             <span class="format-stone__title">{item.title}</span>
             <span class="format-stone__text">{item.text}</span>
             <span class="format-stone__cta">
@@ -180,7 +180,6 @@ const formatItems = t.formats.items.map((item) => {
 <section class="popup-strip" aria-labelledby="popup-strip-title">
   <div class="wrap popup-strip__grid">
     <div class="popup-strip__text">
-      <p class="eyebrow eyebrow--light">{t.popupPage.metaLabels.date}</p>
       <h2 id="popup-strip-title">{t.popupPage.title}</h2>
       <p>{t.popupPage.lead}</p>
     </div>

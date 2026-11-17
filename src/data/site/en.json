@@ -25,7 +25,8 @@
     "accept": "Accept analytics",
     "reject": "Reject",
     "settings": "Cookie settings",
-    "privacyLink": "Privacy policy"
+    "privacyLink": "Privacy policy",
+    "dismiss": "Close"
   },
   "hero": {
     "projectLabel": "A gastro project — Istria",

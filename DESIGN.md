@@ -159,6 +159,10 @@ sans.
   `h3`, steps, menu panels, format stones, FAQ questions.
 - **Lead** (Archivo 400, `clamp(1.125rem, 1.4vw, 1.375rem)`, line-height 1.5):
   section intros.
+- **Wall lead** (Young Serif 400, `clamp(1.375rem, 2.1vw, 1.875rem)`,
+  line-height 1.25): the sentence on the home wall's paper stone. It is set in
+  the serif on purpose — it is the project's one spoken line, not a section
+  intro — and is the only Lead-role text that breaks the Archivo rule.
 - **Body** (Archivo 400, `1.0625rem`, line-height 1.65, `text-wrap: pretty`).
 - **Small** (Archivo 400, `0.875rem`): notes and footer meta.
 - **Micro** (Archivo 600, `0.75rem`, `0.14em`, uppercase): buttons, nav, labels,

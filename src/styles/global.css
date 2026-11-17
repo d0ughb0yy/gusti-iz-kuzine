@@ -1477,6 +1477,18 @@ figcaption {
   min-width: 10rem;
 }
 
+.consent__dismiss {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 body[data-consent-open] {
   padding-bottom: var(--consent-height, 0px);
 }
@@ -1491,9 +1503,10 @@ body[data-consent-open] {
     gap: 0.75rem;
   }
 
+  /* The body line and the link already explain the choice; the title only
+     adds a row on a phone, where the bar must not swallow the first screen. */
   .consent__title {
-    margin-bottom: 0.2rem;
-    font-size: var(--body);
+    display: none;
   }
 
   .consent__body {
@@ -1507,6 +1520,18 @@ body[data-consent-open] {
     display: none;
   }
 
+  .consent__text {
+    padding-right: 2.75rem;
+  }
+
+  /* On a phone the close control sits in the corner so the two choices keep a
+     full column each; beside them it squeezed the labels onto two lines. */
+  .consent__dismiss {
+    position: absolute;
+    top: 0.4rem;
+    right: var(--gutter);
+  }
+
   .consent__actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1515,7 +1540,9 @@ body[data-consent-open] {
 
   .consent__actions .btn {
     min-width: 0;
-    padding-inline: 0.75rem;
+    padding-inline: 0.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
   }
 }
 

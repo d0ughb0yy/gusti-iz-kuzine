@@ -121,7 +121,7 @@ Components consume semantic tokens, never literal hexes. There is no palette swi
 
 The site loads Google Analytics 4 only after a visitor accepts. The measurement ID lives in `src/config.ts` → `site.analytics.measurementId`.
 
-- The consent bar is `src/components/ConsentBanner.astro`, rendered by `src/layouts/BaseLayout.astro`. The **Cookie settings** button in the footer reopens it.
+- The consent bar is `src/components/ConsentBanner.astro`, rendered by `src/layouts/BaseLayout.astro`. The **Cookie settings** button in the footer reopens it. The bar's close control is a refusal: it stores `denied`, loads nothing, and returns focus. On a phone the title is hidden so the bar stays short and does not cover the bottom of the page.
 - The choice is stored in `localStorage` under `gusti-consent-v1` (`granted` or `denied`). If the policy or the scope of analytics changes, bump the key so visitors are asked again.
 - Before consent there is no `googletagmanager.com` request and no `_ga` cookie. Rejecting stores `denied` and keeps the site cookie-free. Withdrawing after accepting deletes the `_ga*` cookies, sets `ga-disable-<id>`, and stops further hits.
 - The tag is disabled in `astro dev` and on Vercel preview deployments. To test the real request, run `npm run build && npm run preview`; a local production preview counts as enabled. Clear the choice in DevTools with `localStorage.removeItem('gusti-consent-v1')`.

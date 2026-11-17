@@ -1,6 +1,7 @@
 ---
 import { routes, site } from '../config';
 import { getContent, type Lang } from '../lib/content';
+import Icon from './Icon.astro';
 
 interface Props {
   lang: Lang;
@@ -45,6 +46,14 @@ const analyticsEnabled =
       <button class="btn btn--light" type="button" data-consent-accept>
         {consent.accept}
       </button>
+      <button
+        class="consent__dismiss"
+        type="button"
+        data-consent-dismiss
+        aria-label={consent.dismiss}
+      >
+        <Icon name="close" size={20} />
+      </button>
     </div>
   </div>
 </section>
@@ -59,6 +68,8 @@ const analyticsEnabled =
     const enabled = banner.dataset.analyticsEnabled === 'true';
     const acceptButton = banner.querySelector('[data-consent-accept]');
     const rejectButton = banner.querySelector('[data-consent-reject]');
+    // Closing the bar is a refusal: nothing is loaded and the choice is stored.
+    const dismissButton = banner.querySelector('[data-consent-dismiss]');
     const settingsButtons = document.querySelectorAll('[data-consent-settings]');
     let gaLoaded = false;
     let lastTrigger = null;
@@ -175,6 +186,7 @@ const analyticsEnabled =
 
     acceptButton?.addEventListener('click', () => choose('granted'));
     rejectButton?.addEventListener('click', () => choose('denied'));
+    dismissButton?.addEventListener('click', () => choose('denied'));
 
     settingsButtons.forEach((button) => {
       button.addEventListener('click', () => show(button));
