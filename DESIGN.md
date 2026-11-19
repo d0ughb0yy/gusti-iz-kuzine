@@ -136,9 +136,10 @@ stones. The only 2px line is the active menu tab, because it must carry state.
 
 ## Typography
 
-**Display / serif:** Young Serif 400, bundled via `@fontsource/young-serif`.
-**Working text / sans:** Archivo 400 / 500 / 600, bundled via
-`@fontsource/archivo`.
+**Display / serif:** Young Serif 400, self-hosted from the Fontsource package
+declared in `package.json`.
+**Working text / sans:** Archivo 400 / 500 / 600, self-hosted from the
+Fontsource package declared in `package.json`.
 
 Both are local; there is no Google Fonts request. EB Garamond and Inter Tight
 are retired.
@@ -169,10 +170,11 @@ sans.
 - **Micro** (Archivo 600, `0.75rem`, `0.14em`, uppercase): buttons, nav, labels,
   eyebrows, counters.
 
-**Eyebrow:** a micro uppercase label opens the home wall name ("Gastro projekt —
-Istra"). That is the only one on the site: interior page heroes and the formats
-block dropped theirs because they only restated the heading. It is a label, not
-decoration, and it never repeats the heading.
+**Eyebrow:** a micro uppercase label opens the home wall name
+(`hero.projectLabel`: currently "Gastro projekt" in Croatian and "A gastro
+project — Istria" in English). That is the only one on the site: interior page
+heroes and the formats block dropped theirs because they only restated the
+heading. It is a label, not decoration, and it never repeats the heading.
 
 ## Layout
 
@@ -199,9 +201,10 @@ decoration, and it never repeats the heading.
 
 Responsive behaviour:
 
-- **≤960px:** the wall stacks; the day list becomes three columns; the formats
+- **≤960px:** the wall stacks; the day list becomes three columns; page heroes
+  stack with the text and booking action first, the figure after; the formats
   head and pop-up strip become one column.
-- **≤760px:** format stones stack; page heroes stack with the text and booking action first, the figure after.
+- **≤760px:** format stones stack.
 - **≤680px:** the header becomes a two-row disclosure; the pop-up action moves
   above the facts; the gallery teaser becomes one column.
 - **≤560px:** the day list becomes one column, and the wall puts the lead and
@@ -227,8 +230,8 @@ The only curve is the circular icon inside the lightbox buttons.
 - Solid limestone, 1px bottom joint. Serif wordmark left; micro uppercase nav
   (Private dining, Pop-up, Workshops, Contact, Gallery) and the HR/EN pair right.
 - The active route carries `aria-current="page"`, including the two new pages.
-- Contact goes to the current page's form on private dining and workshops, and
-  to the private dining form everywhere else.
+- Contact always goes to `/kontakt/` or `/en/contact/`, and the header marks it
+  current there.
 - 48px hit areas. Mobile disclosure behaves as before; without JavaScript the
   panel is visible and the toggle hidden.
 
@@ -255,10 +258,11 @@ The only curve is the circular icon inside the lightbox buttons.
 - Unequal stone widths on the same 12-column wall as the hero: private dining
   spans six columns, the pop-up and workshops three each. Below 760px they
   stack full width carrying colour instead of width.
-- Private dining is sun-filled by default and taller than the other two. On
-  hover or keyboard focus of another stone, the sun moves to it and private
-  dining returns to paper (`:has`). When `:has` is unsupported the default
-  state stands; nothing breaks.
+- Private dining is sun-filled by default and wider than the other two. The
+  three stones share one height so their titles sit on the same line. On hover
+  or keyboard focus of another stone, the sun moves to it and private dining
+  returns to paper (`:has`). When `:has` is unsupported the default state
+  stands; nothing breaks.
 - Each stone prints a real meta line, a serif title, a short text and an arrow
   label. The private stone says "Do šest gostiju", the pop-up stone its next
   date (filled from `popupPage.dates[0]`), the workshop stone "U planu". There
@@ -300,7 +304,7 @@ The only curve is the circular icon inside the lightbox buttons.
 
 - Heading and lead left, always-open `<dl>` right. Eight booking-critical
   questions. No accordion.
-- The block is the last content section before the closing CTA on private dining.
+- On private dining the block sits before the contact prompt and the closing CTA.
 
 ### Pop-up strip
 
@@ -314,8 +318,8 @@ The only curve is the circular icon inside the lightbox buttons.
 - Text left, underline fields right. Labels in micro uppercase, fields 48px tall
   with a `--line-strong` bottom edge. Focus uses the ink ring; invalid fields use
   a 2px ink underline.
-- `ContactPanel` accepts optional `title`, `lead`, `note` and `subject` so the
-  workshops page can reuse it without inventing a second form.
+- `ContactPanel` takes `lang` and `page`; `page` turns the heading into the page
+  h1, and all copy comes from `t.contact`.
 
 ### Footer
 
@@ -353,7 +357,7 @@ The only curve is the circular icon inside the lightbox buttons.
 ### Contact page
 
 - Page title, lead and reply note on the left, the form on the right; one column
-  at ≤760px.
+  at ≤960px.
 - The form opens with a required topic group (private dinner, pop-up, workshop,
   something else) so the enquiry arrives labelled.
 - It is the only form on the site. Private dining and workshops close with a
@@ -367,11 +371,14 @@ The only curve is the circular icon inside the lightbox buttons.
 
 ## Motion
 
-- The only authored movement is the sun moving between format stones on hover or
-  focus. It is a 240ms background transition.
+- The sun moves between format stones on hover or focus: a 240ms background
+  transition.
+- A menu panel fades in over 300ms when its tab is selected.
+- The lightbox shows a 900ms loading spinner while an image loads.
 - Hover on buttons, links, images and menu tabs keeps the existing 220–420ms
   easing.
-- `prefers-reduced-motion` removes the transition and the menu fade.
+- `prefers-reduced-motion` removes the sun transition and the menu fade, and
+  collapses the remaining transitions and animations.
 
 ## Accessibility
 
@@ -397,17 +404,17 @@ The only curve is the circular icon inside the lightbox buttons.
 
 ## Photography
 
-Real photography is still coming; the stock placeholders are labelled.
+Real photography is still coming. The gallery states that its images are placeholders for now; the hero, story and food slots remain development stock.
 
 | Slot | Where | Ratio | Notes |
 | --- | --- | --- | --- |
 | `gallery-terrace` | Home wall opening | 16:10 | The first rectangular opening: a set table with the sea behind it. |
 | `chef-portrait` | Story | 4:5 portrait | Tin at work. Do not ship a stock face. |
 | `hero-plated` | Private dining hero | 4:5 | A plated dish. |
-| `chef-action` | Private dining action band | 3:2 | Hands, fire, plating or the morning's catch. |
+| `chef-action` | Private dining action band | full-bleed | Source crop 3:2; rendered as a full-width `object-fit: cover` band. |
 | `gallery-plating` | Workshops hero | 3:2 | Hands and work; no invented workshop scene. |
 | Gallery | Gallery page and teaser | mixed | Food, table and Istria. |
-| Pop-up | Pop-up page | 4:3, 2.4:1, 4:5 | Three real Istria photographs. |
+| Pop-up | Pop-up page | 4:3, full-bleed, 4:5 | Three real Istria photographs; the middle band has no fixed ratio. |
 
 **Named rules**
 

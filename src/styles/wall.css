@@ -244,8 +244,10 @@ h3 {
 
 .format-stone {
   grid-column: span 3;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  /* Meta, title, copy, CTA. The copy row absorbs extra height, so titles sit
+     on one line and the CTA stays on the bottom edge at every copy length. */
+  grid-template-rows: auto auto 1fr auto;
   gap: 1rem;
   min-height: clamp(16rem, 22vw, 19rem);
   padding: clamp(1.25rem, 2.4vw, 2rem);
@@ -253,6 +255,22 @@ h3 {
   color: var(--ink);
   text-decoration: none;
   transition: background-color 240ms var(--ease);
+}
+
+/* Where subgrid is available, share the meta and title rows across the stones so
+   a wrapped meta line cannot push one heading below the others. The copy row
+   still absorbs extra height, so copy edits do not move the headings. */
+@supports (grid-template-rows: subgrid) {
+  .format-stones {
+    grid-template-rows: auto auto 1fr auto;
+    /* Row gap feeds the subgrid inside each stone; 1px column gap is the mortar. */
+    gap: 1rem 1px;
+  }
+
+  .format-stone {
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+  }
 }
 
 /* Three courses of unequal width: the main business gets half the wall. */
@@ -270,7 +288,6 @@ h3 {
 }
 
 .format-stone__title {
-  margin-top: auto;
   font-family: var(--serif);
   font-size: clamp(1.5rem, 2.1vw, 2rem);
   line-height: 1.08;
@@ -671,11 +688,15 @@ h3 {
 @media (max-width: 760px) {
   .format-stones {
     grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 1px;
   }
 
   .format-stone,
   .format-stone--lead {
     grid-column: auto;
+    grid-row: auto;
+    grid-template-rows: auto auto 1fr auto;
     min-height: 0;
   }
 

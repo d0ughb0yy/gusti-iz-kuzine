@@ -11,10 +11,12 @@ Legend: **required** = do not launch without it · **recommended** = affects tru
 | # | Item | Where | Current placeholder | Status |
 | --- | --- | --- | --- | --- |
 | 1.1 | Brand / site name | `src/config.ts` → `site.name` | `Gušti iz Kužine` | **done** — confirmed November 2026 |
-| 1.2 | Chef's name | `src/data/site/hr.json` → `statement.attribution`; `src/data/site/en.json` → `statement.attribution` | `Tin Lučić` | **required** |
+| 1.2 | Chef's name | `src/data/site/hr.json` → `statement.attribution`; `src/data/site/en.json` → `statement.attribution` | `Tin Lučić` | **done** — confirmed November 2026 |
 | 1.3 | Favicon | `public/favicon.svg` | Iron square with an ivory serif monogram and a sun diamond | optional |
 
 The brand name is used in the header, footer, page titles, 404, and structured data. `src/config.ts` drives the layout templates; the home wall name and page titles live in `src/data/site/hr.json` and `src/data/site/en.json`.
+
+The chef's name is confirmed as Tin Lučić (see `PRODUCT.md` → Brand Commitments). The statement attribution uses the short form `Tin, kuhar` / `Tin, chef`.
 
 ## 2. Booking
 
@@ -87,10 +89,10 @@ The current design has no reviews section, so there is nothing to replace or pub
 | 6.6 | Home wall opening | `images.json` → `gallery-terrace` | Set tables on a terrace with a sea view; 16:10 crop on the wall. Replace with Tin's own table or the villa terrace before the shoot. | **required** |
 | 6.7 | Private dining hero | `images.json` → `hero-plated` | Plated dish; 4:5 portrait. Replace with a real plate from Tin's cooking. | **required** |
 | 6.8 | Story portrait | `images.json` → `chef-portrait` | Hands-only stock placeholder; 4:5 portrait. Replace with a real portrait of Tin at work. Do not ship a stock face as Tin. | **required** |
-| 6.9 | Action band | `images.json` → `chef-action` | Roast chicken on a platter; 3:2 landscape. Replace with hands, fire, plating, or the morning's catch; lead with fish and vegetables. | **required** |
+| 6.9 | Action band | `images.json` → `chef-action` | Roast chicken on a platter; source crop 3:2, rendered full-bleed with `object-fit: cover`. Replace with hands, fire, plating, or the morning's catch; lead with fish and vegetables. | **required** |
 | 6.10 | Workshops hero | `images.json` → `gallery-plating` | Plating hands; 3:2 crop. No invented workshop scene: use real hands and work when the shoot happens. | **required** |
 
-How to swap an image (four steps) is in `docs/development.md` → "Replacing an Unsplash image with a real photo". Keep the aspect ratio close to the slot it fills: the home opening is 16:10, the private dining hero 4:5, the action band 3:2, the workshops hero 3:2, the story portrait 4:5, and gallery images vary.
+How to swap an image (four steps) is in `docs/development.md` → "Replacing an Unsplash image with a real photo". Keep the aspect ratio close to the slot it fills: the home opening is 16:10, the private dining hero 4:5, the action band a 3:2 source crop for its full-bleed frame, the workshops hero 3:2, the story portrait 4:5, and gallery images vary.
 
 **Photo quality bar:** natural light, real tables, real hands, no heavy filters. The design leans on whitespace and typography; overly styled stock imagery undercuts it.
 
@@ -103,9 +105,9 @@ How to swap an image (four steps) is in `docs/development.md` → "Replacing an 
 | 7.3 | Rebuild after changing the URL | `npm run build` | — | **required** |
 | 7.4 | Check canonical + hreflang after deploy | View source on the home, gallery and privacy pages in both languages | They derive from `site.url` | recommended |
 | 7.5 | Submit the sitemap or request indexing | Google Search Console | `@astrojs/sitemap` generates `/sitemap-index.xml`; thank-you pages and 404s are filtered out | optional |
-| 7.6 | Add an OG image if social previews matter | `src/layouts/BaseLayout.astro` → `ogImage` | Uses the hero Unsplash image | optional |
+| 7.6 | Add an OG image if social previews matter | `src/layouts/BaseLayout.astro` → `ogImage` | Home, private dining and gallery pass their own image (`gallery-terrace`, `hero-plated`, `gallery-restaurant`); other pages use the default `istria-market` | optional |
 
-Vercel settings: framework Astro, build command `npm run build`, output directory `dist`, Node 24.x (from `package.json` `engines`). No functions, rewrites, or `vercel.json` are required.
+Vercel settings: framework Astro, build command `npm run build`, output directory `dist`, Node 24.x (from `package.json` `engines`). `vercel.json` supplies `trailingSlash` and the bilingual 404 routes; no functions or rewrites are required.
 
 ## 8. Legal and trust (Croatia / EU)
 

@@ -23,9 +23,9 @@ Gušti iz Kužine is Tin Lučić's gastro project in Istria. It has three format
 
 Three menus are starting points for a conversation:
 
+- **Fresh and local** (the default menu): four courses, with two choices per course.
 - **Meat lovers**: four courses, with two choices per course.
-- **Fresh and local**: the chef's choice of local dishes.
-- **Fresh from the Adriatic**: seafood in the leading role.
+- **Fresh from the Adriatic**: four courses, one set dish per course.
 
 Every menu adapts to allergies, intolerances, and dietary needs.
 
@@ -56,6 +56,6 @@ The contact page carries the site's only form. A required topic group labels eac
 
 ## Project notes
 
-The copy, photos, and chef name are being finalised; `CONTENT.md` is the checklist of what to replace before going live. The visual system of record is `DESIGN.md` at the project root.
+The copy and photos are being finalised; the chef's name is confirmed. `CONTENT.md` is the checklist of what to replace before going live. The visual system of record is `DESIGN.md` at the project root.
 
 For anything technical (running the site locally, deploying to Vercel, editing text, images, and the pop-up page), see `docs/development.md`.

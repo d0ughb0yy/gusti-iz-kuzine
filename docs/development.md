@@ -61,7 +61,7 @@ A `<noscript>` rule reveals every panel when JavaScript is unavailable.
 
 ### Editing the home wall and format stones
 
-`src/components/HomePage.astro` renders the home wall from `hero` (project label, name, lead, booking note, day entries) and `formats` (label, title, lead, and three `items` with `key`, `title`, `text`, `cta`). The three keys are `private`, `popup` and `workshops`; they map to `routes.privateDining`, `routes.popup` and `routes.workshops` in `src/config.ts`. Keep all three.
+`src/components/HomePage.astro` renders the home wall from `hero` (project label, name, lead, booking note, day entries) and `formats` (`title`, `lead`, and three `items` with `key`, `title`, `text`, `cta`, `meta`). The three keys are `private`, `popup` and `workshops`; they map to `routes.privateDining`, `routes.popup` and `routes.workshops` in `src/config.ts`. Keep all three.
 
 The pop-up stone's `text` may contain a `{date}` token; the page fills it from `popupPage.dates[0].label` so the stone and the pop-up page cannot disagree. Do not hardcode a date there.
 
@@ -131,7 +131,7 @@ The site loads Google Analytics 4 only after a visitor accepts. The measurement 
 
 ## Deploy to Vercel
 
-The site is a plain static build — no server runtime, functions, or server-side rendering. No `vercel.json` is required.
+The site is a plain static build — no server runtime, functions, or server-side rendering. `vercel.json` is required for `trailingSlash` and the bilingual 404 routes; it contains no functions or rewrites.
 
 1. Push the repository to GitHub.
 2. In Vercel: **Add New → Project → Import** the Git repository.
@@ -149,7 +149,7 @@ After connecting a custom domain, update the URL in `astro.config.mjs` (`site:`)
 
 ```
 src/
-  components/        Header, Footer, HomePage, PrivateDiningPage, WorkshopsPage, PopupPage, GalleryPage, GalleryGrid, ContactPanel, LegalPage, ThankYouPage, CtaBand, Icon, Lightbox
+  components/        Header, Footer, HomePage, PrivateDiningPage, WorkshopsPage, PopupPage, GalleryPage, GalleryGrid, ContactPanel, LegalPage, ThankYouPage, NotFoundPage, CtaBand, Icon, Lightbox, ConsentBanner
   data/              Bilingual copy, image registry, gallery order
   layouts/           BaseLayout (head, fonts, SEO)
   lib/content.ts     Typed access to copy and images (incl. srcset derivation, hasWhatsapp, reservationHref)
@@ -167,4 +167,4 @@ CONTENT.md           Launch checklist of every placeholder
 - Pop-up reservations go to WhatsApp when `site.whatsapp.number` is set (it is), otherwise to a prefilled email. The privacy policy names WhatsApp as a separate controller. Nothing is stored on the site either way.
 - The gallery lightbox is keyboard accessible (`Esc`, arrow keys) and closes on outside click.
 - The menu fade and lightbox transitions are disabled automatically under `prefers-reduced-motion`; the sun's 240ms move between format stones is disabled too.
-- Copy, photos, and the chef's name in the prototype are placeholders. See `CONTENT.md`; private dining pricing is quoted by Take a Chef, and the workshops page carries no price because there is no workshop to price yet.
+- Copy and photos are still being finalised; the chef's name is confirmed. See `CONTENT.md`; private dining pricing is quoted by Take a Chef, and the workshops page carries no price because there is no workshop to price yet.

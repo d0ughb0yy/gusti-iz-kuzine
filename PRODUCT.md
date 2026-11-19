@@ -33,7 +33,7 @@ It is not a restaurant, not a catering company, and not a generic private-chef l
 - Service area: Istria, Croatia.
 - Private dining capacity: up to six guests; larger groups by enquiry. Four days' notice.
 - The chef shops the Pula market that morning for fish and vegetables; the meat comes from central Croatia. He brings basic equipment, cooks and serves in the guest's kitchen, and leaves it clean.
-- Menus are contemporary dishes built from Istrian fish and vegetables and meat from central Croatia, adjusted with the guest for season, allergies, and diet. Three menus ship: meat, fresh/local, Adriatic seafood.
+- Menus are contemporary dishes built from Istrian fish and vegetables and meat from central Croatia, adjusted with the guest for season, allergies, and diet. Three menus ship: fresh/local (the default), meat, Adriatic seafood.
 - Wine pairing is available on request.
 - Background: fine-dining kitchens in Croatia and Ireland. No restaurant names are published.
 - Private dining bookings happen on the Take a Chef profile; those CTAs go there. No private dining prices are shown; Take a Chef issues the real quote.
@@ -51,7 +51,7 @@ It is not a restaurant, not a catering company, and not a generic private-chef l
 - Fonts are bundled locally (Young Serif display, Archivo text); no Google Fonts or third-party font requests.
 - Images are declared in `src/data/images.json` with intrinsic width/height. Development photography is stock until the real shoot.
 - JavaScript is an enhancement: the header, menu tabs, form, and lightbox must keep working without it. The home wall and format stones need no JavaScript. Without JavaScript there is no consent bar and no tracking.
-- Accessibility target: WCAG 2.2 AA — keyboard operation, visible focus, 4.5:1 body contrast, 48px touch targets, reduced-motion support.
+- Accessibility target: WCAG 2.2 AA — keyboard operation, visible focus, 4.5:1 body contrast, at least 44px for secondary links and 48px for primary controls, reduced-motion support.
 - SEO: canonical URLs, hreflang alternates, ProfessionalService and FAQPage structured data.
 
 ## Brand Commitments

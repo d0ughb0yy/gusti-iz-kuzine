@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Gušti iz Kužine — privatne večere, pop-upovi i radionice u Istri",
-    "description": "Gastro projekt u Istri: privatne večere za do šest gostiju, pop-upovi u Fažani i kuharske radionice. Jelovnik određuje tržnica."
+    "title": "Gušti iz Kužine by Tin Lučić",
+    "description": "Gastro projekt unutar Istre. Privatne večere za do šest gostiju, pop-up eventi i kuharske radionice. Jelovnik određuje sezona"
   },
   "nav": {
     "home": "Početna",
@@ -29,15 +29,15 @@
     "dismiss": "Zatvori"
   },
   "hero": {
-    "projectLabel": "Gastro projekt — Istra",
+    "projectLabel": "Gastro projekt",
     "name": [
       "Gušti",
       "iz Kužine"
     ],
-    "lead": "Privatne večere, pop-upovi i kuharske radionice. Jedan kuhar, jedan stol, tri načina da sjednete za stol.",
+    "lead": "Privatne večere, pop-upovi i kuharske radionice. Jedna ideja, tri načina da sjednete za stol.",
     "primaryCta": "Rezervirajte privatnu večeru",
     "secondaryCta": "Pogledajte formate",
-    "bookingNote": "Večere za do šest gostiju. Rezervacije idu preko Take a Chefa.",
+    "bookingNote": "Večere za do šest gostiju. Rezervacije idu preko Take a Chef platforme.",
     "image": "gallery-terrace",
     "dayLabel": "Jedan dan, jedan stol",
     "day": [
@@ -57,7 +57,7 @@
   },
   "formats": {
     "title": "Jedna kuhinja. Tri formata.",
-    "lead": "Privatna večera u vašem domu, pop-up u Fažani ili radionica koja se tek planira.",
+    "lead": "Privatna večera u vašem domu, pop-up ili radionica koja se tek planira.",
     "items": [
       {
         "key": "private",
